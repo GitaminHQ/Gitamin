@@ -1,0 +1,41 @@
+// Theme colours.
+$gitamin-base-light: #fff;
+$gitamin-base-medium: #f0f3f4;
+$gitamin-base-dark: #333;
+
+$gitamin-primary: #9c0;
+$gitamin-secondary: #6DB81C;
+
+$gitamin-link: #9c0;
+$gitamin-link-hover: #01579b;
+
+$gitamin-gray-light: #e8e8e8;
+$gitamin-gray: #999;
+$gitamin-gray-darker: #666;
+
+$gitamin-icons: #5e5e5e;
+
+// Statuses
+$gitamin-green: $gitamin-primary;
+$gitamin-dark-green: darken($gitamin-green, 10%);
+
+$gitamin-blue: #3498db;
+$gitamin-dark-blue: darken($gitamin-blue, 10%);
+
+$gitamin-red: #ff6f6f;
+$gitamin-dark-red: darken($gitamin-red, 10%);
+
+$gitamin-teal: #0dccc0;
+$gitamin-dark-teal: darken($gitamin-teal, 10%);
+
+$gitamin-yellow: #F7CA18;
+$gitamin-dark-yellow: darken($gitamin-yellow, 10%);
+
+$gitamin-pink: #b23f73;
+$gitamin-dark-pink: darken($gitamin-pink, 10%);
+
+$gitamin-grey: #ecf0f1;
+$gitamin-dark-grey: darken($gitamin-grey, 10%);
+
+$gitamin-orange: #FF8800;
+$dark-orange: darken($gitamin-orange, 10%);

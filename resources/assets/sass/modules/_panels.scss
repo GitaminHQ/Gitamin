@@ -1,0 +1,15 @@
+.panel-danger {
+  @include panel-variant($gitamin_dark-red, white, $gitamin-red, $gitamin_dark-red);
+}
+
+.panel-success {
+  @include panel-variant($gitamin_dark-green, white, $gitamin-green, $gitamin_dark-green);
+}
+
+.panel-info {
+  @include panel-variant($gitamin_dark-blue, white, $gitamin-blue, $gitamin_dark-blue);
+}
+
+.panel-warning {
+  @include panel-variant($gitamin_dark-yellow, $panel-warning-text, $gitamin-yellow, $gitamin_dark-yellow);
+}
