@@ -11,26 +11,23 @@
 
 namespace Gitamin\Http\Controllers;
 
-use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
 use Gitamin\Facades\Setting;
-use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
+use Gitamin\Models\Project;
 use Gitter\Client;
-
-use GrahamCampbell\Binput\Facades\Binput;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
 
 class RepositoryController extends Controller
 {
     protected $client;
     protected $hidden;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->hidden = [];
-        $this->client = new Client;
+        $this->client = new Client();
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,35 +41,35 @@ class RepositoryController extends Controller
 
     public function showRepo($team, $project)
     {
-        return $this->showTree($team.'/'.$project,'');
+        return $this->showTree($team.'/'.$project, '');
     }
 
-    public function showTree($repo ,$path)
+    public function showTree($repo, $path)
     {
-      
         $repository = $this->getRepositoryFromName([Setting::get('git_repositories_path')], $repo);
-        
-        if(!$path)
+
+        if (!$path) {
             $path = $repository->getHead();
-    
-        if( strpos($path , '/') !== false) {
-            $branch = strstr($path, '/',true);
-            $tree = str_replace($branch.'/','',$path);
+        }
+
+        if (strpos($path, '/') !== false) {
+            $branch = strstr($path, '/', true);
+            $tree = str_replace($branch.'/', '', $path);
         } else {
             $branch = $path;
             $tree = '';
         }
-        
-        $parent = null;                                                     
-        if (($slash = strrpos($tree, '/')) !== false) {                     
-            $parent = substr($tree, 0, $slash);                             
-        } elseif (!empty($tree)) {                                          
-            $parent = '';                                                   
+
+        $parent = null;
+        if (($slash = strrpos($tree, '/')) !== false) {
+            $parent = substr($tree, 0, $slash);
+        } elseif (!empty($tree)) {
+            $parent = '';
         }
-    
+
         $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
-        
-        $pageTitle = sprintf('"%s" - %s - %s', "project title", trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+
+        $pageTitle = sprintf('"%s" - %s - %s', 'project title', trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
         return View::make('dashboard.repositories.tree')
             ->withPageTitle($pageTitle)
@@ -80,16 +77,14 @@ class RepositoryController extends Controller
             ->withRepo($repo)
             ->withCurrentBranch($branch)
             ->withBranches($repository->getBranches())
-            ->withPath($tree ? $tree . '/' : $tree)
+            ->withPath($tree ? $tree.'/' : $tree)
             ->withParentPath($parent)
             ->withFiles($files->output());
     }
 
-
     public function showBlob($repo, $path)
     {
-
-        $pageTitle = sprintf('"%s" - %s - %s', "project title", trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+        $pageTitle = sprintf('"%s" - %s - %s', 'project title', trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
         return View::make('dashboard.repositories.blob')
             ->withPageTitle($pageTitle)
@@ -97,11 +92,9 @@ class RepositoryController extends Controller
             ->withGroups([]);
     }
 
-
     public function showCommits($repo, $path)
     {
-
-        $pageTitle = sprintf('"%s" - %s - %s', "project title", trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+        $pageTitle = sprintf('"%s" - %s - %s', 'project title', trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
         return View::make('dashboard.repositories.commits')
             ->withPageTitle($pageTitle)
@@ -111,8 +104,7 @@ class RepositoryController extends Controller
 
     public function showRaw($repo, $path)
     {
-
-        $pageTitle = sprintf('"%s" - %s - %s', "project title", trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+        $pageTitle = sprintf('"%s" - %s - %s', 'project title', trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
         return View::make('dashboard.repositories.raw')
             ->withPageTitle($pageTitle)
@@ -122,15 +114,14 @@ class RepositoryController extends Controller
 
     public function showBlame($repo, $path)
     {
-
-        $pageTitle = sprintf('"%s" - %s - %s', "project title", trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+        $pageTitle = sprintf('"%s" - %s - %s', 'project title', trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
         return View::make('dashboard.repositories.blame')
             ->withPageTitle($pageTitle)
             ->withProject([])
             ->withGroups([]);
     }
-    
+
     public function getRepositoryFromName($paths, $repo)
     {
         $repositories = $this->getRepositories($paths);
@@ -138,33 +129,32 @@ class RepositoryController extends Controller
 
         return $this->client->getRepository($path);
     }
+
     /**
-     * Searches for valid repositories on the specified path
+     * Searches for valid repositories on the specified path.
      *
-     * @param  array $paths Array of paths where repositories will be searched
+     * @param array $paths Array of paths where repositories will be searched
+     *
      * @return array Found repositories, containing their name, path and description sorted
      *               by repository name
      */
     public function getRepositories($paths)
     {
-        $allRepositories = array();
+        $allRepositories = [];
 
         foreach ($paths as $path) {
             $repositories = $this->recurseDirectory($path);
 
             if (empty($repositories)) {
-                throw new \RuntimeException('There are no GIT repositories in ' . $path);
+                throw new \RuntimeException('There are no GIT repositories in '.$path);
             }
 
-            /**
-             * Use "+" to preserve keys, only a problem with numeric repos
-             */
             $allRepositories = $allRepositories + $repositories;
         }
 
         $allRepositories = array_unique($allRepositories, SORT_REGULAR);
-        uksort($allRepositories, function($k1, $k2) {
-            return strtolower($k2)<strtolower($k1);
+        uksort($allRepositories, function ($k1, $k2) {
+            return strtolower($k2) < strtolower($k1);
         });
 
         return $allRepositories;
@@ -174,7 +164,7 @@ class RepositoryController extends Controller
     {
         $dir = new \DirectoryIterator($path);
 
-        $repositories = array();
+        $repositories = [];
 
         foreach ($dir as $file) {
             if ($file->isDot()) {
@@ -190,8 +180,8 @@ class RepositoryController extends Controller
             }
 
             if ($file->isDir()) {
-                $isBare = file_exists($file->getPathname() . '/HEAD');
-                $isRepository = file_exists($file->getPathname() . '/.git/HEAD');
+                $isBare = file_exists($file->getPathname().'/HEAD');
+                $isRepository = file_exists($file->getPathname().'/.git/HEAD');
 
                 if ($isRepository || $isBare) {
                     if (in_array($file->getPathname(), $this->getHidden())) {
@@ -199,9 +189,9 @@ class RepositoryController extends Controller
                     }
 
                     if ($isBare) {
-                        $description = $file->getPathname() . '/description';
+                        $description = $file->getPathname().'/description';
                     } else {
-                        $description = $file->getPathname() . '/.git/description';
+                        $description = $file->getPathname().'/.git/description';
                     }
 
                     if (file_exists($description)) {
@@ -211,16 +201,16 @@ class RepositoryController extends Controller
                     }
 
                     if (!$topLevel) {
-                        $repoName = $file->getPathInfo()->getFilename() . '/' . $file->getFilename();
+                        $repoName = $file->getPathInfo()->getFilename().'/'.$file->getFilename();
                     } else {
                         $repoName = $file->getFilename();
                     }
 
-                    $repositories[$repoName] = array(
-                        'name' => $repoName,
-                        'path' => $file->getPathname(),
-                        'description' => $description
-                    );
+                    $repositories[$repoName] = [
+                        'name'        => $repoName,
+                        'path'        => $file->getPathname(),
+                        'description' => $description,
+                    ];
 
                     continue;
                 } else {
@@ -233,7 +223,7 @@ class RepositoryController extends Controller
     }
 
     /**
-     * Get hidden repository list
+     * Get hidden repository list.
      *
      * @return array List of repositories to hide
      */
@@ -241,5 +231,4 @@ class RepositoryController extends Controller
     {
         return $this->hidden;
     }
-
 }

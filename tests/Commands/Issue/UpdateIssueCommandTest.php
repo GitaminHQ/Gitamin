@@ -24,7 +24,7 @@ class UpdateIssueCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'issue'       => new Issue(),
+            'issue'          => new Issue(),
             'name'           => 'Test',
             'status'         => 1,
             'message'        => 'Foo bar baz',
@@ -32,7 +32,7 @@ class UpdateIssueCommandTest extends AbstractCommandTestCase
             'project_id'     => 1,
             'project_status' => 1,
             'notify'         => false,
-            'issue_date'  => null,
+            'issue_date'     => null,
         ];
         $object = new UpdateIssueCommand(
             $params['issue'],

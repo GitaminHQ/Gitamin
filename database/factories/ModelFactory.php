@@ -9,6 +9,7 @@
  * file that was distributed with this source code.
  */
 
+use Carbon\Carbon;
 use Gitamin\Models\Component;
 use Gitamin\Models\ComponentGroup;
 use Gitamin\Models\Issue;
@@ -17,7 +18,6 @@ use Gitamin\Models\Metric;
 use Gitamin\Models\MetricPoint;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
-use Carbon\Carbon;
 
 $factory->define(Component::class, function ($faker) {
     return [

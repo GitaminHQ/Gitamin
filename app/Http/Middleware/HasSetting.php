@@ -11,9 +11,9 @@
 
 namespace Gitamin\Http\Middleware;
 
-use Gitamin\Facades\Setting;
 use Closure;
 use Exception;
+use Gitamin\Facades\Setting;
 use Illuminate\Support\Facades\Redirect;
 
 class HasSetting

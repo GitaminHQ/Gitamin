@@ -11,8 +11,8 @@
 
 namespace Gitamin\Http\Middleware;
 
-use Gitamin\Models\User;
 use Closure;
+use Gitamin\Models\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
