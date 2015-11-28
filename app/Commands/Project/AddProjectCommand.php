@@ -73,7 +73,7 @@ final class AddProjectCommand
         'status'      => 'int|min:1|max:4',
         'slug'        => 'required|string',
         'order'       => 'int',
-        'team_id'    => 'int',
+        'team_id'     => 'int',
         'enabled'     => 'bool',
     ];
 

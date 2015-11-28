@@ -71,7 +71,7 @@ class ProjectController extends Controller
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
-            '<hr>' => [],
+            '<hr>'    => [],
             'teams' => [
                 'title'  => trans_choice('dashboard.projects.teams.teams', 2),
                 'url'    => route('dashboard.projects.teams'),
