@@ -12,8 +12,8 @@
 namespace Gitamin\Http\Controllers;
 
 use Gitamin\Facades\Setting;
-use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\Issue;
+use Gitamin\Models\ProjectTeam;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;

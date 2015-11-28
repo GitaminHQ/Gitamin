@@ -58,7 +58,7 @@ class DashboardController extends Controller
         //$projects = [];
         $issues = $this->getIssues();
         $subscribers = $this->getSubscribers();
-        
+
         return View::make('dashboard.index')
             ->withPageTitle(trans('dashboard.dashboard'))
             ->withProjects($projects)
