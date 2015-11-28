@@ -26,9 +26,10 @@ class UpdateProjectTeamCommandTest extends AbstractCommandTestCase
         $params = [
             'team'  => new ProjectTeam(),
             'name'  => 'Foo',
+            'slug'  => 'slug',
             'order' => 1,
         ];
-        $object = new UpdateProjectTeamCommand($params['team'], $params['name'], $params['order']);
+        $object = new UpdateProjectTeamCommand($params['team'], $params['name'], $params['slug'], $params['order']);
 
         return compact('params', 'object');
     }

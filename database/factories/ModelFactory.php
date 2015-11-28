@@ -10,28 +10,28 @@
  */
 
 use Carbon\Carbon;
-use Gitamin\Models\Component;
-use Gitamin\Models\ComponentGroup;
 use Gitamin\Models\Issue;
-use Gitamin\Models\IssueTemplate;
-use Gitamin\Models\Metric;
-use Gitamin\Models\MetricPoint;
+use Gitamin\Models\Project;
+use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
 
-$factory->define(Component::class, function ($faker) {
+$factory->define(Project::class, function ($faker) {
     return [
         'name'        => $faker->sentence(),
         'description' => $faker->paragraph(),
-        'link'        => $faker->url(),
         'status'      => 1,
+        'slug'        => $faker->words(2, true),
         'order'       => 0,
+        'team_id'     => 1,
+        'enabled'     => true,
     ];
 });
 
-$factory->define(ComponentGroup::class, function ($faker) {
+$factory->define(ProjectTeam::class, function ($faker) {
     return [
         'name'  => $faker->words(2, true),
+        'slug'  => $faker->words(2, true),
         'order' => 0,
     ];
 });
@@ -42,32 +42,6 @@ $factory->define(Issue::class, function ($faker) {
         'message' => $faker->paragraph(),
         'status'  => 1,
         'visible' => 1,
-    ];
-});
-
-$factory->define(IssueTemplate::class, function ($faker) {
-    return [
-        'name'     => 'Test Template',
-        'slug'     => 'test-template',
-        'template' => "Name: {{ name }},\nMessage: {{ message }}",
-    ];
-});
-
-$factory->define(Metric::class, function ($faker) {
-    return [
-        'name'          => $faker->sentence(),
-        'suffix'        => $faker->word(),
-        'description'   => $faker->paragraph(),
-        'default_value' => 1,
-        'calc_type'     => 1,
-        'display_chart' => 1,
-    ];
-});
-
-$factory->define(MetricPoint::class, function ($faker) {
-    return [
-        'metric_id' => 1,
-        'value'     => random_int(1, 100),
     ];
 });
 

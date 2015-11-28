@@ -24,10 +24,12 @@ class AddProjectTeamCommandTest extends AbstractCommandTestCase
     {
         $params = [
             'name'  => 'Test',
+            'slug'  => 'test',
             'order' => 0,
         ];
         $object = new AddProjectTeamCommand(
             $params['name'],
+            $params['slug'],
             $params['order']
         );
 

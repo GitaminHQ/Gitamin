@@ -42,18 +42,18 @@ final class AddIssueCommand
     public $visible;
 
     /**
+     * The issue user.
+     *
+     * @var int
+     */
+    public $user_id;
+
+    /**
      * The issue project.
      *
      * @var int
      */
     public $project_id;
-
-    /**
-     * The project status.
-     *
-     * @var int
-     */
-    public $project_status;
 
     /**
      * Whether to notify about the issue or not.
@@ -79,8 +79,8 @@ final class AddIssueCommand
         'status'         => 'required|int|min:0|max:4',
         'message'        => 'string',
         'visible'        => 'bool',
+        'user_id'        => 'int',
         'project_id'     => 'int',
-        'project_status' => 'int|min:1|max:4|required_with:project_id',
         'notify'         => 'bool',
         'issue_date'     => 'string',
     ];
@@ -92,21 +92,21 @@ final class AddIssueCommand
      * @param int         $status
      * @param string      $message
      * @param int         $visible
+     * @param int         $user_id
      * @param int         $project_id
-     * @param int         $project_status
      * @param bool        $notify
      * @param string|null $issue_date
      *
      * @return void
      */
-    public function __construct($name, $status, $message, $visible, $project_id, $project_status, $notify, $issue_date)
+    public function __construct($name, $status, $message, $visible, $user_id, $project_id, $notify, $issue_date)
     {
         $this->name = $name;
         $this->status = $status;
         $this->message = $message;
         $this->visible = $visible;
+        $this->user_id = $user_id;
         $this->project_id = $project_id;
-        $this->project_status = $project_status;
         $this->notify = $notify;
         $this->issue_date = $issue_date;
     }

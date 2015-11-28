@@ -70,8 +70,8 @@ class IssueController extends AbstractApiController
                 Binput::get('status'),
                 Binput::get('message'),
                 Binput::get('visible', true),
+                Binput::get('user_id'),
                 Binput::get('project_id'),
-                Binput::get('project_status'),
                 Binput::get('notify', true),
                 Binput::get('created_at')
             ));
@@ -98,8 +98,8 @@ class IssueController extends AbstractApiController
                 Binput::get('status'),
                 Binput::get('message'),
                 Binput::get('visible', true),
+                Binput::get('user_id'),
                 Binput::get('project_id'),
-                Binput::get('project_status'),
                 Binput::get('notify', true),
                 Binput::get('created_at')
             ));

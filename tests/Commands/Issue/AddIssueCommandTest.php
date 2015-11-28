@@ -27,8 +27,8 @@ class AddIssueCommandTest extends AbstractCommandTestCase
             'status'         => 1,
             'message'        => 'Foo bar baz',
             'visible'        => 1,
+            'user_id'        => 1,
             'project_id'     => 1,
-            'project_status' => 1,
             'notify'         => false,
             'issue_date'     => null,
         ];
@@ -37,8 +37,8 @@ class AddIssueCommandTest extends AbstractCommandTestCase
             $params['status'],
             $params['message'],
             $params['visible'],
+            $params['user_id'],
             $params['project_id'],
-            $params['project_status'],
             $params['notify'],
             $params['issue_date']
         );

@@ -115,19 +115,6 @@ $(function() {
         $(this).parents('div.alert').addClass('hide');
     });
 
-    $('form[name=IssueForm] select[name=project_id]').on('change', function() {
-        var $option = $(this).find('option:selected');
-        var $projectStatus = $('#project-status');
-
-        if ($option.val() !== '') {
-            if ($projectStatus.hasClass('hidden')) {
-                $projectStatus.removeClass('hidden');
-            } else {
-                $projectStatus.addClass('hidden');
-            }
-        }
-    });
-
     // Date picker.
     $('input[rel=datepicker]').datetimepicker({
         format: "DD/MM/YYYY HH:mm",

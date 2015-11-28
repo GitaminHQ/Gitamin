@@ -54,6 +54,10 @@ class AddIssueCommandHandler
             'visible' => $command->visible,
         ];
 
+        // Link with the user.
+        if ($command->user_id) {
+            $data['user_id'] = $command->user_id;
+        }
         // Link with the project.
         if ($command->project_id) {
             $data['project_id'] = $command->project_id;
@@ -69,13 +73,6 @@ class AddIssueCommandHandler
 
         // Create the issue
         $issue = Issue::create($data);
-
-        // Update the project.
-        if ($command->project_id) {
-            Project::find($command->project_id)->update([
-                'status' => $command->project_status,
-            ]);
-        }
 
         $issue->notify = (bool) $command->notify;
 
