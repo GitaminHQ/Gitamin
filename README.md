@@ -39,7 +39,7 @@ type http://your_domain/ in you brower.
 
 ## Official Documentation 
 
-Documentation for Gitamin can be found on the [Gitamin website](http://phpgitadmin.com/docs).
+Documentation for Gitamin can be found on the [Gitamin website](http://gitamin.com/docs).
 
 ## Contributing
 
