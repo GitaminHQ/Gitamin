@@ -47,7 +47,6 @@ class UpdateIssueCommandHandler
      */
     public function handle(UpdateIssueCommand $command)
     {
-
         $issue = $command->issue;
         $issue->update($this->filter($command));
 

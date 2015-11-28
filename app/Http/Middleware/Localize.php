@@ -65,7 +65,7 @@ class Localize
                 break;
             }
         }
-        
+
         app('translator')->setLocale($userLanguage);
         Date::setLocale($userLanguage);
 

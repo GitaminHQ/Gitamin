@@ -32,14 +32,14 @@ class ProjectPresenter extends AbstractPresenter
         }
     }
 
-     /**
+    /**
      * Concat the project team slug & project slug to a path.
      *
      * @return string
      */
     public function path()
     {
-        return $this->wrappedObject->team->slug . '/'. $this->wrappedObject->slug;
+        return $this->wrappedObject->team->slug.'/'.$this->wrappedObject->slug;
     }
 
     /**

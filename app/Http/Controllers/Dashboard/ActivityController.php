@@ -60,7 +60,6 @@ class ActivityController extends Controller
         ]);
     }
 
-
     public function showActivities()
     {
         $activities = [];

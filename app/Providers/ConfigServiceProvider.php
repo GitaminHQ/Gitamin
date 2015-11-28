@@ -11,10 +11,10 @@
 
 namespace Gitamin\Providers;
 
+use Exception;
 use Gitamin\Config\Repository;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Setting as SettingModel;
-use Exception;
 use Illuminate\Support\ServiceProvider;
 
 class ConfigServiceProvider extends ServiceProvider

@@ -12,7 +12,7 @@
 return [
 
     'dashboard' => 'Dashboard',
-   
+
     // Projects
     'projects' => [
         'projects'         => 'Projects',
@@ -42,19 +42,19 @@ return [
 
         // Project teams
         'teams' => [
-            'teams'      => 'Project team|Project teams',
+            'teams'       => 'Project team|Project teams',
             'no_projects' => 'You should add a project team.',
-            'add'           => [
+            'add'         => [
                 'title'   => 'Add a Project Team',
                 'success' => 'Project team added.',
                 'failure' => 'Something went wrong with the project team.',
             ],
-            'edit' => [
+            'edit'        => [
                 'title'   => 'Edit a Project Team',
                 'success' => 'Project team updated.',
                 'failure' => 'Something went wrong with the project team.',
             ],
-            'delete' => [
+            'delete'      => [
                 'success' => 'Project Team deleted.',
                 'failure' => 'The Project Team could not be deleted. Please try again.',
             ],
@@ -88,7 +88,7 @@ return [
         'project_update'  => 'Project updated',
         'topic'           => 'Topic',
         'watched_project' => 'Project watched',
-        'add' => [
+        'add'             => [
             'title'   => 'No Activities.',
             'message' => 'There are no activities.',
         ],
@@ -142,7 +142,7 @@ return [
     // Milestones
     'milestones' => [
         'milestones' => 'Milestones',
-        'add' => [
+        'add'        => [
             'title'   => 'Add a New Milestone',
             'message' => 'You should add a Milestone.',
         ],
@@ -173,7 +173,7 @@ return [
     // Merge Requests
     'merge_requests' => [
         'merge_requests' => 'Merge Requests',
-        'add' => [
+        'add'            => [
             'title'   => 'Add a New merge request.',
             'message' => 'There are no merge requests.',
         ],
@@ -182,7 +182,7 @@ return [
     //Snippets
     'snippets' => [
         'snippets' => 'Snippets',
-        'add' => [
+        'add'      => [
             'title'   => 'Add a New Snippet',
             'message' => 'There are no snippets.',
         ],
@@ -191,7 +191,7 @@ return [
     // Settings
     'settings' => [
         'settings'  => 'Settings',
-        'general' => [
+        'general'   => [
             'general'     => 'General',
             'images-only' => 'Only images may be uploaded.',
             'too-big'     => 'The file you uploaded is too big. Upload an image smaller than :size',
