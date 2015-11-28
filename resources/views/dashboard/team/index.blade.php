@@ -1,0 +1,42 @@
+@extends('layout.dashboard')
+
+@section('content')
+    <div class="header">
+        <div class="sidebar-toggler visible-xs">
+            <i class="fa fa-navicon"></i>
+        </div>
+        <span class="uppercase">
+            <i class="fa fa-group"></i> {{ trans('dashboard.team.team') }}
+        </span>
+        @if($current_user->isAdmin)
+        <div class="button-group pull-right">
+            <a class="btn btn-sm btn-success" href="{{ route('dashboard.team.invite') }}">
+                {{ trans('dashboard.team.invite.title') }}
+            </a>
+            <a class="btn btn-sm btn-success" href="{{ route('dashboard.team.add') }}">
+                {{ trans('dashboard.team.add.title') }}
+            </a>
+        </div>
+        @endif
+        <div class="clearfix"></div>
+    </div>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="lead">{{ trans('dashboard.team.description') }}</p>
+
+                <div class="user-grid">
+                    @foreach($team_members as $member)
+                    <div class="user col-sm-3 col-xs-6">
+                        <a href="@if($current_user->id == $member->id) {{ url('dashboard/user') }} @else /dashboard/team/{{ $member->id }} @endif">
+                            <img src="{{ $member->gravatar }}">
+                        </a>
+                        <div class="name">{{ $member->username }}</div>
+                        <div class="email">{{ $member->email }}</div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

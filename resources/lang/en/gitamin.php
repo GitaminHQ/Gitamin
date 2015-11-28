@@ -1,0 +1,106 @@
+<?php
+
+/*
+ * This file is part of Gitamin.
+ * 
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+return [
+    // Projects
+    'projects' => [
+        'status' => [
+            1 => 'Public',
+            2 => 'Internal',
+            3 => 'Private',
+        ],
+    ],
+
+    // Issues
+    'issues' => [
+        'none'          => 'No Issues Reported.',
+        'past'          => 'Past Issues',
+        'previous_week' => 'Previous Week',
+        'next_week'     => 'Next Week',
+        'none'          => 'Nothing to report.',
+        'scheduled'     => 'Scheduled Maintenance',
+        'scheduled_at'  => ', scheduled :timestamp',
+        'status'        => [
+            0 => 'Scheduled', // TODO: Hopefully remove this.
+            1 => 'Investigating',
+            2 => 'Identified',
+            3 => 'Watching',
+            4 => 'Fixed',
+        ],
+    ],
+
+    // Service Status
+    'service' => [
+        'good' => 'All Projects Are Functional',
+        'bad'  => 'Some Projects Are Experiencing Issues',
+    ],
+
+    'api' => [
+        'regenerate' => 'Regenerate API Key',
+        'revoke'     => 'Revoke API Key',
+    ],
+
+    // Subscriber
+    'subscriber' => [
+        'subscribe' => 'Subscribe to Get the Most Recent Updates',
+        'button'    => 'Subscribe',
+        'email'     => [
+            'subscribe'    => 'Subscribe to email updates.',
+            'subscribed'   => 'You\'ve been subscribed to email notifications, please check your email to confirm your subscription.',
+            'verified'     => 'Your email subscription has been confirmed. Thank you!',
+            'unsubscribe'  => 'Unsubscribe from email updates.',
+            'unsubscribed' => 'Your email subscription has been cancelled.',
+            'failure'      => 'Something went wrong with the subscription.',
+            'verify'       => [
+                'text'           => "Please confirm your email subscription to :app_name status updates.\n:link\nThank you, :app_name",
+                'html-preheader' => 'Please confirm your email subscription to :app_name status updates.',
+                'html'           => '<p>Please confirm your email subscription to :app_name status updates.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+            ],
+            'maintenance' => [
+                'text'           => "New maintenance has been scheduled on :app_name.\nThank you, :app_name",
+                'html-preheader' => 'New maintenance has been scheduled on :app_name.',
+                'html'           => '<p>New maintenance has been scheduled on :app_name.</p>',
+            ],
+            'issue' => [
+                'text'           => "New issue has been reported on :app_name.\nThank you, :app_name",
+                'html-preheader' => 'New issue has been reported on :app_name.',
+                'html'           => '<p>New issue has been reported on :app_name.</p><p>Thank you, :app_name</p>',
+            ],
+        ],
+    ],
+
+    'users' => [
+        'email' => [
+            'invite' => [
+                'text'           => "You have been invited to the team :app_name, to sign up follow the next link.\n:link\nThank you, :app_name",
+                'html-preheader' => 'You have been invited to the team :app_name.',
+                'html'           => '<p>You have been invited to the team :app_name, to sign up follow the next link.</p><p><a href=":link">:link</a></p><p>Thank you, :app_name</p>',
+            ],
+        ],
+    ],
+
+    'signup' => [
+        'title'    => 'Sign Up',
+        'username' => 'Username',
+        'email'    => 'Email',
+        'password' => 'Password',
+        'success'  => 'Your account has been created.',
+        'failure'  => 'Something went wrong with the signup.',
+    ],
+
+    // Other
+    'powered_by'      => ':app is powered by <a href="https://gitamin.com" class="links">Gitamin</a>.',
+    'about_this_site' => 'About This Site',
+    'rss-feed'        => 'RSS',
+    'atom-feed'       => 'Atom',
+    'feed'            => 'Project Feed',
+
+];

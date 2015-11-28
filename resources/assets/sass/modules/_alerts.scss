@@ -1,0 +1,23 @@
+.alert {
+    border-radius: 4px;
+    background: $gitamin_yellow;
+    border: solid 2px $gitamin_dark-yellow;
+
+    &.alert-success {
+        background-color: $gitamin_green;
+        border: solid 2px $gitamin_dark-green;
+        color: white;
+    }
+
+    &.alert-info {
+        background: $gitamin_blue;
+        border: solid 2px $gitamin_dark-blue;
+        color: #FFF;
+    }
+
+    &.alert-danger {
+        background: $gitamin_red;
+        border: solid 2px $gitamin_dark-red;
+        color: #FFF;
+    }
+}
