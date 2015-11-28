@@ -79,7 +79,7 @@ return [
             'git-repositories-path' => '仓储路径',
             'display-graphs'        => '是否显示图表',
             'about-app'             => '系统介绍',
-            'days-of-issues'        => '显示多少天的工单？',
+            'days-of-issues'        => '工单显示天数',
             'banner'                => '横幅图像',
             'banner-help'           => '建议上传文件宽度不大于930像素。',
             'subscribers'           => '允许用户订阅邮件通知吗?',
