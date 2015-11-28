@@ -14,7 +14,6 @@ namespace Gitamin\Handlers\Commands\Issue;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Dates\DateFactory;
 use Gitamin\Events\Issue\IssueWasUpdatedEvent;
-use Gitamin\Models\Project;
 use Gitamin\Models\Issue;
 
 class UpdateIssueCommandHandler
@@ -47,7 +46,6 @@ class UpdateIssueCommandHandler
      */
     public function handle(UpdateIssueCommand $command)
     {
-
         $issue = $command->issue;
         $issue->update($this->filter($command));
 
@@ -58,13 +56,6 @@ class UpdateIssueCommandHandler
             $issue->update([
                 'created_at' => $issueDate,
                 'updated_at' => $issueDate,
-            ]);
-        }
-
-        // Update the project.
-        if ($command->project_id) {
-            Project::find($command->project_id)->update([
-                'status' => $command->project_status,
             ]);
         }
 
@@ -87,8 +78,8 @@ class UpdateIssueCommandHandler
             'status'         => $command->status,
             'message'        => $command->message,
             'visible'        => $command->visible,
+            'user_id'        => $command->user_id,
             'project_id'     => $command->project_id,
-            'project_status' => $command->project_status,
             'notify'         => $command->notify,
         ];
 

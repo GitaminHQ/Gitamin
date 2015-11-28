@@ -11,9 +11,9 @@
 
 namespace Gitamin\Handlers\Commands\Invite;
 
+use Carbon\Carbon;
 use Gitamin\Commands\Invite\ClaimInviteCommand;
 use Gitamin\Events\Invite\InviteWasClaimed;
-use Carbon\Carbon;
 
 class ClaimInviteCommandHandler
 {

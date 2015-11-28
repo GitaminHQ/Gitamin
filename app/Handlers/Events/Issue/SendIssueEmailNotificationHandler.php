@@ -36,8 +36,8 @@ class SendIssueEmailNotificationHandler
     /**
      * Create a new send issue email notification handler.
      *
-     * @param \Illuminate\Contracts\Mail\Mailer  $mailer
-     * @param \Gitamin\Models\Subscriber $subscriber
+     * @param \Illuminate\Contracts\Mail\Mailer $mailer
+     * @param \Gitamin\Models\Subscriber        $subscriber
      *
      * @return void
      */

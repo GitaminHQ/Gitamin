@@ -31,7 +31,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('enabled')->default(true);
             $table->integer('order');
             $table->integer('team_id');
-            $table->integer('user_id');
+            $table->integer('user_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
 

@@ -56,6 +56,7 @@ class ProjectTeamTest extends AbstractTestCase
 
         $this->post('/api/v1/projects/teams', [
             'name'  => 'Foo',
+            'slug'  => 'foo',
             'order' => 1,
         ]);
         $this->seeJson(['name' => 'Foo']);
@@ -78,6 +79,7 @@ class ProjectTeamTest extends AbstractTestCase
 
         $this->put('/api/v1/projects/teams/1', [
             'name' => 'Lorem Ipsum Groupous',
+            'slug' => 'lig',
         ]);
         $this->seeJson(['name' => 'Lorem Ipsum Groupous']);
         $this->assertResponseOk();

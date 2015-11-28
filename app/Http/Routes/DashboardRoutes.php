@@ -36,16 +36,7 @@ class DashboardRoutes
                 'as'   => 'index',
                 'uses' => 'DashboardController@showDashboard',
             ]);
-            // Projects
-            $router->group([
-                'as'     => 'projects.',
-                'prefix' => 'projects',
-            ], function ($router) {
-                $router->get('/', [
-                        'as' =>'index',
-                        'uses'=>'ProjectController@showProjects'
-                    ]);
-            });
+
             // Projects
             $router->group([
                 'as'     => 'projects.',
@@ -91,44 +82,44 @@ class DashboardRoutes
             $router->group([
                 'as'     => 'activities.',
                 'prefix' => 'activities',
-                ],function ($router) {
+                ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
                     'uses' => 'ActivityController@showActivities',
-                ]); 
+                ]);
             });
 
             // Milestones
             $router->group([
                 'as'     => 'milestones.',
                 'prefix' => 'milestones',
-                ],function ($router) {
+                ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
                     'uses' => 'MilestoneController@showMilestones',
-                ]); 
+                ]);
             });
 
             // Merge Requests
             $router->group([
                 'as'     => 'merge_requests.',
                 'prefix' => 'merge_requests',
-                ],function ($router) {
+                ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
                     'uses' => 'MergeRequestController@showMergeRequests',
-                ]); 
+                ]);
             });
 
             // Snippets
             $router->group([
                 'as'     => 'snippets.',
                 'prefix' => 'snippets',
-                ],function ($router) {
+                ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
                     'uses' => 'SnippetController@showSnippets',
-                ]); 
+                ]);
             });
 
             // Issues

@@ -70,22 +70,6 @@
                             <span class='help-block'>{{ trans('forms.optional') }}</span>
                         </div>
                         @endif
-                        <div class="form-group hidden" id="project-status">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="radio-items">
-                                        @foreach(trans('gitamin.projects.status') as $statusID => $status)
-                                        <div class="radio-inline">
-                                            <label>
-                                                <input type="radio" name="project_status" value="{{ $statusID }}">
-                                                {{ $status }}
-                                            </label>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label>{{ trans('forms.issues.message') }}</label>
                             <div class='markdown-control'>

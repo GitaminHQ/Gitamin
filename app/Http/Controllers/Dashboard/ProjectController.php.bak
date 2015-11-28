@@ -72,7 +72,11 @@ class ProjectController extends Controller
                 'active' => false,
             ],
             '<hr>'    => [],
+<<<<<<< HEAD
+            'teams' => [
+=======
             'teams'   => [
+>>>>>>> 6bef48322efd75bc39ae4bf4831ad450fc2069b2
                 'title'  => trans_choice('dashboard.projects.teams.teams', 2),
                 'url'    => route('dashboard.projects.teams'),
                 'icon'   => 'fa fa-folder',

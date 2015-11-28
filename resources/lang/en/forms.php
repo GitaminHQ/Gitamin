@@ -72,20 +72,20 @@ return [
     'settings' => [
         /// General
         'general' => [
-            'site-name'       		=> 'Site Name',
-            'site-url'        		=> 'Site URL',
-			'git-client-path'       => 'Git Client Path',
+            'site-name'             => 'Site Name',
+            'site-url'              => 'Site URL',
+            'git-client-path'       => 'Git Client Path',
             'git-repositories-path' => 'Repositories Path',
-            'display-graphs'  		=> 'Display graphs on home page?',
-            'about-app'       		=> 'About this application',
-            'days-of-issues'  		=> 'How many days of issues to show?',
-            'banner'          		=> 'Banner Image',
-            'banner-help'     		=> "It's recommended that you upload files no bigger than 930px wide .",
-            'subscribers'     		=> 'Allow people to signup to email notifications?',
+            'display-graphs'        => 'Display graphs on home page?',
+            'about-app'             => 'About this application',
+            'days-of-issues'        => 'How many days of issues to show?',
+            'banner'                => 'Banner Image',
+            'banner-help'           => "It's recommended that you upload files no bigger than 930px wide .",
+            'subscribers'           => 'Allow people to signup to email notifications?',
         ],
         'localization' => [
-            'select-language'    => 'Select Language',
-            'site-locale'       => 'Site Language',
+            'select-language' => 'Select Language',
+            'site-locale'     => 'Site Language',
         ],
         'timezone' => [
             'site-timezone'     => 'Site Timezone',

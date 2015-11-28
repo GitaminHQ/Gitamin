@@ -14,8 +14,8 @@ namespace Gitamin\Handlers\Commands\Issue;
 use Gitamin\Commands\Issue\AddIssueCommand;
 use Gitamin\Dates\DateFactory;
 use Gitamin\Events\Issue\IssueWasAddedEvent;
-use Gitamin\Models\Project;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Project;
 
 class AddIssueCommandHandler
 {
@@ -47,7 +47,6 @@ class AddIssueCommandHandler
      */
     public function handle(AddIssueCommand $command)
     {
-
         $data = [
             'name'    => $command->name,
             'status'  => $command->status,
@@ -55,6 +54,10 @@ class AddIssueCommandHandler
             'visible' => $command->visible,
         ];
 
+        // Link with the user.
+        if ($command->user_id) {
+            $data['user_id'] = $command->user_id;
+        }
         // Link with the project.
         if ($command->project_id) {
             $data['project_id'] = $command->project_id;
@@ -70,13 +73,6 @@ class AddIssueCommandHandler
 
         // Create the issue
         $issue = Issue::create($data);
-
-        // Update the project.
-        if ($command->project_id) {
-            Project::find($command->project_id)->update([
-                'status' => $command->project_status,
-            ]);
-        }
 
         $issue->notify = (bool) $command->notify;
 

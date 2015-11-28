@@ -143,7 +143,7 @@ class ProjectController extends AbstractApiController
      */
     public function deleteProject(Project $project)
     {
-        $this->dispatch(new RemoveProjectCommand($compprojectonent));
+        $this->dispatch(new RemoveProjectCommand($project));
 
         return $this->noContent();
     }

@@ -11,8 +11,8 @@
 
 namespace Gitamin\Http\Middleware;
 
-use Gitamin\Facades\Setting;
 use Closure;
+use Gitamin\Facades\Setting;
 use Illuminate\Support\Facades\Redirect;
 
 class AppIsInstalled

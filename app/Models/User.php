@@ -146,5 +146,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->level == 1;
     }
-}
 
+    /**
+     * A user can have many issues.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function issues()
+    {
+        return $this->hasMany(Issue::class, 'user_id', 'id');
+    }
+}

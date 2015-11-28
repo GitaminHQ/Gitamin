@@ -29,7 +29,7 @@ class CreateIssuesTable extends Migration
             $table->integer('status');
             $table->boolean('visible')->default(1);
             $table->longText('message');
-            $table->integer('user_id');
+            $table->integer('user_id')->default(0);
             $table->timestamp('scheduled_at')->nullable()->default(null);
             $table->timestamps();
             $table->softDeletes();

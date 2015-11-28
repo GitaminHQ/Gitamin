@@ -11,9 +11,8 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
-use Gitamin\Models\Setting;
-use Gitamin\Models\User;
 use Exception;
+use Gitamin\Models\Setting;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Lang;
@@ -131,7 +130,7 @@ class SettingsController extends Controller
      */
     public function showTimezoneView()
     {
-         $this->subMenu['timezone']['active'] = true;
+        $this->subMenu['timezone']['active'] = true;
 
         Session::flash('redirect_to', $this->subMenu['timezone']['url']);
 

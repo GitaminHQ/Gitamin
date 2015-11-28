@@ -11,9 +11,9 @@
 
 namespace Gitamin\Http\Controllers;
 
+use Exception;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
-use Exception;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;

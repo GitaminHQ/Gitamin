@@ -13,7 +13,6 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Presenters\IssuePresenter;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
@@ -46,6 +45,7 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     protected $fillable = [
+        'user_id',
         'project_id',
         'name',
         'status',
@@ -61,7 +61,8 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'project_id' => 'int',
+        'user_id'      => 'int',
+        'project_id'   => 'int',
         'name'         => 'required',
         'status'       => 'required|int',
         'visible'      => 'required|bool',
@@ -88,6 +89,16 @@ class Issue extends Model implements HasPresenter
     public function project()
     {
         return $this->belongsTo(Project::class, 'project_id', 'id');
+    }
+
+    /**
+     * An issue belongs to a user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     /**

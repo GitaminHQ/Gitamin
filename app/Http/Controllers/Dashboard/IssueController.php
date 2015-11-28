@@ -12,15 +12,16 @@
 namespace Gitamin\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\AddIssueCommand;
+use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
+use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
 use Gitamin\Models\ProjectTeam;
-use Gitamin\Models\Issue;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
@@ -56,13 +57,12 @@ class IssueController extends Controller
     }
 
     /**
-    * Shows the index view.
-    * 
-    * @return \Illuminate\View\View
-    */
+     * Shows the index view.
+     * 
+     * @return \Illuminate\View\View
+     */
     public function showIndex()
     {
-
         return View::make('dashboard.projects.issues.index');
     }
 
@@ -106,8 +106,8 @@ class IssueController extends Controller
                 Binput::get('status'),
                 Binput::get('message'),
                 Binput::get('visible', true),
+                Auth::user()->id,
                 Binput::get('project_id'),
-                Binput::get('project_status'),
                 Binput::get('notify', true),
                 Binput::get('created_at'),
                 null,
@@ -171,8 +171,8 @@ class IssueController extends Controller
                 Binput::get('status'),
                 Binput::get('message'),
                 Binput::get('visible', true),
+                Auth::user()->id,
                 Binput::get('project_id'),
-                Binput::get('project_status'),
                 Binput::get('notify', true),
                 Binput::get('created_at'),
                 null,

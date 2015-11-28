@@ -61,6 +61,7 @@ class ProjectTeamController extends AbstractApiController
         try {
             $team = $this->dispatch(new AddProjectTeamCommand(
                 Binput::get('name'),
+                Binput::get('slug'),
                 Binput::get('order', 0)
             ));
         } catch (QueryException $e) {
@@ -83,6 +84,7 @@ class ProjectTeamController extends AbstractApiController
             $team = $this->dispatch(new UpdateProjectTeamCommand(
                 $team,
                 Binput::get('name'),
+                Binput::get('slug'),
                 Binput::get('order', 0)
             ));
         } catch (QueryException $e) {

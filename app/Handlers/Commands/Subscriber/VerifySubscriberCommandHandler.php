@@ -11,10 +11,10 @@
 
 namespace Gitamin\Handlers\Commands\Subscriber;
 
+use Carbon\Carbon;
 use Gitamin\Commands\Subscriber\VerifySubscriberCommand;
 use Gitamin\Events\Subscriber\SubscriberHasVerifiedEvent;
 use Gitamin\Models\Subscriber;
-use Carbon\Carbon;
 
 class VerifySubscriberCommandHandler
 {

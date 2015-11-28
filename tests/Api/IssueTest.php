@@ -56,6 +56,7 @@ class IssueTest extends AbstractTestCase
         $this->post('/api/v1/issues', [
             'name'    => 'Foo',
             'message' => 'Lorem ipsum dolor sit amet',
+            'user_id' => $this->user->id,
             'status'  => 1,
             'visible' => 1,
         ]);
