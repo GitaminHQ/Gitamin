@@ -1,0 +1,71 @@
+body.dashboard {
+    .nav-header {
+    	.nav-logo {
+    		float: left;
+    		height: 58px;
+    		padding-left: 10px;
+    	}
+    	.nav-greeting {
+
+    		float: right;
+    		margin-right: 60px;
+            width: 30%;
+
+            .nav-menu {
+                @extend .hidden-sm;
+                position: fixed;
+                float: left;
+                padding: 20px 10px;
+                width: 230px;
+                z-index: 999;
+                ul > li {
+                    float: right;
+                    display: block;
+                    width: 33.333%;
+                    border-right: 1px solid #ddd;
+                    a {
+                        display: block;
+                        position: relative;
+                        text-align: center;
+                        padding: 6px 0;
+                        color: #fff;
+                    }
+                }
+            }
+
+    		.profile {
+                padding: 5px 10px;
+                margin-bottom: 0;
+                float: right;
+                .dropdown-toggle {
+                    text-decoration: none;
+                }
+                .dropdown-menu {
+                    top: 108%;
+                }
+                .avatar {
+                    width: 60px;
+                    margin-right: 10px;
+                    img {
+                        border-radius: 50%;
+                        width: 50px;
+                    }
+                }
+                .username-wrapper {
+                    @extend .hidden-sm;
+                }
+                &.username {
+                    word-break: break-all;
+                    color: $sidebar-text-color;
+                }
+            }
+    	}
+    	position: fixed;
+    	right: 0;
+    	left: 0;
+    	z-index: 1030;
+    	height: 58px;
+    	background-color: #000;
+    	border-bottom: 1px solid #eee;
+    }
+}

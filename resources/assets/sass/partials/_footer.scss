@@ -1,0 +1,14 @@
+body.dashboard {
+    .nav-footer {
+    	position: fixed;
+    	bottom: 0;
+    	height: 68px;
+    	background-color: #fff;
+    	width: 100%;
+    	padding: 10px 0 20px 0;
+    	margin-top: 15px;
+    	text-align: center;
+    	border-top: 1px solid #eee;
+    	z-index: 1500;
+    }
+}

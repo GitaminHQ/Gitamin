@@ -1,0 +1,56 @@
+@import "palette";
+
+$fa-font-path: "../../../fonts" !default;
+$fa-font-size-base:   12px !default;
+@import "./vendor/bower_components/font-awesome/scss/font-awesome";
+
+@import "modules/bootstrap";
+
+html {
+    position: relative;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+}
+
+@import "helpers";
+
+// Module overrides
+@import "modules/tabs";
+@import "modules/forms";
+@import "modules/well";
+@import "modules/alerts";
+@import "modules/panels";
+@import "modules/btns";
+
+// Styles for partials
+@import "partials/base";
+@import "partials/wrapper";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/navbar";
+@import "partials/sidebar";
+@import "partials/content";
+@import "partials/modals";
+
+// Styles for specific page
+@import "pages/login";
+@import "pages/install";
+@import "pages/dashboard";
+@import "pages/codemirror";
+
+// Styles for plugins
+@import "plugins/messenger";
+@import "plugins/animate";
+@import "plugins/bootstrap-datetimepicker/bootstrap-datetimepicker";
+@import "plugins/sortable";
+
+// Explore Page will need to override certain styles.
+@import "explore-page";
+
+// Error pages can have their own overrides.
+@import "errors";
