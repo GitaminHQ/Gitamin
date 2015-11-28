@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <label class="control-label">{{ trans('forms.settings.general.git-client-path') }}</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="git_client_path" value="{{ $git_client_path }}" required>
+                                            <input type="text" class="form-control" name="git_client_path" value="{{ $git_client_path }}">
                                         </div>
                                     </div>
                                 </div>

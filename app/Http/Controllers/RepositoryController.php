@@ -25,7 +25,7 @@ class RepositoryController extends Controller
     public function __construct()
     {
         $this->hidden = [];
-        $this->client = new Client();
+        $this->client = new Client(Setting::get('git_client_path'));
     }
 
     /**
