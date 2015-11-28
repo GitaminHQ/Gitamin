@@ -90,13 +90,13 @@ final class UpdateProjectCommand
      * Create a new update project command instance.
      *
      * @param \Gitamin\Models\Project $project
-     * @param string                            $name
-     * @param string                            $description
-     * @param int                               $status
-     * @param string                            $slug
-     * @param int                               $order
-     * @param int                               $team_id
-     * @param bool                              $enabled
+     * @param string                  $name
+     * @param string                  $description
+     * @param int                     $status
+     * @param string                  $slug
+     * @param int                     $order
+     * @param int                     $team_id
+     * @param bool                    $enabled
      *
      * @return void
      */

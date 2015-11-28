@@ -12,8 +12,8 @@
 namespace Gitamin\Http\Controllers;
 
 use Gitamin\Facades\Setting;
-use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\Issue;
+use Gitamin\Models\ProjectTeam;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Roumen\Feed\Facades\Feed;
@@ -55,8 +55,8 @@ class RssController extends Controller
     /**
      * Adds an item to the feed.
      *
-     * @param \Roumen\Feed\Facades\Feed        $feed
-     * @param \Gitamin\Models\Issue $issue
+     * @param \Roumen\Feed\Facades\Feed $feed
+     * @param \Gitamin\Models\Issue     $issue
      */
     private function feedAddItem(&$feed, $issue)
     {

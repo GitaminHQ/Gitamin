@@ -12,8 +12,8 @@
 namespace Gitamin\Http\Controllers\Dashboard;
 
 use Gitamin\Facades\Setting;
-use Gitamin\Models\Project;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
@@ -58,7 +58,7 @@ class DashboardController extends Controller
         //$projects = [];
         $issues = $this->getIssues();
         $subscribers = $this->getSubscribers();
-        
+
         return View::make('dashboard.index')
             ->withPageTitle(trans('dashboard.dashboard'))
             ->withProjects($projects)

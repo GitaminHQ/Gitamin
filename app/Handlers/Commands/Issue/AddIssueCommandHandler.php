@@ -14,8 +14,8 @@ namespace Gitamin\Handlers\Commands\Issue;
 use Gitamin\Commands\Issue\AddIssueCommand;
 use Gitamin\Dates\DateFactory;
 use Gitamin\Events\Issue\IssueWasAddedEvent;
-use Gitamin\Models\Project;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Project;
 
 class AddIssueCommandHandler
 {
@@ -47,7 +47,6 @@ class AddIssueCommandHandler
      */
     public function handle(AddIssueCommand $command)
     {
-
         $data = [
             'name'    => $command->name,
             'status'  => $command->status,

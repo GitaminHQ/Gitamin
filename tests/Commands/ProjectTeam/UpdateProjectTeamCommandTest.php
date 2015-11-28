@@ -24,7 +24,7 @@ class UpdateProjectTeamCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'team' => new ProjectTeam(),
+            'team'  => new ProjectTeam(),
             'name'  => 'Foo',
             'order' => 1,
         ];

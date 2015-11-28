@@ -71,8 +71,8 @@ class ProjectController extends Controller
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
-            '<hr>' => [],
-            'teams' => [
+            '<hr>'    => [],
+            'teams'   => [
                 'title'  => trans_choice('dashboard.projects.teams.teams', 2),
                 'url'    => route('dashboard.projects.teams'),
                 'icon'   => 'fa fa-folder',
@@ -151,10 +151,10 @@ class ProjectController extends Controller
      * @return \Illuminate\View\View
      */
     public function showProjectTeam($slug)
-    {   
+    {
         $team = ProjectTeam::where('slug', '=', $slug)->first();
-        
-        if(!$team) {
+
+        if (!$team) {
             throw new BadRequestHttpException();
         }
 
@@ -224,7 +224,7 @@ class ProjectController extends Controller
      */
     public function showAddProject()
     {
-        $teamId = (int)Binput::get('team_id');
+        $teamId = (int) Binput::get('team_id');
 
         return View::make('dashboard.projects.add')
             ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))

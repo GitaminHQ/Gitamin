@@ -44,7 +44,7 @@ class AuthController extends Controller
         if (Auth::validate($loginData)) {
             // Log the user in for one request.
             Auth::once($loginData);
-            
+
             // We probably want to add support for "Remember me" here.
             Auth::attempt($loginData);
 

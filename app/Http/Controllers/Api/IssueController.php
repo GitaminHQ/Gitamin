@@ -11,8 +11,8 @@
 
 namespace Gitamin\Http\Controllers\Api;
 
-use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\AddIssueCommand;
+use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Models\Issue;
 use GrahamCampbell\Binput\Facades\Binput;

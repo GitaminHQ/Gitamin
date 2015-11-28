@@ -13,7 +13,6 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Presenters\IssuePresenter;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
@@ -61,7 +60,7 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'project_id' => 'int',
+        'project_id'   => 'int',
         'name'         => 'required',
         'status'       => 'required|int',
         'visible'      => 'required|bool',

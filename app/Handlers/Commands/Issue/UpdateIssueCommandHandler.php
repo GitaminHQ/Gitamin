@@ -14,8 +14,8 @@ namespace Gitamin\Handlers\Commands\Issue;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Dates\DateFactory;
 use Gitamin\Events\Issue\IssueWasUpdatedEvent;
-use Gitamin\Models\Project;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Project;
 
 class UpdateIssueCommandHandler
 {
@@ -47,7 +47,6 @@ class UpdateIssueCommandHandler
      */
     public function handle(UpdateIssueCommand $command)
     {
-
         $issue = $command->issue;
         $issue->update($this->filter($command));
 

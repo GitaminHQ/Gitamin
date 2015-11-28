@@ -30,7 +30,7 @@ class AddIssueCommandTest extends AbstractCommandTestCase
             'project_id'     => 1,
             'project_status' => 1,
             'notify'         => false,
-            'issue_date'  => null,
+            'issue_date'     => null,
         ];
         $object = new AddIssueCommand(
             $params['name'],

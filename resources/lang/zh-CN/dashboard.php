@@ -89,7 +89,7 @@ return [
         'project_update'  => '项目更新',
         'topic'           => '项目讨论',
         'watched_project' => '关注的项目',
-        'add' => [
+        'add'             => [
             'title'   => '添加',
             'message' => '没有最新动态',
         ],
@@ -125,7 +125,7 @@ return [
     // Milestones
     'milestones' => [
         'milestones' => '里程碑',
-        'add' => [
+        'add'        => [
             'title'   => '添加',
             'message' => '添加里程碑',
         ],
@@ -177,7 +177,7 @@ return [
     // Merge Requests
     'merge_requests' => [
         'merge_requests' => '合并请求',
-        'add' => [
+        'add'            => [
             'title'   => '添加',
             'message' => '添加合并请求',
         ],
@@ -186,7 +186,7 @@ return [
     //Snippets
     'snippets' => [
         'snippets' => '代码段',
-        'add' => [
+        'add'      => [
             'title'   => '添加',
             'message' => '添加代码片段',
         ],
@@ -210,12 +210,10 @@ return [
         ],
     ],
 
-    
-
     // Settings
     'settings' => [
         'settings'  => '设置',
-        'general' => [
+        'general'   => [
             'general'     => '常规设置',
             'images-only' => '只能上传图像。',
             'too-big'     => '您上传的文件太大了。上传的图像大小应小于:size',

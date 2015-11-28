@@ -12,12 +12,12 @@
 namespace Gitamin\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\AddIssueCommand;
+use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
+use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
 use Gitamin\Models\ProjectTeam;
-use Gitamin\Models\Issue;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
@@ -56,13 +56,12 @@ class IssueController extends Controller
     }
 
     /**
-    * Shows the index view.
-    * 
-    * @return \Illuminate\View\View
-    */
+     * Shows the index view.
+     * 
+     * @return \Illuminate\View\View
+     */
     public function showIndex()
     {
-
         return View::make('dashboard.projects.issues.index');
     }
 

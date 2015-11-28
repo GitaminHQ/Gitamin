@@ -11,14 +11,12 @@
 
 namespace Gitamin\Console\Commands;
 
+use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
 use Gitamin\Models\ProjectTeam;
-use Gitamin\Models\Issue;
 use Gitamin\Models\Setting;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
-use DateInterval;
-use DateTime;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 use Symfony\Component\Console\Input\InputOption;
