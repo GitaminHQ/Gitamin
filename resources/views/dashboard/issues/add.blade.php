@@ -14,15 +14,18 @@
         <div class="row">
             <div class="col-md-12">
                 @include('dashboard.partials.errors')
-                <form class="form-vertical" name="IssueForm" role="form" method="POST" autocomplete="off">
+                <form class="form-horizontal" name="IssueForm" role="form" method="POST" autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
                             <label for="issue-name">{{ trans('forms.issues.name') }}</label>
-                            <input type="text" class="form-control" name="name" id="issue-name" required value="{{ Input::old('issue.name') }}">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name" id="issue-name" required value="{{ Input::old('issue.name') }}">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="issue-name">{{ trans('forms.issues.status') }}</label><br>
+                            <label for="issue-name">{{ trans('forms.issues.status') }}</label>
+                            <div class="col-sm-10">
                             <label class="radio-inline">
                                 <input type="radio" name="status" value="1">
                                 <i class="icon ion-flag"></i>
@@ -43,17 +46,21 @@
                                 <i class="icon ion-checkmark"></i>
                                 {{ trans('gitamin.issues.status')[4] }}
                             </label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="issue-name">{{ trans('forms.issues.visibility') }}</label>
+                            <div class="col-sm-10">
                             <select name='visible' class="form-control">
                                 <option value='1' selected>{{ trans('forms.issues.public') }}</option>
                                 <option value='0'>{{ trans('forms.issues.logged_in_only') }}</option>
                             </select>
+                            </div>
                         </div>
                         @if(!$projects_in_teams->isEmpty() || !$projects_out_teams->isEmpty())
                         <div class="form-group">
-                            <label>{{ trans('forms.issues.project') }}</label>
+                            <label>{{ trans('forms.issues.project') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
+                            <div class="col-sm-10">
                             <select name='project_id' class='form-control'>
                                 <option value='0' selected></option>
                                 @foreach($projects_in_teams as $team)
@@ -67,18 +74,22 @@
                                 <option value='{{ $project->id }}'>{{ $project->name }}</option>
                                 @endforeach
                             </select>
-                            <span class='help-block'>{{ trans('forms.optional') }}</span>
+                            </div>
                         </div>
                         @endif
                         <div class="form-group">
                             <label>{{ trans('forms.issues.message') }}</label>
+                            <div class="col-sm-10">
                             <div class='markdown-control'>
                                 <textarea name="message" class="form-control autosize" rows="5" required>{{ Input::old('issue.message') }}</textarea>
                             </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('forms.issues.issue_time') }}</label> <small class="text-muted">{{ trans('forms.optional') }}</small>
+                            <label>{{ trans('forms.issues.issue_time') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
+                            <div class="col-sm-10">
                             <input type="text" name="created_at" class="form-control" rel="datepicker-any">
+                            </div>
                         </div>
                         @if(subscribers_enabled())
                         <div class="checkbox">
