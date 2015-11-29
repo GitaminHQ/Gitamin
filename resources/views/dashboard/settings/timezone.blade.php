@@ -13,7 +13,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form id="settings-form" name="SettingsForm" class="form-vertical" role="form" action="/dashboard/settings" method="POST" enctype="multipart/form-data">
+                    <form id="settings-form" name="SettingsForm" class="form-horizontal" role="form" action="/dashboard/settings" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @include('dashboard.partials.errors')
                         <fieldset>
@@ -21,6 +21,7 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label>{{ trans('forms.settings.timezone.site-timezone') }}</label>
+                                        <div class="col-sm-10">
                                         <select name="app_timezone" class="form-control" required>
                                             <option value="">Select Timezone</option>
                                             @foreach($timezones as $region => $list)
@@ -33,6 +34,7 @@
                                                 </optgroup>
                                             @endforeach
                                         </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +45,9 @@
                                             {{ trans('forms.settings.timezone.date-format') }}
                                             <a href="http://php.net/manual/en/function.date.php" target="_blank"><i class="icon ion-help-circled"></i></a>
                                         </label>
+                                        <div class="col-sm-10">
                                         <input type="text" class="form-control" name="date_format" value="{{ Setting::get('date_format') ?: 'l jS F Y' }}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +58,9 @@
                                             {{ trans('forms.settings.timezone.issue-date-format') }}
                                             <a href="http://php.net/manual/en/function.date.php" target="_blank"><i class="icon ion-help-circled"></i></a>
                                         </label>
+                                        <div class="col-sm-10">
                                         <input type="text" class="form-control" name="issue_date_format" value="{{ Setting::get('issue_date_format') ?: 'l jS F Y H:i:s' }}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">{{ trans('forms.issues.issue_time') }}</label> <small class="text-muted">{{ trans('forms.optional') }}</small>
+                            <label class="control-label">{{ trans('forms.issues.issue_time') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
                             <div class="col-sm-10">
                                 <input type="text" name="created_at" class="form-control" rel="datepicker-any" value="{{ $issue->created_at_datetimepicker }}">
                             </div>
