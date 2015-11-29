@@ -6,7 +6,9 @@ Gitamin is an open source git repository management software built with the Lara
 
 ## Features
 
-This package is currently in (very-)alpha stage, so all of the following features may or may not work yet. However, feel free to post issues and features requests [here](https://github.com/gitaminhq/Gitamin/issues) . I'll try to fix and improve the package as fast as I can based on your help!
+![Gitamin](https://camo.githubusercontent.com/5cbaa835e32aedecb7102e96211ab6c2564cc51b/687474703a2f2f7777772e363438322e636f6d2f73637265656e73686f742e706e67)
+
+This package is currently in (very-)alpha stage, so all of the following features may or may not work yet. However, feel free to post issues and features requests [here](https://github.com/gitaminhq/Gitamin/issues) . We will try to fix and improve the package as fast as we can based on your help!
 
 * Multiple repository support
 * Commit history, blame, diff
