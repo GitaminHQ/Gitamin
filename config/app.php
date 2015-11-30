@@ -223,7 +223,7 @@ return [
 
         'Setting'   => 'Gitamin\Facades\Setting',
         'Str'       => 'Illuminate\Support\Str',
-        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
 
     ],
 
