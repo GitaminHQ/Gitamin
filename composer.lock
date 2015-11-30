@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "896ad17f3fa4764065bf549987557f6b",
-    "content-hash": "60b40fa3bc1f04f0fb409163fc83378b",
+    "hash": "d0d5665094ed62877ff6b0062418e22b",
+    "content-hash": "9acbd2a6146962061fc6ba0b5d9168cf",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -1570,16 +1570,16 @@
         },
         {
             "name": "jenssegers/date",
-            "version": "v3.0.10",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/date.git",
-                "reference": "467278308153eb27048e471213366193587d87a0"
+                "reference": "81ffdefe726cc04230ea635872a2b1cedcfe5dd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jenssegers/date/zipball/467278308153eb27048e471213366193587d87a0",
-                "reference": "467278308153eb27048e471213366193587d87a0",
+                "url": "http://packagist.phpcomposer.com/files/jenssegers/date/81ffdefe726cc04230ea635872a2b1cedcfe5dd8.zip",
+                "reference": "81ffdefe726cc04230ea635872a2b1cedcfe5dd8",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1622,7 @@
                 "time",
                 "translation"
             ],
-            "time": "2015-09-24 17:36:06"
+            "time": "2015-10-04 13:47:14"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -3319,6 +3319,73 @@
                 "environment"
             ],
             "time": "2015-05-30 15:59:26"
+        },
+        {
+            "name": "zizaco/entrust",
+            "version": "dev-laravel-5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/entrust.git",
+                "reference": "be28aa634c44551ae5187894c903094a8ce8baee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/Zizaco/entrust/be28aa634c44551ae5187894c903094a8ce8baee.zip",
+                "reference": "be28aa634c44551ae5187894c903094a8ce8baee",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "Zizaco\\Entrust\\": "src/Entrust/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
+                },
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Ben Batschelet",
+                    "homepage": "http://github.com/bbatsche"
+                },
+                {
+                    "name": "Michele Angioni",
+                    "email": "michele.angioni@gmail.com"
+                }
+            ],
+            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
+            "keywords": [
+                "acl",
+                "auth",
+                "illuminate",
+                "laravel",
+                "permission",
+                "roles"
+            ],
+            "time": "2015-11-12 17:38:37"
         }
     ],
     "packages-dev": [
@@ -4495,7 +4562,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "zizaco/entrust": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
