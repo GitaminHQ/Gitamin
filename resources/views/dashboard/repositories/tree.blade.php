@@ -16,8 +16,12 @@
     <div class="row">
         <div class="col-sm-12">   
             <ul class="nav nav-tabs">
-                <li class="active"><a href="/{{ $repo }}/tree/{{ $repository->getCurrentBranch() }}"><i class="fa fa-code"></i><span>Code</span></a></li>
+                <li class="active"><a href="/{{ $repo }}/tree/{{ $repository->getCurrentBranch() }}"><i class="fa fa-code"></i><span>Files</span></a></li>
                 <li><a href="/{{ $repo }}/issues"><i class="fa fa-exclamation-circle"></i><span>Issues</span></a></li>
+                <li><a href=""><i class="fa fa-code-fork"><span>Network</span></i></a>
+                <li><a href=""><i class="fa fa-area-chart"><span>Graphs</span></i></a>
+                <li><a href=""><i class="fa fa-code-fork"><span>Network</span></i></a>
+                <li><a href=""><i class="fa fa-clock-o"><span>Milestones</span></i></a>
                 <li><a href="/{{ $repo }}/stats/dev-issues"><i class="fa fa-tasks"></i><span>Merge Requests</span></a></li>
             </ul>
         </div>

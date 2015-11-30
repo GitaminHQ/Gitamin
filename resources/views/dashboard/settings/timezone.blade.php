@@ -46,7 +46,7 @@
                                             <a href="http://php.net/manual/en/function.date.php" target="_blank"><i class="icon ion-help-circled"></i></a>
                                         </label>
                                         <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="date_format" value="{{ Setting::get('date_format') ?: 'l jS F Y' }}">
+                                        <input type="text" class="form-control" name="date_format" value="{{ Setting::get('date_format') ?: 'Y-m-d' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                                             <a href="http://php.net/manual/en/function.date.php" target="_blank"><i class="icon ion-help-circled"></i></a>
                                         </label>
                                         <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="issue_date_format" value="{{ Setting::get('issue_date_format') ?: 'l jS F Y H:i:s' }}">
+                                        <input type="text" class="form-control" name="issue_date_format" value="{{ Setting::get('issue_date_format') ?: 'Y-m-d H:i:s' }}">
                                         </div>
                                     </div>
                                 </div>

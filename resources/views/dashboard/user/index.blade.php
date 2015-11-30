@@ -6,7 +6,7 @@
             <i class="icon ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="ion ion-person"></i> {{ trans('dashboard.team.profile') }}
+            <i class="ion ion-person"></i> {{ trans('dashboard.group.profile') }}
         </span>
     </div>
     <div class="content-wrapper">

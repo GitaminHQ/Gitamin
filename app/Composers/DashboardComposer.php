@@ -13,6 +13,7 @@ namespace Gitamin\Composers;
 
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
+use Gitamin\Models\ProjectTeam;
 use Illuminate\Contracts\View\View;
 
 class DashboardComposer
@@ -28,5 +29,6 @@ class DashboardComposer
     {
         $view->withIssueCount(Issue::all()->count());
         $view->withProjectCount(Project::all()->count());
+        $view->withProjectTeamCount(ProjectTeam::all()->count());
     }
 }

@@ -11,7 +11,7 @@
 
 namespace Gitamin\Commands\User;
 
-final class AddTeamMemberCommand
+final class AddGroupMemberCommand
 {
     /**
      * The user username.
@@ -53,7 +53,7 @@ final class AddTeamMemberCommand
     ];
 
     /**
-     * Create a new add team member command instance.
+     * Create a new add group member command instance.
      *
      * @param string $username
      * @param string $password

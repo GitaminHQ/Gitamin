@@ -11,20 +11,20 @@
 
 namespace Gitamin\Handlers\Commands\User;
 
-use Gitamin\Commands\User\AddTeamMemberCommand;
+use Gitamin\Commands\User\AddGroupMemberCommand;
 use Gitamin\Events\User\UserWasAddedEvent;
 use Gitamin\Models\User;
 
-class AddTeamMemberCommandHandler
+class AddGroupMemberCommandHandler
 {
     /**
-     * Handle the add team member command.
+     * Handle the add group member command.
      *
-     * @param \Gitamin\Commands\User\AddTeamMemberCommand $command
+     * @param \Gitamin\Commands\User\AddGroupMemberCommand $command
      *
      * @return \Gitamin\Models\User
      */
-    public function handle(AddTeamMemberCommand $command)
+    public function handle(AddGroupMemberCommand $command)
     {
         $user = User::create([
             'username' => $command->username,

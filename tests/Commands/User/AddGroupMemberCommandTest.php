@@ -11,14 +11,14 @@
 
 namespace Gitamin\Tests\Commands\User;
 
-use Gitamin\Commands\User\AddTeamMemberCommand;
-use Gitamin\Handlers\Commands\User\AddTeamMemberCommandHandler;
+use Gitamin\Commands\User\AddGroupMemberCommand;
+use Gitamin\Handlers\Commands\User\AddGroupMemberCommandHandler;
 use Gitamin\Tests\Commands\AbstractCommandTestCase;
 
 /**
- * This is the add team member command test class.
+ * This is the add group member command test class.
  */
-class AddTeamMemberCommandTest extends AbstractCommandTestCase
+class AddGroupMemberCommandTest extends AbstractCommandTestCase
 {
     protected function getObjectAndParams()
     {
@@ -28,7 +28,7 @@ class AddTeamMemberCommandTest extends AbstractCommandTestCase
             'email'    => 'test@test.com',
             'level'    => 1,
         ];
-        $object = new AddTeamMemberCommand(
+        $object = new AddGroupMemberCommand(
             $params['username'],
             $params['password'],
             $params['email'],
@@ -45,6 +45,6 @@ class AddTeamMemberCommandTest extends AbstractCommandTestCase
 
     protected function getHandlerClass()
     {
-        return AddTeamMemberCommandHandler::class;
+        return AddGroupMemberCommandHandler::class;
     }
 }
