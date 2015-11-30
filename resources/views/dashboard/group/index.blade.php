@@ -28,7 +28,7 @@
                 <div class="user-grid">
                     @foreach($group_members as $member)
                     <div class="user col-sm-3 col-xs-6">
-                        <a href="@if($current_user->id == $member->id) {{ url('dashboard/user') }} @else /dashboard/team/{{ $member->id }} @endif">
+                        <a href="@if($current_user->id == $member->id) {{ url('dashboard/user') }} @else /dashboard/group/{{ $member->id }} @endif">
                             <img src="{{ $member->gravatar }}">
                         </a>
                         <div class="name">{{ $member->username }}</div>

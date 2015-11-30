@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 animated fadeInDown">
-                            <a href="{{ route('dashboard.team.add') }}">
+                            <a href="{{ route('dashboard.group.add') }}">
                                 <i class="icons ion-ios-people"></i>
                                 {{ trans('dashboard.welcome.steps.team') }}
                             </a>

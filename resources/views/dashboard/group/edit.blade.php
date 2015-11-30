@@ -35,7 +35,7 @@
                         @if($current_user->isAdmin)
                         <a class="btn btn-info" href="/dashboard/user/{{ $user->id }}/api/regen">{{ trans('gitamin.api.revoke') }}</a>
                         @if($current_user->id != $user->id)
-                        <a class="btn btn-danger confirm-action" href="/dashboard/team/{{ $user->id }}/delete" data-method="DELETE">{{ trans('forms.delete') }}</a>
+                        <a class="btn btn-danger confirm-action" href="/dashboard/group/{{ $user->id }}/delete" data-method="DELETE">{{ trans('forms.delete') }}</a>
                         @endif
                         @endif
                     </div>
