@@ -2,7 +2,7 @@
 
 ![Gitamin](https://camo.githubusercontent.com/dc4da064add8031774697e66d8bbb2af578bcea3/687474703a2f2f7777772e363438322e636f6d2f676974616d696e2e706e67)
 
-Gitamin is an open source git repository management software built with the Laravel PHP Framework. Gitamin supports a wide range of operations on git repository. Frequently used operations (git repository management, code reviews, issue tracking, activity feeds and wikis) can be performed via the user interface, while you still have the ability to directly execute any git-cli command.
+Gitamin(pronounced /ˈgɪtəmɪn/, inspired by Vitamin) is an open source git repository management software built with the Laravel PHP Framework. Gitamin supports a wide range of operations on git repository. Frequently used operations (git repository management, code reviews, issue tracking, activity feeds and wikis) can be performed via the user interface, while you still have the ability to directly execute any git-cli command.
 
 ## Features
 
@@ -37,7 +37,7 @@ php artisan migrate
 php artisan key:generate
 php artisan config:cache
 ```
-type http://your_domain/ in you brower.
+Type http://your_domain/ in your web browser's address bar.
 
 ## Official Documentation 
 
