@@ -61,11 +61,12 @@ return [
         'slug'        => 'Path',
         'tags'        => 'Tags',
         'tags-help'   => 'Comma separated.',
-        'enabled'     => 'Project enabled?',
+        'enabled'     => 'Project enabled?', 
+    ],
 
-        'teams'       => [
-            'name' => 'Name',
-        ],
+    'teams' => [
+        'name' => 'Name',
+        'slug' => 'Path',
     ],
 
     // Settings

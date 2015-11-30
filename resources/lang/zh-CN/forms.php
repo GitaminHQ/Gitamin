@@ -62,11 +62,12 @@ return [
         'tags'        => '标签',
         'tags-help'   => '以逗号分隔。',
         'enabled'     => '启用',
+    ],
 
-        'teams' => [
-            'name' => '团队名称',
-            'slug' => '团队路径',
-        ],
+    // Teams form fields
+    'teams' => [
+        'name' => '团队名称',
+        'slug' => '团队路径',
     ],
 
     // Settings

@@ -1,5 +1,13 @@
 ## Gitamin
 
+
+[![Build Status](https://travis-ci.org/gitaminhq/Gitamin.svg)](https://travis-ci.org/gitaminhq/Gitamin)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/gitaminhq/Gitamin.svg?style=flat-square)](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/code-structure)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/?branch=master)
+[![Version](https://img.shields.io/packagist/v/gitaminhq/Gitamin.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
+[![License](https://poser.pugx.org/gitaminhq/Gitamin/license.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
+[![Total Downloads](https://img.shields.io/packagist/dt/gitaminhq/Gitamin.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
+
 ![Gitamin](https://camo.githubusercontent.com/0befc9a96508922a1b1465952ecf2d3e00115a7e/687474703a2f2f7777772e363438322e636f6d2f676974616d696e2e706e673f726e643d313233)
 
 Gitamin(pronounced /ˈgɪtəmɪn/, inspired by Vitamin) is an open source git repository management software built with the Laravel PHP Framework. Gitamin supports a wide range of operations on git repository. Frequently used operations (git repository management, code reviews, issue tracking, activity feeds and wikis) can be performed via the user interface, while you still have the ability to directly execute any git-cli command.

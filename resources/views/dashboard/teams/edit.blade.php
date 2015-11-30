@@ -18,13 +18,13 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
-                            <label class="control-label" for="team-name">{{ trans('forms.projects.teams.name') }}</label>
+                            <label class="control-label" for="team-name">{{ trans('forms.teams.name') }}</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="name" id="team-name" value="{{ $team->name }}" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="team-slug">{{ trans('forms.projects.teams.slug') }}</label>
+                            <label class="control-label" for="team-slug">{{ trans('forms.teams.slug') }}</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="slug" id="team-slug" value="{{ $team->slug }}" required>
                             </div>
