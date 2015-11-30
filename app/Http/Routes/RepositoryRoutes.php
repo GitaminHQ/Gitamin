@@ -41,7 +41,7 @@ class RepositoryRoutes
 
             $router->get('{team}', [
                 'as'   => 'team',
-                'uses' => 'Dashboard\\ProjectController@showProjectTeam',
+                'uses' => 'Dashboard\\TeamController@showProjectTeam',
             ]);
 
              $router->get('{repo}/issues', [

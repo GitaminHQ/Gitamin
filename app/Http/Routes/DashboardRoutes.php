@@ -51,21 +51,6 @@ class DashboardRoutes
                     'uses' => 'ProjectController@showAddProject',
                 ]);
                 $router->post('add', 'ProjectController@createProjectAction');
-                $router->get('teams', [
-                    'as'   => 'teams',
-                    'uses' => 'ProjectController@showProjectTeams',
-                ]);
-                $router->get('teams/add', [
-                    'as'   => 'teams.add',
-                    'uses' => 'ProjectController@showAddProjectTeam',
-                ]);
-                $router->get('teams/edit/{project_team}', [
-                    'as'   => 'teams.edit',
-                    'uses' => 'ProjectController@showEditProjectTeam',
-                ]);
-                $router->post('teams/edit/{project_team}', 'ProjectController@updateProjectTeamAction');
-                $router->delete('teams/{project_team}/delete', 'ProjectController@deleteProjectTeamAction');
-                $router->post('teams/add', 'ProjectController@postAddProjectTeam');
                 $router->get('{project}', [
                     'as'   => 'show',
                     'uses' => 'ProjectController@showProject',
@@ -76,6 +61,29 @@ class DashboardRoutes
                 ]);
                 $router->delete('{project}/delete', 'ProjectController@deleteProjectAction');
                 $router->post('{project}/edit', 'ProjectController@updateProjectAction');
+            });
+
+            //Teams
+            $router->group([
+                'as'     => 'teams.',
+                'prefix' => 'teams',
+            ], function ($router) {
+                $router->get('/', [
+                    'as'   => 'index',
+                    'uses' => 'TeamController@showProjectTeams',
+                ]);
+                $router->get('add', [
+                    'as'   => 'add',
+                    'uses' => 'TeamController@showAddProjectTeam',
+                ]);
+                $router->get('edit/{project_team}', [
+                    'as'   => 'edit',
+                    'uses' => 'TeamController@showEditProjectTeam',
+                ]);
+                $router->post('edit/{project_team}', 'TeamController@updateProjectTeamAction');
+                $router->delete('{project_team}/delete', 'TeamController@deleteProjectTeamAction');
+                $router->post('add', 'TeamController@postAddProjectTeam');
+
             });
 
             // Activities
@@ -164,30 +172,30 @@ class DashboardRoutes
                 $router->delete('{subscriber}/delete', 'SubscriberController@deleteSubscriberAction');
             });
 
-            // Team Members
+            // Group Members
             $router->group([
-                'as'     => 'team.',
-                'prefix' => 'team',
+                'as'     => 'group.',
+                'prefix' => 'group',
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'TeamController@showTeamView',
+                    'uses' => 'GroupController@showGroupView',
                 ]);
 
                 $router->group(['middleware' => 'admin'], function ($router) {
                     $router->get('add', [
                         'as'   => 'add',
-                        'uses' => 'TeamController@showAddTeamMemberView',
+                        'uses' => 'GroupController@showAddGroupMemberView',
                     ]);
                     $router->get('invite', [
                         'as'   => 'invite',
-                        'uses' => 'TeamController@showInviteTeamMemberView',
+                        'uses' => 'GroupController@showInviteGroupMemberView',
                     ]);
-                    $router->get('{user}', 'TeamController@showTeamMemberView');
-                    $router->post('add', 'TeamController@postAddUser');
-                    $router->post('invite', 'TeamController@postInviteUser');
-                    $router->post('{user}', 'TeamController@postUpdateUser');
-                    $router->delete('{user}/delete', 'TeamController@deleteUser');
+                    $router->get('{user}', 'GroupController@showGroupMemberView');
+                    $router->post('add', 'GroupController@postAddUser');
+                    $router->post('invite', 'GroupController@postInviteUser');
+                    $router->post('{user}', 'GroupController@postUpdateUser');
+                    $router->delete('{user}/delete', 'GroupController@deleteUser');
                 });
             });
 
