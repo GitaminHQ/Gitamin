@@ -6,9 +6,9 @@
             <i class="icon ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="icons ion-ios-keypad"></i> {{ trans_choice('dashboard.projects.teams.teams', 2) }}
+            <i class="icons ion-ios-keypad"></i> {{ trans_choice('dashboard.teams.teams', 2) }}
         </span>
-        &gt; <small>{{ trans('dashboard.projects.teams.edit.title') }}</small>
+        &gt; <small>{{ trans('dashboard.teams.edit.title') }}</small>
     </div>
     <div class="content-wrapper">
         <div class="row">
@@ -33,7 +33,7 @@
 
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                        <a class="btn btn-default" href="{{ route('dashboard.projects.teams') }}">{{ trans('forms.cancel') }}</a>
+                        <a class="btn btn-default" href="{{ route('dashboard.teams.index') }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

@@ -82,6 +82,26 @@ return [
         ],
     ],
 
+    // Project teams
+    'teams' => [
+        'teams'       => '团队',
+        'no_projects' => '没有项目团队，马上添加一个吧',
+        'add'         => [
+            'title'   => '创建团队',
+            'success' => '团队已添加。',
+            'failure' => '团队添加失败。',
+        ],
+        'edit' => [
+            'title'   => '更新团队信息',
+            'success' => '团队信息已更新。',
+            'failure' => '团队信息更新失败。',
+        ],
+        'delete' => [
+            'success' => '项目团队已被删除。',
+            'failure' => '项目团队删除失败，请重试。',
+        ],
+    ],
+
     // Activities
     'activities' => [
         'activities'      => '动态',
@@ -95,9 +115,9 @@ return [
         ],
     ],
 
-    // Team
-    'team' => [
-        'team'        => '用户组',
+    // Group
+    'group' => [
+        'group'       => '用户组',
         'member'      => '成员',
         'profile'     => '用户设置',
         'description' => '团队成员维护项目和工单等信息。',
@@ -266,7 +286,7 @@ return [
             'project'    => '创建项目',
             'issue'      => '添加工单',
             'customize'  => '主题设置',
-            'team'       => '添加用户',
+            'group'      => '添加用户',
             'api'        => '生成 API Token',
             'two-factor' => '双因子身份验证',
         ],

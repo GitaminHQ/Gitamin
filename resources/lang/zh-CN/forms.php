@@ -128,7 +128,7 @@ return [
         '2fa'            => [
             'help' => '启用双因素身份验证会增加您的帐户安全。您将需要下载 <a href="https://support.google.com/accounts/answer/1066447?hl=en">Google Authenticator</a> 或类似的应用到您的移动设备。当您登录时将会要求您提供由应用程序生成的一个短码。',
         ],
-        'team' => [
+        'group' => [
             'description' => '请输入您要邀请的团队成员的邮件地址：',
             'email'       => 'Email #:id',
         ],

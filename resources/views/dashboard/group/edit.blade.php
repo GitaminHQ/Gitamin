@@ -6,14 +6,14 @@
             <i class="icon ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="ion ion-person"></i> {{ trans('dashboard.team.member') }}
+            <i class="ion ion-person"></i> {{ trans('dashboard.group.member') }}
         </span>
     </div>
     <div class="content-wrapper">
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
-                <form name="UserForm" class="form-vertical" role="form" action="/dashboard/team/{{ $user->id }}" method="POST">
+                <form name="UserForm" class="form-vertical" role="form" action="/dashboard/group/{{ $user->id }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">

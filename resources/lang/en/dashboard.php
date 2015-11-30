@@ -81,6 +81,26 @@ return [
         ],
     ],
 
+    // Project teams
+    'teams' => [
+        'teams'       => 'Teams',
+        'no_projects' => 'You should add a project team.',
+        'add'         => [
+            'title'   => 'Add a Project Team',
+            'success' => 'Project team added.',
+            'failure' => 'Something went wrong with the project team.',
+        ],
+        'edit'        => [
+            'title'   => 'Edit a Project Team',
+            'success' => 'Project team updated.',
+            'failure' => 'Something went wrong with the project team.',
+        ],
+        'delete'      => [
+            'success' => 'Project Team deleted.',
+            'failure' => 'The Project Team could not be deleted. Please try again.',
+        ],
+    ],
+
     // Activities
     'activities' => [
         'activities'      => 'Activities',
@@ -112,15 +132,15 @@ return [
         ],
     ],
 
-    // Team
-    'team' => [
-        'team'        => 'Groups',
+    // Group
+    'group' => [
+        'group'       => 'Groups',
         'member'      => 'Member',
         'profile'     => 'Profile',
-        'description' => 'Team Members will be able to add, modify &amp; edit projects and issues.',
+        'description' => 'Group Members will be able to add, modify &amp; edit projects and issues.',
         'add'         => [
-            'title'   => 'Add a New Team Member',
-            'success' => 'Team member added.',
+            'title'   => 'Add a New Group Member',
+            'success' => 'Group member added.',
             'failure' => 'Something went wrong with the user.',
         ],
         'edit' => [
@@ -133,7 +153,7 @@ return [
             'failure' => 'Something went wrong when deleting this user.',
         ],
         'invite' => [
-            'title'   => 'Invite a New Team Member',
+            'title'   => 'Invite a New Group Member',
             'success' => 'The users invited.',
             'failure' => 'Something went wrong with the invite.',
         ],
@@ -244,7 +264,7 @@ return [
             'project'    => 'Create projects',
             'issue'      => 'Create issues',
             'customize'  => 'Customize',
-            'team'       => 'Add users',
+            'group'      => 'Add users',
             'api'        => 'Generate API token',
             'two-factor' => 'Two Factor Authentication',
         ],

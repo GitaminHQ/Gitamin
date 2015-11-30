@@ -20,7 +20,13 @@
                     <span>{{ trans('dashboard.activities.activities') }}</span>
                 </a>
             </li>
-            
+            <li {!! set_active('dashboard/teams*') !!}>
+                <a href="{{ route('dashboard.teams.index') }}">
+                    <i class="fa fa-group"></i>
+                    <span>{{ trans('dashboard.teams.teams') }}</span>
+                    <span class="label label-info">{{ $project_team_count }}</span>
+                </a>
+            </li>
             <li {!! set_active('dashboard/milestone*') !!}>
                 <a href="{{ route('dashboard.milestones.index') }}">
                     <i class="fa fa-clock-o"></i>
