@@ -13,6 +13,8 @@ namespace Gitamin\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Models\User;
+use Gitamin\Models\Role;
+use Gitamin\Models\Permission;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;

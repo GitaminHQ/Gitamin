@@ -12,6 +12,7 @@
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, ValidatingTrait;
+    use Authenticatable, CanResetPassword, ValidatingTrait, EntrustUserTrait;
 
     /**
      * The attributes that should be casted to native types.
