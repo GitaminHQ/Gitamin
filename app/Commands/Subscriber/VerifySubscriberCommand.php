@@ -25,7 +25,7 @@ final class VerifySubscriberCommand
     /**
      * Create a verify subscriber command instance.
      *
-     * @param string $subscriber
+     * @param Subscriber $subscriber
      *
      * @return void
      */
