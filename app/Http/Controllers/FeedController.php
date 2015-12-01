@@ -14,14 +14,32 @@ namespace Gitamin\Http\Controllers;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
 use Gitamin\Models\ProjectTeam;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Roumen\Feed\Facades\Feed;
 
 class FeedController extends Controller
 {
-    protected $feed;
+    /**
+    * Instance of Feed.
+    *
+    * @var Roumen\Feed\Facades\Feed
+    */
+    private $feed;
 
+    /**
+    * Whether it is a RSS Feed.
+    *
+    * @var bool
+    */
+    private $isRss;
+
+    /**
+    * Create a new feed controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->feed = Feed::make();
@@ -30,8 +48,23 @@ class FeedController extends Controller
         $this->feed->link = Str::canonicalize(Setting::get('app_domain'));
         $this->feed->setDateFormat('datetime');
     }
+
     /**
-     * Generates a Rss feed of all issues.
+     * Generates an Atom feed of all issues.
+     *
+     * @param \Gitamin\Models\ProjectTeam|null $group
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function atomAction(ProjectTeam $group = null)
+    {
+        $this->isRss = false;
+
+        return $this->feedAction($group);
+    }
+
+    /**
+     * Generates an Rss feed of all issues.
      *
      * @param \Gitamin\Models\ProjectTeam|null $group
      *
@@ -39,9 +72,21 @@ class FeedController extends Controller
      */
     public function rssAction(ProjectTeam $group = null)
     {
-        
+        $this->isRss = true;
         $this->feed->lang = Setting::get('app_locale');
-        
+
+        return $this->feedAction($group);
+    }
+
+    /**
+     * Generates an Atom feed of all issues.
+     *
+     * @param \Gitamin\Models\ProjectTeam|null $group
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function feedAction(ProjectTeam $group = null)
+    {
         if ($group->exists) {
             $group->projects->map(function ($project) {
                 $project->issues()->visible()->orderBy('created_at', 'desc')->get()->map(function ($issue) {
@@ -54,47 +99,22 @@ class FeedController extends Controller
             });
         }
 
-        return $this->feed->render('rss');
-    }
-    
-    /**
-     * Generates an Atom feed of all issues.
-     *
-     * @param \Gitamin\Models\ProjectTeam|null $group
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function atomAction(ProjectTeam $group = null)
-    {
-        if ($group->exists) {
-            $group->projects->map(function ($project) {
-                $project->issues()->visible()->orderBy('created_at', 'desc')->get()->map(function ($issue) {
-                    $this->feedAddItem($issue, false);
-                });
-            });
-        } else {
-            Issue::visible()->orderBy('created_at', 'desc')->get()->map(function ($issue) {
-                $this->feedAddItem($issue, false);
-            });
-        }
-
-        return $this->feed->render('atom');
+        return $this->feed->render($this->isRss ? 'rss' : 'atom');
     }
 
     /**
      * Adds an item to the feed.
      *
      * @param \Gitamin\Models\Issue     $issue
-     * @param bool                      $isRss
      */
-    private function feedAddItem($issue, $isRss = true)
+    private function feedAddItem($issue)
     {
         $this->feed->add(
             $issue->name,
             Setting::get('app_name'),
             Str::canonicalize(route('issue', ['id' => $issue->id])),
-            $isRss ? $issue->created_at->toRssString() : $issue->created_at->toAtomString(),
-            $isRss ? $issue->message : Markdown::convertToHtml($issue->message)
+            $this->isRss ? $issue->created_at->toRssString() : $issue->created_at->toAtomString(),
+            $this->isRss ? $issue->message : Markdown::convertToHtml($issue->message)
         );
     }
 }
