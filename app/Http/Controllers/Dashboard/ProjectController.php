@@ -15,9 +15,6 @@ use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
-use Gitamin\Commands\ProjectTeam\AddProjectTeamCommand;
-use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
-use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
 use Gitamin\Models\Project;
 use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\Tag;
@@ -26,7 +23,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class ProjectController extends Controller
 {
@@ -48,11 +44,11 @@ class ProjectController extends Controller
     {
         $this->subMenu = [
             'projects' => [
-                'title'  => trans('dashboard.projects.all'),
+                'title'  => trans('dashboard.projects.projects'),
                 'url'    => route('dashboard.projects.index'),
                 'icon'   => 'fa fa-sitemap',
                 'active' => false,
-            ],
+            ], /*
             'my' => [
                 'title'  => trans('dashboard.projects.my'),
                 'url'    => route('dashboard.projects.index'),
@@ -71,10 +67,10 @@ class ProjectController extends Controller
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
-            '<hr>'    => [],
+            '<hr>'    => [],*/
             'teams'   => [
-                'title'  => trans_choice('dashboard.projects.teams.teams', 2),
-                'url'    => route('dashboard.projects.teams'),
+                'title'  => trans_choice('dashboard.teams.teams', 2),
+                'url'    => route('dashboard.teams.index'),
                 'icon'   => 'fa fa-folder',
                 'active' => false,
             ],
@@ -110,21 +106,6 @@ class ProjectController extends Controller
     }
 
     /**
-     * Shows the project teams view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showProjectTeams()
-    {
-        $this->subMenu['teams']['active'] = true;
-
-        return View::make('dashboard.projects.teams.index')
-            ->withPageTitle(trans_choice('dashboard.projects.teams.teams', 2).' - '.trans('dashboard.dashboard'))
-            ->withTeams(ProjectTeam::orderBy('order')->get())
-            ->withSubMenu($this->subMenu);
-    }
-
-    /**
      * Shows the project view.
      *
      * @param \Gitamin\Models\Project $project
@@ -141,25 +122,6 @@ class ProjectController extends Controller
             ->withPageTitle($pageTitle)
             ->withProject($project)
             ->withTeams($teams);
-    }
-
-    /**
-     * Shows the project team view.
-     *
-     * @param \Gitamin\Models\ProjectTeam $team
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showProjectTeam($slug)
-    {
-        $team = ProjectTeam::where('slug', '=', $slug)->first();
-
-        if (!$team) {
-            throw new BadRequestHttpException();
-        }
-
-        return View::make('dashboard.projects.teams.show')
-            ->withTeam($team);
     }
 
     /**
@@ -278,96 +240,5 @@ class ProjectController extends Controller
 
         return Redirect::route('dashboard.projects.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.delete.success')));
-    }
-
-    /**
-     * Deletes a given project team.
-     *
-     * @param \Gitamin\Models\ProjectTeam $team
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function deleteProjectTeamAction(ProjectTeam $team)
-    {
-        $this->dispatch(new RemoveProjectTeamCommand($team));
-
-        return Redirect::route('dashboard.projects.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.delete.success')));
-    }
-
-    /**
-     * Shows the add project team view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAddProjectTeam()
-    {
-        return View::make('dashboard.projects.teams.add')
-            ->withPageTitle(trans('dashboard.projects.teams.add.title').' - '.trans('dashboard.dashboard'));
-    }
-
-    /**
-     * Shows the edit project team view.
-     *
-     * @param \Gitamin\Models\ProjectTeam $team
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showEditProjectTeam(ProjectTeam $team)
-    {
-        return View::make('dashboard.projects.teams.edit')
-            ->withPageTitle(trans('dashboard.projects.teams.edit.title').' - '.trans('dashboard.dashboard'))
-            ->withTeam($team);
-    }
-
-    /**
-     * Creates a new project.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postAddProjectTeam()
-    {
-        try {
-            $team = $this->dispatch(new AddProjectTeamCommand(
-                Binput::get('name'),
-                Binput::get('slug'),
-                Binput::get('order', 0)
-            ));
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.projects.teams.add')
-                ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.teams.add.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        return Redirect::route('dashboard.projects.teams')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.teams.add.success')));
-    }
-
-    /**
-     * Updates a project team.
-     *
-     * @param \Gitamin\Models\ProjectTeam $team
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function updateProjectTeamAction(ProjectTeam $team)
-    {
-        try {
-            $team = $this->dispatch(new UpdateProjectTeamCommand(
-                $team,
-                Binput::get('name'),
-                Binput::get('slug'),
-                Binput::get('order', 0)
-            ));
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.projects.teams.edit', ['id' => $team->id])
-                ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.teams.edit.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        return Redirect::route('dashboard.projects.teams.edit', ['id' => $team->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.teams.edit.success')));
     }
 }

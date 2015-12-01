@@ -11,14 +11,14 @@
 
 namespace Gitamin\Commands\User;
 
-final class InviteTeamMemberCommand
+final class InviteGroupMemberCommand
 {
     /**
      * The invte emails.
      *
      * @var string
      */
-    public $email;
+    public $emails;
 
     /**
      * The validation rules.
@@ -30,7 +30,7 @@ final class InviteTeamMemberCommand
     ];
 
     /**
-     * Create a new invite team member command instance.
+     * Create a new invite group member command instance.
      *
      * @param array $email
      *

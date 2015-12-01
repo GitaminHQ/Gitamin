@@ -6,14 +6,14 @@
             <i class="icon ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="ion ion-person"></i> {{ trans('dashboard.team.member') }}
+            <i class="ion ion-person"></i> {{ trans('dashboard.group.member') }}
         </span>
     </div>
     <div class="content-wrapper">
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
-                <form name="UserForm" class="form-vertical" role="form" action="/dashboard/team/{{ $user->id }}" method="POST">
+                <form name="UserForm" class="form-vertical" role="form" action="/dashboard/group/{{ $user->id }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
@@ -35,7 +35,7 @@
                         @if($current_user->isAdmin)
                         <a class="btn btn-info" href="/dashboard/user/{{ $user->id }}/api/regen">{{ trans('gitamin.api.revoke') }}</a>
                         @if($current_user->id != $user->id)
-                        <a class="btn btn-danger confirm-action" href="/dashboard/team/{{ $user->id }}/delete" data-method="DELETE">{{ trans('forms.delete') }}</a>
+                        <a class="btn btn-danger confirm-action" href="/dashboard/group/{{ $user->id }}/delete" data-method="DELETE">{{ trans('forms.delete') }}</a>
                         @endif
                         @endif
                     </div>

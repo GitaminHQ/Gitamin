@@ -12,151 +12,362 @@
 namespace Gitamin\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
-use Gitamin\Commands\User\AddTeamMemberCommand;
-use Gitamin\Commands\User\InviteTeamMemberCommand;
-use Gitamin\Commands\User\RemoveUserCommand;
-use Gitamin\Models\User;
+use Gitamin\Commands\Project\AddProjectCommand;
+use Gitamin\Commands\Project\RemoveProjectCommand;
+use Gitamin\Commands\Project\UpdateProjectCommand;
+use Gitamin\Commands\ProjectTeam\AddProjectTeamCommand;
+use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
+use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
+use Gitamin\Models\Project;
+use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\Tag;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class TeamController extends Controller
 {
     use DispatchesJobs;
 
     /**
-     * Shows the team members view.
+     * Array of sub-menu items.
      *
-     * @return \Illuminate\View\View
+     * @var array
      */
-    public function showTeamView()
-    {
-        $team = User::all();
+    protected $subMenu = [];
 
-        return View::make('dashboard.team.index')
-            ->withPageTitle(trans('dashboard.team.team').' - '.trans('dashboard.dashboard'))
-            ->withTeamMembers($team);
+    /**
+     * Creates a new project controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->subMenu = [
+            'projects' => [
+                'title'  => trans('dashboard.projects.projects'),
+                'url'    => route('dashboard.projects.index'),
+                'icon'   => 'fa fa-sitemap',
+                'active' => false,
+            ], /*
+            'my' => [
+                'title'  => trans('dashboard.projects.my'),
+                'url'    => route('dashboard.projects.index'),
+                'icon'   => 'fa fa-edit',
+                'active' => false,
+            ],
+            'joined' => [
+                'title'  => trans('dashboard.projects.joined'),
+                'url'    => route('dashboard.projects.index'),
+                'icon'   => 'fa fa-umbrella',
+                'active' => false,
+            ],
+            'watched' => [
+                'title'  => trans('dashboard.projects.watched'),
+                'url'    => route('dashboard.projects.index'),
+                'icon'   => 'fa fa-eye',
+                'active' => false,
+            ],
+            '<hr>'    => [],*/
+            'teams'   => [
+                'title'  => trans_choice('dashboard.teams.teams', 2),
+                'url'    => route('dashboard.teams.index'),
+                'icon'   => 'fa fa-folder',
+                'active' => false,
+            ],
+            'labels' => [
+                'title'  => trans_choice('dashboard.projects.labels.labels', 2),
+                'url'    => route('dashboard.projects.index'),
+                'icon'   => 'fa fa-tags',
+                'active' => false,
+            ],
+        ];
+
+        View::share([
+            'sub_menu'  => $this->subMenu,
+            'sub_title' => trans_choice('dashboard.projects.projects', 2),
+        ]);
     }
 
     /**
-     * Shows the edit team member view.
+     * Shows the projects view.
      *
      * @return \Illuminate\View\View
      */
-    public function showTeamMemberView(User $user)
+    public function showProjects()
     {
-        return View::make('dashboard.team.edit')
-            ->withPageTitle(trans('dashboard.team.edit.title').' - '.trans('dashboard.dashboard'))
-            ->withUser($user);
+        $projects = Project::orderBy('order')->orderBy('created_at')->get();
+
+        $this->subMenu['projects']['active'] = true;
+
+        return View::make('dashboard.projects.index')
+            ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
+            ->withProjects($projects)
+            ->withSubMenu($this->subMenu);
     }
 
     /**
-     * Shows the add team member view.
+     * Shows the project teams view.
      *
      * @return \Illuminate\View\View
      */
-    public function showAddTeamMemberView()
+    public function showProjectTeams()
     {
-        return View::make('dashboard.team.add')
-            ->withPageTitle(trans('dashboard.team.add.title').' - '.trans('dashboard.dashboard'));
+        $this->subMenu['teams']['active'] = true;
+
+        return View::make('dashboard.teams.index')
+            ->withPageTitle(trans_choice('dashboard.teams.teams', 2).' - '.trans('dashboard.dashboard'))
+            ->withTeams(ProjectTeam::orderBy('order')->get())
+            ->withSubMenu($this->subMenu);
     }
 
     /**
-     * Shows the invite team member view.
+     * Shows the project view.
+     *
+     * @param \Gitamin\Models\Project $project
      *
      * @return \Illuminate\View\View
      */
-    public function showInviteTeamMemberView()
+    public function showProject(Project $project)
     {
-        return View::make('dashboard.team.invite')
-            ->withPageTitle(trans('dashboard.team.invite.title').' - '.trans('dashboard.dashboard'));
+        $teams = ProjectTeam::all();
+
+        $pageTitle = sprintf('"%s" - %s - %s', $project->name, trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+
+        return View::make('dashboard.projects.show')
+            ->withPageTitle($pageTitle)
+            ->withProject($project)
+            ->withTeams($teams);
     }
 
     /**
-     * Creates a new team member.
+     * Shows the project team view.
+     *
+     * @param \Gitamin\Models\ProjectTeam $team
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showProjectTeam($slug)
+    {
+        $team = ProjectTeam::where('slug', '=', $slug)->first();
+
+        if (!$team) {
+            throw new BadRequestHttpException();
+        }
+
+        return View::make('dashboard.teams.show')
+            ->withTeam($team);
+    }
+
+    /**
+     * Shows the edit project view.
+     *
+     * @param \Gitamin\Models\Project $project
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showEditProject(Project $project)
+    {
+        $teams = ProjectTeam::all();
+
+        $pageTitle = sprintf('"%s" - %s - %s', $project->name, trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
+
+        return View::make('dashboard.projects.edit')
+            ->withPageTitle($pageTitle)
+            ->withProject($project)
+            ->withTeams($teams);
+    }
+
+    /**
+     * Updates a project.
+     *
+     * @param \Gitamin\Models\Project $projects
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postAddUser()
+    public function updateProjectAction(Project $project)
+    {
+        $projectData = Binput::get('project');
+        $tags = array_pull($projectData, 'tags');
+
+        try {
+            $projectData['project'] = $project;
+            $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
+        } catch (ValidationException $e) {
+            return Redirect::route('dashboard.projects.edit', ['id' => $project->id])
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.edit.failure')))
+                ->withErrors($e->getMessageBag());
+        }
+
+        // The project was added successfully, so now let's deal with the tags.
+        $tags = preg_split('/ ?, ?/', $tags);
+
+        // For every tag, do we need to create it?
+        $projectTags = array_map(function ($taggable) use ($project) {
+            return Tag::firstOrCreate(['name' => $taggable])->id;
+        }, $tags);
+
+        $project->tags()->sync($projectTags);
+
+        return Redirect::route('dashboard.projects.edit', ['id' => $project->id])
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.edit.success')));
+    }
+
+    /**
+     * Shows the add project view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showAddProject()
+    {
+        $teamId = (int) Binput::get('team_id');
+
+        return View::make('dashboard.projects.add')
+            ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
+            ->withTeamId($teamId)
+            ->withTeams(ProjectTeam::all());
+    }
+
+    /**
+     * Creates a new project.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function createProjectAction()
+    {
+        $projectData = Binput::get('project');
+        $tags = array_pull($projectData, 'tags');
+
+        try {
+            $project = $this->dispatchFromArray(AddProjectCommand::class, $projectData);
+        } catch (ValidationException $e) {
+            return Redirect::route('dashboard.projects.add')
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.add.failure')))
+                ->withErrors($e->getMessageBag());
+        }
+
+        // The project was added successfully, so now let's deal with the tags.
+        $tags = preg_split('/ ?, ?/', $tags);
+
+        // For every tag, do we need to create it?
+        $projectTags = array_map(function ($taggable) use ($project) {
+            return Tag::firstOrCreate(['name' => $taggable])->id;
+        }, $tags);
+
+        $project->tags()->sync($projectTags);
+
+        return Redirect::route('dashboard.projects.index')
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.add.success')));
+    }
+
+    /**
+     * Deletes a given project.
+     *
+     * @param \Gitamin\Models\Project $project
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteProjectAction(Project $project)
+    {
+        $this->dispatch(new RemoveProjectCommand($project));
+
+        return Redirect::route('dashboard.projects.index')
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.delete.success')));
+    }
+
+    /**
+     * Deletes a given project team.
+     *
+     * @param \Gitamin\Models\ProjectTeam $team
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteProjectTeamAction(ProjectTeam $team)
+    {
+        $this->dispatch(new RemoveProjectTeamCommand($team));
+
+        return Redirect::route('dashboard.projects.index')
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.delete.success')));
+    }
+
+    /**
+     * Shows the add project team view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showAddProjectTeam()
+    {
+        return View::make('dashboard.teams.add')
+            ->withPageTitle(trans('dashboard.teams.add.title').' - '.trans('dashboard.dashboard'));
+    }
+
+    /**
+     * Shows the edit project team view.
+     *
+     * @param \Gitamin\Models\ProjectTeam $team
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showEditProjectTeam(ProjectTeam $team)
+    {
+        return View::make('dashboard.teams.edit')
+            ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
+            ->withTeam($team);
+    }
+
+    /**
+     * Creates a new project.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postAddProjectTeam()
     {
         try {
-            $this->dispatch(new AddTeamMemberCommand(
-                Binput::get('username'),
-                Binput::get('password'),
-                Binput::get('email'),
-                Binput::get('level')
+            $team = $this->dispatch(new AddProjectTeamCommand(
+                Binput::get('name'),
+                Binput::get('slug'),
+                Binput::get('order', 0)
             ));
         } catch (ValidationException $e) {
-            return Redirect::route('dashboard.team.add')
-                ->withInput(Binput::except('password'))
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.team.add.failure')))
+            return Redirect::route('dashboard.teams.add')
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('dashboard.team.add')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.team.add.success')));
+        return Redirect::route('dashboard.teams')
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.teams.add.success')));
     }
 
     /**
-     * Updates a user.
+     * Updates a project team.
      *
-     * @param \Gitamin\Models\User $user
-     *
-     * @return \Illuminate\View\View
-     */
-    public function postUpdateUser(User $user)
-    {
-        $userData = array_filter(Binput::only(['username', 'email', 'password', 'level']));
-
-        try {
-            $user->update($userData);
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.team.edit', ['id' => $user->id])
-                ->withInput($userData)
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.team.edit.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        return Redirect::route('dashboard.team.edit', ['id' => $user->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.team.edit.success')));
-    }
-
-    /**
-     * Creates a new team member.
+     * @param \Gitamin\Models\ProjectTeam $team
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postInviteUser()
+    public function updateProjectTeamAction(ProjectTeam $team)
     {
         try {
-            $this->dispatch(new InviteTeamMemberCommand(
-                array_unique(array_filter((array) Binput::get('emails')))
+            $team = $this->dispatch(new UpdateProjectTeamCommand(
+                $team,
+                Binput::get('name'),
+                Binput::get('slug'),
+                Binput::get('order', 0)
             ));
         } catch (ValidationException $e) {
-            return Redirect::route('dashboard.team.invite')
-                ->withInput(Binput::except('password'))
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.team.invite.failure')))
+            return Redirect::route('dashboard.teams.edit', ['id' => $team->id])
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('dashboard.team.invite')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.team.invite.success')));
-    }
-
-    /**
-     * Delete a user.
-     *
-     * @param \Gitamin\Models\User $user
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function deleteUser(User $user)
-    {
-        $this->dispatch(new RemoveUserCommand($user));
-
-        return Redirect::route('dashboard.team.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.team.delete.success')));
+        return Redirect::route('dashboard.teams.edit', ['id' => $team->id])
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.teams.edit.success')));
     }
 }

@@ -14,6 +14,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "~5.1.24",
         "klaussilveira/gitter": "0.3.*",
+        "zizaco/entrust": "dev-laravel-5",
         "alt-three/emoji": "^2.1",
         "alt-three/validator": "^1.4",
         "barryvdh/laravel-cors": "^0.7",
@@ -25,7 +26,7 @@
         "graham-campbell/throttle": "^5.1",
         "graham-campbell/exceptions": "^5.1",
         "guzzlehttp/guzzle": "^6.1",
-        "jenssegers/date": "^3.0",
+        "jenssegers/date": "~3.0.12",
         "mccool/laravel-auto-presenter": "^4.2",
         "roumen/feed": "^2.9"
     },
@@ -86,7 +87,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0-dev"
+            "dev-master": "0.1.0-dev"
         }
     },
     "minimum-stability": "dev",

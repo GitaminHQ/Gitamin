@@ -11,20 +11,20 @@
 
 namespace Gitamin\Handlers\Commands\User;
 
-use Gitamin\Commands\User\InviteTeamMemberCommand;
+use Gitamin\Commands\User\InviteGroupMemberCommand;
 use Gitamin\Events\User\UserWasInvitedEvent;
 use Gitamin\Models\Invite;
 
-class InviteTeamMemberCommandHandler
+class InviteGroupMemberCommandHandler
 {
     /**
-     * Handle the invite team member command.
+     * Handle the invite group member command.
      *
-     * @param \Gitamin\Commands\User\InviteTeamMemberCommand $command
+     * @param \Gitamin\Commands\User\InviteGroupMemberCommand $command
      *
      * @return void
      */
-    public function handle(InviteTeamMemberCommand $command)
+    public function handle(InviteGroupMemberCommand $command)
     {
         foreach ($command->emails as $email) {
             $invite = Invite::create([

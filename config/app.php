@@ -161,6 +161,7 @@ return [
         'Jenssegers\Date\DateServiceProvider',
         'McCool\LaravelAutoPresenter\AutoPresenterServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
 
         /*
          * Application Service Providers...
@@ -222,6 +223,7 @@ return [
 
         'Setting'   => 'Gitamin\Facades\Setting',
         'Str'       => 'Illuminate\Support\Str',
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
 
     ],
 

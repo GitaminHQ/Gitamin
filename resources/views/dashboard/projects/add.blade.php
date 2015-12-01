@@ -26,7 +26,12 @@
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.slug') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" name="project[slug]" class="form-control" required>
+                                <div class="input-group">
+                                    <input type="text" name="project[slug]" class="form-control" required>
+                                    <div class="input-group-addon">
+                                        .git
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         @if($teams->count() > 0)
