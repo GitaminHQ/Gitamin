@@ -18,19 +18,18 @@ use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Commands\ProjectTeam\AddProjectTeamCommand;
 use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
 use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Project;
 use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\Tag;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class GroupsController extends Controller
 {
-    use DispatchesJobs;
 
     /**
      * Array of sub-menu items.

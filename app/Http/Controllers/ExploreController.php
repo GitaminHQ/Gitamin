@@ -27,7 +27,7 @@ class ExploreController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showIndex()
+    public function index()
     {
         $today = Date::now();
         $startDate = Date::now();

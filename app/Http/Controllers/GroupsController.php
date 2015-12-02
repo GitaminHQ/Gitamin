@@ -55,7 +55,7 @@ class GroupsController extends Controller
             ], 
             'groups'   => [
                 'title'  => trans_choice('gitamin.groups.groups', 2),
-                'url'    => route('dashboard.teams.index'),
+                'url'    => route('dashboard.groups.index'),
                 'icon'   => 'fa fa-folder',
                 'active' => false,
             ],

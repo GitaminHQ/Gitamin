@@ -61,20 +61,6 @@ class ProjectController extends Controller
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
-            /*
-            '<hr>'    => [],
-            'teams'   => [
-                'title'  => trans_choice('dashboard.teams.teams', 2),
-                'url'    => route('dashboard.teams.index'),
-                'icon'   => 'fa fa-folder',
-                'active' => false,
-            ],
-            'labels' => [
-                'title'  => trans_choice('dashboard.projects.labels.labels', 2),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-tags',
-                'active' => false,
-            ],*/
         ];
 
         View::share([

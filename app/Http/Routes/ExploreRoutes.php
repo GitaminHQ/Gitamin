@@ -33,7 +33,7 @@ class ExploreRoutes
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'Explore\\ExploreController@index',
+                'uses' => 'ExploreController@index',
             ]);
 
             
