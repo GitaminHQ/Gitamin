@@ -13,40 +13,44 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateNamespacesTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('namespaces', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
             $table->string('name');
-            $table->text('description');
-            $table->string('slug');
-            $table->integer('status');
-            $table->boolean('enabled')->default(true);
-            $table->integer('order');
-            $table->integer('namespace_id');
-            $table->integer('user_id')->default(0);
+            $table->string('path');
+            $table->integer('owner_id');
+            $table->string('type');
+            $table->string('description');
+            $table->string('avatar');
+            $table->boolean('public')->default(false);
             $table->timestamps();
-            $table->softDeletes();
 
-            $table->index('namespace_id');
-            $table->index('user_id');
-            $table->index('status');
-            $table->index('order');
+            $table->index('name');
+            $table->index('owner_id');
+            $table->index('path');
+            $table->index('public');
+            $table->index('type');
+
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
     public function down()
     {
-        Schema::drop('projects');
+        Schema::drop('namespaces');
     }
 }

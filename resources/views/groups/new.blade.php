@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
-                <form name="CreateProjectTeamForm" class="form-horizontal" role="form" action="/dashboard/teams/add" method="POST">
+                <form name="CreateProjectTeamForm" class="form-horizontal" role="form" action="/groups/create" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="control-label" for="group-avatar">{{ trans('forms.groups.avatar') }}</label>
                             <div class="col-sm-10">
-                            <input type="file" class="form-control" name="group[avatar]" id="group-avatar" required>
+                            <input type="file" class="form-control" name="group[avatar]" id="group-avatar">
                             </div>
                         </div>
 

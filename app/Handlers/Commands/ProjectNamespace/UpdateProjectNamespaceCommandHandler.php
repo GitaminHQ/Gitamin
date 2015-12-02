@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Handlers\Commands\ProjectTeam;
+namespace Gitamin\Handlers\Commands\ProjectNamespace;
 
 use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
 use Gitamin\Events\ProjectTeam\ProjectTeamWasUpdatedEvent;
@@ -21,7 +21,7 @@ class UpdateProjectTeamCommandHandler
      *
      * @param \Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand $command
      *
-     * @return \Gitamin\Models\ProjectTeam
+     * @return \Gitamin\Models\ProjectNamespace
      */
     public function handle(UpdateProjectTeamCommand $command)
     {

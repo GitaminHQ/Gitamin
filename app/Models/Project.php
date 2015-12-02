@@ -29,7 +29,7 @@ class Project extends Model implements HasPresenter
      */
     protected $attributes = [
         'order'       => 0,
-        'team_id'     => 0,
+        'namespace_id'     => 0,
         'description' => '',
         'slug'        => '',
         'enabled'     => true,
@@ -43,7 +43,7 @@ class Project extends Model implements HasPresenter
     protected $casts = [
         'id'          => 'int',
         'order'       => 'int',
-        'team_id'     => 'int',
+        'namespace_id'     => 'int',
         'description' => 'string',
         'slug'        => 'string',
         'deleted_at'  => 'date',
@@ -62,7 +62,7 @@ class Project extends Model implements HasPresenter
         'tags',
         'slug',
         'order',
-        'team_id',
+        'namespace_id',
         'enabled',
     ];
 
@@ -82,9 +82,9 @@ class Project extends Model implements HasPresenter
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function team()
+    public function group()
     {
-        return $this->belongsTo(ProjectTeam::class, 'team_id', 'id');
+        return $this->belongsTo(Group::class, 'namespace_id', 'id');
     }
 
     /**

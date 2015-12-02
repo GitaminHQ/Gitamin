@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\ProjectTeam;
+namespace Gitamin\Commands\ProjectNamespace;
 
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 
-final class UpdateProjectTeamCommand
+final class UpdateProjectNamespaceCommand
 {
     /**
      * The project team.

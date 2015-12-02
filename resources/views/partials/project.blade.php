@@ -1,6 +1,6 @@
 <li class="list-group-item {{ $project->team_id ? "sub-project" : "project" }}">
     @if($project->slug)
-    <a href="{{ $project->team->slug }}/{{ $project->slug }}" target="_blank" class="links">{{ $project->name }}</a>
+    <a href="{{ $project->slug }}" target="_blank" class="links">{{ $project->name }}</a>
     @else
     {{ $project->name }}
     @endif

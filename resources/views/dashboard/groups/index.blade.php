@@ -19,19 +19,19 @@
             @include('dashboard.partials.errors')
             <div class="row">
                 <div class="col-sm-12 striped-list" id="project-team-list">
-                    @forelse($teams as $team)
-                    <div class="row striped-list-item" data-team-id="{{ $team->id }}">
+                    @forelse($groups as $group)
+                    <div class="row striped-list-item" data-team-id="{{ $group->id }}">
                         <div class="col-xs-6">
                             <h4>
-                                @if($teams->count() > 1)
+                                @if($groups->count() > 1)
                                 <span class="drag-handle"><i class="fa fa-reorder"></i></span>
                                 @endif
-                                <a href="/{{ $team->slug }}">{{ $team->name }}</a> ({{ $team->slug }})
-                                <span class="label label-info">{{ $team->projects->count() }}</span>
+                                <a href="/{{ $group->path }}">{{ $group->name }}</a> ({{ $group->path }})
+                                <span class="label label-info">{{ $group->projects->count() }}</span>
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">
-                            <a href="{{ route('dashboard.projects.add',['team_id'=>$team->id]) }}" class="btn btn-sm btn-info">{{ trans('dashboard.projects.add.title') }}</a>
+                            <a href="{{ route('dashboard.projects.add',['team_id'=>$group->id]) }}" class="btn btn-sm btn-info">{{ trans('dashboard.projects.add.title') }}</a>
                         </div>
                     </div>
                     @empty

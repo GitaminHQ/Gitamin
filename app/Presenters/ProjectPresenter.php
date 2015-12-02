@@ -39,7 +39,7 @@ class ProjectPresenter extends AbstractPresenter
      */
     public function path()
     {
-        return $this->wrappedObject->team->slug.'/'.$this->wrappedObject->slug;
+        return $this->wrappedObject->group->path.'/'.$this->wrappedObject->slug;
     }
 
     /**

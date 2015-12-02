@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Handlers\Commands\ProjectTeam;
+namespace Gitamin\Handlers\Commands\ProjectNamespace;
 
 use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
 use Gitamin\Events\ProjectTeam\ProjectTeamWasRemovedEvent;

@@ -53,9 +53,9 @@ class ExploreComposer
         }
 
         // Project & Project Team lists.
-        $usedProjectTeams = Project::enabled()->where('team_id', '>', 0)->groupBy('team_id')->lists('team_id');
+        $usedProjectTeams = Project::enabled()->where('namespace_id', '>', 0)->groupBy('namespace_id')->lists('namespace_id');
         $projectTeams = ProjectTeam::whereIn('id', $usedProjectTeams)->orderBy('order')->get();
-        $unteamedProjects = Project::enabled()->where('team_id', 0)->orderBy('order')->orderBy('created_at')->get();
+        $unteamedProjects = Project::enabled()->where('namespace_id', 0)->orderBy('order')->orderBy('created_at')->get();
 
         $view->with($withData)
             ->withProjectTeams($projectTeams)

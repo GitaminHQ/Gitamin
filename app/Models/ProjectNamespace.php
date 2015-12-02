@@ -9,12 +9,28 @@
  * file that was distributed with this source code.
  */
 
+# == Schema Information
+#
+# Table name: namespaces
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)      not null
+#  path        :string(255)      not null
+#  owner_id    :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  type        :string(255)
+#  description :string(255)      default(""), not null
+#  avatar      :string(255)
+#  public      :boolean          default(FALSE)
+#
+
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectTeam extends Model
+class ProjectNamespace extends Model
 {
     use ValidatingTrait;
 
@@ -24,10 +40,10 @@ class ProjectTeam extends Model
      * @var string[]
      */
     protected $casts = [
-        'id'    => 'int',
-        'name'  => 'string',
-        'slug'  => 'string',
-        'order' => 'int',
+        'id'   => 'int',
+        'name' => 'string',
+        'path' => 'string',
+        'type' => 'string',
     ];
 
     /**
@@ -35,7 +51,7 @@ class ProjectTeam extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'slug', 'order'];
+    protected $fillable = ['name', 'path', 'type'];
 
     /**
      * The validation rules.
@@ -44,17 +60,17 @@ class ProjectTeam extends Model
      */
     public $rules = [
         'name'  => 'required|string',
-        'slug'  => 'required|string',
-        'order' => 'int',
+        'path'  => 'required|string',
+        'type'  =>  'string',
     ];
 
     /**
-     * A team can have many projects.
+     * A namespace can have many projects.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function projects()
     {
-        return $this->hasMany(Project::class, 'team_id', 'id');
+        return $this->hasMany(Project::class, 'namespace_id', 'id');
     }
 }

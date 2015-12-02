@@ -15,12 +15,12 @@ use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
-use Gitamin\Commands\ProjectTeam\AddProjectTeamCommand;
-use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
-use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
+use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
+use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
+use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
 use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\Group;
 use Gitamin\Models\Tag;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -77,7 +77,7 @@ class GroupsController extends Controller
 
         return View::make('dashboard.groups.index')
             ->withPageTitle(trans_choice('gitamin.groups.groups', 2).' - '.trans('dashboard.dashboard'))
-            ->withTeams(ProjectTeam::orderBy('order')->get())
+            ->withGroups(Group::where('type', '=', 'group')->get())
             ->withSubMenu($this->subMenu);
     }
 }

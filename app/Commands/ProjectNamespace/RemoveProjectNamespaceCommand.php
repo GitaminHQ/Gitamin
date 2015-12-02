@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\ProjectTeam;
+namespace Gitamin\Commands\ProjectNamespace;
 
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 
-final class RemoveProjectTeamCommand
+final class RemoveProjectNamespaceCommand
 {
     /**
      * The project team to remove.
      *
      * @var \Gitamin\Models\ProjectTeam
      */
-    public $team;
+    public $namespace;
 
     /**
      * Create a new remove project team command instance.
@@ -29,8 +29,8 @@ final class RemoveProjectTeamCommand
      *
      * @return void
      */
-    public function __construct(ProjectTeam $team)
+    public function __construct(ProjectNamespace $namespace)
     {
-        $this->team = $team;
+        $this->namespace = $namespace;
     }
 }

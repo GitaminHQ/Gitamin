@@ -12,7 +12,7 @@ use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\Group;
 use Gitamin\Models\Tag;
 
 use Gitamin\Http\Controllers\Controller;
@@ -38,11 +38,10 @@ class ProjectsController extends Controller
     */
     public function new()
     {
-        $teamId = 1;
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
-            ->withTeamId($teamId)
-            ->withTeams(ProjectTeam::all());
+            ->withGroupId('')
+            ->withGroups(Group::all());
     }
 
     /**

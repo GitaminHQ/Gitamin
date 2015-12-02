@@ -34,20 +34,20 @@
                                 <input type="text" class="form-control" name="project[name]" id="project-name" required>
                             </div>
                         </div>
-                        @if($teams->count() > 0)
+                        @if($groups->count() > 0)
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.namespace') }}</label>
                             <div class="col-sm-10">
-                            <select name="project[team_id]" class="form-control">
+                            <select name="project[namespace_id]" class="form-control">
                                 <option value="0" selected></option>
-                                @foreach($teams as $team)
-                                <option value="{{ $team->id }}" {{ $team_id === $team->id ? 'selected' : null }}>{{ $team->name }}</option>
+                                @foreach($groups as $group)
+                                <option value="{{ $group->id }}" {{ $group_id === $group->id ? 'selected' : null }}>{{ $group->name }}</option>
                                 @endforeach
                             </select>
                             </div>
                         </div>
                         @else
-                        <input type="hidden" name="project[team_id]" value="0">
+                        <input type="hidden" name="project[namespace_id]" value="0">
                         @endif
                         <div class="form-group">
                             <label class="control-label" for="project-import">{{ trans('forms.projects.import') }}</label>
@@ -77,7 +77,7 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
-                        <a class="btn btn-default" href="{{ route('projects.index') }}">{{ trans('forms.cancel') }}</a>
+                        <a class="btn btn-default" href="{{ route('dashboard.projects.index') }}">{{ trans('forms.cancel') }}</a>
                         <div class="pull-right">
                             <div class="light inline">
                             <div class="space-right">

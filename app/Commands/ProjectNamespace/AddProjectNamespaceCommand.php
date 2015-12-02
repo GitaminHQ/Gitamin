@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\ProjectTeam;
+namespace Gitamin\Commands\ProjectNamespace;
 
-final class AddProjectTeamCommand
+final class AddProjectNamespaceCommand
 {
     /**
      * The project team name.
@@ -25,14 +25,14 @@ final class AddProjectTeamCommand
      *
      * @var string
      */
-    public $slug;
+    public $path;
 
     /**
      * The project team order.
      *
-     * @var int
+     * @var string
      */
-    public $order;
+    public $type;
 
     /**
      * The validation rules.
@@ -41,8 +41,8 @@ final class AddProjectTeamCommand
      */
     public $rules = [
         'name'  => 'required|string',
-        'slug'  => 'required|string',
-        'order' => 'int',
+        'path'  => 'required|string',
+        'type' => 'string',
     ];
 
     /**
@@ -53,10 +53,10 @@ final class AddProjectTeamCommand
      *
      * @return void
      */
-    public function __construct($name, $slug, $order)
+    public function __construct($name, $path, $type)
     {
         $this->name = $name;
-        $this->slug = $slug;
-        $this->order = (int) $order;
+        $this->path = $path;
+        $this->type = $type;
     }
 }
