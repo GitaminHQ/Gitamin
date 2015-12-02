@@ -20,8 +20,8 @@
                     <span>{{ trans('dashboard.activities.activities') }}</span>
                 </a>
             </li>
-            <li {!! set_active('groups*') !!}>
-                <a href="{{ route('groups.index') }}">
+            <li {!! set_active('*groups*') !!}>
+                <a href="{{ route('dashboard.groups.index') }}">
                     <i class="fa fa-group"></i>
                     <span>{{ trans('gitamin.groups.groups') }}</span>
                     <span class="label label-info">{{ $project_team_count }}</span>

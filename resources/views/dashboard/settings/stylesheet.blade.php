@@ -13,15 +13,17 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form name="SettingsForm" class="form-vertical" role="form" action="/dashboard/settings" method="POST">
+                    <form name="SettingsForm" class="form-horizontal" role="form" action="/dashboard/settings" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @include('dashboard.partials.errors')
                         <fieldset>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label>{{ trans('forms.settings.stylesheet.custom-css') }}</label>
+                                        <label  class="control-label">{{ trans('forms.settings.stylesheet.custom-css') }}</label>
+                                        <div class="col-sm-10">
                                         <textarea class="form-control autosize" name="stylesheet" rows="10">{{ $app_stylesheet }}</textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +31,7 @@
 
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-actions">
                                     <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
                                 </div>
                             </div>

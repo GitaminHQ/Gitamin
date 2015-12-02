@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label>{{ trans('forms.settings.timezone.site-timezone') }}</label>
+                                        <label class="control-label">{{ trans('forms.settings.timezone.site-timezone') }}</label>
                                         <div class="col-sm-10">
                                         <select name="app_timezone" class="form-control" required>
                                             <option value="">Select Timezone</option>
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label>
+                                        <label class="control-label">
                                             {{ trans('forms.settings.timezone.date-format') }}
                                             <a href="http://php.net/manual/en/function.date.php" target="_blank"><i class="icon ion-help-circled"></i></a>
                                         </label>
@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label>
+                                        <label class="control-label">
                                             {{ trans('forms.settings.timezone.issue-date-format') }}
                                             <a href="http://php.net/manual/en/function.date.php" target="_blank"><i class="icon ion-help-circled"></i></a>
                                         </label>
@@ -68,7 +68,7 @@
 
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-actions">
                                     <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
                                 </div>
                             </div>

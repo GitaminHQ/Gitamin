@@ -10,7 +10,8 @@
                 <span class="uppercase">
                     <i class="fa fa-folder"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
                 </span>
-                <a class="btn btn-sm btn-success pull-right" href="{{ route('groups.new') }}">
+                <a class="btn btn-success pull-right" href="{{ route('groups.new') }}">
+                    <i class="fa fa-plus"></i>
                     {{ trans('gitamin.groups.add.title') }}
                 </a>
                 <div class="clearfix"></div>
@@ -31,8 +32,6 @@
                         </div>
                         <div class="col-xs-6 text-right">
                             <a href="{{ route('dashboard.projects.add',['team_id'=>$team->id]) }}" class="btn btn-sm btn-info">{{ trans('dashboard.projects.add.title') }}</a>
-                            <a href="{{ route('dashboard.teams.edit', [$team->id]) }}" class="btn btn-sm btn-default">{{ trans('forms.edit') }}</a>
-                            <a href="/dashboard/projects/teams/{{ $team->id }}/delete" class="btn btn-sm btn-danger confirm-action" data-method="DELETE">{{ trans('forms.delete') }}</a>
                         </div>
                     </div>
                     @empty

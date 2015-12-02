@@ -10,7 +10,7 @@
                 <span class="uppercase">
                     <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
                 </span>
-                <a class="btn btn-sm btn-success pull-right" href="{{ route('projects.new') }}">
+                <a class="btn btn-success pull-right" href="{{ route('projects.new') }}">
                     <i class="fa fa-plus"></i>
                     {{ trans('gitamin.projects.new.title') }}
                 </a>

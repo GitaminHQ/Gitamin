@@ -47,6 +47,8 @@ return [
     'groups' => [
         'groups'       => 'Groups',
         'no_projects' => 'You should add a project team.',
+        'yours'       => 'Your Groups',
+        'explore'     => 'Explore Groups',
         'add'         => [
             'title'   => 'New Group',
             'success' => 'Project team added.',

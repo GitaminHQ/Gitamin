@@ -84,7 +84,7 @@ return [
             'git-repositories-path' => 'Repositories Path',
             'display-graphs'        => 'Display graphs on home page?',
             'about-app'             => 'About this application',
-            'days-of-issues'        => 'How many days of issues to show?',
+            'days-of-issues'        => 'issues show days',
             'banner'                => 'Banner Image',
             'banner-help'           => "It's recommended that you upload files no bigger than 930px wide .",
             'subscribers'           => 'Allow people to signup to email notifications?',
@@ -96,7 +96,7 @@ return [
         'timezone' => [
             'site-timezone'     => 'Site Timezone',
             'date-format'       => 'Date Format',
-            'issue-date-format' => 'Timestamp Format',
+            'issue-date-format' => 'Time Format',
         ],
         'stylesheet' => [
             'custom-css' => 'Custom Stylesheet',

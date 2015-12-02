@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label>{{ trans('forms.settings.localization.site-locale') }}</label>
+                                        <label class="control-label">{{ trans('forms.settings.localization.site-locale') }}</label>
                                         <div class="col-sm-10">
                                         <select name="app_locale" class="form-control" required>
                                             <option value="">{{ trans('forms.settings.localization.select-language') }}</option>
@@ -38,7 +38,7 @@
 
                         <div class="row">
                             <div class="col-xs-12">
-                                <div class="form-group">
+                                <div class="form-actions">
                                     <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
                                 </div>
                             </div>

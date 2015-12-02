@@ -78,24 +78,13 @@ class DashboardRoutes
 
             //Teams
             $router->group([
-                'as'     => 'teams.',
-                'prefix' => 'teams',
+                'as'     => 'groups.',
+                'prefix' => 'groups',
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'TeamController@showProjectTeams',
+                    'uses' => 'GroupsController@index',
                 ]);
-                $router->get('add', [
-                    'as'   => 'add',
-                    'uses' => 'TeamController@showAddProjectTeam',
-                ]);
-                $router->get('edit/{project_team}', [
-                    'as'   => 'edit',
-                    'uses' => 'TeamController@showEditProjectTeam',
-                ]);
-                $router->post('edit/{project_team}', 'TeamController@updateProjectTeamAction');
-                $router->delete('{project_team}/delete', 'TeamController@deleteProjectTeamAction');
-                $router->post('add', 'TeamController@postAddProjectTeam');
 
             });
 
