@@ -1,9 +1,11 @@
+
+
 // Brand colours.
 $brand-primary:             darken(#428bca, 6.5%) !default;
-$brand-success:             $gitamin-primary !default;
-$brand-info:                $gitamin-blue !default;
-$brand-warning:             $gitamin-orange !default;
-$brand-danger:              $gitamin-red !default;
+$brand-success:             $green-normal !default;
+$brand-info:                $blue-normal !default;
+$brand-warning:             $orange-normal !default;
+$brand-danger:              $red-normal !default;
 
 // Default border radius
 $border-radius-base:        2px !default;

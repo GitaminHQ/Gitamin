@@ -7,7 +7,7 @@
                     <span>{{ trans('dashboard.dashboard') }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/projects*') !!}>
+            <li {!! set_active('*projects*') !!}>
                 <a href="{{ route('dashboard.projects.index') }}">
                     <i class="fa fa-cubes"></i>
                     <span>{{ trans('dashboard.projects.projects') }}</span>
@@ -20,10 +20,10 @@
                     <span>{{ trans('dashboard.activities.activities') }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/teams*') !!}>
-                <a href="{{ route('dashboard.teams.index') }}">
+            <li {!! set_active('groups*') !!}>
+                <a href="{{ route('groups.index') }}">
                     <i class="fa fa-group"></i>
-                    <span>{{ trans('dashboard.teams.teams') }}</span>
+                    <span>{{ trans('gitamin.groups.groups') }}</span>
                     <span class="label label-info">{{ $project_team_count }}</span>
                 </a>
             </li>

@@ -12,12 +12,57 @@
 return [
     // Projects
     'projects' => [
+        'projects'         => 'Projects',
+        'project_statuses' => 'Project Statuses',
+        'listed_team'      => 'Teamed under :name',
+
+        'all'              => 'All',
+        'yours'            => 'Your Projects',
+        'starred'          => 'Starred Projects',
+        'explore'          => 'Explore Projects',
+
+        'new'              => [
+            'title'   => 'New Project',
+            'message' => 'You should add a project.',
+            'success' => 'Project created.',
+            'failure' => 'Something went wrong with the project.',
+        ],
+        'edit' => [
+            'title'   => 'Edit a Project',
+            'success' => 'Project updated.',
+            'failure' => 'Something went wrong with the project.',
+        ],
+        'delete' => [
+            'success' => 'Project deleted.',
+            'failure' => 'The Project could not be deleted. Please try again.',
+        ],
         'status' => [
             1 => 'Public',
             2 => 'Internal',
             3 => 'Private',
         ],
     ],
+
+     // Project teams
+    'groups' => [
+        'groups'       => 'Groups',
+        'no_projects' => 'You should add a project team.',
+        'add'         => [
+            'title'   => 'New Group',
+            'success' => 'Project team added.',
+            'failure' => 'Something went wrong with the project team.',
+        ],
+        'edit'        => [
+            'title'   => 'Edit a Project Group',
+            'success' => 'Project team updated.',
+            'failure' => 'Something went wrong with the project team.',
+        ],
+        'delete'      => [
+            'success' => 'Project Group deleted.',
+            'failure' => 'The Project Team could not be deleted. Please try again.',
+        ],
+    ],
+
 
     // Issues
     'issues' => [

@@ -15,6 +15,10 @@
                     <li>
                         <a class="btn btn-link" href="/auth/logout">{{ trans('dashboard.logout') }}</a>
                     </li>
+                    @else
+                     <li>
+                        <a class="btn btn-link" href="/auth/login">{{ trans('forms.login') }}</a>
+                    </li>
                     @endif
                     <li>
                         <a class="btn btn-link" href="{{ route('feed.rss') }}">{{ trans('gitamin.rss-feed') }}</a>

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Http\Controllers\Dashboard;
+namespace Gitamin\Http\Controllers;
 
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;

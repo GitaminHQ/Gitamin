@@ -48,22 +48,22 @@
         background-color: #f9f9f9;
 
         &.bg-green {
-            background-color: $gitamin-green;
+            background-color: $green-normal;
             color: white;
         }
 
         &.bg-blue {
-            background-color: $gitamin-blue;
+            background-color: $blue-normal;
             color: white;
         }
 
         &.bg-red {
-            background-color: $gitamin-red;
+            background-color: $red-normal;
             color: white;
         }
 
         &.bg-teal {
-            background-color: $gitamin-teal;
+            background-color: $orange-normal;
             color: white;
         }
     }

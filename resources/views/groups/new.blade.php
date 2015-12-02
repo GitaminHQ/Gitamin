@@ -1,0 +1,58 @@
+@extends('layout.dashboard')
+
+@section('content')
+    <div class="header">
+        <div class="sidebar-toggler visible-xs">
+            <i class="icon ion-navicon"></i>
+        </div>
+        <span class="uppercase">
+            <i class="icons ion-ios-keypad"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
+        </span>
+        &gt; <small>{{ trans('gitamin.groups.add.title') }}</small>
+    </div>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                @include('dashboard.partials.errors')
+                <form name="CreateProjectTeamForm" class="form-horizontal" role="form" action="/dashboard/teams/add" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="group-path">{{ trans('forms.groups.path') }}</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">{{ url() }}/</div>
+                                    <input type="text" class="form-control" name="group[path]" id="group-path" placeholder="open-source" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="group-name">{{ trans('forms.groups.name') }}</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" name="group[name]" id="group-name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{ trans('forms.groups.description') }}</label>
+                            <div class="col-sm-10">
+                                <textarea name="group[description]" class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="group-avatar">{{ trans('forms.groups.avatar') }}</label>
+                            <div class="col-sm-10">
+                            <input type="file" class="form-control" name="group[avatar]" id="group-avatar" required>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
+                        <a class="btn btn-default" href="{{ route('groups.index') }}">{{ trans('forms.cancel') }}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@stop

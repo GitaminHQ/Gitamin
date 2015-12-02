@@ -20,9 +20,9 @@ return [
         'listed_team'      => 'Teamed under :name',
 
         'all'              => 'All',
-        'my'               => 'Mine',
-        'joined'           => 'Teams',
-        'watched'          => 'Watching',
+        'yours'            => 'Your Projects',
+        'starred'          => 'Starred Projects',
+        'explore'          => 'Explore Projects',
 
         'add'              => [
             'title'   => 'Add a Project',
@@ -40,26 +40,7 @@ return [
             'failure' => 'The Project could not be deleted. Please try again.',
         ],
 
-        // Project teams
-        'teams' => [
-            'teams'       => 'Project team|Project teams',
-            'no_projects' => 'You should add a project team.',
-            'add'         => [
-                'title'   => 'Add a Project Team',
-                'success' => 'Project team added.',
-                'failure' => 'Something went wrong with the project team.',
-            ],
-            'edit'        => [
-                'title'   => 'Edit a Project Team',
-                'success' => 'Project team updated.',
-                'failure' => 'Something went wrong with the project team.',
-            ],
-            'delete'      => [
-                'success' => 'Project Team deleted.',
-                'failure' => 'The Project Team could not be deleted. Please try again.',
-            ],
-        ],
-
+        
         // Project labels
         'labels' => [
             'labels'    => 'Project label|Project labels',
@@ -81,29 +62,9 @@ return [
         ],
     ],
 
-    // Project teams
-    'teams' => [
-        'teams'       => 'Teams',
-        'no_projects' => 'You should add a project team.',
-        'add'         => [
-            'title'   => 'Add a Project Team',
-            'success' => 'Project team added.',
-            'failure' => 'Something went wrong with the project team.',
-        ],
-        'edit'        => [
-            'title'   => 'Edit a Project Team',
-            'success' => 'Project team updated.',
-            'failure' => 'Something went wrong with the project team.',
-        ],
-        'delete'      => [
-            'success' => 'Project Team deleted.',
-            'failure' => 'The Project Team could not be deleted. Please try again.',
-        ],
-    ],
-
     // Activities
     'activities' => [
-        'activities'      => 'Activities',
+        'activities'      => 'Activity',
         'all'             => 'All',
         'project_update'  => 'Project updated',
         'topic'           => 'Topic',

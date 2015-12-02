@@ -7,7 +7,7 @@
                         <a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i></a>
                     </li>
                     <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('dashboard.explore') }}">
-                        <a href="{{ route('explore') }}"><i class="fa fa-home"></i></a>
+                        <a href="{{ route('index') }}"><i class="fa fa-home"></i></a>
                     </li>
                 </ul>
             </div>

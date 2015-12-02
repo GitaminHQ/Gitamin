@@ -5,8 +5,6 @@
     @include('dashboard.partials.errors')
 </div>
 
-@include('partials.about-app')
-
 <h4>{{ formatted_date($issue->created_at) }}</h4>
 
 <div class="timeline">

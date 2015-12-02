@@ -25,18 +25,27 @@ class DashboardRoutes
      */
     public function map(Registrar $router)
     {
+        // Dashboard
+        $router->group([
+            'middleware' => ['app.hasSetting'],
+            'setting'    => 'app_name',
+            'as'         => 'dashboard.',
+        ], function ($router) {
+            $router->get('dashboard', [
+                'as'   => 'index',
+                'uses' => 'DashboardController@showDashboard',
+            ]);
+
+            
+        });
+
         $router->group([
             'middleware' => 'auth',
             'prefix'     => 'dashboard',
             'namespace'  => 'Dashboard',
             'as'         => 'dashboard.',
         ], function ($router) {
-            // Dashboard
-            $router->get('/', [
-                'as'   => 'index',
-                'uses' => 'DashboardController@showDashboard',
-            ]);
-
+            
             // Projects
             $router->group([
                 'as'     => 'projects.',
@@ -44,7 +53,11 @@ class DashboardRoutes
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'ProjectController@showProjects',
+                    'uses' => 'ProjectController@index',
+                ]);
+                $router->get('starred', [
+                    'as'   => 'starred',
+                    'uses' => 'ProjectController@starred',
                 ]);
                 $router->get('add', [
                     'as'   => 'add',

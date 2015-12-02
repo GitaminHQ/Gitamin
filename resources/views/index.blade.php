@@ -5,12 +5,21 @@
     @include('dashboard.partials.errors')
 </div>
 
-@include('partials.about-app')
+<div class="section-explore">
+    <div class="alert alert-success">
+    @if($current_user)
+        Welcome back, {{ $current_user->username }} <a class="btn btn-link" href="/dashboard">{{ trans('dashboard.dashboard') }}</a> or <a class="btn btn-link" href="/auth/logout">{{ trans('forms.logout') }}</a>
+    @else
+        <a class="btn btn-link" href="/auth/login">{{ trans('forms.login') }}</a>
+    @endif
+    </div>
+</div>
 
+<!--
 <div class="section-explore">
     <div class="alert alert-{{ $systemStatus }}">{{ $systemMessage }}</div>
 </div>
-
+-->
 @if(!$project_teams->isEmpty() || !$unteamed_projects->isEmpty())
 <div class="section-projects">
     @include('partials.projects')
@@ -29,14 +38,14 @@
     <ul class="pager">
         @if($can_page_backward)
         <li class="previous">
-            <a href="{{ route('explore') }}?start_date={{ $previous_date }}" class="links">
+            <a href="{{ route('explore.index') }}?start_date={{ $previous_date }}" class="links">
                 <span aria-hidden="true">&larr;</span> {{ trans('gitamin.issues.previous_week') }}
             </a>
         </li>
         @endif
         @if($can_page_forward)
         <li class="next">
-            <a href="{{ route('explore') }}?start_date={{ $next_date }}" class="links">
+            <a href="{{ route('explore.index') }}?start_date={{ $next_date }}" class="links">
                 {{ trans('gitamin.issues.next_week') }} <span aria-hidden="true">&rarr;</span>
             </a>
         </li>

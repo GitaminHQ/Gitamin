@@ -1,6 +1,3 @@
-label {
-    font-size: 14px;
-}
 
 textarea {
     resize: none;
@@ -25,8 +22,15 @@ textarea {
 
 .form-horizontal {
     label {
+        font-weight: normal;
         float:left;
-        width: 15%;
+        width: 16.66666667%;
+    }
+    
+    .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 10px;
     }
 }
 
@@ -47,6 +51,14 @@ textarea {
     &:focus {
         border-color: #66afe9;
     }
+}
+
+.form-actions {
+    padding: 17px 20px 18px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    background-color: #f7f8fa;
+    border-top: 1px solid #dce0e6;
 }
 
 .project-inline {

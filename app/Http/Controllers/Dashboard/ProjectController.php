@@ -43,31 +43,26 @@ class ProjectController extends Controller
     public function __construct()
     {
         $this->subMenu = [
-            'projects' => [
-                'title'  => trans('dashboard.projects.projects'),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-sitemap',
-                'active' => false,
-            ], /*
-            'my' => [
-                'title'  => trans('dashboard.projects.my'),
+            'yours' => [
+                'title'  => trans('dashboard.projects.yours'),
                 'url'    => route('dashboard.projects.index'),
                 'icon'   => 'fa fa-edit',
                 'active' => false,
             ],
-            'joined' => [
-                'title'  => trans('dashboard.projects.joined'),
-                'url'    => route('dashboard.projects.index'),
+            'starred' => [
+                'title'  => trans('dashboard.projects.starred'),
+                'url'    => route('dashboard.projects.starred'),
                 'icon'   => 'fa fa-umbrella',
                 'active' => false,
             ],
-            'watched' => [
-                'title'  => trans('dashboard.projects.watched'),
-                'url'    => route('dashboard.projects.index'),
+            'explore' => [
+                'title'  => trans('dashboard.projects.explore'),
+                'url'    => route('explore.index'),
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
-            '<hr>'    => [],*/
+            /*
+            '<hr>'    => [],
             'teams'   => [
                 'title'  => trans_choice('dashboard.teams.teams', 2),
                 'url'    => route('dashboard.teams.index'),
@@ -79,7 +74,7 @@ class ProjectController extends Controller
                 'url'    => route('dashboard.projects.index'),
                 'icon'   => 'fa fa-tags',
                 'active' => false,
-            ],
+            ],*/
         ];
 
         View::share([
@@ -93,11 +88,24 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showProjects()
+    public function index()
     {
         $projects = Project::orderBy('order')->orderBy('created_at')->get();
 
-        $this->subMenu['projects']['active'] = true;
+        $this->subMenu['yours']['active'] = true;
+
+        return View::make('dashboard.projects.index')
+            ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
+            ->withProjects($projects)
+            ->withSubMenu($this->subMenu);
+    }
+
+    public function starred()
+    {
+
+        $projects = Project::orderBy('order')->orderBy('created_at')->get();
+
+        $this->subMenu['starred']['active'] = true;
 
         return View::make('dashboard.projects.index')
             ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))

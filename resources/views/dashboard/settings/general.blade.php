@@ -60,16 +60,6 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label class="control-label">{{ trans('forms.settings.general.about-app') }}</label>
-                                        <div class='col-sm-10 markdown-control'>
-                                            <textarea name="app_about" class="form-control autosize" rows="4">{{ $about_app }}</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
                                         <label class="control-label">{{ trans('forms.settings.general.days-of-issues') }}</label>
                                         <div class="col-sm-10">
                                             <input type="number" max="100" name="app_issue_days" class="form-control" value="{{ Setting::get('app_issue_days', 7) }}">

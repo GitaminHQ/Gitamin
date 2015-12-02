@@ -27,7 +27,6 @@ class AppComposer
      */
     public function compose(View $view)
     {
-        $view->withAboutApp(Markdown::convertToHtml(Setting::get('app_about')));
         $view->withAppBanner(Setting::get('app_banner'));
         $view->withAppBannerStyleFullWidth(Setting::get('style_fullwidth_header'));
         $view->withAppBannerType(Setting::get('app_banner_type'));

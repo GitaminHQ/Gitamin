@@ -54,19 +54,24 @@ return [
 
     // Projects form fields
     'projects' => [
-        'name'        => 'Name',
-        'status'      => 'Status',
-        'team'        => 'Team',
-        'description' => 'Description',
-        'slug'        => 'Path',
-        'tags'        => 'Tags',
-        'tags-help'   => 'Comma separated.',
-        'enabled'     => 'Project enabled?', 
+        'name'             => 'Name',
+        'visibility_level' => 'Visibility Level',
+        'team'             => 'Team',
+        'description'      => 'Description',
+        'slug'             => 'Project path',
+        'namespace'        => 'Namespace',
+        'import'           => 'Import project from',
+        'tags'             => 'Tags',
+        'tags-help'        => 'Comma separated.',
+        'enabled'          => 'Project enabled?', 
     ],
 
-    'teams' => [
-        'name' => 'Name',
-        'slug' => 'Path',
+    'groups' => [
+        'name'        => 'Group name',
+        'path'        => 'Group path',
+        'description' => 'Details',
+        'avatar'      => 'Group avatar',
+        'add'         => 'Create Group',
     ],
 
     // Settings
@@ -142,6 +147,8 @@ return [
     'cancel' => 'Cancel',
     'remove' => 'Remove',
     'invite' => 'Invite',
+    'login'  => 'Log In',
+    'logout' => 'Log Out',
     'signup' => 'Sign Up',
 
     // Other

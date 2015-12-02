@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Http\Controllers\Dashboard;
+namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class TeamController extends Controller
+class GroupsController extends Controller
 {
     use DispatchesJobs;
 
@@ -52,28 +52,9 @@ class TeamController extends Controller
                 'url'    => route('dashboard.projects.index'),
                 'icon'   => 'fa fa-sitemap',
                 'active' => false,
-            ], /*
-            'my' => [
-                'title'  => trans('dashboard.projects.my'),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-edit',
-                'active' => false,
-            ],
-            'joined' => [
-                'title'  => trans('dashboard.projects.joined'),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-umbrella',
-                'active' => false,
-            ],
-            'watched' => [
-                'title'  => trans('dashboard.projects.watched'),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-eye',
-                'active' => false,
-            ],
-            '<hr>'    => [],*/
-            'teams'   => [
-                'title'  => trans_choice('dashboard.teams.teams', 2),
+            ], 
+            'groups'   => [
+                'title'  => trans_choice('gitamin.groups.groups', 2),
                 'url'    => route('dashboard.teams.index'),
                 'icon'   => 'fa fa-folder',
                 'active' => false,
@@ -93,33 +74,16 @@ class TeamController extends Controller
     }
 
     /**
-     * Shows the projects view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showProjects()
-    {
-        $projects = Project::orderBy('order')->orderBy('created_at')->get();
-
-        $this->subMenu['projects']['active'] = true;
-
-        return View::make('dashboard.projects.index')
-            ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
-            ->withProjects($projects)
-            ->withSubMenu($this->subMenu);
-    }
-
-    /**
      * Shows the project teams view.
      *
      * @return \Illuminate\View\View
      */
-    public function showProjectTeams()
+    public function index()
     {
-        $this->subMenu['teams']['active'] = true;
+        $this->subMenu['groups']['active'] = true;
 
-        return View::make('dashboard.teams.index')
-            ->withPageTitle(trans_choice('dashboard.teams.teams', 2).' - '.trans('dashboard.dashboard'))
+        return View::make('groups.index')
+            ->withPageTitle(trans_choice('gitamin.groups.groups', 2).' - '.trans('dashboard.dashboard'))
             ->withTeams(ProjectTeam::orderBy('order')->get())
             ->withSubMenu($this->subMenu);
     }
@@ -222,11 +186,11 @@ class TeamController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showAddProject()
+    public function new()
     {
         $teamId = (int) Binput::get('team_id');
 
-        return View::make('dashboard.projects.add')
+        return View::make('groups.new')
             ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
             ->withTeamId($teamId)
             ->withTeams(ProjectTeam::all());

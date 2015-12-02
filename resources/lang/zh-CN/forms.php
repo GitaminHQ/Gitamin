@@ -146,6 +146,8 @@ return [
     'cancel' => '取消',
     'remove' => '移除',
     'invite' => '邀请',
+    'login'  => '登录',
+    'logout' => '退出',
     'signup' => '注册',
 
     // Other
