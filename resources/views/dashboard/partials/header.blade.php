@@ -6,8 +6,8 @@
                     <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('dashboard.logout') }}">
                         <a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i></a>
                     </li>
-                    <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('dashboard.explore') }}">
-                        <a href="{{ route('index') }}"><i class="fa fa-home"></i></a>
+                    <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('gitamin.projects.new.title') }}">
+                        <a href="{{ route('projects.new') }}"><i class="fa fa-plus"></i></a>
                     </li>
                 </ul>
             </div>
