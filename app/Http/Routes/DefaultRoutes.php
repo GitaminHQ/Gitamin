@@ -31,12 +31,7 @@ class DefaultRoutes
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'ExploreController@showIndex',
-            ]);
-
-            $router->get('issue/{issue}', [
-                'as'    => 'issue',
-                'uses'  => 'ExploreController@showIssue',
+                'uses' => 'ExploreController@index',
             ]);
             
         });

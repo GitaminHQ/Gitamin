@@ -35,7 +35,11 @@ class ExploreRoutes
                 'as'   => 'index',
                 'uses' => 'ExploreController@index',
             ]);
-
+            
+            $router->get('issue/{issue}', [
+                'as'    => 'issue',
+                'uses'  => 'ExploreController@showIssue',
+            ]);
             
         });
     }

@@ -13,7 +13,7 @@
         <br>
         <small class="date">
             @if($with_link)
-            <a href="{{ route('issue', ['id' => $issue->id]) }}" class="links"><abbr class="timeago" data-toggle="tooltip" data-placement="right" title="{{ $issue->timestamp_formatted }}" data-timeago="{{ $issue->timestamp_iso }}"></abbr></a>
+            <a href="{{ route('explore.issue', ['id' => $issue->id]) }}" class="links"><abbr class="timeago" data-toggle="tooltip" data-placement="right" title="{{ $issue->timestamp_formatted }}" data-timeago="{{ $issue->timestamp_iso }}"></abbr></a>
             @else
             <abbr class="timeago" data-toggle="tooltip" data-placement="right" title="{{ $issue->timestamp_formatted }}" data-timeago="{{ $issue->timestamp_iso }}"></abbr>
             @endif
