@@ -17,7 +17,7 @@ use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\Group;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
@@ -89,8 +89,8 @@ class IssueController extends Controller
     {
         return View::make('dashboard.issues.add')
             ->withPageTitle(trans('dashboard.issues.add.title').' - '.trans('dashboard.dashboard'))
-            ->withProjectsInTeams(ProjectTeam::with('projects')->get())
-            ->withProjectsOutTeams(Project::where('team_id', 0)->get());
+            ->withProjectsInTeams(Group::with('projects')->get())
+            ->withProjectsOutTeams(Project::where('namespace_id', 0)->get());
     }
 
     /**

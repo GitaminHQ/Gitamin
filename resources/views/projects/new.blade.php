@@ -66,7 +66,7 @@ $(document).ready(function() {
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.description') }}</label>
                             <div class="col-sm-10">
-                                <textarea name="project[description]" class="form-control" rows="5">{{ Input::old('project.description') }}</textarea>
+                                <textarea name="project[description]" class="form-control" rows="4">{{ Input::old('project.description') }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">

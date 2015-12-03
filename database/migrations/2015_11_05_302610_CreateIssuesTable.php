@@ -24,20 +24,25 @@ class CreateIssuesTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->integer('project_id')->default(0);
-            $table->string('name');
-            $table->integer('status');
-            $table->boolean('visible')->default(1);
-            $table->longText('message');
-            $table->integer('user_id')->default(0);
-            $table->timestamp('scheduled_at')->nullable()->default(null);
+            $table->string('title');
+            $table->integer('assignee_id');
+            $table->integer('author_id');
+            $table->integer('project_id');
             $table->timestamps();
+            $table->integer('position')->default(0);
+            $table->string('branch_name');
+            $table->text('description');
+            $table->integer('milestone_id');
+            $table->string('state');
+            $table->integer('iid');
+            $table->integer('updated_by_id');
+
             $table->softDeletes();
 
+            $table->index('assignee_id');
+            $table->index('author_id');
             $table->index('project_id');
-            $table->index('status');
-            $table->index('user_id');
-            $table->index('visible');
+            $table->index('state');
         });
     }
 
