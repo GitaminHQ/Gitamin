@@ -9,6 +9,26 @@
  * file that was distributed with this source code.
  */
 
+# == Schema Information
+#
+# Table name: issues
+#
+#  id            :integer          not null, primary key
+#  title         :string(255)
+#  assignee_id   :integer
+#  author_id     :integer
+#  project_id    :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  position      :integer          default(0)
+#  branch_name   :string(255)
+#  description   :text
+#  milestone_id  :integer
+#  state         :string(255)
+#  iid           :integer
+#  updated_by_id :integer
+#
+
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;

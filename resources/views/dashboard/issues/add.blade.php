@@ -18,13 +18,13 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
-                            <label for="issue-name">{{ trans('forms.issues.name') }}</label>
+                            <label class="control-label" for="issue-name">{{ trans('forms.issues.name') }}</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="name" id="issue-name" required value="{{ Input::old('issue.name') }}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="issue-name">{{ trans('forms.issues.status') }}</label>
+                            <label class="control-label" for="issue-name">{{ trans('forms.issues.status') }}</label>
                             <div class="col-sm-10">
                             <label class="radio-inline">
                                 <input type="radio" name="status" value="1">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="issue-name">{{ trans('forms.issues.visibility') }}</label>
+                            <label class="control-label" for="issue-name">{{ trans('forms.issues.visibility') }}</label>
                             <div class="col-sm-10">
                             <select name='visible' class="form-control">
                                 <option value='1' selected>{{ trans('forms.issues.public') }}</option>
@@ -59,7 +59,7 @@
                         </div>
                         @if(!$projects_in_teams->isEmpty() || !$projects_out_teams->isEmpty())
                         <div class="form-group">
-                            <label>{{ trans('forms.issues.project') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
+                            <label class="control-label">{{ trans('forms.issues.project') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
                             <div class="col-sm-10">
                             <select name='project_id' class='form-control'>
                                 <option value='0' selected></option>
@@ -78,15 +78,15 @@
                         </div>
                         @endif
                         <div class="form-group">
-                            <label>{{ trans('forms.issues.message') }}</label>
+                            <label class="control-label">{{ trans('forms.issues.message') }}</label>
                             <div class="col-sm-10">
                             <div class='markdown-control'>
-                                <textarea name="message" class="form-control autosize" rows="5" required>{{ Input::old('issue.message') }}</textarea>
+                                <textarea name="message" class="form-control autosize" rows="4" required>{{ Input::old('issue.message') }}</textarea>
                             </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans('forms.issues.issue_time') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
+                            <label class="control-label">{{ trans('forms.issues.issue_time') }} <small class="text-muted">{{ trans('forms.optional') }}</small></label>
                             <div class="col-sm-10">
                             <input type="text" name="created_at" class="form-control" rel="datepicker-any">
                             </div>
@@ -101,11 +101,9 @@
                         @endif
                     </fieldset>
 
-                    <div class="form-group">
-                        <div class="btn-group">
+                    <div class="form-actions">
                             <button type="submit" class="btn btn-success">{{ trans('forms.add') }}</button>
                             <a class="btn btn-default" href="{{ route('dashboard.issues.index') }}">{{ trans('forms.cancel') }}</a>
-                        </div>
                     </div>
                 </form>
             </div>
