@@ -88,6 +88,7 @@ class GroupsController extends Controller
     {
         $group = Group::where('path', '=', $namespace)->first();
         return View::make('groups.show')
+            ->withPageTitle($group->name)
             ->withGroup($group);
     }
 
