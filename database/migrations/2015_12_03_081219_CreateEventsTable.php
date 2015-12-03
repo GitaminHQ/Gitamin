@@ -13,30 +13,33 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSnippetsTable extends Migration
+class CreateEventsTable extends Migration
 {
-    /**
+   /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-         Schema::create('snippets', function (Blueprint $table) {
+         Schema::create('events', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
+            $table->string('target_type');
+            $table->integer('target_id');
             $table->string('title');
-            $table->text('content');
-            $table->integer('author_id');
+            $table->text('data');
+           
             $table->integer('project_id');
             $table->timestamps();
-            $table->string('file_name');
-            $table->string('type');
-            $table->integer('visibility_level')->default(0);
+            $table->integer('action');
+            $table->integer('author_id');
 
             $table->index('author_id');
             $table->index('project_id');
+            $table->index('target_id');
+            $table->index('target_type');
         });
     }
 
@@ -47,6 +50,6 @@ class CreateSnippetsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('snippets');
+        Schema::drop('events');
     }
 }
