@@ -35,7 +35,15 @@
                         </div>
                     </div>
                     @empty
-                    <div class="list-group-item text-danger">{{ trans('dashboard.groups.no_items') }}</div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <i class="fa fa-users"></i> {{ trans('dashboard.groups.new.message') }}
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="btn btn-success" href="{{ route('groups.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.groups.new.title') }}</a>
+                        </div>
+                    </div>
+                    <hr>
                     @endforelse
                 </div>
             </div>

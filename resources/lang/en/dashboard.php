@@ -206,6 +206,9 @@ return [
         'two-factor' => 'Please enter your token.',
     ],
 
+    // Navbar
+    'profile'     => 'Profile',
+
     // Sidebar footer
     'help'        => 'Help',
     'explore'     => 'Explore',

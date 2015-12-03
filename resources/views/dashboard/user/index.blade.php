@@ -6,7 +6,7 @@
             <i class="icon ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="ion ion-person"></i> {{ trans('dashboard.group.profile') }}
+            <i class="ion ion-person"></i> {{ trans('dashboard.profile') }}
         </span>
     </div>
     <div class="content-wrapper">
@@ -48,8 +48,10 @@
                                     <span class="help-block">{{ trans('forms.user.api-token-help') }}</span>
                                 </div>
                                 <hr>
-
+                                <div class="form-actions">
                                 <button type="submit" class="btn btn-success">{{ trans('forms.update') }}</button>
+                                <a class="btn btn-default" href="{{ route('dashboard.index') }}">{{ trans('forms.cancel') }}</a>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
