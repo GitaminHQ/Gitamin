@@ -14,6 +14,7 @@ namespace Gitamin\Http\Controllers;
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Invite\ClaimInviteCommand;
 use Gitamin\Commands\User\SignupUserCommand;
+use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
 use Gitamin\Models\Invite;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -37,7 +38,7 @@ class SignupController extends Controller
     public function getSignup($code = null)
     {
         if ($code === null) {
-            throw new NotFoundHttpException();
+            //throw new NotFoundHttpException();
         }
 
         $invite = Invite::where('code', '=', $code)->first();
@@ -47,9 +48,9 @@ class SignupController extends Controller
         }
 
         return View::make('signup')
-            ->withCode($invite->code)
+            ->withCode($invite ? $invite->code : '')
             ->withUsername(Binput::old('username'))
-            ->withEmail(Binput::old('emai', $invite->email));
+            ->withEmail(Binput::old('emai', $invite ? $invite->email : ''));
     }
 
     /**
@@ -61,6 +62,7 @@ class SignupController extends Controller
      */
     public function postSignup($code = null)
     {
+        /*
         if ($code === null) {
             throw new NotFoundHttpException();
         }
@@ -70,24 +72,34 @@ class SignupController extends Controller
         if (!$invite || $invite->claimed()) {
             throw new BadRequestHttpException();
         }
+        */
 
         try {
-            $this->dispatch(new SignupUserCommand(
+            $user = $this->dispatch(new SignupUserCommand(
                 Binput::get('username'),
                 Binput::get('password'),
                 Binput::get('email'),
                 2
             ));
+            $namespaceData = [
+                'name' => $user->username,
+                'path' => $user->username,
+                'owner_id' => $user->id,
+                'description' => '',
+                'type' => 'user',
+            ];
+            $this->dispatchFromArray(AddProjectNamespaceCommand::class, $namespaceData);
+
         } catch (ValidationException $e) {
-            return Redirect::route('signup.invite', ['code' => $invite->code])
+            return Redirect::route('auth.signup', ['code' => $code])
                 ->withInput(Binput::except('password'))
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
-        $this->dispatch(new ClaimInviteCommand($invite));
+        //$this->dispatch(new ClaimInviteCommand($invite));
 
-        return Redirect::route('explore')
+        return Redirect::route('auth.login')
             ->withSuccess(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.awesome'), trans('gitamin.signup.success')));
     }
 }

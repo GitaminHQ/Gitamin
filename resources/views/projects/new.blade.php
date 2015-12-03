@@ -1,5 +1,13 @@
 @extends('layout.dashboard')
 
+@section('js')
+<script>
+$(document).ready(function() {
+  $(".js-example-basic-single").select2();
+});
+</script>
+@stop
+
 @section('content')
     <div class="header">
         <div class="sidebar-toggler visible-xs">
@@ -38,7 +46,7 @@
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.namespace') }}</label>
                             <div class="col-sm-10">
-                            <select name="project[namespace_id]" class="form-control">
+                            <select name="project[namespace_id]" class="form-control js-example-basic-single">
                                 <option value="0" selected></option>
                                 @foreach($groups as $group)
                                 <option value="{{ $group->id }}" {{ Input::old('project.namespace_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
@@ -91,4 +99,5 @@
             </div>
         </div>
     </div>
+
 @stop

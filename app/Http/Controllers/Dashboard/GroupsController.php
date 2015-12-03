@@ -77,7 +77,7 @@ class GroupsController extends Controller
 
         return View::make('dashboard.groups.index')
             ->withPageTitle(trans_choice('gitamin.groups.groups', 2).' - '.trans('dashboard.dashboard'))
-            ->withGroups(Group::where('type', '=', 'group')->get())
+            ->withGroups(Group::IsGroup()->Mine()->get())
             ->withSubMenu($this->subMenu);
     }
 }

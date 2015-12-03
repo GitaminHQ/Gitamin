@@ -37,6 +37,16 @@ class AuthRoutes
                 'uses'       => 'AuthController@showLogin',
             ]);
 
+            $router->get('signup', [
+                'middleware' => 'guest',
+                'as'         => 'signup',
+                'uses'       => 'SignupController@getSignup'
+            ]);
+
+            $router->post('signup', [
+                'uses' => 'SignupController@postSignup',
+            ]);
+
             $router->post('login', [
                 'middleware' => ['guest', 'csrf', 'throttling:10,10'],
                 'uses'       => 'AuthController@postLogin',

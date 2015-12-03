@@ -43,7 +43,7 @@ class ProjectsController extends Controller
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
-            ->withGroups(Group::all());
+            ->withGroups(Group::Mine()->get());
     }
 
     /**
