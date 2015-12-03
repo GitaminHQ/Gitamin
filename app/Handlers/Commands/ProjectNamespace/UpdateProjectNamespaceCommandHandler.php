@@ -27,8 +27,9 @@ class UpdateProjectNamespaceCommandHandler
     {
         $project_namespace = $command->project_namespace;
         $project_namespace->update([
-            'name'  => $command->name,
-            'path'  => $command->path,
+            'name'        => $command->name,
+            'path'        => $command->path,
+            'owner_id'    => $command->owner_id,
             'description' => $command->description,
         ]);
 

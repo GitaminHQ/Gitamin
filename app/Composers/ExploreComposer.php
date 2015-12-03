@@ -34,7 +34,7 @@ class ExploreComposer
             'favicon'       => 'favicon-high-alert',
         ];
 
-        if (Project::enabled()->notVisibilityLevel(1)->count() === 0) {
+        if (Project::notVisibilityLevel(1)->count() === 0) {
             // If all our projects are ok, do we have any non-fixed issues?
             $issues = Issue::orderBy('created_at', 'desc')->get();
             $issueCount = $issues->count();
@@ -47,15 +47,15 @@ class ExploreComposer
                 ];
             }
         } else {
-            if (Project::enabled()->whereIn('visibility_level', [2, 3])->count() > 0) {
+            if (Project::whereIn('visibility_level', [2, 3])->count() > 0) {
                 $withData['favicon'] = 'favicon-medium-alert';
             }
         }
 
         // Project & Project Team lists.
-        $usedProjectTeams = Project::enabled()->where('namespace_id', '>', 0)->groupBy('namespace_id')->lists('namespace_id');
+        $usedProjectTeams = Project::where('namespace_id', '>', 0)->groupBy('namespace_id')->lists('namespace_id');
         $projectTeams = ProjectNamespace::whereIn('id', $usedProjectTeams)->get();
-        $unteamedProjects = Project::enabled()->where('namespace_id', 0)->orderBy('order')->orderBy('created_at')->get();
+        $unteamedProjects = Project::where('namespace_id', 0)->orderBy('created_at')->get();
 
         $view->with($withData)
             ->withProjectTeams($projectTeams)

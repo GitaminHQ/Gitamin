@@ -27,9 +27,11 @@ class AddProjectNamespaceCommandHandler
     public function handle(AddProjectNamespaceCommand $command)
     {
         $group = ProjectNamespace::create([
-            'name'  => $command->name,
-            'path'  => $command->path,
-            'type'  => $command->type,
+            'name'        => $command->name,
+            'path'        => $command->path,
+            'owner_id'    => $command->owner_id,
+            'description' => $command->description,
+            'type'        => $command->type,
         ]);
 
         event(new ProjectNamespaceWasAddedEvent($group));

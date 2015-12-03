@@ -49,8 +49,6 @@ class UpdateProjectCommandHandler
             'description'      => $command->description,
             'path'             => $command->path,
             'visibility_level' => $command->visibility_level,
-            'enabled'          => $command->enabled,
-            'order'            => $command->order,
             'namespace_id'     => $command->namespace_id,
         ];
 

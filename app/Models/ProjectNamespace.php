@@ -34,16 +34,18 @@ class ProjectNamespace extends Model
 {
     use ValidatingTrait;
 
+    protected $table = 'namespaces';
     /**
      * The attributes that should be casted to native types.
      *
      * @var string[]
      */
     protected $casts = [
-        'id'   => 'int',
-        'name' => 'string',
-        'path' => 'string',
-        'type' => 'string',
+        'id'       => 'int',
+        'name'     => 'string',
+        'path'     => 'string',
+        'owner_id' => 'int',
+        'type'     => 'string',
     ];
 
     /**
@@ -51,7 +53,7 @@ class ProjectNamespace extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'path', 'description', 'type'];
+    protected $fillable = ['name', 'path', 'owner_id', 'description', 'type'];
 
     /**
      * The validation rules.
@@ -61,7 +63,8 @@ class ProjectNamespace extends Model
     public $rules = [
         'name'        => 'required|string',
         'path'        => 'required|string',
-        'type'        =>  'string',
+        'owner_id'    => 'int',
+        'type'        => 'string',
         'description' => 'string',
     ];
 

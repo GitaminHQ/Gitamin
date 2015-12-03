@@ -53,7 +53,7 @@ class DashboardController extends Controller
      */
     public function showDashboard()
     {
-        $projects = Project::orderBy('order')->get();
+        $projects = Project::get();
         //var_dump($projects);
         //$projects = [];
         $issues = $this->getIssues();

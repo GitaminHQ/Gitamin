@@ -13,31 +13,35 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectTeamsTable extends Migration
+class CreateReleasesTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
-        Schema::create('project_teams', function (Blueprint $table) {
+         Schema::create('releases', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('name');
-            $table->string('slug');
-            $table->integer('order')->default(0);
+            $table->string('tag');
+            $table->text('description');
+            $table->integer('project_id');
             $table->timestamps();
 
-            $table->index('order');
+            $table->index('project_id');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
     public function down()
     {
-        Schema::drop('project_teams');
+        Schema::drop('releases');
     }
 }
