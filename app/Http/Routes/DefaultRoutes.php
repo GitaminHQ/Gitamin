@@ -19,12 +19,14 @@ use Illuminate\Contracts\Routing\Registrar;
 class DefaultRoutes
 {
     /**
-     * Define the default routes.
+     * Define the install routes.
      *
      * @param \Illuminate\Contracts\Routing\Registrar $router
      */
     public function map(Registrar $router)
     {
+        
+        //Homepage
         $router->group([
             'middleware' => ['app.hasSetting'],
             'setting'    => 'app_name',
@@ -35,5 +37,28 @@ class DefaultRoutes
             ]);
             
         });
+
+        //Install Area
+        $router->group(['middleware' => ['app.isInstalled', 'localize']], function ($router) {
+            $router->controller('install', 'InstallController');
+        });
+
+
+        // Feed Area
+        $router->group([
+            'middleware' => 'app.hasSetting',
+            'setting'    => 'app_name',
+        ], function ($router) {
+            $router->get('/atom/{namespace?}', [
+                'as'   => 'feed.atom',
+                'uses' => 'FeedController@atomAction',
+            ]);
+            $router->get('/rss/{namespace?}', [
+                'as'   => 'feed.rss',
+                'uses' => 'FeedController@rssAction',
+            ]);
+        });
+
+
     }
 }

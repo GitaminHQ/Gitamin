@@ -13,7 +13,7 @@ namespace Gitamin\Http\Controllers;
 
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
@@ -52,15 +52,15 @@ class FeedController extends Controller
     /**
      * Generates an Atom feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectTeam|null $group
+     * @param \Gitamin\Models\ProjectTeam|null $namespace
      *
      * @return \Illuminate\Http\Response
      */
-    public function atomAction(ProjectTeam $group = null)
+    public function atomAction(ProjectNamespace $namespace = null)
     {
         $this->isRss = false;
 
-        return $this->feedAction($group);
+        return $this->feedAction($namespace);
     }
 
     /**
@@ -70,25 +70,25 @@ class FeedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function rssAction(ProjectTeam $group = null)
+    public function rssAction(ProjectNamespace $namespace = null)
     {
         $this->isRss = true;
         $this->feed->lang = Setting::get('app_locale');
 
-        return $this->feedAction($group);
+        return $this->feedAction($namespace);
     }
 
     /**
      * Generates an Atom feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectTeam|null $group
+     * @param \Gitamin\Models\ProjectTeam|null $namespace
      *
      * @return \Illuminate\Http\Response
      */
-    public function feedAction(ProjectTeam $group = null)
+    public function feedAction(ProjectNamespace $namespace = null)
     {
-        if ($group->exists) {
-            $group->projects->map(function ($project) {
+        if ($namespace->exists) {
+            $namespace->projects->map(function ($project) {
                 $project->issues()->visible()->orderBy('created_at', 'desc')->get()->map(function ($issue) {
                     $this->feedAddItem($issue);
                 });
