@@ -48,8 +48,8 @@
                     </fieldset>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
-                        <a class="btn btn-default" href="{{ route('dashboard.groups.index') }}">{{ trans('forms.cancel') }}</a>
+                        <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
+                        <a class="btn btn-default" href="{{ route('groups.group_show', ['namespace' => $group->path]) }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

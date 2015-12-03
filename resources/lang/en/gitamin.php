@@ -55,7 +55,7 @@ return [
             'failure' => 'Something went wrong with the project team.',
         ],
         'edit'        => [
-            'title'   => 'Edit a Project Group',
+            'title'   => 'Group settings',
             'success' => 'Project team updated.',
             'failure' => 'Something went wrong with the project team.',
         ],
