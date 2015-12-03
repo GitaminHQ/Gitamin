@@ -11,29 +11,29 @@
 
 namespace Gitamin\Handlers\Commands\ProjectNamespace;
 
-use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
-use Gitamin\Events\ProjectTeam\ProjectTeamWasUpdatedEvent;
+use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
+use Gitamin\Events\ProjectNamespace\ProjectNamespaceWasUpdatedEvent;
 
-class UpdateProjectTeamCommandHandler
+class UpdateProjectNamespaceCommandHandler
 {
     /**
-     * Handle the update project team command.
+     * Handle the update project group command.
      *
-     * @param \Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand $command
+     * @param \Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand $command
      *
      * @return \Gitamin\Models\ProjectNamespace
      */
-    public function handle(UpdateProjectTeamCommand $command)
+    public function handle(UpdateProjectNamespaceCommand $command)
     {
-        $team = $command->team;
-        $team->update([
+        $project_namespace = $command->project_namespace;
+        $project_namespace->update([
             'name'  => $command->name,
-            'slug'  => $command->slug,
-            'order' => $command->order,
+            'path'  => $command->path,
+            'description' => $command->description,
         ]);
 
-        event(new ProjectTeamWasUpdatedEvent($team));
+        event(new ProjectNamespaceWasUpdatedEvent($project_namespace));
 
-        return $team;
+        return $project_namespace;
     }
 }

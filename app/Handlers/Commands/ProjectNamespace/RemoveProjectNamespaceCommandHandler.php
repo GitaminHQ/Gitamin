@@ -11,10 +11,10 @@
 
 namespace Gitamin\Handlers\Commands\ProjectNamespace;
 
-use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
-use Gitamin\Events\ProjectTeam\ProjectTeamWasRemovedEvent;
+use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
+use Gitamin\Events\ProjectNamespace\ProjectNamespaceWasRemovedEvent;
 
-class RemoveProjectTeamCommandHandler
+class RemoveProjectNamespaceCommandHandler
 {
     /**
      * Handle the remove project team command.
@@ -23,17 +23,17 @@ class RemoveProjectTeamCommandHandler
      *
      * @return void
      */
-    public function handle(RemoveProjectTeamCommand $command)
+    public function handle(RemoveProjectNamespaceCommand $command)
     {
-        $team = $command->team;
+        $group = $command->group;
 
         event(new ProjectTeamWasRemovedEvent($team));
 
-        // Remove the team id from all project.
-        $team->projects->map(function ($project) {
-            $project->update(['team_id' => 0]);
+        // Remove the namespace id from all project.
+        $group->projects->map(function ($project) {
+            $project->update(['namespace_id' => 0]);
         });
 
-        $team->delete();
+        $group->delete();
     }
 }

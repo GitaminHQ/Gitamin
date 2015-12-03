@@ -31,7 +31,7 @@
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">
-                            <a href="{{ route('dashboard.projects.add',['team_id'=>$group->id]) }}" class="btn btn-sm btn-info">{{ trans('dashboard.projects.add.title') }}</a>
+                            <a href="{{ route('groups.group_edit',['namespace'=>$group->path]) }}" class="btn btn-sm btn-info">{{ trans('gitamin.groups.edit.title') }}</a>
                         </div>
                     </div>
                     @empty

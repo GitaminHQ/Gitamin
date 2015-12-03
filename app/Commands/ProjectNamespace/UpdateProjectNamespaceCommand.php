@@ -15,33 +15,28 @@ use Gitamin\Models\ProjectNamespace;
 
 final class UpdateProjectNamespaceCommand
 {
-    /**
-     * The project team.
-     *
-     * @var \Gitamin\Models\ProjectTeam
-     */
-    public $team;
 
+    public $project_namespace;
     /**
-     * The project team name.
+     * The project namespace name.
      *
      * @var string
      */
     public $name;
 
     /**
-     * The project team slug.
+     * The project namespace path.
      *
      * @var string
      */
-    public $slug;
+    public $path;
 
     /**
-     * The project team order.
+     * The project namespace description.
      *
-     * @var int
+     * @var string
      */
-    public $order;
+    public $description;
 
     /**
      * The validation rules.
@@ -50,8 +45,8 @@ final class UpdateProjectNamespaceCommand
      */
     public $rules = [
         'name'  => 'string',
-        'name'  => 'string',
-        'order' => 'int',
+        'path'  => 'string',
+        'description' => 'string',
     ];
 
     /**
@@ -64,11 +59,11 @@ final class UpdateProjectNamespaceCommand
      *
      * @return void
      */
-    public function __construct(ProjectTeam $team, $name, $slug, $order)
+    public function __construct($project_namespace, $name, $path, $description)
     {
-        $this->team = $team;
+        $this->project_namespace = $project_namespace;
         $this->name = $name;
-        $this->slug = $slug;
-        $this->order = (int) $order;
+        $this->path = $path;
+        $this->description = $description;
     }
 }

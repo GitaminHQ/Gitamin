@@ -11,7 +11,7 @@
                     <i class="fa fa-folder"></i> {{ trans_choice('dashboard.teams.teams', 2) }}
                 </span>
                 <div class="pull-right">
-                <a class="btn btn-sm btn-success text-right" href="{{ route('groups.group_edit', [$group->id]) }}">
+                <a class="btn btn-sm btn-success text-right" href="{{ route('groups.group_edit', ['namespace'=>$group->path]) }}">
                     {{ trans('forms.edit') }}
                 </a>
                 <a href="/dashboard/projects/teams/{{ $group->id }}/delete" class="btn btn-sm btn-danger text-right confirm-action" data-method="DELETE">

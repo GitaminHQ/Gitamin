@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Events\ProjectTeam;
+namespace Gitamin\Events\ProjectNamespace;
 
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 
-class ProjectTeamWasUpdatedEvent
+class ProjectNamespaceWasUpdatedEvent
 {
     /**
      * The project team that was updated.
      *
-     * @var \Gitamin\Models\ProjectTeam
+     * @var \Gitamin\Models\ProjectNamespace
      */
-    public $team;
+    public $project_namespace;
 
     /**
      * Create a new project team was updated event instance.
      *
      * @return void
      */
-    public function __construct(ProjectTeam $team)
+    public function __construct(ProjectNamespace $project_namespace)
     {
-        $this->team = $team;
+        $this->project_namespace = $project_namespace;
     }
 }

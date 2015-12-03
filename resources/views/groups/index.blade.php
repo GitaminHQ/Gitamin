@@ -11,7 +11,7 @@
                     <i class="fa fa-folder"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
                 </span>
                 <a class="btn btn-sm btn-success pull-right" href="{{ route('groups.new') }}">
-                    {{ trans('gitamin.groups.add.title') }}
+                    {{ trans('gitamin.groups.edit.title') }}
                 </a>
                 <div class="clearfix"></div>
             </div>

@@ -6,34 +6,50 @@
             <i class="icon ion-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="icons ion-ios-keypad"></i> {{ trans_choice('dashboard.teams.teams', 2) }}
+            <i class="icons ion-ios-keypad"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
         </span>
-        &gt; <small>{{ trans('dashboard.teams.edit.title') }}</small>
+        &gt; <small>{{ trans('gitamin.groups.edit.title') }}</small>
     </div>
     <div class="content-wrapper">
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
-                <form name="EditProjectTeamForm" class="form-horizontal" role="form" method="POST">
+                <form name="CreateProjectTeamForm" class="form-horizontal" role="form" action="{{ route('groups.group_update', ['namespace'=>$group->path])}}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
-                            <label class="control-label" for="team-name">{{ trans('forms.teams.name') }}</label>
+                            <label class="control-label" for="group-path">{{ trans('forms.groups.path') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" id="team-name" value="{{ $team->name }}" required>
+                                <div class="input-group">
+                                    <div class="input-group-addon">{{ url() }}/</div>
+                                    <input type="text" class="form-control" name="group[path]" id="group-path" placeholder="open-source" value="{{ $group->path }}" required>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="team-slug">{{ trans('forms.teams.slug') }}</label>
+                            <label class="control-label" for="group-name">{{ trans('forms.groups.name') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="slug" id="team-slug" value="{{ $team->slug }}" required>
+                            <input type="text" class="form-control" name="group[name]" id="group-name" value="{{ $group->name }}" required>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">{{ trans('forms.groups.description') }}</label>
+                            <div class="col-sm-10">
+                                <textarea name="group[description]" class="form-control" rows="4">{{ $group->description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="group-avatar">{{ trans('forms.groups.avatar') }}</label>
+                            <div class="col-sm-10">
+                            <input type="file" class="form-control" name="group[avatar]" id="group-avatar">
+                            </div>
+                        </div>
+
                     </fieldset>
 
-                    <div class="btn-group">
-                        <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                        <a class="btn btn-default" href="{{ route('dashboard.teams.index') }}">{{ trans('forms.cancel') }}</a>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
+                        <a class="btn btn-default" href="{{ route('dashboard.groups.index') }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

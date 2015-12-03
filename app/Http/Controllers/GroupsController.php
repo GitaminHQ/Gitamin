@@ -12,9 +12,6 @@
 namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Project\AddProjectCommand;
-use Gitamin\Commands\Project\RemoveProjectCommand;
-use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
 use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
 use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
@@ -115,6 +112,7 @@ class GroupsController extends Controller
     {
         $groupData = Binput::get('group');
         $groupData['type'] = 'group';
+        $groupData['owner_id'] = Auth::user()->id;
         try {
             $group = $this->dispatchFromArray(AddProjectNamespaceCommand::class, $groupData);
         } catch (ValidationException $e) {
@@ -135,11 +133,13 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit(ProjectTeam $team)
+    public function edit($namespace)
     {
-        return View::make('dashboard.teams.edit')
+        $group = Group::where('path', '=', $namespace)->first();
+
+        return View::make('groups.edit')
             ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
-            ->withTeam($team);
+            ->withGroup($group);
     }
 
    
@@ -151,23 +151,21 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProjectTeam $team)
+    public function update($namespace)
     {
+        $groupData = Binput::get('group');
+        $group = ProjectNamespace::where('path', '=', $namespace)->first();
         try {
-            $team = $this->dispatch(new UpdateProjectTeamCommand(
-                $team,
-                Binput::get('name'),
-                Binput::get('slug'),
-                Binput::get('order', 0)
-            ));
+            $groupData['project_namespace'] = $group;
+            $group = $this->dispatchFromArray(UpdateProjectNamespaceCommand::class, $groupData);
         } catch (ValidationException $e) {
-            return Redirect::route('dashboard.teams.edit', ['id' => $team->id])
+            return Redirect::route('groups.group_edit', ['namespace' => $group->path])
                 ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.edit.failure')))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('dashboard.teams.edit', ['id' => $team->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.teams.edit.success')));
+        return Redirect::route('groups.group_edit', ['namespace' => $group->path])
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('gitamin.groups.edit.success')));
     }
 }

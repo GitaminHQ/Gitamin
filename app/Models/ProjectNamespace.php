@@ -51,7 +51,7 @@ class ProjectNamespace extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'path', 'type'];
+    protected $fillable = ['name', 'path', 'description', 'type'];
 
     /**
      * The validation rules.
@@ -59,9 +59,10 @@ class ProjectNamespace extends Model
      * @var string[]
      */
     public $rules = [
-        'name'  => 'required|string',
-        'path'  => 'required|string',
-        'type'  =>  'string',
+        'name'        => 'required|string',
+        'path'        => 'required|string',
+        'type'        =>  'string',
+        'description' => 'string',
     ];
 
     /**
