@@ -18,7 +18,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
-                            <label class="control-label">{{ trans('forms.projects.slug') }}</label>
+                            <label class="control-label">{{ trans('forms.projects.path') }}</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="text" name="project[path]" class="form-control" value="{{ $project->path }}" required>
