@@ -20,7 +20,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="profile-dropdown">
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ url('dashboard/user') }}">{{ trans('dashboard.group.profile') }}</a>
+                            <a role="menuitem" tabindex="-1" href="{{ url('dashboard/user') }}">{{ trans('dashboard.profile') }}</a>
                         </li>
                         <li role="presentation">
                             <a role="menuitem" tabindex="-1" href="{{ route('auth.logout') }}">{{ trans('dashboard.logout') }}</a>

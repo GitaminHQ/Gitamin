@@ -8,7 +8,7 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <i class="fa fa-sliders"></i> {{ trans('dashboard.activities.activities') }}
+                    <i class="fa fa-sliders"></i> {{ trans('dashboard.activity.activity') }}
                 </span>
                 <div class="clearfix"></div>
             </div>
@@ -22,22 +22,22 @@
                                 @if($activities->count() > 1)
                                 <span class="drag-handle"><i class="fa fa-reorder"></i></span>
                                 @endif
-                                <a href="{{ route('dashboard.activities.show', $activity->id) }}">{{ $activity->name }}</a> <small>{{ $activity->humanStatus }}</small>
+                                <a href="{{ route('dashboard.activity.show', $activity->id) }}">{{ $activity->name }}</a> <small>{{ $activity->humanStatus }}</small>
                             </h4>
                             @if($activity->team)
-                            <p><small>{{ trans('dashboard.activities.listed_team', ['name' => $activity->team->name]) }}</small></p>
+                            <p><small>{{ trans('dashboard.activity.listed_team', ['name' => $activity->team->name]) }}</small></p>
                             @endif
                             @if($activity->description)
                             <p>{{ $activity->description }}</p>
                             @endif
                         </div>
                         <div class="col-xs-6 text-right">
-                            <a href="/dashboard/activities/{{ $activity->id }}/edit" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                            <a href="/dashboard/activities/{{ $activity->id }}/delete" class="btn btn-danger confirm-action" data-method="DELETE">{{ trans('forms.delete') }}</a>
+                            <a href="/dashboard/activity/{{ $activity->id }}/edit" class="btn btn-default">{{ trans('forms.edit') }}</a>
+                            <a href="/dashboard/activity/{{ $activity->id }}/delete" class="btn btn-danger confirm-action" data-method="DELETE">{{ trans('forms.delete') }}</a>
                         </div>
                     </div>
                     @empty
-                    <div class="list-group-item text-danger">{{ trans('dashboard.activities.add.message') }}</div>
+                    <div class="list-group-item text-danger">{{ trans('dashboard.activity.add.message') }}</div>
                     @endforelse
                 </div>
             </div>

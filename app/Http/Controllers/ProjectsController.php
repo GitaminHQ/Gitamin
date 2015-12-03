@@ -41,7 +41,7 @@ class ProjectsController extends Controller
     public function new()
     {
         return View::make('projects.new')
-            ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
+            ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
             ->withGroups(Group::Mine()->get());
     }
@@ -63,7 +63,7 @@ class ProjectsController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('projects.new')
                 ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.new.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
@@ -78,7 +78,7 @@ class ProjectsController extends Controller
         $project->tags()->sync($projectTags);
 
         return Redirect::route('dashboard.projects.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.new.success')));
     }
 
     /**
@@ -95,6 +95,7 @@ class ProjectsController extends Controller
         })->where('projects.path', '=', $project_path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
 
         return View::make('projects.show')
+            ->withPageTitle($project->name)
             ->withProject($project)
             ->withRepo('')
             ->withRepository('')
@@ -117,7 +118,7 @@ class ProjectsController extends Controller
         })->where('projects.path', '=', $project_path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
         
         return View::make('projects.edit')
-            ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
+            ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withProject($project)
             ->withGroupId('')
             ->withGroups(Group::all());

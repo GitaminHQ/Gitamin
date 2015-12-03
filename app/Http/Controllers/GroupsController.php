@@ -99,7 +99,7 @@ class GroupsController extends Controller
     public function new()
     {
         return View::make('groups.new')
-            ->withPageTitle(trans('dashboard.groups.add.title').' - '.trans('dashboard.dashboard'));
+            ->withPageTitle(trans('dashboard.groups.new.title').' - '.trans('dashboard.dashboard'));
             //->withGroups(ProjectNamespace::all());
     }
 

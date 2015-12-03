@@ -16,7 +16,7 @@ $(document).ready(function() {
         <span class="uppercase">
             <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
         </span>
-        &gt; <small>{{ trans('dashboard.projects.add.title') }}</small>
+        &gt; <small>{{ trans('dashboard.projects.new.title') }}</small>
     </div>
     <div class="content-wrapper">
         <div class="row">
@@ -92,7 +92,7 @@ $(document).ready(function() {
                                 Need a group for several dependent projects?
                             </div>
                             </div>
-                            <a class="btn btn-default" href="/groups/new">Create a group</a>
+                            <a class="btn btn-default" href="/groups/new">{{ trans('dashboard.groups.new.title') }}</a>
                             </div>
                     </div>
                 </form>

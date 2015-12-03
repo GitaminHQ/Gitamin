@@ -5,7 +5,7 @@
 @section('content')
 <div class="install-page">
     <div class="text-center">
-        <img class="logo" height="90" src="/img/install-logo.png" alt="Gitamin">
+        <img class="logo" height="90" src="/img/logo.png" alt="Gitamin">
         <h4>{{ trans('install.title') }}</h4>
         <br>
     </div>
@@ -33,7 +33,7 @@
             <div class="step block-1">
                 <fieldset>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.cache_driver') }}</label>
+                        <label class="control-label">{{ trans('forms.install.cache_driver') }}</label>
                         <div class="col-sm-10">
                         <select name="env[cache_driver]" class="form-control" required>
                             <option disabled>{{ trans('forms.install.cache_driver') }}</option>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.session_driver') }}</label>
+                        <label class="control-label">{{ trans('forms.install.session_driver') }}</label>
                         <div class="col-sm-10">
                         <select name="env[session_driver]" class="form-control" required>
                             <option disabled>{{ trans('forms.install.session_driver') }}</option>
@@ -62,7 +62,7 @@
                     </div>
                 </fieldset>
                 <hr>
-                <div class="form-group text-center">
+                <div class="form-actions center">
                     <span class="wizard-next btn btn-success" data-current-block="1" data-next-block="2" data-loading-text="<i class='icon ion-load-c'></i>">
                         {{ trans('install.next') }}
                     </span>
@@ -71,7 +71,7 @@
             <div class="step block-2 hidden">
                 <fieldset>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.site_name') }}</label>
+                        <label class="control-label">{{ trans('forms.install.site_name') }}</label>
                         <div class="col-sm-10">
                         <input type="text" name="settings[app_name]" class="form-control" placeholder="{{ trans('forms.install.site_name') }}" value="{{ Input::old('settings.app_name', 'Gitamin') }}" required>
                         @if($errors->has('settings.app_name'))
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.site_domain') }}</label>
+                        <label class="control-label">{{ trans('forms.install.site_domain') }}</label>
                         <div class="col-sm-10">
                         <input type="text" name="settings[app_domain]" class="form-control" placeholder="{{ trans('forms.install.site_domain') }}" value="{{ Input::old('settings.app_domain', url()) }}" required>
                         @if($errors->has('settings.app_domain'))
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.git_client_path') }}</label>
+                        <label class="control-label">{{ trans('forms.install.git_client_path') }}</label>
                         <div class="col-sm-10">
                         <input type="text" name="settings[git_client_path]" class="form-control" placeholder="{{ trans('forms.install.git_client_path') }}" value="{{ Input::old('settings.git_client_path', '/usr/bin/git') }}" required>
                         @if($errors->has('settings.git_client_path'))
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                      <div class="form-group">
-                        <label>{{ trans('forms.install.git_repositories_path') }}</label>
+                        <label class="control-label">{{ trans('forms.install.git_repositories_path') }}</label>
                         <div class="col-sm-10">
                         <input type="text" name="settings[git_repositories_path]" class="form-control" placeholder="{{ trans('forms.install.git_repositories_path') }}" value="{{ Input::old('settings.git_repositories_path', '/Users/guanshiliang/Code') }}" required>
                         @if($errors->has('settings.git_repositories_path'))
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.site_timezone') }}</label>
+                        <label class="control-label">{{ trans('forms.install.site_timezone') }}</label>
                         <div class="col-sm-10">
                         <select name="settings[app_timezone]" class="form-control" required>
                             <option value="">Select Timezone</option>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>{{ trans('forms.install.site_locale') }}</label>
+                        <label class="control-label">{{ trans('forms.install.site_locale') }}</label>
                         <div class="col-sm-10">
                         <select name="settings[app_locale]" class="form-control" required>
                             <option value="">Select Language</option>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="form-group text-center">
+                    <div class="form-actions center">
                         <span class="wizard-next btn btn-info" data-current-block="2" data-next-block="1">
                             {{ trans('install.previous') }}
                         </span>
@@ -184,7 +184,7 @@
                     </div>
                 </fieldset>
                 <hr >
-                <div class="form-group text-center">
+                <div class="form-actions center">
                     <input type="hidden" name="settings[app_issue_days]" value="7" >
                     <span class="wizard-next btn btn-info" data-current-block="3" data-next-block="2">
                         {{ trans('install.previous') }}
@@ -196,7 +196,7 @@
             </div>
             <div class="step block-4 hidden">
                 <div class="install-success">
-                    <i class="ion-checkmark-circled"></i>
+                    <i class="fa fa-check-circle"></i>
                     <h3>
                         {{ trans("install.completed") }}
                     </h3>

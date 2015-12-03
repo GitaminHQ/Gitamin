@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     @endif
 
-    <title>{{ $app_name.' | Gitamin' }}</title>
+    <title>{{ $app_name.' | Gitamin' . $page_title }} {{ $page_title }}</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ elixir('dist/css/all.css') }}">

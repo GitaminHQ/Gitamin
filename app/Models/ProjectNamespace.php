@@ -62,7 +62,7 @@ class ProjectNamespace extends Model
      */
     public $rules = [
         'name'        => 'required|string',
-        'path'        => 'required|string',
+        'path'        => 'required|string|max:15',
         'owner_id'    => 'int',
         'type'        => 'string',
         'description' => 'string',

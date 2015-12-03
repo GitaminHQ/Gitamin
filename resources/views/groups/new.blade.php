@@ -22,20 +22,20 @@
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <div class="input-group-addon">{{ url() }}/</div>
-                                    <input type="text" class="form-control" name="group[path]" id="group-path" placeholder="open-source" required>
+                                    <input type="text" class="form-control" name="group[path]" value="{{ Input::old('group.path') }}" id="group-path" placeholder="open-source" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="group-name">{{ trans('forms.groups.name') }}</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" name="group[name]" id="group-name" required>
+                            <input type="text" class="form-control" name="group[name]" value="{{ Input::old('group.name') }}" id="group-name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.groups.description') }}</label>
                             <div class="col-sm-10">
-                                <textarea name="group[description]" class="form-control" rows="5"></textarea>
+                                <textarea name="group[description]" class="form-control" rows="4">{{ Input::old('group.description') }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">

@@ -28,27 +28,27 @@ class ActivityController extends Controller
     public function __construct()
     {
         $this->subMenu = [
-            'activities' => [
-                'title'  => trans('dashboard.activities.all'),
-                'url'    => route('dashboard.activities.index'),
+            'activity' => [
+                'title'  => trans('dashboard.activity.all'),
+                'url'    => route('dashboard.activity.index'),
                 'icon'   => 'fa fa-sliders',
                 'active' => false,
             ],
             'project_update' => [
-                'title'  => trans('dashboard.activities.project_update'),
-                'url'    => route('dashboard.activities.index'),
+                'title'  => trans('dashboard.activity.project_update'),
+                'url'    => route('dashboard.activity.index'),
                 'icon'   => 'fa fa-edit',
                 'active' => false,
             ],
             'topic' => [
-                'title'  => trans('dashboard.activities.topic'),
-                'url'    => route('dashboard.activities.index'),
+                'title'  => trans('dashboard.activity.topic'),
+                'url'    => route('dashboard.activity.index'),
                 'icon'   => 'fa fa-comment',
                 'active' => false,
             ],
             'watched_project' => [
-                'title'  => trans('dashboard.activities.watched_project'),
-                'url'    => route('dashboard.activities.index'),
+                'title'  => trans('dashboard.activity.watched_project'),
+                'url'    => route('dashboard.activity.index'),
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
@@ -56,17 +56,18 @@ class ActivityController extends Controller
 
         View::share([
             'sub_menu'  => $this->subMenu,
-            'sub_title' => trans_choice('dashboard.activities.activities', 2),
+            'sub_title' => trans_choice('dashboard.activity.activity', 2),
         ]);
     }
 
-    public function showActivities()
+    public function index()
     {
         $activities = [];
 
-        $this->subMenu['activities']['active'] = true;
+        $this->subMenu['activity']['active'] = true;
 
-        return View::make('dashboard.activities.index')
+        return View::make('dashboard.activity.index')
+            ->withPageTitle('Activity')
             ->withActivities($activities)
             ->withSubMenu($this->subMenu);
     }

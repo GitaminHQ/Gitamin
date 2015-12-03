@@ -70,7 +70,7 @@
                                 Need a group for several dependent projects?
                             </div>
                             </div>
-                            <a class="btn btn-default" href="/groups/new">Create a group</a>
+                            <a class="btn btn-default" href="/groups/new">{{ trans('dashboard.groups.new.title') }}</a>
                             </div>
                     </div>
                 </form>

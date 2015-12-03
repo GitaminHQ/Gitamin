@@ -87,6 +87,7 @@ class ExploreController extends Controller
         }, SORT_REGULAR, true)->all();
 
         return View::make('index')
+            ->withPageTitle(trans('dashboard.explore'))
             ->withDaysToShow($daysToShow)
             ->withAllIssues($allIssues)
             ->withCanPageForward((bool) $today->gt($startDate))
