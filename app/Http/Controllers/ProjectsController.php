@@ -90,9 +90,9 @@ class ProjectsController extends Controller
      */
     public function show($namespace, $project_path)
     {
-        $project = Project::leftJoin('project_namespaces', function($join) {
-            $join->on('projects.namespace_id', '=', 'project_namespaces.id');
-        })->where('projects.path', '=', $project_path)->where('project_namespaces.path', '=', $namespace)->first(['projects.*']);
+        $project = Project::leftJoin('namespaces', function($join) {
+            $join->on('projects.namespace_id', '=', 'namespaces.id');
+        })->where('projects.path', '=', $project_path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
 
         return View::make('projects.show')
             ->withProject($project)
@@ -112,9 +112,9 @@ class ProjectsController extends Controller
      */
     public function edit($namespace, $project_path)
     {
-        $project = Project::leftJoin('project_namespaces', function($join) {
-            $join->on('projects.namespace_id', '=', 'project_namespaces.id');
-        })->where('projects.path', '=', $project_path)->where('project_namespaces.path', '=', $namespace)->first(['projects.*']);
+        $project = Project::leftJoin('namespaces', function($join) {
+            $join->on('projects.namespace_id', '=', 'namespaces.id');
+        })->where('projects.path', '=', $project_path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
         
         return View::make('projects.edit')
             ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
