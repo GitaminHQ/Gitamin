@@ -28,6 +28,13 @@ final class AddProjectNamespaceCommand
     public $path;
 
     /**
+     * The project namespace owner_id.
+     *
+     * @var int
+     */
+    public $owner_id;
+
+    /**
      * The project namespace description.
      *
      * @var text
@@ -49,6 +56,7 @@ final class AddProjectNamespaceCommand
     public $rules = [
         'name'  => 'required|string',
         'path'  => 'required|string',
+        'owner_id' => 'int',
         'type' => 'string',
     ];
 
@@ -56,14 +64,18 @@ final class AddProjectNamespaceCommand
      * Create a add project team command instance.
      *
      * @param string $name
-     * @param int    $order
+     * @param string $path
+     * @param int    $owner_id
+     * @param string $description
+     * @param string $type
      *
      * @return void
      */
-    public function __construct($name, $path, $description, $type)
+    public function __construct($name, $path, $owner_id, $description, $type)
     {
         $this->name = $name;
         $this->path = $path;
+        $this->owner_id = $owner_id;
         $this->description = $description;
         $this->type = $type;
     }

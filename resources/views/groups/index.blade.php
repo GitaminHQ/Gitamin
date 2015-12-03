@@ -10,29 +10,29 @@
                 <span class="uppercase">
                     <i class="fa fa-folder"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
                 </span>
-                <a class="btn btn-sm btn-success pull-right" href="{{ route('groups.new') }}">
-                    {{ trans('gitamin.groups.edit.title') }}
+                <a class="btn btn-success pull-right" href="{{ route('groups.new') }}">
+                    <i class="fa fa-plus"></i> {{ trans('gitamin.groups.add.title') }}
                 </a>
                 <div class="clearfix"></div>
             </div>
             @include('dashboard.partials.errors')
             <div class="row">
                 <div class="col-sm-12 striped-list" id="project-team-list">
-                    @forelse($teams as $team)
-                    <div class="row striped-list-item" data-team-id="{{ $team->id }}">
+                    @forelse($groups as $group)
+                    <div class="row striped-list-item" data-team-id="{{ $group->id }}">
                         <div class="col-xs-6">
                             <h4>
-                                @if($teams->count() > 1)
+                                @if($group->count() > 1)
                                 <span class="drag-handle"><i class="fa fa-reorder"></i></span>
                                 @endif
-                                <a href="/{{ $team->slug }}">{{ $team->name }}</a> ({{ $team->slug }})
-                                <span class="label label-info">{{ $team->projects->count() }}</span>
+                                <a href="/{{ $group->slug }}">{{ $group->name }}</a> ({{ $group->path }})
+                                <span class="label label-info">{{ $group->projects->count() }}</span>
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">
-                            <a href="{{ route('dashboard.projects.add',['team_id'=>$team->id]) }}" class="btn btn-sm btn-info">{{ trans('dashboard.projects.add.title') }}</a>
-                            <a href="{{ route('dashboard.teams.edit', [$team->id]) }}" class="btn btn-sm btn-default">{{ trans('forms.edit') }}</a>
-                            <a href="/dashboard/projects/teams/{{ $team->id }}/delete" class="btn btn-sm btn-danger confirm-action" data-method="DELETE">{{ trans('forms.delete') }}</a>
+                            <a href="{{ route('dashboard.projects.add',['namespace'=>$group->id]) }}" class="btn btn-sm btn-info">{{ trans('dashboard.projects.add.title') }}</a>
+                            <a href="{{ route('groups.group_edit', ['namespace'=>$group->path]) }}" class="btn btn-sm btn-default">{{ trans('forms.edit') }}</a>
+                            <a href="/dashboard/projects/teams/{{ $group->id }}/delete" class="btn btn-sm btn-danger confirm-action" data-method="DELETE">{{ trans('forms.delete') }}</a>
                         </div>
                     </div>
                     @empty

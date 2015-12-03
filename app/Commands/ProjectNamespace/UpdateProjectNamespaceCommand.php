@@ -32,6 +32,13 @@ final class UpdateProjectNamespaceCommand
     public $path;
 
     /**
+     * The project namespace owner_id.
+     *
+     * @var int
+     */
+    public $owner_id;
+
+    /**
      * The project namespace description.
      *
      * @var string
@@ -44,8 +51,9 @@ final class UpdateProjectNamespaceCommand
      * @var string[]
      */
     public $rules = [
-        'name'  => 'string',
-        'path'  => 'string',
+        'name'        => 'string',
+        'path'        => 'string',
+        'owner_id'    => 'int',
         'description' => 'string',
     ];
 
@@ -59,11 +67,12 @@ final class UpdateProjectNamespaceCommand
      *
      * @return void
      */
-    public function __construct($project_namespace, $name, $path, $description)
+    public function __construct($project_namespace, $name, $path, $owner_id, $description)
     {
         $this->project_namespace = $project_namespace;
         $this->name = $name;
         $this->path = $path;
+        $this->owner_id = $owner_id;
         $this->description = $description;
     }
 }

@@ -46,9 +46,8 @@ class AddProjectCommandHandler
             'name'             => $command->name,
             'description'      => $command->description,
             'path'             => $command->path,
+            'creator_id'       => $command->creator_id,
             'visibility_level' => $command->visibility_level,
-            'enabled'          => $command->enabled,
-            'order'            => $command->order,
             'namespace_id'     => $command->namespace_id,
         ];
 

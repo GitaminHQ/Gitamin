@@ -5,6 +5,7 @@ namespace Gitamin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use GrahamCampbell\Binput\Facades\Binput;
 use AltThree\Validator\ValidationException;
@@ -55,9 +56,9 @@ class ProjectsController extends Controller
         //
         $projectData = Binput::get('project');
         $tags = array_pull($projectData, 'tags');
-        $projectData['enabled'] = true;
 
         try {
+            $projectData['creator_id'] = Auth::user()->id;
             $project = $this->dispatchFromArray(AddProjectCommand::class, $projectData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.new')
@@ -76,7 +77,7 @@ class ProjectsController extends Controller
 
         $project->tags()->sync($projectTags);
 
-        return Redirect::route('projects.index')
+        return Redirect::route('dashboard.projects.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.add.success')));
     }
 
@@ -135,7 +136,6 @@ class ProjectsController extends Controller
         $tags = array_pull($projectData, 'tags');
         $project = Project::find($projectData['id']);
         $projectData['namespace_id'] = $project->namespace_id;
-        $projectData['enabled'] = true;
 
         try {
             $projectData['project'] = $project;

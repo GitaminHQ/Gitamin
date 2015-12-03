@@ -22,6 +22,7 @@ use Gitamin\Models\Tag;
 use Gitamin\Http\Controllers\Controller;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -79,7 +80,7 @@ class GroupsController extends Controller
 
         return View::make('groups.index')
             ->withPageTitle(trans_choice('gitamin.groups.groups', 2).' - '.trans('dashboard.dashboard'))
-            ->withTeams(ProjectTeam::orderBy('order')->get())
+            ->withGroups(Group::get())
             ->withSubMenu($this->subMenu);
     }
 
@@ -122,7 +123,7 @@ class GroupsController extends Controller
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('dashboard.groups')
+        return Redirect::route('groups.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.teams.add.success')));
     }
 
@@ -157,6 +158,7 @@ class GroupsController extends Controller
         $group = ProjectNamespace::where('path', '=', $namespace)->first();
         try {
             $groupData['project_namespace'] = $group;
+            $groupData['owner_id'] = Auth::user()->id;
             $group = $this->dispatchFromArray(UpdateProjectNamespaceCommand::class, $groupData);
         } catch (ValidationException $e) {
             return Redirect::route('groups.group_edit', ['namespace' => $group->path])

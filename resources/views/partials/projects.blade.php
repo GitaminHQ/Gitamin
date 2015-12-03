@@ -1,14 +1,14 @@
 <ul class="list-group projects">
     @if($project_teams->count() > 0)
     @foreach($project_teams as $projectTeam)
-    @if($projectTeam->projects()->enabled()->count() > 0)
+    @if($projectTeam->projects()->count() > 0)
     <li class="list-group-item team-name">
         <i class="ion-ios-minus-outline team-toggle"></i>
         <strong>{{ $projectTeam->name }}</strong>
     </li>
 
     <div class="team-items">
-    @foreach($projectTeam->projects()->enabled()->orderBy('order')->get() as $project)
+    @foreach($projectTeam->projects()->get() as $project)
     @include('partials.project', compact($project))
     @endforeach
     </div>

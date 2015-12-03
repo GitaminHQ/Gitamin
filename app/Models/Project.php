@@ -28,11 +28,10 @@ class Project extends Model implements HasPresenter
      * @var mixed[]
      */
     protected $attributes = [
-        'order'        => 0,
         'namespace_id' => 0,
         'description'  => '',
         'path'         => '',
-        'enabled'      => true,
+        'creator_id'   => 0,
     ];
 
     /**
@@ -42,12 +41,11 @@ class Project extends Model implements HasPresenter
      */
     protected $casts = [
         'id'           => 'int',
-        'order'        => 'int',
         'namespace_id' => 'int',
         'description'  => 'string',
         'path'         => 'string',
+        'creator_id'   => 'int',
         'deleted_at'   => 'date',
-        'enabled'      => 'bool',
     ];
 
     /**
@@ -61,9 +59,8 @@ class Project extends Model implements HasPresenter
         'visibility_level',
         'tags',
         'path',
-        'order',
+        'creator_id',
         'namespace_id',
-        'enabled',
     ];
 
     /**
@@ -74,7 +71,7 @@ class Project extends Model implements HasPresenter
     public $rules = [
         'name'             => 'required|string',
         'visibility_level' => 'int|required',
-        'path'             => 'required|string|max:5',
+        'path'             => 'required|string|max:15',
     ];
 
     /**
@@ -141,30 +138,6 @@ class Project extends Model implements HasPresenter
     public function scopeNotVisibilityLevel(Builder $query, $visibility_level)
     {
         return $query->where('visibility_level', '<>', $visibility_level);
-    }
-
-    /**
-     * Finds all projects which are enabled.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeEnabled(Builder $query)
-    {
-        return $query->where('enabled', true);
-    }
-
-    /**
-     * Finds all projects which are disabled.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeDisabled(Builder $query)
-    {
-        return $query->where('enabled', false);
     }
 
     /**
