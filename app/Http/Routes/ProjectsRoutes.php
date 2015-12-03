@@ -69,6 +69,13 @@ class ProjectsRoutes
                 'uses'  => 'ProjectsController@update',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
             
+
+            //Issues
+            $router->get('{namespace}/{project}/issues', [
+                'as'   => 'issue_index',
+                'uses' => 'Projects\\IssuesController@index',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+
         });
 
         

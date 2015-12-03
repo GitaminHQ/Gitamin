@@ -27,7 +27,7 @@ class IssuePresenter extends AbstractPresenter
      */
     public function formattedMessage()
     {
-        return Markdown::convertToHtml($this->wrappedObject->message);
+        return Markdown::convertToHtml($this->wrappedObject->description);
     }
 
     /**
@@ -101,7 +101,7 @@ class IssuePresenter extends AbstractPresenter
      */
     public function icon()
     {
-        switch ($this->wrappedObject->status) {
+        switch ($this->wrappedObject->state) {
             case 0: // Scheduled
                 return 'fa fa-calendar';
             case 1: // Investigating
