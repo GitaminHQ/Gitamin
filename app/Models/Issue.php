@@ -55,7 +55,6 @@ class Issue extends Model implements HasPresenter
      */
     protected $casts = [
         'id'           => 'int',
-        'visible'      => 'int',
         'deleted_at'   => 'date',
     ];
 
@@ -65,12 +64,10 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     protected $fillable = [
-        'user_id',
+        'author_id',
         'project_id',
-        'name',
-        'status',
-        'visible',
-        'message',
+        'title',
+        'description',
         'created_at',
         'updated_at',
     ];
@@ -81,12 +78,10 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'user_id'      => 'int',
-        'project_id'   => 'int',
-        'name'         => 'required',
-        'status'       => 'required|int',
-        'visible'      => 'required|bool',
-        'message'      => 'required',
+        'author_id'   => 'int',
+        'project_id'  => 'int',
+        'title'       => 'required',
+        'description' => 'required',
     ];
 
     /**
@@ -98,7 +93,7 @@ class Issue extends Model implements HasPresenter
      */
     public function scopeVisible($query)
     {
-        return $query->where('visible', 1);
+        return $query->where('state', 1);
     }
 
     /**
@@ -118,7 +113,7 @@ class Issue extends Model implements HasPresenter
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'author_id', 'id');
     }
 
     /**
@@ -130,7 +125,7 @@ class Issue extends Model implements HasPresenter
     {
         $statuses = trans('gitamin.issues.status');
 
-        return $statuses[$this->status];
+        return $statuses[$this->state];
     }
 
     /**

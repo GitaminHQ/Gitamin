@@ -46,11 +46,21 @@ $(document).ready(function() {
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.namespace') }}</label>
                             <div class="col-sm-10">
-                            <select name="project[namespace_id]" class="form-control js-example-basic-single">
-                                <option value="0" selected></option>
+                            <select name="project[namespace_id]" class="form-control js-example-basic-single" tableindex="2">
+                                <optgroup label="Users">
                                 @foreach($groups as $group)
+                                @if($group->type == 'user')
                                 <option value="{{ $group->id }}" {{ Input::old('project.namespace_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                                @endif
                                 @endforeach
+                                </optgroup>
+                                <optgroup label="Groups">
+                                @foreach($groups as $group)
+                                @if($group->type == 'group')
+                                <option value="{{ $group->id }}" {{ Input::old('project.namespace_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                                @endif
+                                @endforeach
+                                </optgroup> 
                             </select>
                             </div>
                         </div>

@@ -58,10 +58,10 @@ class ExploreController extends Controller
 
         $issueVisiblity = Auth::check() ? 0 : 1;
 
-        $allIssues = Issue::where('visible', '>=', $issueVisiblity)->whereBetween('created_at', [
+        $allIssues = Issue::whereBetween('created_at', [
             $startDate->copy()->subDays($daysToShow)->format('Y-m-d').' 00:00:00',
             $startDate->format('Y-m-d').' 23:59:59',
-        ])->orderBy('scheduled_at', 'desc')->orderBy('created_at', 'desc')->get()->groupBy(function (Issue $issue) use ($dateTimeZone) {
+        ])->orderBy('created_at', 'desc')->get()->groupBy(function (Issue $issue) use ($dateTimeZone) {
             // If it's scheduled, get the scheduled at date.
             if ($issue->is_scheduled) {
                 return (new Date($issue->scheduled_at))
