@@ -10,10 +10,12 @@
                 <span class="uppercase">
                     <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
                 </span>
+                <!--
                 <a class="btn btn-success pull-right" href="{{ route('projects.new') }}">
                     <i class="fa fa-plus"></i>
                     {{ trans('gitamin.projects.new.title') }}
                 </a>
+                -->
                 <div class="clearfix"></div>
             </div>
             @include('dashboard.partials.errors')
@@ -42,7 +44,24 @@
                         </div>
                     </div>
                     @empty
-                    <div class="list-group-item"><a href="{{ route('projects.new') }}">{{ trans('dashboard.projects.add.message') }}</a></div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-bookmark-o"></i> {{ trans('dashboard.projects.new.message') }}
+                            </div>
+                        <div class="col-xs-6">
+                            <a class="btn btn-success" href="{{ route('projects.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.projects.new.title') }}</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-users"></i> {{ trans('dashboard.groups.new.message') }}
+                        </div>
+                        <div class="col-xs-6">
+                            <a class="btn btn-success" href="{{ route('groups.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.groups.new.title') }}</a>
+                        </div>
+                    </div>
+                    <hr>
                     @endforelse
                 </div>
             </div>

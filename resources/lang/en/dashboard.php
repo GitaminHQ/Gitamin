@@ -24,9 +24,9 @@ return [
         'starred'          => 'Starred Projects',
         'explore'          => 'Explore Projects',
 
-        'add'              => [
+        'new'              => [
             'title'   => 'New Project',
-            'message' => 'You should add a project.',
+            'message' => 'You don\'t have access to any projects right now. You can create up to 100000 projects.',
             'success' => 'Project was successfully created.',
             'failure' => 'Something went wrong with the project.',
         ],
@@ -95,14 +95,15 @@ return [
 
     // Group
     'groups' => [
-        'groups'       => 'Groups',
+        'groups'      => 'Groups',
         'no_items'    => 'You should add a group.',
         'member'      => 'Member',
         'profile'     => 'Profile',
         'description' => 'Group Members will be able to add, modify &amp; edit projects and issues.',
-        'add'         => [
-            'title'   => 'Add a New Group Member',
-            'success' => 'Group member added.',
+        'new'         => [
+            'title'   => 'New Group',
+            'message' => 'You can create a group for several dependent projects. Groups are the best way to manage projects and members.',
+            'success' => 'Group added.',
             'failure' => 'Something went wrong with the user.',
         ],
         'edit' => [

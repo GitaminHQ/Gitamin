@@ -43,7 +43,25 @@ class DefaultRoutes
             $router->controller('install', 'InstallController');
         });
 
-
+        //Explore Area
+        $router->group([
+            'middleware' => ['app.hasSetting'],
+            'setting'    => 'app_name',
+            'prefix'     => 'explore',
+            'as'         => 'explore.',
+        ], function ($router) {
+            $router->get('/', [
+                'as'   => 'index',
+                'uses' => 'ExploreController@index',
+            ]);
+            
+            $router->get('issue/{issue}', [
+                'as'    => 'issue',
+                'uses'  => 'ExploreController@showIssue',
+            ]);
+            
+        });
+        
         // Feed Area
         $router->group([
             'middleware' => 'app.hasSetting',
