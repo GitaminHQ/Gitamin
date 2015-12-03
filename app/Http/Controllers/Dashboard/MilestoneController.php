@@ -22,6 +22,7 @@ class MilestoneController extends Controller
         $milestones = [];
 
         return View::make('dashboard.milestones.index')
+            ->withPageTitle(trans('dashboard.milestones.milestones'))
             ->withMilestones($milestones);
     }
 }

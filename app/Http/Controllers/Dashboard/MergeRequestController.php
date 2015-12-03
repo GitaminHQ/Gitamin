@@ -17,6 +17,7 @@ class MergeRequestController extends Controller
         $mergeRequests = [];
 
         return View::make('dashboard.merge_requests.index')
+            ->withPageTitle(trans('dashboard.merge_requests.merge_requests'))
             ->withMergeRequests($mergeRequests);
     }
 }

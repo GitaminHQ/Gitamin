@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="/img/favicon.ico">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
 
-    <title>@yield('pageTitle', $app_name.' | Gitamin')</title>
+    <title>{{ $page_title }} - Gitamin</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ elixir('dist/css/all.css') }}">

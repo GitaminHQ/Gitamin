@@ -17,6 +17,7 @@ class SnippetController extends Controller
         $snippets = [];
 
         return View::make('dashboard.snippets.index')
+            ->withPageTitle(trans('dashboard.snippets.snippets'))
             ->withSnippets($snippets);
     }
 }

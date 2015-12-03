@@ -63,8 +63,8 @@ return [
     ],
 
     // Activities
-    'activities' => [
-        'activities'      => 'Activity',
+    'activity' => [
+        'activity'      => 'Activity',
         'all'             => 'All',
         'project_update'  => 'Project updated',
         'topic'           => 'Topic',
@@ -94,8 +94,9 @@ return [
     ],
 
     // Group
-    'group' => [
-        'group'       => 'Groups',
+    'groups' => [
+        'groups'       => 'Groups',
+        'no_items'    => 'You should add a group.',
         'member'      => 'Member',
         'profile'     => 'Profile',
         'description' => 'Group Members will be able to add, modify &amp; edit projects and issues.',

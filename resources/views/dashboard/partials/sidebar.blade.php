@@ -15,9 +15,9 @@
                 </a>
             </li>
             <li {!! set_active('dashboard/activit*') !!}>
-                <a href="{{ route('dashboard.activities.index') }}">
+                <a href="{{ route('dashboard.activity.index') }}">
                     <i class="fa fa-sliders"></i>
-                    <span>{{ trans('dashboard.activities.activities') }}</span>
+                    <span>{{ trans('dashboard.activity.activity') }}</span>
                 </a>
             </li>
             <li {!! set_active('*groups*') !!}>

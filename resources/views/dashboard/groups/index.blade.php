@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="list-group-item text-danger">{{ trans('dashboard.teams.no_projects') }}</div>
+                    <div class="list-group-item text-danger">{{ trans('dashboard.groups.no_items') }}</div>
                     @endforelse
                 </div>
             </div>

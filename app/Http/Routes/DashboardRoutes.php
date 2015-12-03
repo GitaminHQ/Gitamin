@@ -88,14 +88,14 @@ class DashboardRoutes
 
             });
 
-            // Activities
+            // Activity
             $router->group([
-                'as'     => 'activities.',
-                'prefix' => 'activities',
+                'as'     => 'activity.',
+                'prefix' => 'activity',
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'ActivityController@showActivities',
+                    'uses' => 'ActivityController@index',
                 ]);
             });
 
