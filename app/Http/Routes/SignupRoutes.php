@@ -30,6 +30,12 @@ class SignupRoutes
             'setting'    => 'app_name',
             'as'         => 'signup.',
         ], function ($router) {
+
+            $router->get('signup', [
+                'as'   => 'user/signup',
+                'uses' => 'SignupController@getSignup'
+            ]);
+
             $router->get('signup/invite/{code}', [
                 'as'   => 'invite',
                 'uses' => 'SignupController@getSignup',

@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="list-group-item"><a href="{{ route('dashboard.projects.add') }}">{{ trans('dashboard.projects.add.message') }}</a></div>
+                    <div class="list-group-item"><a href="{{ route('projects.new') }}">{{ trans('dashboard.projects.add.message') }}</a></div>
                     @endforelse
                 </div>
             </div>
