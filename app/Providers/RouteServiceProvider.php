@@ -46,8 +46,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function registerBindings()
     {
-        $this->app->router->model('project', 'Gitamin\Models\Project');
-        $this->app->router->model('project_team', 'Gitamin\Models\ProjectTeam');
+        //$this->app->router->model('namespace', 'Gitamin\Models\ProjectNamespace');
+        //$this->app->router->model('project', 'Gitamin\Models\Project');
         $this->app->router->model('issue', 'Gitamin\Models\Issue');
         $this->app->router->model('setting', 'Gitamin\Models\Setting');
         $this->app->router->model('subscriber', 'Gitamin\Models\Subscriber');

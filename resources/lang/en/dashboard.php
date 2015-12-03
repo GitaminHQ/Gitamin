@@ -25,14 +25,14 @@ return [
         'explore'          => 'Explore Projects',
 
         'add'              => [
-            'title'   => 'Add a Project',
+            'title'   => 'New Project',
             'message' => 'You should add a project.',
-            'success' => 'Project created.',
+            'success' => 'Project was successfully created.',
             'failure' => 'Something went wrong with the project.',
         ],
         'edit' => [
-            'title'   => 'Edit a Project',
-            'success' => 'Project updated.',
+            'title'   => 'Project settings',
+            'success' => 'Project was successfully updated.',
             'failure' => 'Something went wrong with the project.',
         ],
         'delete' => [

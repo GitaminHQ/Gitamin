@@ -18,10 +18,10 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
-                            <label class="control-label">{{ trans('forms.projects.slug') }}</label>
+                            <label class="control-label">{{ trans('forms.projects.path') }}</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" name="project[slug]" class="form-control" required>
+                                    <input type="text" name="project[path]" class="form-control" value="{{ Input::old('project.path') }}" required>
                                     <div class="input-group-addon">
                                         .git
                                     </div>
@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label class="control-label" for="project-name">{{ trans('forms.projects.name') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="project[name]" id="project-name" required>
+                                <input type="text" class="form-control" name="project[name]"  value="{{ Input::old('project.name') }}" id="project-name" required>
                             </div>
                         </div>
                         @if($groups->count() > 0)
@@ -41,7 +41,7 @@
                             <select name="project[namespace_id]" class="form-control">
                                 <option value="0" selected></option>
                                 @foreach($groups as $group)
-                                <option value="{{ $group->id }}" {{ $group_id === $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                                <option value="{{ $group->id }}" {{ Input::old('project.namespace_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
                                 @endforeach
                             </select>
                             </div>
@@ -52,13 +52,13 @@
                         <div class="form-group">
                             <label class="control-label" for="project-import">{{ trans('forms.projects.import') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="project[import]" id="project-import">
+                                <input type="text" class="form-control" name="project[import]"  value="{{ Input::old('project.import') }}" id="project-import">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.description') }}</label>
                             <div class="col-sm-10">
-                                <textarea name="project[description]" class="form-control" rows="5"></textarea>
+                                <textarea name="project[description]" class="form-control" rows="5">{{ Input::old('project.description') }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -66,7 +66,7 @@
                             <div class="col-sm-10">
                                 <select name="project[visibility_level]" class="form-control">
                                     @foreach(trans('gitamin.projects.status') as $statusID => $status)
-                                    <option value="{{ $statusID }}">{{ $status }}</option>
+                                    <option value="{{ $statusID }}" {{ Input::old('project.visibility_level') == $statusID ? 'selected' : null}}>{{ $status }}</option>
                                     @endforeach
                                 </select>
                             </div>

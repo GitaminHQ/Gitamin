@@ -43,13 +43,13 @@ class AddProjectCommandHandler
     protected function filter(AddProjectCommand $command)
     {
         $params = [
-            'name'        => $command->name,
-            'description' => $command->description,
-            'slug'        => $command->slug,
-            'status'      => $command->status,
-            'enabled'     => $command->enabled,
-            'order'       => $command->order,
-            'team_id'     => $command->team_id,
+            'name'             => $command->name,
+            'description'      => $command->description,
+            'path'             => $command->path,
+            'visibility_level' => $command->visibility_level,
+            'enabled'          => $command->enabled,
+            'order'            => $command->order,
+            'namespace_id'     => $command->namespace_id,
         ];
 
         return array_filter($params, function ($val) {

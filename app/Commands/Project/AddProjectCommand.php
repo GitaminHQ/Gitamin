@@ -28,18 +28,18 @@ final class AddProjectCommand
     public $description;
 
     /**
-     * The project status.
+     * The project visibility_level.
      *
      * @var int
      */
-    public $status;
+    public $visibility_level;
 
     /**
      * The project slug.
      *
      * @var string
      */
-    public $slug;
+    public $path;
 
     /**
      * The project order.
@@ -49,11 +49,11 @@ final class AddProjectCommand
     public $order;
 
     /**
-     * The project team.
+     * The project namespace.
      *
      * @var int
      */
-    public $team_id;
+    public $namespace_id;
 
     /**
      * Is the project enabled?
@@ -68,13 +68,13 @@ final class AddProjectCommand
      * @var string[]
      */
     public $rules = [
-        'name'        => 'required|string',
-        'description' => 'string',
-        'status'      => 'int|min:1|max:4',
-        'slug'        => 'required|string',
-        'order'       => 'int',
-        'team_id'     => 'int',
-        'enabled'     => 'bool',
+        'name'             => 'required|string',
+        'description'      => 'string',
+        'visibility_level' => 'int|min:1|max:4',
+        'path'             => 'required|string',
+        'order'            => 'int',
+        'namespace_id'     => 'int',
+        'enabled'          => 'bool',
     ];
 
     /**
@@ -82,22 +82,22 @@ final class AddProjectCommand
      *
      * @param string $name
      * @param string $description
-     * @param int    $status
-     * @param string $slug
+     * @param int    $visibility_level
+     * @param string $path
      * @param int    $order
-     * @param int    $team_id
+     * @param int    $namespace_id
      * @param bool   $enabled
      *
      * @return void
      */
-    public function __construct($name, $description, $status, $slug, $order, $team_id, $enabled)
+    public function __construct($name, $description, $visibility_level, $path, $order, $namespace_id, $enabled)
     {
         $this->name = $name;
         $this->description = $description;
-        $this->status = (int) $status;
-        $this->slug = $slug;
+        $this->visibility_level = (int) $visibility_level;
+        $this->path = $path;
         $this->order = $order;
-        $this->team_id = $team_id;
+        $this->namespace_id = $namespace_id;
         $this->enabled = $enabled;
     }
 }

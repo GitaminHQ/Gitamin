@@ -14,21 +14,28 @@ namespace Gitamin\Commands\ProjectNamespace;
 final class AddProjectNamespaceCommand
 {
     /**
-     * The project team name.
+     * The project namespace name.
      *
      * @var string
      */
     public $name;
 
     /**
-     * The project team slug.
+     * The project namespace path.
      *
      * @var string
      */
     public $path;
 
     /**
-     * The project team order.
+     * The project namespace description.
+     *
+     * @var text
+     */
+    public $description;
+
+    /**
+     * The project namespace type.
      *
      * @var string
      */
@@ -53,10 +60,11 @@ final class AddProjectNamespaceCommand
      *
      * @return void
      */
-    public function __construct($name, $path, $type)
+    public function __construct($name, $path, $description, $type)
     {
         $this->name = $name;
         $this->path = $path;
+        $this->description = $description;
         $this->type = $type;
     }
 }

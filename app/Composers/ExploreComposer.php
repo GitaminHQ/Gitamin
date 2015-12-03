@@ -13,7 +13,7 @@ namespace Gitamin\Composers;
 
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 use Illuminate\Contracts\View\View;
 
 class ExploreComposer
@@ -34,12 +34,12 @@ class ExploreComposer
             'favicon'       => 'favicon-high-alert',
         ];
 
-        if (Project::enabled()->notStatus(1)->count() === 0) {
+        if (Project::enabled()->notVisibilityLevel(1)->count() === 0) {
             // If all our projects are ok, do we have any non-fixed issues?
             $issues = Issue::orderBy('created_at', 'desc')->get();
             $issueCount = $issues->count();
 
-            if ($issueCount === 0 || ($issueCount >= 1 && (int) $issues->first()->status === 4)) {
+            if ($issueCount === 0 || ($issueCount >= 1 && (int) $issues->first()->visibility_level === 4)) {
                 $withData = [
                     'systemStatus'  => 'success',
                     'systemMessage' => trans('gitamin.service.good'),
@@ -47,14 +47,14 @@ class ExploreComposer
                 ];
             }
         } else {
-            if (Project::enabled()->whereIn('status', [2, 3])->count() > 0) {
+            if (Project::enabled()->whereIn('visibility_level', [2, 3])->count() > 0) {
                 $withData['favicon'] = 'favicon-medium-alert';
             }
         }
 
         // Project & Project Team lists.
         $usedProjectTeams = Project::enabled()->where('namespace_id', '>', 0)->groupBy('namespace_id')->lists('namespace_id');
-        $projectTeams = ProjectTeam::whereIn('id', $usedProjectTeams)->orderBy('order')->get();
+        $projectTeams = ProjectNamespace::whereIn('id', $usedProjectTeams)->get();
         $unteamedProjects = Project::enabled()->where('namespace_id', 0)->orderBy('order')->orderBy('created_at')->get();
 
         $view->with($withData)

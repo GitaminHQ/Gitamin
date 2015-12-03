@@ -43,8 +43,28 @@ class GroupsRoutes
             $router->post('create', [
                 'as'    => 'create',
                 'uses'  => 'GroupsController@create',
-            ]);
+            ]);   
+        });
 
+        // Project Sub-routes
+        $router->group([
+            'middleware' => ['app.hasSetting'],
+            'setting'    => 'app_name',
+            'as'         => 'groups.',
+        ], function ($router) {
+           $router->get('{namespace}', [
+                'as'   => 'group_show',
+                'uses' => 'GroupsController@show',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+');
+
+           $router->get('{namespace}/edit', [
+                'as'   => 'group_edit',
+                'uses' => 'GroupsController@edit',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+');
+            $router->post('{namespace}/update', [
+                'as'    => 'group_update',
+                'uses'  => 'GroupsController@update',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+');
             
         });
     }

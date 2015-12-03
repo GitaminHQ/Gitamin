@@ -28,11 +28,11 @@ class Project extends Model implements HasPresenter
      * @var mixed[]
      */
     protected $attributes = [
-        'order'       => 0,
-        'namespace_id'     => 0,
-        'description' => '',
-        'slug'        => '',
-        'enabled'     => true,
+        'order'        => 0,
+        'namespace_id' => 0,
+        'description'  => '',
+        'path'         => '',
+        'enabled'      => true,
     ];
 
     /**
@@ -41,13 +41,13 @@ class Project extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'          => 'int',
-        'order'       => 'int',
-        'namespace_id'     => 'int',
-        'description' => 'string',
-        'slug'        => 'string',
-        'deleted_at'  => 'date',
-        'enabled'     => 'bool',
+        'id'           => 'int',
+        'order'        => 'int',
+        'namespace_id' => 'int',
+        'description'  => 'string',
+        'path'         => 'string',
+        'deleted_at'   => 'date',
+        'enabled'      => 'bool',
     ];
 
     /**
@@ -58,9 +58,9 @@ class Project extends Model implements HasPresenter
     protected $fillable = [
         'name',
         'description',
-        'status',
+        'visibility_level',
         'tags',
-        'slug',
+        'path',
         'order',
         'namespace_id',
         'enabled',
@@ -72,19 +72,29 @@ class Project extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'   => 'required|string',
-        'status' => 'int|required',
-        'slug'   => 'required|string',
+        'name'             => 'required|string',
+        'visibility_level' => 'int|required',
+        'path'             => 'required|string|max:5',
     ];
 
     /**
-     * Projects can belong to a team.
+     * Projects can belong to a group.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function group()
     {
         return $this->belongsTo(Group::class, 'namespace_id', 'id');
+    }
+
+     /**
+     * Projects can belong to a namespace.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function projectNamespace()
+    {
+        return $this->belongsTo(ProjectNamespace::class, 'namespace_id', 'id');
     }
 
     /**
@@ -108,29 +118,29 @@ class Project extends Model implements HasPresenter
     }
 
     /**
-     * Finds all projects by status.
+     * Finds all projects by visibility_level.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param int                                   $status
+     * @param int                                   $visibility_level
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeStatus(Builder $query, $status)
+    public function scopeVisibilityLevel(Builder $query, $visibility_level)
     {
-        return $query->where('status', $status);
+        return $query->where('visibility_level', $visibility_level);
     }
 
     /**
-     * Finds all projects which don't have the given status.
+     * Finds all projects which don't have the given visibility_level.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param int                                   $status
+     * @param int                                   $visibility_level
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeNotStatus(Builder $query, $status)
+    public function scopeNotVisibilityLevel(Builder $query, $visibility_level)
     {
-        return $query->where('status', '<>', $status);
+        return $query->where('visibility_level', '<>', $visibility_level);
     }
 
     /**
@@ -158,13 +168,23 @@ class Project extends Model implements HasPresenter
     }
 
     /**
-     * Looks up the human readable version of the status.
+     * Looks up the human readable version of the visibility_level.
      *
      * @return string
      */
-    public function getHumanStatusAttribute()
+    public function getHumanVisibilityLevelAttribute()
     {
-        return trans('gitamin.projects.status.'.$this->status);
+        return trans('gitamin.projects.status.'.$this->visibility_level);
+    }
+
+    /**
+     * Returns the namespace on this project.
+     *
+     * @return string
+     */
+    public function getNamespaceAttribute()
+    {
+        return $this->projectNamespace->path;
     }
 
     /**

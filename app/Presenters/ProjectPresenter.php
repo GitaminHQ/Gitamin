@@ -33,16 +33,6 @@ class ProjectPresenter extends AbstractPresenter
     }
 
     /**
-     * Concat the project team slug & project slug to a path.
-     *
-     * @return string
-     */
-    public function path()
-    {
-        return $this->wrappedObject->group->path.'/'.$this->wrappedObject->slug;
-    }
-
-    /**
      * Convert the presenter instance to an array.
      *
      * @return string[]
@@ -52,6 +42,7 @@ class ProjectPresenter extends AbstractPresenter
         return array_merge($this->wrappedObject->toArray(), [
             'created_at'  => $this->created_at(),
             'updated_at'  => $this->updated_at(),
+            'namespace'   => $this->wrappedObject->group->path,
             'status_name' => $this->wrappedObject->humanStatus,
         ]);
     }

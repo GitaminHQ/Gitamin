@@ -12,6 +12,7 @@ use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Project;
+use Gitamin\Models\ProjectNamespace;
 use Gitamin\Models\Group;
 use Gitamin\Models\Tag;
 
@@ -54,6 +55,7 @@ class ProjectsController extends Controller
         //
         $projectData = Binput::get('project');
         $tags = array_pull($projectData, 'tags');
+        $projectData['enabled'] = true;
 
         try {
             $project = $this->dispatchFromArray(AddProjectCommand::class, $projectData);
@@ -79,25 +81,26 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $namespace
+     * @param  string  $project_path
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($namespace, $project_path)
     {
-        //
+        $project = Project::leftJoin('project_namespaces', function($join) {
+            $join->on('projects.namespace_id', '=', 'project_namespaces.id');
+        })->where('projects.path', '=', $project_path)->where('project_namespaces.path', '=', $namespace)->first(['projects.*']);
+
+        return View::make('projects.show')
+            ->withProject($project)
+            ->withRepo('')
+            ->withRepository('')
+            ->withCurrentBranch('master')
+            ->withBranches([])
+            ->withParentPath('')
+            ->withFiles([]);
     }
 
     /**
@@ -106,9 +109,17 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($namespace, $project_path)
     {
-        //
+        $project = Project::leftJoin('project_namespaces', function($join) {
+            $join->on('projects.namespace_id', '=', 'project_namespaces.id');
+        })->where('projects.path', '=', $project_path)->where('project_namespaces.path', '=', $namespace)->first(['projects.*']);
+        
+        return View::make('projects.edit')
+            ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
+            ->withProject($project)
+            ->withGroupId('')
+            ->withGroups(Group::all());
     }
 
     /**
@@ -118,9 +129,28 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($namespace, $project_path)
     {
-        //
+        $projectData = Binput::get('project');
+        $tags = array_pull($projectData, 'tags');
+        $project = Project::find($projectData['id']);
+        $projectData['namespace_id'] = $project->namespace_id;
+        $projectData['enabled'] = true;
+
+        try {
+            $projectData['project'] = $project;
+            $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
+        } catch (ValidationException $e) {
+            return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.edit.failure')))
+                ->withErrors($e->getMessageBag());
+        }
+        // The project was updated successfully, so now let's deal with the tags.
+        $tags = preg_split('/ ?, ?/', $tags);
+
+        return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.edit.success')));
     }
 
     /**

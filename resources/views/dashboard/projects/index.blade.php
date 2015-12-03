@@ -26,16 +26,16 @@
                                 @if($projects->count() > 1)
                                 <span class="drag-handle"><i class="fa fa-reorder"></i></span>
                                 @endif
-                                <a href="/{{ $project->path }}">{{ $project->name }}</a> <small>(<a href="/{{ $project->path }}">{{ $project->path }}.git</a>) {{ $project->humanStatus }}</small>
+                                <a href="{{ route('projects.project_show',['namespace'=>$project->namespace,'project'=>$project->path]) }}">{{ $project->namespace}} / {{ $project->name }}</a> <small>{{ $project->humanStatus }}</small>
                             </h4>
                             <!--
                             @if($project->team)
                             <p><small><a href="/{{ $project->team->slug }}">{{ trans('dashboard.projects.listed_team', ['name' => $project->team->name]) }} </a></small></p>
                             @endif
+                            -->
                             @if($project->description)
                             <p>{{ $project->description }}</p>
                             @endif
-                            -->
                         </div>
                         <div class="col-xs-6 text-right">
                             <i class="fa fa-star"></i> 0

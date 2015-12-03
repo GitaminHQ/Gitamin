@@ -19,7 +19,6 @@ use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
 use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
 use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\ProjectNamespace;
 use Gitamin\Models\Group;
 use Gitamin\Models\Tag;
@@ -87,6 +86,13 @@ class GroupsController extends Controller
             ->withSubMenu($this->subMenu);
     }
 
+    public function show($namespace)
+    {
+        $group = Group::where('path', '=', $namespace)->first();
+        return View::make('groups.show')
+            ->withGroup($group);
+    }
+
     /**
      * Shows the add project view.
      *
@@ -94,12 +100,9 @@ class GroupsController extends Controller
      */
     public function new()
     {
-        $teamId = (int) Binput::get('team_id');
-
         return View::make('groups.new')
-            ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
-            ->withTeamId($teamId)
-            ->withTeams(ProjectTeam::all());
+            ->withPageTitle(trans('dashboard.groups.add.title').' - '.trans('dashboard.dashboard'));
+            //->withGroups(ProjectNamespace::all());
     }
 
     
@@ -126,24 +129,13 @@ class GroupsController extends Controller
     }
 
     /**
-     * Shows the add project team view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAddProjectTeam()
-    {
-        return View::make('dashboard.teams.add')
-            ->withPageTitle(trans('dashboard.teams.add.title').' - '.trans('dashboard.dashboard'));
-    }
-
-    /**
      * Shows the edit project team view.
      *
      * @param \Gitamin\Models\ProjectTeam $team
      *
      * @return \Illuminate\View\View
      */
-    public function showEditProjectTeam(ProjectTeam $team)
+    public function edit(ProjectTeam $team)
     {
         return View::make('dashboard.teams.edit')
             ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
@@ -159,7 +151,7 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function updateProjectTeamAction(ProjectTeam $team)
+    public function update(ProjectTeam $team)
     {
         try {
             $team = $this->dispatch(new UpdateProjectTeamCommand(

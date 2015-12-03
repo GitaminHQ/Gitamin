@@ -77,7 +77,6 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('order')->orderBy('created_at')->get();
-
         $this->subMenu['yours']['active'] = true;
 
         return View::make('dashboard.projects.index')

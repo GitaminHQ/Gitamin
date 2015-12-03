@@ -25,6 +25,8 @@ class ProjectsRoutes
      */
     public function map(Registrar $router)
     {
+        
+        // Project Area
         $router->group([
             'middleware' => ['app.hasSetting'],
             'setting'    => 'app_name',
@@ -39,7 +41,6 @@ class ProjectsRoutes
                 'as'    => 'new',
                 'uses'  => 'ProjectsController@new',
             ]);
-
             $router->post('create', [
                 'as'    => 'create',
                 'uses'  => 'ProjectsController@create',
@@ -47,5 +48,29 @@ class ProjectsRoutes
 
             
         });
+
+        // Project Sub-routes
+        $router->group([
+            'middleware' => ['app.hasSetting'],
+            'setting'    => 'app_name',
+            'as'         => 'projects.',
+        ], function ($router) {
+           $router->get('{namespace}/{project}', [
+                'as'   => 'project_show',
+                'uses' => 'ProjectsController@show',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+
+           $router->get('{namespace}/{project}/edit', [
+                'as'   => 'project_edit',
+                'uses' => 'ProjectsController@edit',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            $router->post('{namespace}/{project}/update', [
+                'as'    => 'project_update',
+                'uses'  => 'ProjectsController@update',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            
+        });
+
+        
     }
 }

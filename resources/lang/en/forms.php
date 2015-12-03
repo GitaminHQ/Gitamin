@@ -58,7 +58,7 @@ return [
         'visibility_level' => 'Visibility Level',
         'team'             => 'Team',
         'description'      => 'Description',
-        'slug'             => 'Project path',
+        'path'             => 'Project path',
         'namespace'        => 'Namespace',
         'import'           => 'Import project from',
         'tags'             => 'Tags',
