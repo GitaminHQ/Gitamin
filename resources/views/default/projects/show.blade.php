@@ -8,7 +8,7 @@
     <span class="uppercase">
         <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
     </span>
-    &gt; <small>{{ trans('dashboard.projects.show.title') }}</small>
+    &gt; <small>{{ $project->name }}</small>
 </div>
 
 <div class="content-wrapper">
