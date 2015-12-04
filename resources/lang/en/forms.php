@@ -42,7 +42,7 @@ return [
         'title'              => 'Title',
         'status'             => 'Status',
         'project'            => 'Project',
-        'description'        => 'Message',
+        'description'        => 'Description',
         'description-help'   => 'You may also use Markdown.',
         'scheduled_at'       => 'When to schedule the maintenance for?',
         'issue_time'         => 'When did this issue occur?',
@@ -50,6 +50,8 @@ return [
         'visibility'         => 'Issue Visibility',
         'public'             => 'Viewable by public',
         'logged_in_only'     => 'Only visible to logged in users',
+        'assign_to'          => 'Assign to',
+        'assign_to_me'       => 'Assign to me',
     ],
 
     // Projects form fields

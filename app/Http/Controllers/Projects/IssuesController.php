@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Gitamin\Http\Controllers\Controller;
+use GrahamCampbell\Binput\Facades\Binput;
+use Gitamin\Commands\Issue\AddIssueCommand;
+use Gitamin\Commands\Issue\RemoveIssueCommand;
+use Gitamin\Commands\Issue\UpdateIssueCommand;
+use Gitamin\Models\Project;
+use Gitamin\Models\ProjectNamespace;
+use Gitamin\Models\Group;
+use Gitamin\Models\Tag;
+use Gitamin\Models\Issue;
 
 class IssuesController extends Controller
 {
@@ -22,8 +31,10 @@ class IssuesController extends Controller
     public function index($namespace, $project_path)
     {
         $project = $this->getProject($namespace, $project_path);
+        
         return View::make('projects.issues.index')
             ->withProject($project)
+            ->withIssues($project->issues)
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
@@ -43,20 +54,25 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($namespace, $project_path)
     {
-        //
-    }
+        $project = $this->getProject($namespace, $project_path);
+        $issueData = Binput::get('issue');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+         try {
+            $issueData['author_id'] = Auth::user()->id;
+            $issueData['project_id'] = $project->id;
+            $issue = $this->dispatchFromArray(AddIssueCommand::class, $issueData);
+        } catch (ValidationException $e) {
+            return Redirect::route('projects.issue_new')
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.new.failure')))
+                ->withErrors($e->getMessageBag());
+        }
+
+        return Redirect::route('projects.issue_index', ['namespace' => $namespace, 'project'=> $project_path])
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.new.success')));
+
     }
 
     /**
@@ -65,7 +81,7 @@ class IssuesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($namespace, $project, Issue $issue)
     {
         //
     }
