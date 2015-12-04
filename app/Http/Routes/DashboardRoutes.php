@@ -27,7 +27,7 @@ class DashboardRoutes
     {
         // Dashboard
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['app.hasSetting', 'auth'],
             'setting'    => 'app_name',
             'as'         => 'dashboard.',
         ], function ($router) {

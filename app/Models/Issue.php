@@ -125,7 +125,8 @@ class Issue extends Model implements HasPresenter
     {
         $statuses = trans('gitamin.issues.status');
 
-        return $statuses[$this->state];
+        return $statuses[rand(0,2)];
+        //return $statuses[$this->state];
     }
 
     /**
