@@ -1,6 +1,6 @@
 <div class="sub-sidebar">
     <div class="sidebar-toggler visible-xs">
-        <i class="icon ion-navicon"></i>
+        <i class="fa fa-navicon"></i>
     </div>
     <h3>{{ $sub_title }}</h3>
     <ul class="menu">

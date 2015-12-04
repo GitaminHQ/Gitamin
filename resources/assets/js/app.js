@@ -36,6 +36,9 @@ $(function() {
     // Autosizing of textareas.
     autosize($('textarea.autosize'));
 
+    // Select2
+    $(".select2").select2();
+
     // Mock the DELETE form requests.
     $('[data-method]').not(".disabled").append(function() {
         var methodForm = "\n";
@@ -230,12 +233,12 @@ $(function() {
         $('input[name=remove_banner]').val('1');
     });
 
-    $('.team-name').on('click', function () {
+    $('.group-name').on('click', function () {
         var $this = $(this);
 
-        $this.find('.team-toggle').toggleClass('ion-ios-minus-outline').toggleClass('ion-ios-plus-outline');
+        $this.find('.group-toggle').toggleClass('fa fa-minus-square-o').toggleClass('fa fa-plus-square-o');
 
-        $this.next('.team-items').toggleClass('hide');
+        $this.next('.group-items').toggleClass('hide');
     });
 
     // Install wizard

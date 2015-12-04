@@ -1,17 +1,9 @@
 @extends('layout.dashboard')
 
-@section('js')
-<script>
-$(document).ready(function() {
-  $(".js-example-basic-single").select2();
-});
-</script>
-@stop
-
 @section('content')
     <div class="header">
         <div class="sidebar-toggler visible-xs">
-            <i class="icon ion-navicon"></i>
+            <i class="fa fa-navicon"></i>
         </div>
         <span class="uppercase">
             <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
@@ -46,7 +38,7 @@ $(document).ready(function() {
                         <div class="form-group">
                             <label class="control-label">{{ trans('forms.projects.namespace') }}</label>
                             <div class="col-sm-10">
-                            <select name="project[namespace_id]" class="form-control js-example-basic-single" tableindex="2">
+                            <select name="project[namespace_id]" class="form-control select2" tableindex="2">
                                 <optgroup label="Users">
                                 @foreach($groups as $group)
                                 @if($group->type == 'user')

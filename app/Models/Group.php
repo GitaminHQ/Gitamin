@@ -39,6 +39,6 @@ class Group extends ProjectNamespace
      */
     public function scopeMine($query)
     {
-    	return $query->where('owner_id', Auth::user()->id);
+    	//return $query->where('owner_id', Auth::user()->id);
     }
 }

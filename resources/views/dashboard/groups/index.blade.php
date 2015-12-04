@@ -8,7 +8,7 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <i class="fa fa-folder"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
+                    <i class="fa fa-group"></i> {{ trans_choice('gitamin.groups.groups', 2) }}
                 </span>
                 <a class="btn btn-success pull-right" href="{{ route('groups.new') }}">
                     <i class="fa fa-plus"></i>

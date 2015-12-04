@@ -6,7 +6,7 @@
     @endif
 
     @if($project->description)
-    <i class="ion-ios-help-outline help-icon" data-toggle="tooltip" data-title="{{ $project->description }}"></i>
+    <i class="question-circle help-icon" data-toggle="tooltip" data-title="{{ $project->description }}"></i>
     @endif
 
     <div class="pull-right">
