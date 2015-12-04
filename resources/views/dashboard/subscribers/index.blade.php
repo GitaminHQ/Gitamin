@@ -3,10 +3,10 @@
 @section('content')
     <div class="header fixed">
         <div class="sidebar-toggler visible-xs">
-            <i class="icon ion-navicon"></i>
+            <i class="fa fa-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="icon icon ion-email"></i> {{ trans('dashboard.subscribers.subscribers') }}
+            <i class="fa fa-inbox"></i> {{ trans('dashboard.subscribers.subscribers') }}
         </span>
         @if($current_user->isAdmin)
         <a class="btn btn-sm btn-success pull-right" href="{{ route('dashboard.subscribers.add') }}">

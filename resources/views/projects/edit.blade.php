@@ -3,7 +3,7 @@
 @section('content')
     <div class="header">
         <div class="sidebar-toggler visible-xs">
-            <i class="icon ion-navicon"></i>
+            <i class="fa fa-navicon"></i>
         </div>
         <span class="uppercase">
             <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}

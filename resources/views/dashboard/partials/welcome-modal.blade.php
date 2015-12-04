@@ -18,19 +18,19 @@
                     <div class="row">
                         <div class="col-md-4 animated fadeInDown">
                             <a href="{{ route('dashboard.projects.add') }}">
-                                <i class="icon ion-ios-browsers"></i>
+                                <i class="fa fa-browsers"></i>
                                 {{ trans('dashboard.welcome.steps.project') }}
                             </a>
                         </div>
                         <div class="col-md-4 animated fadeInDown two">
                             <a href="{{ route('dashboard.issues.add') }}">
-                                <i class="icon ion-android-alert"></i>
+                                <i class="fa fa-exclamation-circle"></i>
                                 {{ trans('dashboard.welcome.steps.issue') }}
                             </a>
                         </div>
                         <div class="col-md-4 animated fadeInDown three">
                             <a href="{{ route('dashboard.settings.theme') }}">
-                                <i class="icon ion-ios-paper-outline"></i>
+                                <i class="fa fa-paper-outline"></i>
                                 {{ trans('dashboard.welcome.steps.customize') }}
                             </a>
                         </div>
@@ -38,19 +38,19 @@
                     <div class="row">
                         <div class="col-md-4 animated fadeInDown">
                             <a href="{{ route('dashboard.group.add') }}">
-                                <i class="icons ion-ios-people"></i>
+                                <i class="fa fa-people"></i>
                                 {{ trans('dashboard.welcome.steps.team') }}
                             </a>
                         </div>
                         <div class="col-md-4 animated fadeInDown two">
                             <a href="{{ route('dashboard.user') }}">
-                                <i class="icon ion-code-working"></i>
+                                <i class="fa fa-code"></i>
                                 {{ trans('dashboard.welcome.steps.api') }}
                             </a>
                         </div>
                         <div class="col-md-4 animated fadeInDown three">
                             <a href="{{ route('dashboard.user') }}">
-                                <i class="icon ion-unlocked"></i>
+                                <i class="fa fa-unlock"></i>
                                 {{ trans('dashboard.welcome.steps.two-factor') }}
                             </a>
                         </div>

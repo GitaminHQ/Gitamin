@@ -63,7 +63,7 @@
                 </fieldset>
                 <hr>
                 <div class="form-actions center">
-                    <span class="wizard-next btn btn-success" data-current-block="1" data-next-block="2" data-loading-text="<i class='icon ion-load-c'></i>">
+                    <span class="wizard-next btn btn-success" data-current-block="1" data-next-block="2" data-loading-text="<i class='fa fa-spinner'></i>">
                         {{ trans('install.next') }}
                     </span>
                 </div>
@@ -147,7 +147,7 @@
                         <span class="wizard-next btn btn-info" data-current-block="2" data-next-block="1">
                             {{ trans('install.previous') }}
                         </span>
-                        <span class="wizard-next btn btn-success" data-current-block="2" data-next-block="3" data-loading-text="<i class='icon ion-load-c'></i>">
+                        <span class="wizard-next btn btn-success" data-current-block="2" data-next-block="3" data-loading-text="<i class='fa fa-spinner'></i>">
                             {{ trans('install.next') }}
                         </span>
                     </div>
@@ -189,7 +189,7 @@
                     <span class="wizard-next btn btn-info" data-current-block="3" data-next-block="2">
                         {{ trans('install.previous') }}
                     </span>
-                    <span class="wizard-next btn btn-success" data-current-block="3" data-next-block="4" data-loading-text="<i class='icon ion-load-c'></i>">
+                    <span class="wizard-next btn btn-success" data-current-block="3" data-next-block="4" data-loading-text="<i class='fa fa-spinner'></i>">
                         {{ trans("install.complete") }}
                     </span>
                 </div>

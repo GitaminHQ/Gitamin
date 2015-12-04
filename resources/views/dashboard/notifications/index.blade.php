@@ -3,9 +3,9 @@
 @section('content')
     <div class="header">
         <div class="sidebar-toggler visible-xs">
-            <i class="icon ion-navicon"></i>
+            <i class="fa fa-navicon"></i>
         </div>
-        <i class="ion ion-email"></i> {{ trans('dashboard.notifications.notifications') }}
+        <i class="fa fa-inbox"></i> {{ trans('dashboard.notifications.notifications') }}
     </div>
     <div class="row">
         <div class="col-sm-12">

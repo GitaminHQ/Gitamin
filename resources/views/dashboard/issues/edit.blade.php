@@ -3,10 +3,10 @@
 @section('content')
     <div class="header">
         <div class="sidebar-toggler visible-xs">
-            <i class="icon ion-navicon"></i>
+            <i class="fa fa-navicon"></i>
         </div>
         <span class="uppercase">
-            <i class="icon ion-android-alert"></i> {{ trans('dashboard.issues.issues') }}
+            <i class="fa fa-exclamation-circle"></i> {{ trans('dashboard.issues.issues') }}
         </span>
         &gt; <small>{{ trans('dashboard.issues.edit.title') }}</small>
     </div>
@@ -28,22 +28,22 @@
                             <div class="col-sm-10">
                                 <label class="radio-inline">
                                     <input type="radio" name="status" value="1" {{ ($issue->status == 1) ? "checked=checked" : "" }}>
-                                    <i class="icon ion-flag"></i>
+                                    <i class="fa fa-flag"></i>
                                     {{ trans('gitamin.issues.status')[1] }}
                                 </label>
                                 <label class="radio-inline">
                                     <input type="radio" name="status" value="2" {{ ($issue->status == 2) ? "checked=checked" : "" }}>
-                                    <i class="icon ion-alert-circled"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
                                     {{ trans('gitamin.issues.status')[2] }}
                                 </label>
                                 <label class="radio-inline">
                                     <input type="radio" name="status" value="3" {{ ($issue->status == 3) ? "checked=checked" : "" }}>
-                                    <i class="icon ion-eye"></i>
+                                    <i class="fa fa-eye"></i>
                                     {{ trans('gitamin.issues.status')[3] }}
                                 </label>
                                 <label class="radio-inline">
                                     <input type="radio" name="status" value="4" {{ ($issue->status == 4) ? "checked=checked" : "" }}>
-                                    <i class="icon ion-checkmark"></i>
+                                    <i class="fa fa-check-circle"></i>
                                     {{ trans('gitamin.issues.status')[4] }}
                                 </label>
                             </div>

@@ -2,12 +2,12 @@
     @if($project_teams->count() > 0)
     @foreach($project_teams as $projectTeam)
     @if($projectTeam->projects()->count() > 0)
-    <li class="list-group-item team-name">
-        <i class="ion-ios-minus-outline team-toggle"></i>
+    <li class="list-group-item group-name">
+        <i class="fa fa-minus-square-o group-toggle"></i>
         <strong>{{ $projectTeam->name }}</strong>
     </li>
 
-    <div class="team-items">
+    <div class="group-items">
     @foreach($projectTeam->projects()->get() as $project)
     @include('partials.project', compact($project))
     @endforeach
