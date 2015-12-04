@@ -59,19 +59,9 @@
                         </div>
                     </fieldset>
                     <input type="hidden" name="project[id]" value="{{ $project->id }}">
-                    <input type="hidden" name="project[order]" value="0">
-
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                        <a class="btn btn-default" href="{{ route('dashboard.projects.index') }}">{{ trans('forms.cancel') }}</a>
-                        <div class="pull-right">
-                            <div class="light inline">
-                            <div class="space-right">
-                                Need a group for several dependent projects?
-                            </div>
-                            </div>
-                            <a class="btn btn-default" href="/groups/new">{{ trans('dashboard.groups.new.title') }}</a>
-                            </div>
+                        <a class="btn btn-cancel" href="{{ route('projects.project_show', ['namespace' => $project->namespace, 'project' => $project->path]) }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>
