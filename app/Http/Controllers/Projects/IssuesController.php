@@ -11,16 +11,31 @@ use Gitamin\Http\Controllers\Controller;
 
 class IssuesController extends Controller
 {
+    
+    protected $active_item = 'issues';
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index($namespace, $project_path)
     {
-        //
+        $project = $this->getProject($namespace, $project_path);
         return View::make('projects.issues.index')
-            ->withPageTitle('');
+            ->withProject($project)
+            ->withActiveItem($this->active_item)
+            ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
+    }
+
+    public function new($namespace, $project_path)
+    {
+        $project = $this->getProject($namespace, $project_path);
+
+        return View::make('projects.issues.new')
+            ->withProject($project)
+            ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
+            ->withActiveItem($this->active_item);
     }
 
     /**

@@ -37,5 +37,6 @@ class AppComposer
         $view->withAppName(Setting::get('app_name'));
         $view->withAppStylesheet(Setting::get('app_stylesheet'));
         $view->withAppUrl(Config::get('app.url'));
+        $view->withGoogleFontsUrl(Config::get('gitamin.google_fonts_url'));
     }
 }

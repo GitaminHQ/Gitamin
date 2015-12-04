@@ -8,24 +8,21 @@
     <span class="uppercase">
         <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
     </span>
-    &gt; <small>{{ trans('dashboard.projects.show.title') }}</small>
+    &gt; <small>{{ $project->name }}</small>&gt; <small>{{ trans('dashboard.issues.issues') }}</small>
 </div>
 
 <div class="content-wrapper">
 
+    @include('projects.partials.sub-navbar')
     <div class="row">
-        <div class="col-sm-12">   
-            <ul class="nav nav-tabs">
-                <li><a href="/Baidu/Gitamin"><i class="fa fa-code"></i><span>Code</span></a></li>
-                <li class="active"><a href="/Gitamin/issues"><i class="fa fa-exclamation-circle"></i><span>Issues</span></a></li>
-                <li><a href="/Baidu/Gitamin/stats/master"><i class="fa fa-tasks"></i><span>Merge Requests</span></a></li>
-            </ul>
-        </div>
+    <div class="col-sm-12">
+     <a href="issues/new" class="btn btn-success pull-right"><i class="fa fa-plus"></i> {{ trans('dashboard.issues.add.title') }}</a>
     </div>
-
+    </div>
+    <hr>
     <div class="row">
 	    <div class="col-sm-12">
-	    	abc
+	    	<div class="list-group-item center">{{ trans('dashboard.issues.no_items') }}</div>
 	    </div>
     </div>
 

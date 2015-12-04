@@ -10,13 +10,11 @@ textarea {
     &:before {
         position:absolute;
         display:block;
-        right:0%;
+        right:5px;
         bottom:0%;
-        width:40px;
-        height:40px;
-        font-size: 2em;
-        font-family: "Ionicons";
-        content: "\f4e6";
+        font-size: 1.2em;
+        font-family: "Fontawesome";
+        content: "\f292";
     }
 }
 

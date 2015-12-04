@@ -13,9 +13,20 @@ namespace Gitamin\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
+use Gitamin\Models\Project;
+use Gitamin\Models\ProjectNamespace;
 
 
 class Controller extends BaseController
 {
     use DispatchesJobs;
+
+    public function getProject($namespace, $path)
+    {
+    	$project = Project::leftJoin('namespaces', function($join) {
+            $join->on('projects.namespace_id', '=', 'namespaces.id');
+        })->where('projects.path', '=', $path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
+
+    	return $project;
+    }
 }
