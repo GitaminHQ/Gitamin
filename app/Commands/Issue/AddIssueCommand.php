@@ -14,39 +14,26 @@ namespace Gitamin\Commands\Issue;
 final class AddIssueCommand
 {
     /**
-     * The issue name.
+     * The issue title.
      *
      * @var string
      */
-    public $name;
+    public $title;
+
 
     /**
-     * The issue status.
-     *
-     * @var int
-     */
-    public $status;
-
-    /**
-     * The issue message.
+     * The issue description.
      *
      * @var string
      */
-    public $message;
-
-    /**
-     * The issue visibility.
-     *
-     * @var int
-     */
-    public $visible;
+    public $description;
 
     /**
      * The issue user.
      *
      * @var int
      */
-    public $user_id;
+    public $author_id;
 
     /**
      * The issue project.
@@ -56,58 +43,32 @@ final class AddIssueCommand
     public $project_id;
 
     /**
-     * Whether to notify about the issue or not.
-     *
-     * @var bool
-     */
-    public $notify;
-
-    /**
-     * The date at which the issue occurred.
-     *
-     * @var string|null
-     */
-    public $issue_date;
-
-    /**
      * The validation rules.
      *
      * @var string[]
      */
     public $rules = [
-        'name'           => 'required|string',
-        'status'         => 'required|int|min:0|max:4',
-        'message'        => 'string',
-        'visible'        => 'bool',
-        'user_id'        => 'int',
-        'project_id'     => 'int',
-        'notify'         => 'bool',
-        'issue_date'     => 'string',
+        'title'       => 'required|string',
+        'description' => 'string',
+        'author_id'   => 'int',
+        'project_id'  => 'int',
     ];
 
     /**
      * Create a new add issue command instance.
      *
-     * @param string      $name
-     * @param int         $status
-     * @param string      $message
-     * @param int         $visible
-     * @param int         $user_id
+     * @param string      $title
+     * @param string      $description
+     * @param int         $author_id
      * @param int         $project_id
-     * @param bool        $notify
-     * @param string|null $issue_date
      *
      * @return void
      */
-    public function __construct($name, $status, $message, $visible, $user_id, $project_id, $notify, $issue_date)
+    public function __construct($title, $description, $author_id, $project_id)
     {
-        $this->name = $name;
-        $this->status = $status;
-        $this->message = $message;
-        $this->visible = $visible;
-        $this->user_id = $user_id;
+        $this->title = $title;
+        $this->description = $description;
+        $this->author_id = $author_id;
         $this->project_id = $project_id;
-        $this->notify = $notify;
-        $this->issue_date = $issue_date;
     }
 }

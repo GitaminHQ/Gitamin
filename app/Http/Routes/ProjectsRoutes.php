@@ -76,14 +76,29 @@ class ProjectsRoutes
                 'uses' => 'Projects\\IssuesController@index',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
 
-
-            //Issues
+            //new
             $router->get('{namespace}/{project}/issues/new', [
                 'as'   => 'issue_new',
                 'uses' => 'Projects\\IssuesController@new',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
 
+            //create
+            $router->post('{namespace}/{project}/issues', [
+                'as'   => 'issue_create',
+                'uses' => 'Projects\\IssuesController@create',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
 
+            //show
+            $router->get('{namespace}/{project}/issues/{issue}', [
+                'as'   => 'issue_show',
+                'uses' => 'Projects\\IssuesController@show',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+
+            //update
+            $router->post('{namespace}/{project}/issues/{issue}', [
+                'as'   => 'issue_update',
+                'uses' => 'Projects\\IssuesController@update',
+            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
 
         });
 

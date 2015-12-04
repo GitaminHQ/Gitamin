@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-sm-12 striped-list" id="project-list">
                     @forelse($projects as $project)
-                    <div class="row striped-list-item {{ !$project->enabled ? 'bg-warning' : null }}" data-project-id="{{ $project->id }}">
+                    <div class="row striped-list-item {{ !$project->wall_enabled ? 'bg-warning' : null }}" data-project-id="{{ $project->id }}">
                         <div class="col-xs-6">
                             <h4>
                                 @if($projects->count() > 1)

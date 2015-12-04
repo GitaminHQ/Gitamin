@@ -48,33 +48,21 @@ class AddIssueCommandHandler
     public function handle(AddIssueCommand $command)
     {
         $data = [
-            'name'    => $command->name,
-            'status'  => $command->status,
-            'message' => $command->message,
-            'visible' => $command->visible,
+            'title'    => $command->title,
+            'description' => $command->description,
         ];
 
         // Link with the user.
-        if ($command->user_id) {
-            $data['user_id'] = $command->user_id;
+        if ($command->author_id) {
+            $data['author_id'] = $command->author_id;
         }
         // Link with the project.
         if ($command->project_id) {
             $data['project_id'] = $command->project_id;
         }
 
-        // The issue occurred at a different time.
-        if ($command->issue_date) {
-            $issueDate = $this->dates->createNormalized('d/m/Y H:i', $command->issue_date);
-
-            $data['created_at'] = $issueDate;
-            $data['updated_at'] = $issueDate;
-        }
-
         // Create the issue
         $issue = Issue::create($data);
-
-        $issue->notify = (bool) $command->notify;
 
         event(new IssueWasAddedEvent($issue));
 

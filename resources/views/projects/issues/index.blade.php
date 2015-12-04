@@ -15,16 +15,28 @@
 
     @include('projects.partials.sub-navbar')
     <div class="row">
-    <div class="col-sm-12">
-     <a href="issues/new" class="btn btn-success pull-right"><i class="fa fa-plus"></i> {{ trans('dashboard.issues.add.title') }}</a>
-    </div>
+        <div class="col-sm-12">
+         <a href="issues/new" class="btn btn-success pull-right"><i class="fa fa-plus"></i> {{ trans('dashboard.issues.add.title') }}</a>
+        </div>
     </div>
     <hr>
     <div class="row">
-	    <div class="col-sm-12">
-	    	<div class="list-group-item center">{{ trans('dashboard.issues.no_items') }}</div>
-	    </div>
+        <div class="col-sm-12">
+            @include('dashboard.partials.errors')
+            <div class="striped-list">
+                @foreach($issues as $issue)
+                <div class="row striped-list-item">
+                    <div class="col-xs-6">
+                        <i class="{{ $issue->icon }}"></i> <strong>{{ $issue->title }}</strong>
+                        <p><small>#{{ $issue->id }}</small></p>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        updated 3 minutes ago
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
-
 </div>
 @stop
