@@ -16,7 +16,7 @@
     @include('projects.partials.sub-navbar')
     <div class="row">
         <div class="col-sm-12">
-         <a href="issues/new" class="btn btn-success pull-right"><i class="fa fa-plus"></i> {{ trans('dashboard.issues.add.title') }}</a>
+         <a href="issues/new" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> {{ trans('dashboard.issues.add.title') }}</a>
         </div>
     </div>
     <hr>

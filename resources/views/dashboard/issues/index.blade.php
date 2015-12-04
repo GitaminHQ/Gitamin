@@ -24,9 +24,9 @@
                         @foreach($issues as $issue)
                         <div class="row striped-list-item">
                             <div class="col-xs-6">
-                                <i class="{{ $issue->icon }}"></i> <strong>{{ $issue->name }}</strong>
-                                @if($issue->message)
-                                <p><small>{{ Str::words($issue->message, 5) }}</small></p>
+                                <i class="{{ $issue->icon }}"></i> <strong>{{ $issue->title }}</strong>
+                                @if($issue->description)
+                                <p><small>{{ Str::words($issue->description, 5) }}</small></p>
                                 @endif
                             </div>
                             <div class="col-xs-6 text-right">
