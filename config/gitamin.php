@@ -22,4 +22,6 @@ return [
 
     'timezone' => 'UTC',
 
+    'google_fonts_url' => 'http://fonts.useso.com/css?family=Open+Sans:300,400,700',
+
 ];

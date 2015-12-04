@@ -96,6 +96,7 @@ class ProjectsController extends Controller
 
         return View::make('projects.show')
             ->withPageTitle($project->name)
+            ->withActiveItem('project_show')
             ->withProject($project)
             ->withRepo('')
             ->withRepository('')

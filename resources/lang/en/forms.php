@@ -39,11 +39,11 @@ return [
 
     // Issues form fields
     'issues' => [
-        'name'               => 'Name',
+        'title'              => 'Title',
         'status'             => 'Status',
         'project'            => 'Project',
-        'message'            => 'Message',
-        'message-help'       => 'You may also use Markdown.',
+        'description'        => 'Message',
+        'description-help'   => 'You may also use Markdown.',
         'scheduled_at'       => 'When to schedule the maintenance for?',
         'issue_time'         => 'When did this issue occur?',
         'notify_subscribers' => 'Notify Subscribers?',
