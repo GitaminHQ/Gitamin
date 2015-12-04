@@ -10,7 +10,6 @@
             @yield('content')
         </div>
     </div>
-    @include('dashboard.partials.footer')
     @yield('js')
 </body>
 </html>
