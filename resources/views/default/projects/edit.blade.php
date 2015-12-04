@@ -58,6 +58,31 @@
                             </div>
                         </div>
                     </fieldset>
+                    <fieldset class="features">
+                        <legend>Features:</legend>
+                        <div class="form-group">
+                            <label class="control-label"></label>
+                            <div class="col-sm-10">
+                                <input {!! $project->issues_enabled ? 'checked="checked"' : null !!} type="checkbox" name="project[issues_enabled]" value="1">
+                                <strong>Issues</strong> - Lightweight issue tracking system for this project.
+                            </div>
+                        </div>
+                         <div class="form-group">  
+                         <label class="control-label"></label> 
+                            <div class="col-sm-10">    
+                                <input {!! $project->merge_requests_enabled ? 'checked="checked"' : null !!} checked="checked" type="checkbox" name="project[merge_requests_enabled]" value="1">
+                                <strong>Merge Requests</strong> - Submit changes to be merged upstream.
+                            </div>
+                        </div>
+                        <div class="form-group">  
+                         <label class="control-label"></label> 
+                            <div class="col-sm-10">    
+                                <input {!! $project->snippets_enabled ? 'checked="checked"' : null !!} checked="checked" type="checkbox" name="project[snippets_enabled]" value="1">
+                                <strong>Snippets</strong> - Share code pastes with others out of git repository.
+                            </div>
+                        </div>
+  
+                    </fieldset>
                     <input type="hidden" name="project[id]" value="{{ $project->id }}">
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
