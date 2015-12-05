@@ -22,12 +22,11 @@
                     @forelse($projects as $project)
                     <div class="row striped-list-item {{ !$project->wall_enabled ? 'bg-warning' : null }}" data-project-id="{{ $project->id }}">
                         <div class="col-xs-6">
-                            <h4>
-                                @if($projects->count() > 1)
-                                <span class="drag-handle"><i class="fa fa-reorder"></i></span>
-                                @endif
-                                <a href="{{ route('projects.project_show',['namespace'=>$project->namespace,'project'=>$project->path]) }}">{{ $project->namespace}} / {{ $project->name }}</a> <small>{{ $project->humanStatus }}</small>
-                            </h4>
+                            @if($projects->count() > 1)
+                            <span class="drag-handle"><i class="fa fa-reorder"></i></span>
+                            @endif
+                            <a href="{{ route('projects.project_show',['namespace'=>$project->namespace,'project'=>$project->path]) }}">{{ $project->namespace}} / {{ $project->name }}</a> <small>{{ $project->humanStatus }}</small>
+                           
                             <!--
                             @if($project->team)
                             <p><small><a href="/{{ $project->team->slug }}">{{ trans('dashboard.projects.listed_team', ['name' => $project->team->name]) }} </a></small></p>

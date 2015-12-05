@@ -141,6 +141,7 @@ class ProjectsController extends Controller
 
         try {
             $projectData['project'] = $project;
+            $projectData['creator_id'] = Auth::user()->id;
             $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])

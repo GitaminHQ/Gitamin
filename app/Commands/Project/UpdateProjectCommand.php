@@ -91,7 +91,7 @@ final class UpdateProjectCommand
      *
      * @return void
      */
-    public function __construct(Project $project, $name, $description, $visibility_level, $path, $order, $namespace_id)
+    public function __construct(Project $project, $name, $description, $visibility_level, $path, $creator_id, $namespace_id)
     {
         $this->project = $project;
         $this->name = $name;

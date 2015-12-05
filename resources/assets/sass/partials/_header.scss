@@ -1,5 +1,12 @@
 body.dashboard {
     .nav-header {
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        height: 58px;
+        background: $header-background-color;
+        border-bottom: 1px solid #eee;
     	.nav-logo {
     		float: left;
     		height: 58px;
@@ -28,7 +35,10 @@ body.dashboard {
                         position: relative;
                         text-align: center;
                         padding: 6px 0;
-                        color: #fff;
+                        color: $header-link-color;
+                        &:hover {
+                            color: $header-link-hover-color;
+                        }
                     }
                 }
             }
@@ -42,6 +52,9 @@ body.dashboard {
                 }
                 .dropdown-menu {
                     top: 108%;
+                    a {
+                        color: $gray-dark;
+                    }
                 }
                 .avatar {
                     width: 60px;
@@ -56,16 +69,13 @@ body.dashboard {
                 }
                 &.username {
                     word-break: break-all;
-                    color: $sidebar-text-color;
+                    color: $white-normal;
+                }
+                a {
+                    color: $header-link-color;
                 }
             }
     	}
-    	position: fixed;
-    	right: 0;
-    	left: 0;
-    	z-index: 1030;
-    	height: 58px;
-    	background-color: #000;
-    	border-bottom: 1px solid #eee;
+    	
     }
 }
