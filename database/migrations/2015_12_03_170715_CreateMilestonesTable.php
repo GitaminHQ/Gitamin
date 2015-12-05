@@ -29,7 +29,7 @@ class CreateMilestonesTable extends Migration
             $table->string('title');
             $table->integer('project_id');
             $table->text('description');
-            $table->date('due_date');
+            $table->timestamp('due_date');
             $table->timestamps();
             $table->string('state');
             $table->integer('iid');

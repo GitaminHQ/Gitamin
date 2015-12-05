@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label class="control-label" for="project-tags">{{ trans('forms.projects.tags') }}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="project[tags]" id="project-tags" value="{{ $project->tagsList }}" required>
+                                <input type="text" class="form-control" name="project[tags]" id="project-tags" value="{{ $project->tagsList }}">
                                 <p class="help-block">{{ trans('forms.projects.tags-help') }}</p>
                             </div>
                         </div>

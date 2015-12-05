@@ -62,7 +62,7 @@ class GroupsController extends Controller
 
         View::share([
             'sub_menu'  => $this->subMenu,
-            'sub_title' => trans_choice('dashboard.projects.projects', 2),
+            'sub_title' => trans_choice('dashboard.groups.groups', 2),
         ]);
     }
 
