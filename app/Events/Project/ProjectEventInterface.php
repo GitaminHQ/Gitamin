@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Events\User;
+namespace Gitamin\Events\Project;
 
 use Gitamin\Events\EventInterface;
 
-interface UserEventInterface extends EventInterface
+interface ProjectEventInterface extends EventInterface
 {
-    //
+    
 }

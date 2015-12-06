@@ -84,6 +84,11 @@ class GroupsController extends Controller
             ->withSubMenu($this->subMenu);
     }
 
+     /**
+     * Shows the group view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function show($namespace)
     {
         $group = Group::where('path', '=', $namespace)->first();
@@ -104,7 +109,6 @@ class GroupsController extends Controller
             //->withGroups(ProjectNamespace::all());
     }
 
-    
     /**
      * Creates a new project.
      *
@@ -143,8 +147,6 @@ class GroupsController extends Controller
             ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
             ->withGroup($group);
     }
-
-   
 
     /**
      * Updates a project team.

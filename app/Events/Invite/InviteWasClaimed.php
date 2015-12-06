@@ -13,7 +13,7 @@ namespace Gitamin\Events\Invite;
 
 use Gitamin\Models\Invite;
 
-final class InviteWasClaimed
+final class InviteWasClaimed implements InvteEventInterface
 {
     /**
      * The invite that has been claimed.

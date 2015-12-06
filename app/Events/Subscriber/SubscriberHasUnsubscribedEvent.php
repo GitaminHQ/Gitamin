@@ -13,7 +13,7 @@ namespace Gitamin\Events\Subscriber;
 
 use Gitamin\Models\Subscriber;
 
-class SubscriberHasUnsubscribedEvent
+class SubscriberHasUnsubscribedEvent implements SubscriberEventInterface
 {
     /**
      * The subscriber who has unsubscribed.

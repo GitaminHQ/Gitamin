@@ -13,7 +13,7 @@ namespace Gitamin\Events\User;
 
 use Gitamin\Models\Invite;
 
-final class UserWasInvitedEvent
+final class UserWasInvitedEvent implements UserEventInterface
 {
     /**
      * The invite that has been added.

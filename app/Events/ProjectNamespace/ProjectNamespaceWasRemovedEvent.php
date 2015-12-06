@@ -13,7 +13,7 @@ namespace Gitamin\Events\ProjectTeam;
 
 use Gitamin\Models\ProjectTeam;
 
-class ProjectTeamWasRemovedEvent
+class ProjectTeamWasRemovedEvent implements ProjectNamespaceEventInterface
 {
     /**
      * The project team that was removed.

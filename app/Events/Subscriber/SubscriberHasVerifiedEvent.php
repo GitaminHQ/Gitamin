@@ -13,7 +13,7 @@ namespace Gitamin\Events\Subscriber;
 
 use Gitamin\Models\Subscriber;
 
-class SubscriberHasVerifiedEvent
+class SubscriberHasVerifiedEvent implements SubscriberEventInterface
 {
     /**
      * The subscriber who has verified.
