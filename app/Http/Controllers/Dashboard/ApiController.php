@@ -13,7 +13,7 @@ namespace Gitamin\Http\Controllers\Dashboard;
 
 use Exception;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 
@@ -52,21 +52,5 @@ class ApiController extends Controller
         }
 
         return $projectData;
-    }
-
-    /**
-     * Updates the order of project teams.
-     *
-     * @return array
-     */
-    public function postUpdateProjectTeamOrder()
-    {
-        $teamData = Binput::get('ids');
-
-        foreach ($teamData as $order => $teamId) {
-            ProjectTeam::find($teamId)->update(['order' => $order + 1]);
-        }
-
-        return $teamData;
     }
 }

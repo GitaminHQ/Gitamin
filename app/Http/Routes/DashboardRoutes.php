@@ -244,7 +244,6 @@ class DashboardRoutes
              * This should only be used for making requests within the dashboard.
              */
             $router->group(['prefix' => 'api'], function ($router) {
-                $router->post('projects/teams/order', 'ApiController@postUpdateProjectTeamOrder');
                 $router->post('projects/order', 'ApiController@postUpdateProjectOrder');
                 $router->post('projects/{project}', 'ApiController@postUpdateProject');
             });

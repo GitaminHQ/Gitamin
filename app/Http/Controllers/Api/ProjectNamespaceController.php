@@ -11,17 +11,17 @@
 
 namespace Gitamin\Http\Controllers\Api;
 
-use Gitamin\Commands\ProjectTeam\AddProjectTeamCommand;
-use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
-use Gitamin\Commands\ProjectTeam\UpdateProjectTeamCommand;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
+use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
+use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
+use Gitamin\Models\ProjectNamespace;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class ProjectTeamController extends AbstractApiController
+class ProjectNamespaceController extends AbstractApiController
 {
     use DispatchesJobs;
 
@@ -34,7 +34,7 @@ class ProjectTeamController extends AbstractApiController
      */
     public function getTeams(Request $request)
     {
-        $teams = ProjectTeam::paginate(Binput::get('per_page', 20));
+        $teams = ProjectNamespace::paginate(Binput::get('per_page', 20));
 
         return $this->paginator($teams, $request);
     }
@@ -42,11 +42,11 @@ class ProjectTeamController extends AbstractApiController
     /**
      * Get a single team.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
+     * @param \Gitamin\Models\ProjectNamespace $team
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getTeam(ProjectTeam $team)
+    public function getTeam(ProjectNamespace $team)
     {
         return $this->item($team);
     }
@@ -59,9 +59,9 @@ class ProjectTeamController extends AbstractApiController
     public function postTeams()
     {
         try {
-            $team = $this->dispatch(new AddProjectTeamCommand(
+            $team = $this->dispatch(new AddProjectNamespaceCommand(
                 Binput::get('name'),
-                Binput::get('slug'),
+                Binput::get('path'),
                 Binput::get('order', 0)
             ));
         } catch (QueryException $e) {
@@ -74,17 +74,17 @@ class ProjectTeamController extends AbstractApiController
     /**
      * Update an existing team.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
+     * @param \Gitamin\Models\ProjectNamespace $team
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function putTeam(ProjectTeam $team)
+    public function putTeam(ProjectNamespace $team)
     {
         try {
-            $team = $this->dispatch(new UpdateProjectTeamCommand(
+            $team = $this->dispatch(new UpdateProjectNamespaceCommand(
                 $team,
                 Binput::get('name'),
-                Binput::get('slug'),
+                Binput::get('path'),
                 Binput::get('order', 0)
             ));
         } catch (QueryException $e) {
@@ -97,13 +97,13 @@ class ProjectTeamController extends AbstractApiController
     /**
      * Delete an existing team.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
+     * @param \Gitamin\Models\ProjectNamespace $team
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function deleteTeam(ProjectTeam $team)
+    public function deleteTeam(ProjectNamespace $team)
     {
-        $this->dispatch(new RemoveProjectTeamCommand($team));
+        $this->dispatch(new RemoveProjectNamespaceCommand($team));
 
         return $this->noContent();
     }

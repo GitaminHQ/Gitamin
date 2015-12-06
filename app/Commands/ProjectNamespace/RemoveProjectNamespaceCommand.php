@@ -16,21 +16,21 @@ use Gitamin\Models\ProjectNamespace;
 final class RemoveProjectNamespaceCommand
 {
     /**
-     * The project team to remove.
+     * The project namespace to remove.
      *
-     * @var \Gitamin\Models\ProjectTeam
+     * @var \Gitamin\Models\ProjectNamespace
      */
-    public $namespace;
+    public $projectNamespace;
 
     /**
-     * Create a new remove project team command instance.
+     * Create a new remove project namespace command instance.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
+     * @param \Gitamin\Models\ProjectNamespace $projectNamespace
      *
      * @return void
      */
-    public function __construct(ProjectNamespace $namespace)
+    public function __construct(ProjectNamespace $projectNamespace)
     {
-        $this->namespace = $namespace;
+        $this->projectNamespace = $projectNamespace;
     }
 }

@@ -13,7 +13,7 @@ namespace Gitamin\Console\Commands;
 
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 use Gitamin\Models\Setting;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
@@ -53,7 +53,7 @@ class DemoSeederCommand extends Command
             return;
         }
 
-        $this->seedProjectTeams();
+        $this->seedProjectNamespaces();
         $this->seedProjects();
         $this->seedIssues();
         $this->seedSettings();
@@ -68,19 +68,19 @@ class DemoSeederCommand extends Command
      *
      * @return void
      */
-    protected function seedProjectTeams()
+    protected function seedProjectNamespaces()
     {
-        $defaultTeams = [
+        $defaultNamespaces = [
             [
-                'name'  => 'Websites',
-                'order' => 1,
+                'name' => 'Baidu Corp',
+                'path' => 'Baidu',
             ],
         ];
 
-        ProjectTeam::truncate();
+        ProjectNamespace::truncate();
 
-        foreach ($defaultTeams as $team) {
-            ProjectTeam::create($team);
+        foreach ($defaultNamespaces as $projectNamespace) {
+            ProjectNamespace::create($projectNamespace);
         }
     }
 
