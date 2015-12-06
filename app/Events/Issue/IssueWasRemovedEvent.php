@@ -13,7 +13,7 @@ namespace Gitamin\Events\Issue;
 
 use Gitamin\Models\Issue;
 
-class IssueWasRemovedEvent
+class IssueWasRemovedEvent implements IssueEventInterface
 {
     /**
      * The issue that has been removed.

@@ -13,7 +13,7 @@ namespace Gitamin\Events\ProjectNamespace;
 
 use Gitamin\Models\ProjectNamespace;
 
-class ProjectNamespaceWasUpdatedEvent
+class ProjectNamespaceWasUpdatedEvent implements ProjectNamespaceEventInterface
 {
     /**
      * The project team that was updated.

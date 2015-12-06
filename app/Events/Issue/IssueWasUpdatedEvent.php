@@ -13,7 +13,7 @@ namespace Gitamin\Events\Issue;
 
 use Gitamin\Models\Issue;
 
-class IssueWasUpdatedEvent
+class IssueWasUpdatedEvent implements IssueEventInterface
 {
     /**
      * The issue that has been updated.

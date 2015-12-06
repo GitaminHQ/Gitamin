@@ -22,7 +22,7 @@ use Roumen\Feed\Facades\Feed;
 class FeedController extends Controller
 {
     /**
-    * Instance of Feed.
+    * Feed facade.
     *
     * @var Roumen\Feed\Facades\Feed
     */
@@ -69,14 +69,14 @@ class FeedController extends Controller
     }
 
     /**
-     * Generates an Atom feed of all issues.
+     * Generates a feed of all issues.
      *
      * @param \Gitamin\Models\ProjectTeam|null $namespace
      * @param bool                             $isRss
      *
      * @return \Illuminate\Http\Response
      */
-    public function feedAction(ProjectNamespace &$namespace, $isRss)
+    private function feedAction(ProjectNamespace &$namespace, $isRss)
     {
         if ($namespace->exists) {
             $namespace->projects->map(function ($project) {
@@ -109,4 +109,3 @@ class FeedController extends Controller
             $isRss ? $issue->message : Markdown::convertToHtml($issue->message)
         );
     }
-}
