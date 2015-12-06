@@ -83,8 +83,6 @@
                         </div>
                     </fieldset>
 
-                    <input type="hidden" name="project[order]" value="0">
-
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
                         <a class="btn btn-default" href="{{ route('dashboard.projects.index') }}">{{ trans('forms.cancel') }}</a>
