@@ -8,7 +8,7 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
+                    <i class="fa fa-group"></i> {{ trans('dashboard.groups.groups') }}
                 </span>
                 <a class="btn btn-success pull-right" href="{{ route('projects.new') }}">
                     <i class="fa fa-plus"></i>
@@ -46,18 +46,10 @@
                             <i class="fa fa-bookmark-o"></i> {{ trans('dashboard.projects.new.message') }}
                             </div>
                         <div class="col-xs-4">
-                            <a class="btn btn-success" href="{{ route('projects.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.projects.new.title') }}</a>
+                            
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <i class="fa fa-users"></i> {{ trans('dashboard.groups.new.message') }}
-                        </div>
-                        <div class="col-xs-4">
-                            <a class="btn btn-success" href="{{ route('groups.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.groups.new.title') }}</a>
-                        </div>
-                    </div>
+                   
                     <hr>
                     @endforelse
                 </div>

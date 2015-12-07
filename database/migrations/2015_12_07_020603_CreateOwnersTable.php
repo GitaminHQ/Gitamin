@@ -13,7 +13,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNamespacesTable extends Migration
+class CreateOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,25 +22,25 @@ class CreateNamespacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('namespaces', function (Blueprint $table) {
+        Schema::create('owners', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
             $table->string('name');
             $table->string('path');
-            $table->integer('owner_id');
+            $table->integer('user_id');
             $table->string('type');
             $table->string('description');
             $table->string('avatar');
             $table->boolean('public')->default(false);
             $table->timestamps();
 
+            $table->index(['created_at', 'id']);
             $table->index('name');
-            $table->index('owner_id');
-            $table->index('path');
+            $table->index('user_id');
+            $table->unique('path');
             $table->index('public');
             $table->index('type');
-
         });
     }
 
@@ -51,6 +51,6 @@ class CreateNamespacesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('namespaces');
+        Schema::drop('owners');
     }
 }

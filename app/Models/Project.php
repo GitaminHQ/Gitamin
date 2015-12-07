@@ -24,7 +24,7 @@
 #  wall_enabled           :boolean          default(TRUE), not null
 #  merge_requests_enabled :boolean          default(TRUE), not null
 #  wiki_enabled           :boolean          default(TRUE), not null
-#  namespace_id           :integer
+#  owner_id               :integer
 #  issues_tracker         :string(255)      default("gitlab"), not null
 #  issues_tracker_id      :string(255)
 #  snippets_enabled       :boolean          default(TRUE), not null
@@ -60,7 +60,7 @@ class Project extends Model implements HasPresenter
      * @var mixed[]
      */
     protected $attributes = [
-        'namespace_id' => 0,
+        'owner_id' => 0,
         'description'  => '',
         'path'         => '',
         'creator_id'   => 0,
@@ -73,7 +73,7 @@ class Project extends Model implements HasPresenter
      */
     protected $casts = [
         'id'           => 'int',
-        'namespace_id' => 'int',
+        'owner_id'     => 'int',
         'description'  => 'string',
         'path'         => 'string',
         'creator_id'   => 'int',
@@ -92,7 +92,7 @@ class Project extends Model implements HasPresenter
         'tags',
         'path',
         'creator_id',
-        'namespace_id',
+        'owner_id',
     ];
 
     /**
@@ -111,19 +111,19 @@ class Project extends Model implements HasPresenter
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function group()
+    public function owner()
     {
-        return $this->belongsTo(Group::class, 'namespace_id', 'id');
+        return $this->belongsTo(Group::class, 'owner_id', 'id');
     }
 
      /**
-     * Projects can belong to a namespace.
+     * Projects can belong to an owner.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function projectNamespace()
+    public function projectOwner()
     {
-        return $this->belongsTo(ProjectNamespace::class, 'namespace_id', 'id');
+        return $this->belongsTo(Owner::class, 'owner_id', 'id');
     }
 
     /**
@@ -180,16 +180,6 @@ class Project extends Model implements HasPresenter
     public function getHumanVisibilityLevelAttribute()
     {
         return trans('gitamin.projects.status.'.$this->visibility_level);
-    }
-
-    /**
-     * Returns the namespace on this project.
-     *
-     * @return string
-     */
-    public function getNamespaceAttribute()
-    {
-        return $this->projectNamespace->path;
     }
 
     /**

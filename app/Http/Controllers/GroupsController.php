@@ -12,11 +12,11 @@
 namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
-use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
-use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
-use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
+use Gitamin\Commands\Owner\AddOwnerCommand;
+use Gitamin\Commands\Owner\RemoveOwnerCommand;
+use Gitamin\Commands\Owner\UpdateOwnerCommand;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectNamespace;
+use Gitamin\Models\Owner;
 use Gitamin\Models\Group;
 use Gitamin\Models\Tag;
 use Gitamin\Http\Controllers\Controller;
@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Illuminate\Database\QueryException;
 
 class GroupsController extends Controller
 {
@@ -74,7 +75,7 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function indexAction()
     {
         $this->subMenu['groups']['active'] = true;
 
@@ -89,22 +90,22 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show($namespace)
+    public function showAction($path)
     {
-        $group = Group::where('path', '=', $namespace)->first();
+        $group = Group::where('path', '=', $path)->first();
         return View::make('groups.show')
             ->withPageTitle($group->name)
             ->withGroup($group);
     }
 
     /**
-     * Shows the add project view.
+     * Shows the new project view.
      *
      * @return \Illuminate\View\View
      */
-    public function add()
+    public function newAction()
     {
-        return View::make('groups.add')
+        return View::make('groups.new')
             ->withPageTitle(trans('dashboard.groups.new.title').' - '.trans('dashboard.dashboard'));
             //->withGroups(ProjectNamespace::all());
     }
@@ -114,21 +115,26 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function create()
+    public function createAction()
     {
         $groupData = Binput::get('group');
         $groupData['type'] = 'group';
-        $groupData['owner_id'] = Auth::user()->id;
+        $groupData['user_id'] = Auth::user()->id;
         try {
-            $group = $this->dispatchFromArray(AddProjectNamespaceCommand::class, $groupData);
+            $group = $this->dispatchFromArray(AddOwnerCommand::class, $groupData);
         } catch (ValidationException $e) {
             return Redirect::route('groups.new')
                 ->withInput(Binput::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.add.failure')))
                 ->withErrors($e->getMessageBag());
+        } catch (QueryException $e) {
+            return Redirect::route('groups.new')
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.add.failure')))
+                ->withErrors('Path has been used');
         }
 
-        return Redirect::route('groups.index')
+        return Redirect::route('dashboard.groups.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.teams.add.success')));
     }
 
@@ -139,9 +145,9 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit($namespace)
+    public function editAction($path)
     {
-        $group = Group::where('path', '=', $namespace)->first();
+        $group = Group::where('path', '=', $path)->first();
 
         return View::make('groups.edit')
             ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
@@ -155,22 +161,22 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update($namespace)
+    public function updateAction($path)
     {
         $groupData = Binput::get('group');
-        $group = ProjectNamespace::where('path', '=', $namespace)->first();
+        $group = Owner::where('path', '=', $path)->first();
         try {
-            $groupData['project_namespace'] = $group;
+            $groupData['owner'] = $group;
             $groupData['owner_id'] = Auth::user()->id;
-            $group = $this->dispatchFromArray(UpdateProjectNamespaceCommand::class, $groupData);
+            $group = $this->dispatchFromArray(UpdateOwnerCommand::class, $groupData);
         } catch (ValidationException $e) {
-            return Redirect::route('groups.group_edit', ['namespace' => $group->path])
+            return Redirect::route('groups.group_edit', ['owner' => $group->path])
                 ->withInput(Binput::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('groups.group_edit', ['namespace' => $group->path])
+        return Redirect::route('groups.group_edit', ['owner' => $group->path])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('gitamin.groups.edit.success')));
     }
 }

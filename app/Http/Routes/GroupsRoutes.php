@@ -33,20 +33,20 @@ class GroupsRoutes
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'GroupsController@index',
+                'uses' => 'GroupsController@indexAction',
             ]);
             $router->get('new', [
                 'as'    => 'new',
-                'uses'  => 'GroupsController@add',
+                'uses'  => 'GroupsController@newAction',
             ]);
 
             $router->post('create', [
                 'as'    => 'create',
-                'uses'  => 'GroupsController@create',
+                'uses'  => 'GroupsController@createAction',
             ]);   
         });
 
-        // Project Sub-routes
+        // Project Sub-routes groups.group_show, groups.group_edit
         $router->group([
             'middleware' => ['app.hasSetting'],
             'setting'    => 'app_name',
@@ -54,16 +54,16 @@ class GroupsRoutes
         ], function ($router) {
            $router->get('{namespace}', [
                 'as'   => 'group_show',
-                'uses' => 'GroupsController@show',
+                'uses' => 'GroupsController@showAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+');
 
            $router->get('{namespace}/edit', [
                 'as'   => 'group_edit',
-                'uses' => 'GroupsController@edit',
+                'uses' => 'GroupsController@editAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+');
             $router->post('{namespace}/update', [
                 'as'    => 'group_update',
-                'uses'  => 'GroupsController@update',
+                'uses'  => 'GroupsController@updateAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+');
             
         });

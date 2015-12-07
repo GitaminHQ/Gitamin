@@ -11,12 +11,12 @@
 
 # == Schema Information
 #
-# Table name: namespaces
+# Table name: owners
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)      not null
 #  path        :string(255)      not null
-#  owner_id    :integer
+#  user_id    :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #  type        :string(255)
@@ -29,12 +29,12 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
-class ProjectNamespace extends Model
+class Owner extends Model
 {
     use ValidatingTrait;
 
-    protected $table = 'namespaces';
     /**
      * The attributes that should be casted to native types.
      *
@@ -44,7 +44,7 @@ class ProjectNamespace extends Model
         'id'       => 'int',
         'name'     => 'string',
         'path'     => 'string',
-        'owner_id' => 'int',
+        'user_id' => 'int',
         'type'     => 'string',
     ];
 
@@ -53,7 +53,7 @@ class ProjectNamespace extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'path', 'owner_id', 'description', 'type'];
+    protected $fillable = ['name', 'path', 'user_id', 'description', 'type'];
 
     /**
      * The validation rules.
@@ -63,18 +63,30 @@ class ProjectNamespace extends Model
     public $rules = [
         'name'        => 'required|string',
         'path'        => 'required|string|max:15',
-        'owner_id'    => 'int',
+        'user_id'     => 'int',
         'type'        => 'string',
         'description' => 'string',
     ];
 
     /**
-     * A namespace can have many projects.
+     * A owner can have many projects.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function projects()
     {
-        return $this->hasMany(Project::class, 'namespace_id', 'id');
+        return $this->hasMany(Project::class, 'owner_id', 'id');
+    }
+
+    /**
+     * Finds all my owners.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeMine($query)
+    {
+        //return $query->where('user_id', Auth::user()->id);
     }
 }

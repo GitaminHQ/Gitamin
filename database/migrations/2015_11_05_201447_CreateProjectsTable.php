@@ -33,7 +33,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('wall_enabled')->default(true);
             $table->boolean('merge_requests_enabled')->default(true);
             $table->boolean('wiki_enabled')->default(true);
-            $table->integer('namespace_id');
+            $table->integer('owner_id');
             $table->string('issues_tracker');
             $table->string('issues_tracker_id');
             $table->boolean('snippets_enabled')->default(true);
@@ -51,7 +51,7 @@ class CreateProjectsTable extends Migration
 
             $table->softDeletes();
             
-            $table->index('namespace_id');
+            $table->index('owner_id');
             $table->index('creator_id');
             $table->index('path');
 

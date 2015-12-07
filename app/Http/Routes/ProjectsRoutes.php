@@ -35,15 +35,15 @@ class ProjectsRoutes
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'ProjectsController@index',
+                'uses' => 'ProjectsController@indexAction',
             ]);
             $router->get('new', [
                 'as'    => 'new',
-                'uses'  => 'ProjectsController@add',
+                'uses'  => 'ProjectsController@newAction',
             ]);
             $router->post('create', [
                 'as'    => 'create',
-                'uses'  => 'ProjectsController@create',
+                'uses'  => 'ProjectsController@createAction',
             ]);
 
             
@@ -57,16 +57,16 @@ class ProjectsRoutes
         ], function ($router) {
            $router->get('{namespace}/{project}', [
                 'as'   => 'project_show',
-                'uses' => 'ProjectsController@show',
+                'uses' => 'ProjectsController@showAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
 
            $router->get('{namespace}/{project}/edit', [
                 'as'   => 'project_edit',
-                'uses' => 'ProjectsController@edit',
+                'uses' => 'ProjectsController@editAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
             $router->post('{namespace}/{project}/update', [
                 'as'    => 'project_update',
-                'uses'  => 'ProjectsController@update',
+                'uses'  => 'ProjectsController@updateAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
             
 

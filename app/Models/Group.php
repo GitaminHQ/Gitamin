@@ -14,9 +14,9 @@ namespace Gitamin\Models;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends ProjectNamespace
+class Group extends Owner
 {
-    protected $table = 'namespaces';
+    protected $table = 'owners';
 
     /**
      * Finds all groups.
@@ -28,17 +28,5 @@ class Group extends ProjectNamespace
     public function scopeIsGroup($query)
     {
         return $query->where('type', 'group');
-    }
-
-    /**
-     * Finds all my namespaces.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeMine($query)
-    {
-    	//return $query->where('owner_id', Auth::user()->id);
     }
 }

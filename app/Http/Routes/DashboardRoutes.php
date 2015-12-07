@@ -76,14 +76,14 @@ class DashboardRoutes
                 $router->post('{project}/edit', 'ProjectController@updateProjectAction');
             });
 
-            //Teams
+            //Groups
             $router->group([
                 'as'     => 'groups.',
                 'prefix' => 'groups',
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'GroupsController@index',
+                    'uses' => 'GroupsController@indexAction',
                 ]);
 
             });

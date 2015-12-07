@@ -49,11 +49,11 @@ final class AddProjectCommand
     public $creator_id;
 
     /**
-     * The project namespace.
+     * The project ower.
      *
      * @var int
      */
-    public $namespace_id;
+    public $owner_id;
 
     /**
      * The validation rules.
@@ -66,7 +66,7 @@ final class AddProjectCommand
         'visibility_level' => 'int|min:1|max:4',
         'path'             => 'required|string',
         'creator_id'       => 'int',
-        'namespace_id'     => 'int',
+        'owner_id'         => 'int',
     ];
 
     /**
@@ -77,17 +77,17 @@ final class AddProjectCommand
      * @param int    $visibility_level
      * @param string $path
      * @param int    $creator_id
-     * @param int    $namespace_id
+     * @param int    $owner_id
      *
      * @return void
      */
-    public function __construct($name, $description, $visibility_level, $path, $creator_id, $namespace_id)
+    public function __construct($name, $description, $visibility_level, $path, $creator_id, $owner_id)
     {
         $this->name = $name;
         $this->description = $description;
         $this->visibility_level = (int) $visibility_level;
         $this->path = $path;
         $this->creator_id = $creator_id;
-        $this->namespace_id = $namespace_id;
+        $this->owner_id = $owner_id;
     }
 }

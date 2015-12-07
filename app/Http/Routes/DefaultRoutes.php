@@ -52,9 +52,14 @@ class DefaultRoutes
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'ExploreController@index',
+                'uses' => 'ExploreController@indexAction',
             ]);
             
+            $router->get('groups', [
+                'as'    => 'groups',
+                'uses'  => 'ExploreController@groupsAction',
+            ]);
+
             $router->get('issue/{issue}', [
                 'as'    => 'issue',
                 'uses'  => 'ExploreController@showIssue',

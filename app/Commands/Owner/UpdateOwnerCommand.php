@@ -9,42 +9,42 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\ProjectNamespace;
+namespace Gitamin\Commands\Owner;
 
-use Gitamin\Models\ProjectNamespace;
+use Gitamin\Models\Owner;
 
-final class UpdateProjectNamespaceCommand
+final class UpdateOwnerCommand
 {
     /**
-     * The project namespace instance.
+     * The project owner instance.
      *
-     * @var \Gitamin\Models\ProjectNamespace
+     * @var \Gitamin\Models\Owner
      */
-    public $projectNamespace;
+    public $owner;
 
     /**
-     * The project namespace name.
+     * The project owner name.
      *
      * @var string
      */
     public $name;
 
     /**
-     * The project namespace path.
+     * The project owner path.
      *
      * @var string
      */
     public $path;
 
     /**
-     * The project namespace owner_id.
+     * The project owner user_id.
      *
      * @var int
      */
-    public $owner_id;
+    public $user_id;
 
     /**
-     * The project namespace description.
+     * The project owner description.
      *
      * @var string
      */
@@ -58,27 +58,27 @@ final class UpdateProjectNamespaceCommand
     public $rules = [
         'name'        => 'string',
         'path'        => 'string',
-        'owner_id'    => 'int',
+        'user_id'     => 'int',
         'description' => 'string',
     ];
 
     /**
-     * Create a add project namespace command instance.
+     * Create an add project owner command instance.
      *
-     * @param \Gitamin\Models\ProjectNamepsace $projectNamespace
+     * @param \Gitamin\Models\ProjectNamepsace $owner
      * @param string                           $name
      * @param string                           $path
-     * @param int                              $ower_id
+     * @param int                              $user_id
      * @param string                           $description
      *
      * @return void
      */
-    public function __construct($projectNamespace, $name, $path, $owner_id, $description)
+    public function __construct($owner, $name, $path, $user_id, $description)
     {
-        $this->projectNamespace = $projectNamespace;
+        $this->owner = $owner;
         $this->name = $name;
         $this->path = $path;
-        $this->owner_id = $owner_id;
+        $this->user_id = $user_id;
         $this->description = $description;
     }
 }
