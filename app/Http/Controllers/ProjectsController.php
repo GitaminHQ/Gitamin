@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ * 
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,7 +22,7 @@ use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectNamespace;
+use Gitamin\Models\Owner;
 use Gitamin\Models\Group;
 use Gitamin\Models\Tag;
 
@@ -27,7 +36,7 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAction()
     {
         //
         echo "In projects controller";
@@ -38,12 +47,12 @@ class ProjectsController extends Controller
     *
     * return \Illuminate\Http\Response
     */
-    public function new()
+    public function newAction()
     {
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
-            ->withGroups(Group::Mine()->get());
+            ->withGroups(Owner::Mine()->get());
     }
 
     /**
@@ -51,7 +60,7 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createAction()
     {
         //
         $projectData = Binput::get('project');
@@ -84,15 +93,15 @@ class ProjectsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $namespace
+     * @param  string  $owner
      * @param  string  $project_path
      * @return \Illuminate\Http\Response
      */
-    public function show($namespace, $project_path)
+    public function showAction($owner, $project_path)
     {
-        $project = Project::leftJoin('namespaces', function($join) {
-            $join->on('projects.namespace_id', '=', 'namespaces.id');
-        })->where('projects.path', '=', $project_path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
+        $project = Project::leftJoin('owners', function($join) {
+            $join->on('projects.owner_id', '=', 'owners.id');
+        })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner)->first(['projects.*']);
 
         return View::make('projects.show')
             ->withPageTitle($project->name)
@@ -112,7 +121,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($namespace, $project_path)
+    public function editAction($namespace, $project_path)
     {
         $project = Project::leftJoin('namespaces', function($join) {
             $join->on('projects.namespace_id', '=', 'namespaces.id');
@@ -132,7 +141,7 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($namespace, $project_path)
+    public function updateAction($namespace, $project_path)
     {
         $projectData = Binput::get('project');
         $tags = array_pull($projectData, 'tags');

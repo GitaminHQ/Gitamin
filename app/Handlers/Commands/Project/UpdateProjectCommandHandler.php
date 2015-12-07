@@ -49,7 +49,7 @@ class UpdateProjectCommandHandler
             'description'      => $command->description,
             'path'             => $command->path,
             'visibility_level' => $command->visibility_level,
-            'namespace_id'     => $command->namespace_id,
+            'owner_id'         => $command->owner_id,
         ];
 
         return array_filter($params, function ($val) {

@@ -23,12 +23,55 @@ use Jenssegers\Date\Date;
 class ExploreController extends Controller
 {
     /**
+     * Array of sub-menu items.
+     *
+     * @var array
+     */
+    protected $subMenu = [];
+
+    /**
+     * Creates a new project controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->subMenu = [
+            'yours' => [
+                'title'  => trans('dashboard.projects.yours'),
+                'url'    => route('dashboard.projects.index'),
+                'icon'   => 'fa fa-edit',
+                'active' => false,
+            ],
+            'starred' => [
+                'title'  => trans('dashboard.projects.starred'),
+                'url'    => route('dashboard.projects.starred'),
+                'icon'   => 'fa fa-umbrella',
+                'active' => false,
+            ],
+            'explore' => [
+                'title'  => trans('dashboard.projects.explore'),
+                'url'    => route('explore.index'),
+                'icon'   => 'fa fa-eye',
+                'active' => false,
+            ],
+        ];
+
+        View::share([
+            'sub_menu'  => $this->subMenu,
+            'sub_title' => trans_choice('dashboard.projects.projects', 2),
+        ]);
+    }
+
+    /**
      * Displays the explore page.
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function indexAction()
     {
+        $this->subMenu['explore']['active'] = true;
+
         $today = Date::now();
         $startDate = Date::now();
 
@@ -86,14 +129,41 @@ class ExploreController extends Controller
             return strtotime($key);
         }, SORT_REGULAR, true)->all();
 
-        return View::make('index')
+        return View::make('explore.index')
             ->withPageTitle(trans('dashboard.explore'))
+            ->withProjects([])
+            ->withSubMenu($this->subMenu)
             ->withDaysToShow($daysToShow)
             ->withAllIssues($allIssues)
             ->withCanPageForward((bool) $today->gt($startDate))
             ->withCanPageBackward(Issue::where('created_at', '<', $startDate->format('Y-m-d'))->count() > 0)
             ->withPreviousDate($startDate->copy()->subDays($daysToShow)->toDateString())
             ->withNextDate($startDate->copy()->addDays($daysToShow)->toDateString());
+    }
+
+    public function groupsAction()
+    {
+        $this->subMenu = [
+            'yours' => [
+                'title'  => trans('gitamin.groups.yours'),
+                'url'    => route('dashboard.groups.index'),
+                'icon'   => 'fa fa-edit',
+                'active' => false,
+            ],
+            'explore' => [
+                'title'  => trans('gitamin.groups.explore'),
+                'url'    => route('explore.groups'),
+                'icon'   => 'fa fa-eye',
+                'active' => false,
+            ],
+        ];
+
+        $this->subMenu['explore']['active'] = true;
+
+        return View::make('explore.groups')
+            ->withPageTitle(trans('dashboard.explore'))
+            ->withSubMenu($this->subMenu)
+            ->withProjects([]);
     }
 
     /**

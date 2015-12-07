@@ -13,7 +13,6 @@ namespace Gitamin\Http\Controllers\Dashboard;
 
 use Exception;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectNamespace;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 

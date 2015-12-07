@@ -58,11 +58,11 @@ final class UpdateProjectCommand
     public $creator_id;
 
     /**
-     * The project namespace.
+     * The project owner.
      *
      * @var int
      */
-    public $namespace_id;
+    public $owner_id;
 
     /**
      * The validation rules.
@@ -75,7 +75,7 @@ final class UpdateProjectCommand
         'visibility_level' => 'int|min:1|max:4',
         'path'             => 'string',
         'creator_id'       => 'int',
-        'namespace_id'     => 'int',
+        'owner_id'         => 'int',
     ];
 
     /**
@@ -87,11 +87,11 @@ final class UpdateProjectCommand
      * @param int                     $visibility_level
      * @param string                  $path
      * @param int                     $creator_id
-     * @param int                     $namespace_id
+     * @param int                     $owner_id
      *
      * @return void
      */
-    public function __construct(Project $project, $name, $description, $visibility_level, $path, $creator_id, $namespace_id)
+    public function __construct(Project $project, $name, $description, $visibility_level, $path, $creator_id, $owner_id)
     {
         $this->project = $project;
         $this->name = $name;
@@ -99,6 +99,6 @@ final class UpdateProjectCommand
         $this->visibility_level = (int) $visibility_level;
         $this->path = $path;
         $this->creator_id = $creator_id;
-        $this->namespace_id = $namespace_id;
+        $this->owner_id = $owner_id;
     }
 }

@@ -13,7 +13,7 @@ namespace Gitamin\Composers;
 
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectNamespace;
+use Gitamin\Models\Owner;
 use Illuminate\Contracts\View\View;
 
 class ExploreComposer
@@ -53,9 +53,9 @@ class ExploreComposer
         }
 
         // Project & Project Team lists.
-        $usedProjectTeams = Project::where('namespace_id', '>', 0)->groupBy('namespace_id')->lists('namespace_id');
-        $projectTeams = ProjectNamespace::whereIn('id', $usedProjectTeams)->get();
-        $unteamedProjects = Project::where('namespace_id', 0)->orderBy('created_at')->get();
+        $usedProjectTeams = Project::where('owner_id', '>', 0)->groupBy('owner_id')->lists('owner_id');
+        $projectTeams = Owner::whereIn('id', $usedProjectTeams)->get();
+        $unteamedProjects = Project::where('owner_id', 0)->orderBy('created_at')->get();
 
         $view->with($withData)
             ->withProjectTeams($projectTeams)

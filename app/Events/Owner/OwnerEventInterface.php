@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Events\ProjectNamespace;
+namespace Gitamin\Events\Owner;
 
 use Gitamin\Events\EventInterface;
 
-interface ProjectNamespaceEventInterface extends EventInterface
+interface OwnerEventInterface extends EventInterface
 {
     //
 }

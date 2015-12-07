@@ -48,7 +48,7 @@ class AddProjectCommandHandler
             'path'             => $command->path,
             'creator_id'       => $command->creator_id,
             'visibility_level' => $command->visibility_level,
-            'namespace_id'     => $command->namespace_id,
+            'owner_id'         => $command->owner_id,
         ];
 
         return array_filter($params, function ($val) {

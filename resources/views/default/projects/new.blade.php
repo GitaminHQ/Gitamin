@@ -36,20 +36,20 @@
                         </div>
                         @if($groups->count() > 0)
                         <div class="form-group">
-                            <label class="control-label">{{ trans('forms.projects.namespace') }}</label>
+                            <label class="control-label">{{ trans('forms.projects.owner') }}</label>
                             <div class="col-sm-10">
-                            <select name="project[namespace_id]" class="form-control select2" tableindex="2">
+                            <select name="project[owner_id]" class="form-control select2" tableindex="2">
                                 <optgroup label="Users">
                                 @foreach($groups as $group)
                                 @if($group->type == 'user')
-                                <option value="{{ $group->id }}" {{ Input::old('project.namespace_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                                <option value="{{ $group->id }}" {{ Input::old('project.owner_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
                                 @endif
                                 @endforeach
                                 </optgroup>
                                 <optgroup label="Groups">
                                 @foreach($groups as $group)
                                 @if($group->type == 'group')
-                                <option value="{{ $group->id }}" {{ Input::old('project.namespace_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                                <option value="{{ $group->id }}" {{ Input::old('project.owner_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
                                 @endif
                                 @endforeach
                                 </optgroup> 
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         @else
-                        <input type="hidden" name="project[namespace_id]" value="0">
+                        <input type="hidden" name="project[owner_id]" value="0">
                         @endif
                         <div class="form-group">
                             <label class="control-label" for="project-import">{{ trans('forms.projects.import') }}</label>

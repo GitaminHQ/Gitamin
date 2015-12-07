@@ -151,8 +151,8 @@ class IssueController extends Controller
         return View::make('dashboard.issues.edit')
             ->withPageTitle(trans('dashboard.issues.edit.title').' - '.trans('dashboard.dashboard'))
             ->withIssue($issue)
-            ->withProjectsInTeams(ProjectNamespace::with('projects')->get())
-            ->withProjectsOutTeams(Project::where('team_id', 0)->get());
+            ->withProjectsInTeams(Group::with('projects')->get())
+            ->withProjectsOutTeams(Project::where('namespace_id', 0)->get());
     }
 
     /**

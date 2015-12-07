@@ -15,9 +15,9 @@ use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
-use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
-use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
-use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
+use Gitamin\Commands\Owner\AddOwnerCommand;
+use Gitamin\Commands\Owner\RemoveOwnerCommand;
+use Gitamin\Commands\Owner\UpdateOwnerCommand;
 use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Project;
 use Gitamin\Models\Group;
@@ -54,7 +54,7 @@ class GroupsController extends Controller
             ],
             'explore' => [
                 'title'  => trans('gitamin.groups.explore'),
-                'url'    => route('explore.index'),
+                'url'    => route('explore.groups'),
                 'icon'   => 'fa fa-eye',
                 'active' => false,
             ], 
@@ -71,7 +71,7 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function indexAction()
     {
         $this->subMenu['yours']['active'] = true;
 

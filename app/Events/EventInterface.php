@@ -13,5 +13,5 @@ namespace Gitamin\Events;
 
 interface EventInterface
 {
-    
+    //
 }

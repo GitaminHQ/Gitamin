@@ -9,33 +9,33 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\ProjectNamespace;
+namespace Gitamin\Commands\Owner;
 
-final class AddProjectNamespaceCommand
+final class AddOwnerCommand
 {
     /**
-     * The project namespace name.
+     * The project owner name.
      *
      * @var string
      */
     public $name;
 
     /**
-     * The project namespace path.
+     * The project owner path.
      *
      * @var string
      */
     public $path;
 
     /**
-     * The project namespace owner_id.
+     * The project owner user_id.
      *
      * @var int
      */
-    public $owner_id;
+    public $user_id;
 
     /**
-     * The project namespace description.
+     * The project owner description.
      *
      * @var text
      */
@@ -56,7 +56,7 @@ final class AddProjectNamespaceCommand
     public $rules = [
         'name'     => 'required|string',
         'path'     => 'required|string',
-        'owner_id' => 'int',
+        'user_id'  => 'int',
         'type'     => 'string',
     ];
 
@@ -65,17 +65,17 @@ final class AddProjectNamespaceCommand
      *
      * @param string $name
      * @param string $path
-     * @param int    $owner_id
+     * @param int    $user_id
      * @param string $description
      * @param string $type
      *
      * @return void
      */
-    public function __construct($name, $path, $owner_id, $description, $type)
+    public function __construct($name, $path, $user_id, $description, $type)
     {
         $this->name = $name;
         $this->path = $path;
-        $this->owner_id = $owner_id;
+        $this->user_id = $user_id;
         $this->description = $description;
         $this->type = $type;
     }

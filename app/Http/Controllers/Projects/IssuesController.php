@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ * 
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Http\Controllers\Projects;
 
 use Illuminate\Http\Request;
@@ -39,11 +48,11 @@ class IssuesController extends Controller
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
 
-    public function new($namespace, $project_path)
+    public function add($namespace, $project_path)
     {
         $project = $this->getProject($namespace, $project_path);
 
-        return View::make('projects.issues.new')
+        return View::make('projects.issues.add')
             ->withProject($project)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
             ->withActiveItem($this->active_item);

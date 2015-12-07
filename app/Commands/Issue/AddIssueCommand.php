@@ -20,7 +20,6 @@ final class AddIssueCommand
      */
     public $title;
 
-
     /**
      * The issue description.
      *
@@ -57,10 +56,10 @@ final class AddIssueCommand
     /**
      * Create a new add issue command instance.
      *
-     * @param string      $title
-     * @param string      $description
-     * @param int         $author_id
-     * @param int         $project_id
+     * @param string $title
+     * @param string $description
+     * @param int    $author_id
+     * @param int    $project_id
      *
      * @return void
      */
