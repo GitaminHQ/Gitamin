@@ -33,7 +33,7 @@ class SignupRoutes
 
             $router->get('signup', [
                 'as'   => 'user/signup',
-                'uses' => 'SignupController@getSignup'
+                'uses' => 'SignupController@getSignup',
             ]);
 
             $router->get('signup/invite/{code}', [

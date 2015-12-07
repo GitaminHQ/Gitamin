@@ -25,7 +25,6 @@ class ProjectsRoutes
      */
     public function map(Registrar $router)
     {
-        
         // Project Area
         $router->group([
             'middleware' => ['app.hasSetting'],
@@ -45,8 +44,6 @@ class ProjectsRoutes
                 'as'    => 'create',
                 'uses'  => 'ProjectsController@createAction',
             ]);
-
-            
         });
 
         // Project Sub-routes
@@ -68,7 +65,6 @@ class ProjectsRoutes
                 'as'    => 'project_update',
                 'uses'  => 'ProjectsController@updateAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
-            
 
             //Issues
             $router->get('{namespace}/{project}/issues', [
@@ -99,9 +95,6 @@ class ProjectsRoutes
                 'as'   => 'issue_update',
                 'uses' => 'Projects\\IssuesController@update',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
-
         });
-
-        
     }
 }

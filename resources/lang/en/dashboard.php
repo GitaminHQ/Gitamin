@@ -40,7 +40,6 @@ return [
             'failure' => 'The Project could not be deleted. Please try again.',
         ],
 
-        
         // Project labels
         'labels' => [
             'labels'    => 'Project label|Project labels',
@@ -64,7 +63,7 @@ return [
 
     // Activities
     'activity' => [
-        'activity'      => 'Activity',
+        'activity'        => 'Activity',
         'all'             => 'All',
         'project_update'  => 'Project updated',
         'topic'           => 'Topic',

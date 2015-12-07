@@ -35,7 +35,6 @@ class AdminRoutes
                 'uses' => 'Admin\\DashboardController@index',
             ]);
 
-            
         });
     }
 }

@@ -23,6 +23,7 @@
 #  state       :string(255)
 #  iid         :integer
 #
+
 namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;

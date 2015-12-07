@@ -40,7 +40,7 @@ class AuthRoutes
             $router->get('signup', [
                 'middleware' => 'guest',
                 'as'         => 'signup',
-                'uses'       => 'SignupController@getSignup'
+                'uses'       => 'SignupController@getSignup',
             ]);
 
             $router->post('signup', [

@@ -22,17 +22,17 @@ use Roumen\Feed\Facades\Feed;
 class FeedController extends Controller
 {
     /**
-    * Feed facade.
-    *
-    * @var Roumen\Feed\Facades\Feed
-    */
-    private $feed;
+     * Feed facade.
+     *
+     * @var \Roumen\Feed\Facades\Feed
+     */
+    protected $feed;
 
     /**
-    * Create a new feed controller instance.
-    *
-    * @return void
-    */
+     * Create a new feed controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->feed = Feed::make();
@@ -72,7 +72,7 @@ class FeedController extends Controller
      * Generates a feed of all issues.
      *
      * @param \Gitamin\Models\ProjectNamespace|null $namespace
-     * @param bool                             $isRss
+     * @param bool                                  $isRss
      *
      * @return \Illuminate\Http\Response
      */
@@ -96,8 +96,8 @@ class FeedController extends Controller
     /**
      * Adds an item to the feed.
      *
-     * @param \Gitamin\Models\Issue     $issue
-     * @param bool                      $isRss
+     * @param \Gitamin\Models\Issue $issue
+     * @param bool                  $isRss
      */
     private function feedAddItem($issue, $isRss)
     {
@@ -109,3 +109,4 @@ class FeedController extends Controller
             $isRss ? $issue->message : Markdown::convertToHtml($issue->message)
         );
     }
+}

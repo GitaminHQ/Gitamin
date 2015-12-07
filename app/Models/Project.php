@@ -60,10 +60,10 @@ class Project extends Model implements HasPresenter
      * @var mixed[]
      */
     protected $attributes = [
-        'owner_id' => 0,
-        'description'  => '',
-        'path'         => '',
-        'creator_id'   => 0,
+        'owner_id'    => 0,
+        'description' => '',
+        'path'        => '',
+        'creator_id'  => 0,
     ];
 
     /**
@@ -72,12 +72,12 @@ class Project extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'           => 'int',
-        'owner_id'     => 'int',
-        'description'  => 'string',
-        'path'         => 'string',
-        'creator_id'   => 'int',
-        'deleted_at'   => 'date',
+        'id'          => 'int',
+        'owner_id'    => 'int',
+        'description' => 'string',
+        'path'        => 'string',
+        'creator_id'  => 'int',
+        'deleted_at'  => 'date',
     ];
 
     /**
@@ -116,7 +116,7 @@ class Project extends Model implements HasPresenter
         return $this->belongsTo(Group::class, 'owner_id', 'id');
     }
 
-     /**
+    /**
      * Projects can belong to an owner.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

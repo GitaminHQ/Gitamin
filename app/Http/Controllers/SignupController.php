@@ -13,8 +13,8 @@ namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Invite\ClaimInviteCommand;
+use Gitamin\Commands\Owner\AddOwnerCommand;
 use Gitamin\Commands\User\SignupUserCommand;
-use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
 use Gitamin\Models\Invite;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -81,15 +81,14 @@ class SignupController extends Controller
                 Binput::get('email'),
                 2
             ));
-            $namespaceData = [
-                'name' => $user->username,
-                'path' => $user->username,
-                'owner_id' => $user->id,
+            $ownerData = [
+                'name'        => $user->username,
+                'path'        => $user->username,
+                'user_id'     => $user->id,
                 'description' => '',
-                'type' => 'user',
+                'type'        => 'User',
             ];
-            $this->dispatchFromArray(AddProjectNamespaceCommand::class, $namespaceData);
-
+            $this->dispatchFromArray(AddOwnerCommand::class, $ownerData);
         } catch (ValidationException $e) {
             return Redirect::route('auth.signup', ['code' => $code])
                 ->withInput(Binput::except('password'))

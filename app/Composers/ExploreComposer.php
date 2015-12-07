@@ -12,8 +12,8 @@
 namespace Gitamin\Composers;
 
 use Gitamin\Models\Issue;
-use Gitamin\Models\Project;
 use Gitamin\Models\Owner;
+use Gitamin\Models\Project;
 use Illuminate\Contracts\View\View;
 
 class ExploreComposer

@@ -13,19 +13,15 @@ namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Owner\AddOwnerCommand;
-use Gitamin\Commands\Owner\RemoveOwnerCommand;
 use Gitamin\Commands\Owner\UpdateOwnerCommand;
-use Gitamin\Models\Project;
-use Gitamin\Models\Owner;
 use Gitamin\Models\Group;
-use Gitamin\Models\Tag;
-use Gitamin\Http\Controllers\Controller;
+use Gitamin\Models\Owner;
+use Gitamin\Models\Project;
 use GrahamCampbell\Binput\Facades\Binput;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\View;
 
 class GroupsController extends Controller
 {
@@ -49,7 +45,7 @@ class GroupsController extends Controller
                 'url'    => route('dashboard.projects.index'),
                 'icon'   => 'fa fa-sitemap',
                 'active' => false,
-            ], 
+            ],
             'groups'   => [
                 'title'  => trans_choice('gitamin.groups.groups', 2),
                 'url'    => route('dashboard.groups.index'),
@@ -85,7 +81,7 @@ class GroupsController extends Controller
             ->withSubMenu($this->subMenu);
     }
 
-     /**
+    /**
      * Shows the group view.
      *
      * @return \Illuminate\View\View
@@ -93,6 +89,7 @@ class GroupsController extends Controller
     public function showAction($path)
     {
         $group = Group::where('path', '=', $path)->first();
+
         return View::make('groups.show')
             ->withPageTitle($group->name)
             ->withGroup($group);

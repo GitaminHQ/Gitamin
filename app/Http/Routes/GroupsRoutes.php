@@ -43,7 +43,7 @@ class GroupsRoutes
             $router->post('create', [
                 'as'    => 'create',
                 'uses'  => 'GroupsController@createAction',
-            ]);   
+            ]);
         });
 
         // Project Sub-routes groups.group_show, groups.group_edit
@@ -65,7 +65,7 @@ class GroupsRoutes
                 'as'    => 'group_update',
                 'uses'  => 'GroupsController@updateAction',
             ])->where('namespace', '[a-zA-z.0-9_\-]+');
-            
+
         });
     }
 }

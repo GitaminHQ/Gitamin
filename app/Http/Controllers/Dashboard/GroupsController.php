@@ -11,26 +11,13 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
-use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Project\AddProjectCommand;
-use Gitamin\Commands\Project\RemoveProjectCommand;
-use Gitamin\Commands\Project\UpdateProjectCommand;
-use Gitamin\Commands\Owner\AddOwnerCommand;
-use Gitamin\Commands\Owner\RemoveOwnerCommand;
-use Gitamin\Commands\Owner\UpdateOwnerCommand;
 use Gitamin\Http\Controllers\Controller;
-use Gitamin\Models\Project;
 use Gitamin\Models\Group;
-use Gitamin\Models\Tag;
-use GrahamCampbell\Binput\Facades\Binput;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Support\Facades\Redirect;
+use Gitamin\Models\Project;
 use Illuminate\Support\Facades\View;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class GroupsController extends Controller
 {
-
     /**
      * Array of sub-menu items.
      *
@@ -57,7 +44,7 @@ class GroupsController extends Controller
                 'url'    => route('explore.groups'),
                 'icon'   => 'fa fa-eye',
                 'active' => false,
-            ], 
+            ],
         ];
 
         View::share([

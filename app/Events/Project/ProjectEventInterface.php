@@ -15,5 +15,5 @@ use Gitamin\Events\EventInterface;
 
 interface ProjectEventInterface extends EventInterface
 {
-	// 
+    //
 }

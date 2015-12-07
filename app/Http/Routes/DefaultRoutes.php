@@ -25,7 +25,6 @@ class DefaultRoutes
      */
     public function map(Registrar $router)
     {
-        
         //Homepage
         $router->group([
             'middleware' => ['app.hasSetting'],
@@ -35,7 +34,6 @@ class DefaultRoutes
                 'as'   => 'index',
                 'uses' => 'ExploreController@index',
             ]);
-            
         });
 
         //Install Area
@@ -54,7 +52,6 @@ class DefaultRoutes
                 'as'   => 'index',
                 'uses' => 'ExploreController@indexAction',
             ]);
-            
             $router->get('groups', [
                 'as'    => 'groups',
                 'uses'  => 'ExploreController@groupsAction',
@@ -64,9 +61,8 @@ class DefaultRoutes
                 'as'    => 'issue',
                 'uses'  => 'ExploreController@showIssue',
             ]);
-            
         });
-        
+
         // Feed Area
         $router->group([
             'middleware' => 'app.hasSetting',
@@ -92,9 +88,6 @@ class DefaultRoutes
                 'as'   => 'index',
                 'uses' => 'ProfilesController@indexAction',
             ]);
-
-            
         });
-
     }
 }

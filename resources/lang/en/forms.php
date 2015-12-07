@@ -65,7 +65,7 @@ return [
         'import'           => 'Import project from',
         'tags'             => 'Tags',
         'tags-help'        => 'Comma separated.',
-        'enabled'          => 'Project enabled?', 
+        'enabled'          => 'Project enabled?',
     ],
 
     'groups' => [
