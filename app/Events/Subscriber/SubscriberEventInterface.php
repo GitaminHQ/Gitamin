@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Events\Issue;
+namespace Gitamin\Events\Subscriber;
 
 use Gitamin\Events\EventInterface;
 

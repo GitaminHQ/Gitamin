@@ -12,7 +12,6 @@
 namespace Gitamin\Tests\Commands\Project;
 
 use Gitamin\Commands\Project\AddProjectCommand;
-use Gitamin\Handlers\Commands\Project\AddProjectCommandHandler;
 use Gitamin\Tests\Commands\AbstractCommandTestCase;
 
 /**
@@ -34,7 +33,7 @@ class AddProjectCommandTest extends AbstractCommandTestCase
             $params['description'],
             $params['visibility_level'],
             $params['path'],
-            $params['owner_id'],
+            $params['owner_id']
         );
 
         return compact('params', 'object');

@@ -85,9 +85,9 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'        => 'Foo',
-            'description' => 'Bar',
-            'path'        => 'Tencent',
+            'name'           => 'Foo',
+            'description'    => 'Bar',
+            'path'           => 'Tencent',
             'owner_id'       => 1,
             'issues_enabled' => 0,
         ]);

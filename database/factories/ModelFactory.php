@@ -11,8 +11,8 @@
 
 use Carbon\Carbon;
 use Gitamin\Models\Issue;
-use Gitamin\Models\Project;
 use Gitamin\Models\Owner;
+use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
 
