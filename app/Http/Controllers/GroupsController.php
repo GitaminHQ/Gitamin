@@ -167,7 +167,7 @@ class GroupsController extends Controller
         $group = Owner::where('path', '=', $path)->first();
         try {
             $groupData['owner'] = $group;
-            $groupData['owner_id'] = Auth::user()->id;
+            $groupData['user_id'] = Auth::user()->id;
             $group = $this->dispatchFromArray(UpdateOwnerCommand::class, $groupData);
         } catch (ValidationException $e) {
             return Redirect::route('groups.group_edit', ['owner' => $group->path])

@@ -14,9 +14,9 @@ Gitamin(pronounced /ˈgɪtəmɪn/, inspired by Vitamin) is an open source git re
 
 ## Features
 
-![Gitamin Profile](https://camo.githubusercontent.com/8bec4a57928bb441403e88723dbf136861332358/687474703a2f2f7777772e363438322e636f6d2f70726f66696c652e706e67)
+![Gitamin Profile Settings](https://camo.githubusercontent.com/50134ffc1fc11e9f1014f344e4b93c762de0ccdb/687474703a2f2f7777772e363438322e636f6d2f70726f66696c652e706e673f726e643d31)
 
-![Gitamin](https://camo.githubusercontent.com/3d9937826852182885356cbd10da1f4e2baf7265/687474703a2f2f7777772e363438322e636f6d2f73637265656e73686f742e706e673f726e643d31323334)
+![Gitamin New Project](https://camo.githubusercontent.com/5853e06153e5c89948b527972fa40ad625e4bb92/687474703a2f2f7777772e363438322e636f6d2f70726f6a6563742e706e673f726e643d31)
 
 This package is currently in (very-)alpha stage, so all of the following features may or may not work yet. However, feel free to post issues and features requests [here](https://github.com/gitaminhq/Gitamin/issues) . We will try to fix and improve the package as fast as we can based on your help!
 
