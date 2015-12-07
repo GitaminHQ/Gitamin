@@ -154,6 +154,12 @@ return [
         'failure'  => 'Something went wrong with the signup.',
     ],
 
+    // Admin Area
+    'admin' => [
+        'admin' => 'Admin',
+        'title' => 'Admin Control Panel',
+    ],
+
     // Other
     'powered_by'      => ':app is powered by <a href="https://gitamin.com" class="links">Gitamin</a>.',
     'about_this_site' => 'About This Site',
