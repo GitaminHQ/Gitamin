@@ -163,6 +163,7 @@ class ExploreController extends Controller
         return View::make('explore.groups')
             ->withPageTitle(trans('dashboard.explore'))
             ->withSubMenu($this->subMenu)
+            ->withSubTitle(trans_choice('dashboard.groups.groups', 2))
             ->withProjects([]);
     }
 
