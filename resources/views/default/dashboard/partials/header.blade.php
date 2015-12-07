@@ -9,6 +9,11 @@
                     <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('gitamin.projects.new.title') }}">
                         <a href="{{ route('projects.new') }}"><i class="fa fa-plus"></i></a>
                     </li>
+                     @if($current_user->isAdmin)
+                    <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('gitamin.admin.title') }}">
+                        <a href="{{ route('admin.index') }}"><i class="fa fa-wrench"></i></a>
+                    </li>
+                    @endif
                 </ul>
             </div>
 
