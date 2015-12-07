@@ -1,7 +1,9 @@
 @extends('layout.dashboard')
 
 @section('content')
-    <div class="header">
+    
+    <div class="content-wrapper">
+        <div class="header sub-header">
         <div class="sidebar-toggler visible-xs">
             <i class="fa fa-navicon"></i>
         </div>
@@ -9,7 +11,6 @@
             <i class="fa fa-dashboard"></i> {{ trans('dashboard.dashboard') }}
         </span>
     </div>
-    <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12">
                 <h4 class="sub-header">{{ trans('dashboard.projects.projects') }}</h4>

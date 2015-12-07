@@ -104,10 +104,8 @@
 
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="form-actions">
                                         <input class="btn btn-success" name="commit" type="submit" value="Save changes">
-                                        </div>
                                     </div>
                                 </div>
                             </div>

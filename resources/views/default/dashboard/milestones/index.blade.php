@@ -7,6 +7,9 @@
         @endif
         <div class="content-wrapper">
             <div class="header sub-header">
+                <div class="sidebar-toggler visible-xs">
+                    <i class="fa fa-navicon"></i>
+                </div>
                 <span class="uppercase">
                     <i class="fa fa-clock-o"></i> {{ trans('dashboard.milestones.milestones') }}
                 </span>

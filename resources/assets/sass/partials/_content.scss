@@ -24,6 +24,12 @@ body.dashboard {
             &.sub-header {
                 padding: 8px 2px;
                 height: 50px;
+                font-weight: 300;
+                margin-bottom: 25px;
+                text-transform: uppercase;
+                a {
+                   text-transform: none;
+                }
             }
             &.fixed {
                 position: fixed;
@@ -45,14 +51,6 @@ body.dashboard {
                 color: #444;
                 margin-top: 0;
                 text-transform: uppercase;
-            }
-        }
-
-        .sub-header {
-            font-weight: 300;
-            text-transform: uppercase;
-            a {
-               text-transform: none;
             }
         }
 
