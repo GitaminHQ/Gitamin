@@ -16,19 +16,19 @@ use Gitamin\Models\ProjectNamespace;
 class ProjectNamespaceWasAddedEvent implements ProjectNamespaceEventInterface
 {
     /**
-     * The project team that was added.
+     * The project namespace that was added.
      *
-     * @var \Gitamin\Models\ProjectTeam
+     * @var \Gitamin\Models\ProjectNamespace
      */
-    public $group;
+    public $projectNamespace;
 
     /**
      * Create a new project team was added event instance.
      *
      * @return void
      */
-    public function __construct(ProjectNamespace $group)
+    public function __construct(ProjectNamespace $projectNamespace)
     {
-        $this->group = $group;
+        $this->projectNamespace = $projectNamespace;
     }
 }

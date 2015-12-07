@@ -20,15 +20,15 @@ class ProjectNamespaceWasUpdatedEvent implements ProjectNamespaceEventInterface
      *
      * @var \Gitamin\Models\ProjectNamespace
      */
-    public $project_namespace;
+    public $projectNamespace;
 
     /**
      * Create a new project team was updated event instance.
      *
      * @return void
      */
-    public function __construct(ProjectNamespace $project_namespace)
+    public function __construct(ProjectNamespace $projectNamespace)
     {
-        $this->project_namespace = $project_namespace;
+        $this->projectNamespace = $projectNamespace;
     }
 }

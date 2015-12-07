@@ -20,9 +20,9 @@ class AddProjectNamespaceCommandHandler
     /**
      * Handle the add project team command.
      *
-     * @param \Gitamin\Commands\ProjectTeam\AddProjectTeamCommand $command
+     * @param \Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand $command
      *
-     * @return \Gitamin\Models\ProjectTeam
+     * @return \Gitamin\Models\ProjectNamespace
      */
     public function handle(AddProjectNamespaceCommand $command)
     {

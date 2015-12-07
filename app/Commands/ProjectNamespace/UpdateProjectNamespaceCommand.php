@@ -16,7 +16,13 @@ use Gitamin\Models\ProjectNamespace;
 final class UpdateProjectNamespaceCommand
 {
 
-    public $project_namespace;
+    /**
+     * The project namespace instance.
+     *
+     * @var \Gitamin\Models\ProjectNamespace
+     */
+    public $projectNamespace;
+
     /**
      * The project namespace name.
      *
@@ -58,18 +64,19 @@ final class UpdateProjectNamespaceCommand
     ];
 
     /**
-     * Create a add project team command instance.
+     * Create a add project namespace command instance.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
-     * @param string                      $name
-     * @param string                      $slug
-     * @param int                         $order
+     * @param \Gitamin\Models\ProjectNamepsace $projectNamespace
+     * @param string                           $name
+     * @param string                           $path
+     * @param int                              $ower_id
+     * @param string                           $description
      *
      * @return void
      */
-    public function __construct($project_namespace, $name, $path, $owner_id, $description)
+    public function __construct($projectNamespace, $name, $path, $owner_id, $description)
     {
-        $this->project_namespace = $project_namespace;
+        $this->projectNamespace = $projectNamespace;
         $this->name = $name;
         $this->path = $path;
         $this->owner_id = $owner_id;

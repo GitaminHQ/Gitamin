@@ -45,7 +45,7 @@ class FeedController extends Controller
     /**
      * Generates an Atom feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectTeam|null $namespace
+     * @param \Gitamin\Models\ProjectNamespace|null $namespace
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,7 +57,7 @@ class FeedController extends Controller
     /**
      * Generates a Rss feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectTeam|null $group
+     * @param \Gitamin\Models\ProjectNamespace|null $group
      *
      * @return \Illuminate\Http\Response
      */
@@ -71,7 +71,7 @@ class FeedController extends Controller
     /**
      * Generates a feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectTeam|null $namespace
+     * @param \Gitamin\Models\ProjectNamespace|null $namespace
      * @param bool                             $isRss
      *
      * @return \Illuminate\Http\Response

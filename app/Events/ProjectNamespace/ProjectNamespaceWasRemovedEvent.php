@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Events\ProjectTeam;
+namespace Gitamin\Events\ProjectNamespace;
 
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 
-class ProjectTeamWasRemovedEvent implements ProjectNamespaceEventInterface
+class ProjectNamespaceWasRemovedEvent implements ProjectNamespaceEventInterface
 {
     /**
      * The project team that was removed.
      *
-     * @var \Gitamin\Models\ProjectTeam
+     * @var \Gitamin\Models\ProjectNamespace
      */
-    public $team;
+    public $projectNamespace;
 
     /**
      * Create a new project team was removed event instance.
      *
      * @return void
      */
-    public function __construct(ProjectTeam $team)
+    public function __construct(ProjectNamespace $projectNamespace)
     {
-        $this->team = $team;
+        $this->projectNamespace = $projectNamespace;
     }
 }

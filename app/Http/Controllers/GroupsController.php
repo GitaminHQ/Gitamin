@@ -133,9 +133,9 @@ class GroupsController extends Controller
     }
 
     /**
-     * Shows the edit project team view.
+     * Shows the edit project namespace view.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
+     * @param \Gitamin\Models\ProjectNamespace $namespace
      *
      * @return \Illuminate\View\View
      */
@@ -149,9 +149,9 @@ class GroupsController extends Controller
     }
 
     /**
-     * Updates a project team.
+     * Updates a project namespace.
      *
-     * @param \Gitamin\Models\ProjectTeam $team
+     * @param \Gitamin\Models\ProjectNamespace $namespace
      *
      * @return \Illuminate\Http\RedirectResponse
      */

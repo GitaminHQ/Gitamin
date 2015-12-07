@@ -179,35 +179,6 @@ $(function() {
         });
     }
 
-    // Sortable Project Teams
-    var projectTeamList = document.getElementById("project-team-list");
-    if (projectTeamList) {
-        new Sortable(projectTeamList, {
-            group: "omega",
-            handle: ".drag-handle",
-            onUpdate: function() {
-                var orderedProjectTeamsIds = $.map(
-                    $('#project-team-list .striped-list-item'),
-                    function(elem) {
-                        return $(elem).data('team-id');
-                    }
-                );
-                $.ajax({
-                    async: true,
-                    url: '/dashboard/api/projects/teams/order',
-                    type: 'POST',
-                    data: {ids: orderedProjectTeamsIds},
-                    success: function() {
-                        (new Gitamin.Notifier()).notify('Project teams order has been updated.', 'success');
-                    },
-                    error: function() {
-                        (new Gitamin.Notifier()).notify('Project teams order could not be updated.', 'error');
-                    }
-                });
-            }
-        });
-    }
-
     // Toggle inline project statuses.
     $('form.project-inline').on('click', 'input[type=radio]', function() {
         var $form = $(this).parents('form');

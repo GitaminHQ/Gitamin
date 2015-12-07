@@ -19,7 +19,7 @@ class RemoveProjectNamespaceCommandHandler
     /**
      * Handle the remove project team command.
      *
-     * @param \Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand $command
+     * @param \Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand $command
      *
      * @return void
      */
@@ -27,7 +27,7 @@ class RemoveProjectNamespaceCommandHandler
     {
         $group = $command->group;
 
-        event(new ProjectTeamWasRemovedEvent($team));
+        event(new ProjectNamespaceWasRemovedEvent($team));
 
         // Remove the namespace id from all project.
         $group->projects->map(function ($project) {

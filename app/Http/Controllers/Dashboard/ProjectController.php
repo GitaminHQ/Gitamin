@@ -16,7 +16,7 @@ use Gitamin\Commands\Project\AddProjectCommand;
 use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Models\ProjectNamespace;
 use Gitamin\Models\Tag;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -107,7 +107,7 @@ class ProjectController extends Controller
      */
     public function showProject(Project $project)
     {
-        $teams = ProjectTeam::all();
+        $teams = ProjectNamespace::all();
 
         $pageTitle = sprintf('"%s" - %s - %s', $project->name, trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
@@ -126,7 +126,7 @@ class ProjectController extends Controller
      */
     public function showEditProject(Project $project)
     {
-        $teams = ProjectTeam::all();
+        $teams = ProjectNamespace::all();
 
         $pageTitle = sprintf('"%s" - %s - %s', $project->name, trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
 
@@ -184,7 +184,7 @@ class ProjectController extends Controller
         return View::make('dashboard.projects.add')
             ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
             ->withTeamId($teamId)
-            ->withTeams(ProjectTeam::all());
+            ->withTeams(ProjectNamespace::all());
     }
 
     /**

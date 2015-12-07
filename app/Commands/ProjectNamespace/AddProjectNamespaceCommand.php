@@ -54,10 +54,10 @@ final class AddProjectNamespaceCommand
      * @var string[]
      */
     public $rules = [
-        'name'  => 'required|string',
-        'path'  => 'required|string',
+        'name'     => 'required|string',
+        'path'     => 'required|string',
         'owner_id' => 'int',
-        'type' => 'string',
+        'type'     => 'string',
     ];
 
     /**
