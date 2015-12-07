@@ -1,23 +1,11 @@
-@import "palette";
+@import "modules/mixins";
+@import "modules/variables";
 
 $fa-font-path: "../../../fonts" !default;
 $fa-font-size-base:   12px !default;
 @import "./vendor/bower_components/font-awesome/scss/font-awesome";
 
 @import "modules/bootstrap";
-
-html {
-    position: relative;
-    min-height: 100%;
-    -webkit-font-smoothing: antialiased;
-}
-
-body {
-    margin-bottom: 60px;
-    padding-bottom: 60px;
-}
-
-@import "helpers";
 
 // Module overrides
 @import "modules/common";
@@ -27,7 +15,8 @@ body {
 @import "modules/alerts";
 @import "modules/panels";
 
-@import "modules/mixins";
+
+@import "modules/blocks";
 @import "modules/buttons";
 @import "modules/selects";
 
