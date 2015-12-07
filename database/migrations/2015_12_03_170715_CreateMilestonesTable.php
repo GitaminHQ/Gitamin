@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMilestonesTable extends Migration
 {
-   /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-         Schema::create('milestones', function (Blueprint $table) {
+        Schema::create('milestones', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');

@@ -35,7 +35,6 @@ class HelpRoutes
                 'uses' => 'Help\\HelpController@index',
             ]);
 
-            
         });
     }
 }

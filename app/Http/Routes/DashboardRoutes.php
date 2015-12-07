@@ -36,7 +36,6 @@ class DashboardRoutes
                 'uses' => 'DashboardController@showDashboard',
             ]);
 
-            
         });
 
         $router->group([
@@ -45,7 +44,7 @@ class DashboardRoutes
             'namespace'  => 'Dashboard',
             'as'         => 'dashboard.',
         ], function ($router) {
-            
+
             // Projects
             $router->group([
                 'as'     => 'projects.',

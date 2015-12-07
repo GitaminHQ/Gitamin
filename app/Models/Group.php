@@ -11,9 +11,6 @@
 
 namespace Gitamin\Models;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Model;
-
 class Group extends Owner
 {
     protected $table = 'owners';

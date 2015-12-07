@@ -22,7 +22,7 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-         Schema::create('members', function (Blueprint $t) {
+        Schema::create('members', function (Blueprint $t) {
             $t->engine = 'InnoDB';
 
             $t->increments('id');

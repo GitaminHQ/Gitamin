@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEventsTable extends Migration
 {
-   /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-         Schema::create('events', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -30,7 +30,7 @@ class CreateEventsTable extends Migration
             $table->integer('target_id');
             $table->string('title');
             $table->text('data');
-           
+
             $table->integer('project_id');
             $table->timestamps();
             $table->integer('action');

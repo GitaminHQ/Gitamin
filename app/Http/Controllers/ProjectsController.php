@@ -11,26 +11,20 @@
 
 namespace Gitamin\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
-use GrahamCampbell\Binput\Facades\Binput;
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
-use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
-use Gitamin\Models\Project;
-use Gitamin\Models\Owner;
 use Gitamin\Models\Group;
+use Gitamin\Models\Owner;
+use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
-
-use Gitamin\Http\Controllers\Controller;
+use GrahamCampbell\Binput\Facades\Binput;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\View;
 
 class ProjectsController extends Controller
 {
-    use DispatchesJobs;
     /**
      * Display a listing of the resource.
      *
@@ -39,14 +33,14 @@ class ProjectsController extends Controller
     public function indexAction()
     {
         //
-        echo "In projects controller";
+        echo 'In projects controller';
     }
 
     /**
-    * Show the form or adding a new resource.
-    *
-    * return \Illuminate\Http\Response
-    */
+     * Show the form or adding a new resource.
+     *
+     * return \Illuminate\Http\Response
+     */
     public function newAction()
     {
         return View::make('projects.new')
@@ -93,13 +87,14 @@ class ProjectsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $owner
-     * @param  string  $project_path
+     * @param string $owner
+     * @param string $project_path
+     *
      * @return \Illuminate\Http\Response
      */
     public function showAction($owner, $project_path)
     {
-        $project = Project::leftJoin('owners', function($join) {
+        $project = Project::leftJoin('owners', function ($join) {
             $join->on('projects.owner_id', '=', 'owners.id');
         })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner)->first(['projects.*']);
 
@@ -118,15 +113,17 @@ class ProjectsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param string $namespace
+     * @param string $project_path
+     *
      * @return \Illuminate\Http\Response
      */
     public function editAction($namespace, $project_path)
     {
-        $project = Project::leftJoin('namespaces', function($join) {
-            $join->on('projects.namespace_id', '=', 'namespaces.id');
-        })->where('projects.path', '=', $project_path)->where('namespaces.path', '=', $namespace)->first(['projects.*']);
-        
+        $project = Project::leftJoin('owners', function ($join) {
+            $join->on('projects.owner_id', '=', 'owners.id');
+        })->where('owners.path', '=', $project_path)->where('owners.path', '=', $namespace)->first(['projects.*']);
+
         return View::make('projects.edit')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withProject($project)
@@ -137,8 +134,9 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param string $namespace
+     * @param string $project_path
+     *
      * @return \Illuminate\Http\Response
      */
     public function updateAction($namespace, $project_path)
@@ -163,16 +161,5 @@ class ProjectsController extends Controller
 
         return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.edit.success')));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

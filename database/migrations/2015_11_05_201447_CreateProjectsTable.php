@@ -50,7 +50,7 @@ class CreateProjectsTable extends Migration
             $table->integer('commit_count')->default(0);
 
             $table->softDeletes();
-            
+
             $table->index('owner_id');
             $table->index('creator_id');
             $table->index('path');

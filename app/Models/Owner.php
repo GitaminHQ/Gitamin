@@ -41,11 +41,11 @@ class Owner extends Model
      * @var string[]
      */
     protected $casts = [
-        'id'       => 'int',
-        'name'     => 'string',
-        'path'     => 'string',
+        'id'      => 'int',
+        'name'    => 'string',
+        'path'    => 'string',
         'user_id' => 'int',
-        'type'     => 'string',
+        'type'    => 'string',
     ];
 
     /**

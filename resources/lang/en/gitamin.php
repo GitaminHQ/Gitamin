@@ -45,7 +45,7 @@ return [
 
      // Project teams
     'groups' => [
-        'groups'       => 'Groups',
+        'groups'      => 'Groups',
         'no_projects' => 'You should add a project team.',
         'yours'       => 'Your Groups',
         'explore'     => 'Explore Groups',
@@ -64,7 +64,6 @@ return [
             'failure' => 'The Project Team could not be deleted. Please try again.',
         ],
     ],
-
 
     // Issues
     'issues' => [
@@ -85,15 +84,15 @@ return [
     ],
 
     'profiles' => [
-        'profiles' => 'Profile Settings',
-        'account' => 'Account',
-        'applications' => 'applications',
-        'emails' => 'Emails',
-        'password' => 'Password',
+        'profiles'      => 'Profile Settings',
+        'account'       => 'Account',
+        'applications'  => 'applications',
+        'emails'        => 'Emails',
+        'password'      => 'Password',
         'notifications' => 'Notifications',
-        'ssh_keys' => 'SSH Keys',
-        'preferences' => 'Preferences',
-        'audit_log' => 'Audit Log',
+        'ssh_keys'      => 'SSH Keys',
+        'preferences'   => 'Preferences',
+        'audit_log'     => 'Audit Log',
     ],
 
     // Service Status
