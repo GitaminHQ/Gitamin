@@ -82,6 +82,19 @@ class DefaultRoutes
             ]);
         });
 
+        // Profile Area
+        $router->group([
+            'middleware' => ['app.hasSetting'],
+            'setting'    => 'app_name',
+            'as'         => 'profile.',
+        ], function ($router) {
+            $router->get('profile', [
+                'as'   => 'index',
+                'uses' => 'ProfilesController@indexAction',
+            ]);
+
+            
+        });
 
     }
 }

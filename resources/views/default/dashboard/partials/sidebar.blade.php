@@ -52,11 +52,12 @@
                     <span>{{ trans('dashboard.snippets.snippets') }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/settings*') !!}>
-                <a href="{{ route('dashboard.settings.general') }}">
-                    <i class="fa fa-cogs"></i>
+            <hr>
+            <li {!! set_active('profile*') !!}>
+                <a href="{{ route('profile.index') }}">
+                    <i class="fa fa-user"></i>
                     <span>
-                        {{ trans('dashboard.settings.settings') }}
+                        {{ trans('gitamin.profiles.profiles') }}
                     </span>
                 </a>
             </li>

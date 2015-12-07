@@ -84,6 +84,18 @@ return [
         ],
     ],
 
+    'profiles' => [
+        'profiles' => 'Profile Settings',
+        'account' => 'Account',
+        'applications' => 'applications',
+        'emails' => 'Emails',
+        'password' => 'Password',
+        'notifications' => 'Notifications',
+        'ssh_keys' => 'SSH Keys',
+        'preferences' => 'Preferences',
+        'audit_log' => 'Audit Log',
+    ],
+
     // Service Status
     'service' => [
         'good' => 'All Projects Are Functional',
