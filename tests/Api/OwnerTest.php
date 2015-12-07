@@ -14,83 +14,82 @@ namespace Gitamin\Tests\Api;
 use Gitamin\Tests\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ProjectTeamTest extends AbstractTestCase
+class OwnerTest extends AbstractTestCase
 {
     use DatabaseMigrations;
 
-    public function testGetTeams()
+    public function testGetOwners()
     {
-        $teams = factory('Gitamin\Models\ProjectTeam', 3)->create();
+        $teams = factory('Gitamin\Models\Owner', 3)->create();
 
-        $this->get('/api/v1/projects/teams');
+        $this->get('/api/v1/owner');
         $this->seeJson(['id' => $teams[0]->id]);
         $this->seeJson(['id' => $teams[1]->id]);
         $this->seeJson(['id' => $teams[2]->id]);
         $this->assertResponseOk();
     }
 
-    public function testGetInvalidTeam()
+    public function testGetInvalidOwner()
     {
-        $this->get('/api/v1/projects/teams/1');
+        $this->get('/api/v1/owners/1');
         $this->assertResponseStatus(404);
     }
 
-    public function testPostTeamUnauthorized()
+    public function testPostOwnerUnauthorized()
     {
-        $this->post('/api/v1/projects/teams');
+        $this->post('/api/v1/owners');
 
         $this->assertResponseStatus(401);
     }
 
-    public function testPostTeamNoData()
+    public function testPostOwnerNoData()
     {
         $this->beUser();
 
-        $this->post('/api/v1/projects/teams');
+        $this->post('/api/v1/owners');
         $this->assertResponseStatus(400);
     }
 
-    public function testPostTeam()
+    public function testPostOwner()
     {
         $this->beUser();
 
-        $this->post('/api/v1/projects/teams', [
-            'name'  => 'Foo',
-            'slug'  => 'foo',
-            'order' => 1,
+        $this->post('/api/v1/owners', [
+            'name' => 'Foo',
+            'path' => 'foo',
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
     }
 
-    public function testGetNewTeam()
+    public function testGetNewOwner()
     {
-        $team = factory('Gitamin\Models\ProjectTeam')->create();
+        $team = factory('Gitamin\Models\Owner')->create();
 
-        $this->get('/api/v1/projects/teams/1');
+        $this->get('/api/v1/owners/1');
         $this->seeJson(['name' => $team->name]);
         $this->assertResponseOk();
     }
 
-    public function testPutTeam()
+    public function testPutOwner()
     {
         $this->beUser();
-        $team = factory('Gitamin\Models\ProjectTeam')->create();
+        $team = factory('Gitamin\Models\Owner')->create();
 
-        $this->put('/api/v1/projects/teams/1', [
+        $this->put('/api/v1/owners/1', [
             'name' => 'Lorem Ipsum Groupous',
-            'slug' => 'lig',
+            'path' => 'lig',
         ]);
         $this->seeJson(['name' => 'Lorem Ipsum Groupous']);
         $this->assertResponseOk();
     }
 
-    public function testDeleteTeam()
+    public function testDeleteOwner()
     {
         $this->beUser();
-        $team = factory('Gitamin\Models\ProjectTeam')->create();
+        $team = factory('Gitamin\Models\Owner')->create();
 
-        $this->delete('/api/v1/projects/teams/1');
+        $this->delete('/api/v1/owners/1');
         $this->assertResponseStatus(204);
     }
 }

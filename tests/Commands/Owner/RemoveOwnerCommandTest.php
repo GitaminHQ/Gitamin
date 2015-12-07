@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Commands\ProjectTeam;
+namespace Gitamin\Tests\Commands\Owner;
 
-use Gitamin\Commands\ProjectTeam\RemoveProjectTeamCommand;
-use Gitamin\Handlers\Commands\ProjectTeam\RemoveProjectTeamCommandHandler;
-use Gitamin\Models\ProjectTeam;
+use Gitamin\Commands\Owner\RemoveOwnerCommand;
+use Gitamin\Handlers\Commands\Owner\RemoveOwnerCommandHandler;
+use Gitamin\Models\Owner;
 use Gitamin\Tests\Commands\AbstractCommandTestCase;
 
 /**
- * This is the remove project team command test class.
+ * This is the remove project owner command test class.
  */
-class RemoveProjectTeamCommandTest extends AbstractCommandTestCase
+class RemoveOwnerCommandTest extends AbstractCommandTestCase
 {
     protected function getObjectAndParams()
     {
-        $params = ['team' => new ProjectTeam()];
-        $object = new RemoveProjectTeamCommand($params['team']);
+        $params = ['owner' => new Owner()];
+        $object = new RemoveOwnerCommand($params['owner']);
 
         return compact('params', 'object');
     }
@@ -36,6 +36,6 @@ class RemoveProjectTeamCommandTest extends AbstractCommandTestCase
 
     protected function getHandlerClass()
     {
-        return RemoveProjectTeamCommandHandler::class;
+        return RemoveOwnerCommandHandler::class;
     }
 }

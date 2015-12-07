@@ -9,28 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Commands\ProjectTeam;
+namespace Gitamin\Tests\Commands\Owner;
 
-use Gitamin\Commands\ProjectTeam\AddProjectTeamCommand;
-use Gitamin\Handlers\Commands\ProjectTeam\AddProjectTeamCommandHandler;
+use Gitamin\Commands\Owner\AddOwnerCommand;
+use Gitamin\Handlers\Commands\Owner\AddOwnerCommandHandler;
 use Gitamin\Tests\Commands\AbstractCommandTestCase;
 
 /**
- * This is the add project team command test class.
+ * This is the add project owner command test class.
  */
-class AddProjectTeamCommandTest extends AbstractCommandTestCase
+class AddOwnerCommandTest extends AbstractCommandTestCase
 {
     protected function getObjectAndParams()
     {
         $params = [
             'name'  => 'Test',
-            'slug'  => 'test',
-            'order' => 0,
+            'path'  => 'test',
         ];
-        $object = new AddProjectTeamCommand(
+        $object = new AddOwnerCommand(
             $params['name'],
-            $params['slug'],
-            $params['order']
+            $params['path']
         );
 
         return compact('params', 'object');
@@ -43,6 +41,6 @@ class AddProjectTeamCommandTest extends AbstractCommandTestCase
 
     protected function getHandlerClass()
     {
-        return AddProjectTeamCommandHandler::class;
+        return AddOwnerCommandHandler::class;
     }
 }

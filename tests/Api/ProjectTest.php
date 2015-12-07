@@ -57,11 +57,9 @@ class ProjectTest extends AbstractTestCase
         $this->post('/api/v1/projects', [
             'name'        => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'slug'        => 'Baidu',
+            'path'        => 'Baidu',
             'order'       => 1,
-            'team_id'     => 1,
-            'enabled'     => true,
+            'owner_id'    => 1,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -72,14 +70,13 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'        => 'Foo',
-            'description' => 'Bar',
-            'status'      => 1,
-            'slug'        => 'Alibaba',
-            'order'       => 1,
-            'team_id'     => 1,
+            'name'             => 'Foo',
+            'description'      => 'Bar',
+            'visibility_level' => 1,
+            'path'             => 'Alibaba',
+            'owner_id'         => 1,
         ]);
-        $this->seeJson(['name' => 'Foo', 'enabled' => true]);
+        $this->seeJson(['name' => 'Foo', 'issues_enabled' => true]);
         $this->assertResponseOk();
     }
 
@@ -90,11 +87,9 @@ class ProjectTest extends AbstractTestCase
         $this->post('/api/v1/projects', [
             'name'        => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'slug'        => 'Tencent',
-            'order'       => 1,
-            'team_id'     => 1,
-            'enabled'     => 0,
+            'path'        => 'Tencent',
+            'owner_id'       => 1,
+            'issues_enabled' => 0,
         ]);
         $this->seeJson(['name' => 'Foo', 'enabled' => false]);
         $this->assertResponseOk();

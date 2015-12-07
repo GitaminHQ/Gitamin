@@ -54,13 +54,12 @@ class IssueTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/issues', [
-            'name'    => 'Foo',
-            'message' => 'Lorem ipsum dolor sit amet',
-            'user_id' => $this->user->id,
-            'status'  => 1,
-            'visible' => 1,
+            'title'       => 'Foo',
+            'description' => 'Lorem ipsum dolor sit amet',
+            'author_id'   => 1,
+            'project_id'  => 1,
         ]);
-        $this->seeJson(['name' => 'Foo']);
+        $this->seeJson(['title' => 'Foo']);
         $this->assertResponseOk();
     }
 
@@ -69,7 +68,7 @@ class IssueTest extends AbstractTestCase
         $issue = factory('Gitamin\Models\Issue')->create();
 
         $this->get('/api/v1/issues/1');
-        $this->seeJson(['name' => $issue->name]);
+        $this->seeJson(['title' => $issue->title]);
         $this->assertResponseOk();
     }
 
@@ -79,9 +78,9 @@ class IssueTest extends AbstractTestCase
         $project = factory('Gitamin\Models\Issue')->create();
 
         $this->put('/api/v1/issues/1', [
-            'name' => 'Foo',
+            'title' => 'Foo',
         ]);
-        $this->seeJson(['name' => 'Foo']);
+        $this->seeJson(['title' => 'Foo']);
         $this->assertResponseOk();
     }
 
