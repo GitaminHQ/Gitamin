@@ -37,7 +37,7 @@ class GroupsRoutes
             ]);
             $router->get('new', [
                 'as'    => 'new',
-                'uses'  => 'GroupsController@new',
+                'uses'  => 'GroupsController@add',
             ]);
 
             $router->post('create', [

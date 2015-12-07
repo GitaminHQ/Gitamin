@@ -39,7 +39,7 @@ class ProjectsRoutes
             ]);
             $router->get('new', [
                 'as'    => 'new',
-                'uses'  => 'ProjectsController@new',
+                'uses'  => 'ProjectsController@add',
             ]);
             $router->post('create', [
                 'as'    => 'create',
@@ -79,7 +79,7 @@ class ProjectsRoutes
             //new
             $router->get('{namespace}/{project}/issues/new', [
                 'as'   => 'issue_new',
-                'uses' => 'Projects\\IssuesController@new',
+                'uses' => 'Projects\\IssuesController@add',
             ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
 
             //create

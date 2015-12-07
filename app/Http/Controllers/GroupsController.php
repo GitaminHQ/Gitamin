@@ -102,9 +102,9 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function new()
+    public function add()
     {
-        return View::make('groups.new')
+        return View::make('groups.add')
             ->withPageTitle(trans('dashboard.groups.new.title').' - '.trans('dashboard.dashboard'));
             //->withGroups(ProjectNamespace::all());
     }

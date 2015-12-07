@@ -48,7 +48,7 @@ class AddIssueCommandHandler
     public function handle(AddIssueCommand $command)
     {
         $data = [
-            'title'    => $command->title,
+            'title'       => $command->title,
             'description' => $command->description,
         ];
 

@@ -12,7 +12,6 @@
 namespace Gitamin\Composers;
 
 use Gitamin\Facades\Setting;
-use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Config;
 

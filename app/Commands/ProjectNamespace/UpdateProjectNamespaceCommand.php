@@ -15,7 +15,6 @@ use Gitamin\Models\ProjectNamespace;
 
 final class UpdateProjectNamespaceCommand
 {
-
     /**
      * The project namespace instance.
      *

@@ -11,9 +11,9 @@
 
 namespace Gitamin\Composers;
 
+use Gitamin\Models\Group;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use Gitamin\Models\Group;
 use Illuminate\Contracts\View\View;
 
 class DashboardComposer
