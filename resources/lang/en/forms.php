@@ -61,7 +61,7 @@ return [
         'team'             => 'Team',
         'description'      => 'Description',
         'path'             => 'Project path',
-        'namespace'        => 'Namespace',
+        'owner'            => 'Owner',
         'import'           => 'Import project from',
         'tags'             => 'Tags',
         'tags-help'        => 'Comma separated.',
