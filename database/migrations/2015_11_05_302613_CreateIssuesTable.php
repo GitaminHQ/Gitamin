@@ -20,29 +20,29 @@ class CreateIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('issues', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('issues', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('title');
-            $table->integer('assignee_id')->nullable();
-            $table->integer('author_id');
-            $table->integer('project_id');
-            $table->timestamps();
-            $table->integer('position')->nullable()->default(0);
-            $table->string('branch_name')->nullable();
-            $table->text('description')->nullable();
-            $table->integer('milestone_id')->nullable();
-            $table->string('state')->nullable();
-            $table->integer('iid')->nullable();
-            $table->integer('updated_by_id')->nullable();
+            $t->increments('id');
+            $t->string('title');
+            $t->integer('assignee_id')->nullable();
+            $t->integer('author_id');
+            $t->integer('project_id');
+            $t->timestamps();
+            $t->integer('position')->nullable()->default(0);
+            $t->string('branch_name')->nullable();
+            $t->text('description')->nullable();
+            $t->integer('milestone_id')->nullable();
+            $t->string('state')->nullable();
+            $t->integer('iid')->nullable();
+            $t->integer('updated_by_id')->nullable();
 
-            $table->softDeletes();
+            $t->softDeletes();
 
-            $table->index('assignee_id');
-            $table->index('author_id');
-            $table->index('project_id');
-            $table->index('state');
+            $t->index('assignee_id');
+            $t->index('author_id');
+            $t->index('project_id');
+            $t->index('state');
         });
     }
 

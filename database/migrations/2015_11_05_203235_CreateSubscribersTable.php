@@ -20,17 +20,17 @@ class CreateSubscribersTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscribers', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('subscribers', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('email');
-            $table->string('verify_code');
-            $table->timestamp('verified_at')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+            $t->increments('id');
+            $t->string('email');
+            $t->string('verify_code');
+            $t->timestamp('verified_at')->nullable();
+            $t->timestamps();
+            $t->softDeletes();
 
-            $table->unique(['email']);
+            $t->unique(['email']);
         });
     }
 

@@ -13,7 +13,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventsTable extends Migration
+class CreateSnippetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,24 +22,26 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $t) {
+        Schema::create('snippets', function (Blueprint $t) {
             $t->engine = 'InnoDB';
 
             $t->increments('id');
-            $t->string('target_type');
-            $t->integer('target_id');
             $t->string('title');
-            $t->text('data');
-
+            $t->text('content');
+            $t->integer('author_id');
             $t->integer('project_id');
             $t->timestamps();
-            $t->integer('action');
-            $t->integer('author_id');
+            $t->string('file_name');
+            $t->datetime('expires_at');
+            $t->string('type');
+            $t->integer('visibility_level')->default(0);
 
             $t->index('author_id');
+            $t->index(['created_at', 'id']);
+            $t->index('created_at');
+            $t->index('expires_at');
             $t->index('project_id');
-            $t->index('target_id');
-            $t->index('target_type');
+            $t->index('visibility_level');
         });
     }
 
@@ -50,6 +52,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('events');
+        Schema::drop('snippets');
     }
 }

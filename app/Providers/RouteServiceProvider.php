@@ -49,6 +49,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->app->router->model('owner', 'Gitamin\Models\Owner');
         $this->app->router->model('project', 'Gitamin\Models\Project');
         $this->app->router->model('issue', 'Gitamin\Models\Issue');
+        $this->app->router->model('note', 'Gitamin\Models\Note');
         $this->app->router->model('setting', 'Gitamin\Models\Setting');
         $this->app->router->model('subscriber', 'Gitamin\Models\Subscriber');
         $this->app->router->model('user', 'Gitamin\Models\User');

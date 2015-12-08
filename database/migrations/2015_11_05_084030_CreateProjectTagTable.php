@@ -20,15 +20,15 @@ class CreateProjectTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_tag', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('project_tag', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->integer('project_id');
-            $table->integer('tag_id');
+            $t->increments('id');
+            $t->integer('project_id');
+            $t->integer('tag_id');
 
-            $table->index('project_id');
-            $table->index('tag_id');
+            $t->index('project_id');
+            $t->index('tag_id');
         });
     }
 

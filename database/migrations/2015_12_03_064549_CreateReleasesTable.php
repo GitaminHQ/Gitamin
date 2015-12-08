@@ -22,16 +22,16 @@ class CreateReleasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('releases', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('releases', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('tag');
-            $table->text('description');
-            $table->integer('project_id');
-            $table->timestamps();
+            $t->increments('id');
+            $t->string('tag');
+            $t->text('description');
+            $t->integer('project_id');
+            $t->timestamps();
 
-            $table->index('project_id');
+            $t->index('project_id');
         });
     }
 
