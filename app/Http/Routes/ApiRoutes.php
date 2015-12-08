@@ -35,8 +35,8 @@ class ApiRoutes
 
             // Projects
             $router->get('projects', 'ProjectController@getProjects');
-            $router->get('projects/teams', 'ProjectNamespaceController@getTeams');
-            $router->get('projects/teams/{project_team}', 'ProjectNamespaceController@getTeam');
+            $router->get('owners', 'OwnerController@getOwners');
+            $router->get('owners/{owner}', 'OwnerController@getOwner');
             $router->get('projects/{project}', 'ProjectController@getProject');
 
             // Issues
@@ -48,15 +48,15 @@ class ApiRoutes
                 $router->get('subscribers', 'SubscriberController@getSubscribers');
 
                 $router->post('projects', 'ProjectController@postProjects');
-                $router->post('projects/teams', 'ProjectNamespaceController@postTeams');
+                $router->post('owners', 'OwnerController@postOwners');
                 $router->post('issues', 'IssueController@postIssues');
                 $router->post('subscribers', 'SubscriberController@postSubscribers');
 
-                $router->put('projects/teams/{project_team}', 'ProjectNamespaceController@putTeam');
+                $router->put('owners/{owner}', 'OwnerController@putOwner');
                 $router->put('projects/{project}', 'ProjectController@putProject');
                 $router->put('issues/{issue}', 'IssueController@putIssue');
 
-                $router->delete('projects/teams/{project_team}', 'ProjectNamespaceController@deleteTeam');
+                $router->delete('owners/{owner}', 'OwnerController@deleteOwner');
                 $router->delete('projects/{project}', 'ProjectController@deleteProject');
                 $router->delete('issues/{issue}', 'IssueController@deleteIssue');
                 $router->delete('subscribers/{subscriber}', 'SubscriberController@deleteSubscriber');

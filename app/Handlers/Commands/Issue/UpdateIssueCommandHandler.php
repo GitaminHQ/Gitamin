@@ -50,6 +50,7 @@ class UpdateIssueCommandHandler
         $issue->update($this->filter($command));
 
         // The issue occurred at a different time.
+        /*
         if ($command->issue_date) {
             $issueDate = $this->dates->createNormalized('d/m/Y H:i', $command->issue_date);
 
@@ -58,6 +59,7 @@ class UpdateIssueCommandHandler
                 'updated_at' => $issueDate,
             ]);
         }
+        */
 
         event(new IssueWasUpdatedEvent($issue));
 
@@ -74,13 +76,10 @@ class UpdateIssueCommandHandler
     protected function filter(UpdateIssueCommand $command)
     {
         $params = [
-            'name'           => $command->name,
-            'status'         => $command->status,
-            'message'        => $command->message,
-            'visible'        => $command->visible,
-            'user_id'        => $command->user_id,
-            'project_id'     => $command->project_id,
-            'notify'         => $command->notify,
+            'title'       => $command->title,
+            'description' => $command->description,
+            'author_id'   => $command->author_id,
+            'project_id'  => $command->project_id,
         ];
 
         return array_filter($params, function ($val) {

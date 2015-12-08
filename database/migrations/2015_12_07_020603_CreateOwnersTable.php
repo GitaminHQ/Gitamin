@@ -28,11 +28,11 @@ class CreateOwnersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('path');
-            $table->integer('user_id');
-            $table->string('type');
+            $table->integer('user_id')->nullable();
+            $table->string('type')->nullable();
             $table->string('description');
-            $table->string('avatar');
-            $table->boolean('public')->default(false);
+            $table->string('avatar')->nullable();
+            $table->boolean('public')->nullable()->default(false);
             $table->timestamps();
 
             $table->index(['created_at', 'id']);

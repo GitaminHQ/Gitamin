@@ -12,8 +12,8 @@
 namespace Gitamin\Console\Commands;
 
 use Gitamin\Models\Issue;
+use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectNamespace;
 use Gitamin\Models\Setting;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
@@ -53,7 +53,7 @@ class DemoSeederCommand extends Command
             return;
         }
 
-        $this->seedProjectNamespaces();
+        $this->seedOwners();
         $this->seedProjects();
         $this->seedIssues();
         $this->seedSettings();
@@ -68,19 +68,21 @@ class DemoSeederCommand extends Command
      *
      * @return void
      */
-    protected function seedProjectNamespaces()
+    protected function seedOwners()
     {
-        $defaultNamespaces = [
+        $defaultOwners = [
             [
-                'name' => 'Baidu Corp',
-                'path' => 'Baidu',
+                'name'        => 'Baidu Corp',
+                'path'        => 'Baidu',
+                'description' => 'www.baidu.com',
+                'type'        => 'Group',
             ],
         ];
 
-        ProjectNamespace::truncate();
+        Owner::truncate();
 
-        foreach ($defaultNamespaces as $projectNamespace) {
-            ProjectNamespace::create($projectNamespace);
+        foreach ($defaultOwners as $owner) {
+            Owner::create($owner);
         }
     }
 
@@ -93,33 +95,29 @@ class DemoSeederCommand extends Command
     {
         $defaultProjects = [
             [
-                'name'        => 'API',
-                'description' => 'Used by third-parties to connect to us',
-                'status'      => 1,
-                'order'       => 0,
-                'team_id'     => 0,
-                'slug'        => 'Gitamin',
+                'name'             => 'API',
+                'description'      => 'Used by third-parties to connect to us',
+                'visibility_level' => 0,
+                'owner_id'         => 1,
+                'path'             => 'Gitamin',
             ], [
-                'name'        => 'Documentation',
-                'description' => 'Kindly powered by Readme.io',
-                'status'      => 1,
-                'order'       => 0,
-                'team_id'     => 1,
-                'slug'        => 'Baidu',
+                'name'             => 'Documentation',
+                'description'      => 'Kindly powered by Readme.io',
+                'visibility_level' => 1,
+                'owner_id'         => 1,
+                'path'             => 'Baidu',
             ], [
-                'name'        => 'Website',
-                'description' => '',
-                'status'      => 1,
-                'order'       => 0,
-                'team_id'     => 1,
-                'slug'        => 'Alibaba',
+                'name'             => 'Website',
+                'description'      => '',
+                'visibility_level' => 1,
+                'owner_id'         => 1,
+                'path'             => 'Alibaba',
             ], [
-                'name'        => 'Blog',
-                'description' => 'The Gitamin Blog.',
-                'status'      => 1,
-                'order'       => 0,
-                'team_id'     => 1,
-                'slug'        => 'Tencent',
+                'name'             => 'Blog',
+                'description'      => 'The Gitamin Blog.',
+                'visibility_level' => 1,
+                'owner_id'         => 1,
+                'path'             => 'Tencent',
             ],
         ];
 
@@ -139,44 +137,34 @@ class DemoSeederCommand extends Command
     {
         $defaultIssues = [
             [
-                'name'         => 'Awesome',
-                'message'      => ':+1: We totally nailed the fix.',
-                'status'       => 4,
-                'project_id'   => 0,
-                'scheduled_at' => null,
-                'visible'      => 1,
+                'title'       => 'Awesome',
+                'description' => ':+1: We totally nailed the fix.',
+                'author_id'   => 1,
+                'project_id'  => 1,
             ],
             [
-                'name'         => 'Monitoring the fix',
-                'message'      => ":ship: We've deployed a fix.",
-                'status'       => 3,
-                'project_id'   => 0,
-                'scheduled_at' => null,
-                'visible'      => 1,
+                'title'       => 'Monitoring the fix',
+                'description' => ":ship: We've deployed a fix.",
+                'author_id'   => 3,
+                'project_id'  => 2,
             ],
             [
-                'name'         => 'Update',
-                'message'      => "We've identified the problem. Our engineers are currently looking at it.",
-                'status'       => 2,
-                'project_id'   => 0,
-                'scheduled_at' => null,
-                'visible'      => 1,
+                'title'       => 'Update',
+                'description' => "We've identified the problem. Our engineers are currently looking at it.",
+                'author_id'   => 2,
+                'project_id'  => 1,
             ],
             [
-                'name'         => 'Test Issue',
-                'message'      => 'Something went wrong, with something or another.',
-                'status'       => 1,
-                'project_id'   => 0,
-                'scheduled_at' => null,
-                'visible'      => 1,
+                'title'       => 'Test Issue',
+                'description' => 'Something went wrong, with something or another.',
+                'author_id'   => 1,
+                'project_id'  => 2,
             ],
             [
-                'name'         => 'Investigating the API',
-                'message'      => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
-                'status'       => 1,
-                'project_id'   => 1,
-                'scheduled_at' => null,
-                'visible'      => 1,
+                'title'       => 'Investigating the API',
+                'description' => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
+                'author_id'   => 1,
+                'project_id'  => 3,
             ],
         ];
 
@@ -201,7 +189,7 @@ class DemoSeederCommand extends Command
             ],
             [
                 'name'  => 'app_domain',
-                'value' => 'https://demo.gitaminhq.io',
+                'value' => 'https://demo.gitamin.com',
             ],
             [
                 'name'  => 'app_locale',
@@ -209,7 +197,7 @@ class DemoSeederCommand extends Command
             ],
             [
                 'name'  => 'app_timezone',
-                'value' => 'Europe/London',
+                'value' => 'Asia/Shanghai',
             ],
             [
                 'name'  => 'app_issue_days',

@@ -16,6 +16,17 @@ use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
 
+$factory->define(Owner::class, function ($faker) {
+    return [
+        'name'        => $faker->words(2, true),
+        'description' => $faker->paragraph(),
+        'path'        => $faker->unique()->word,
+        'type'        => 'Group',
+        'public'      => 1,
+        'user_id'     => 1,
+    ];
+});
+
 $factory->define(Project::class, function ($faker) {
     return [
         'name'             => $faker->words(2, true),
@@ -27,23 +38,13 @@ $factory->define(Project::class, function ($faker) {
     ];
 });
 
-$factory->define(Owner::class, function ($faker) {
-    return [
-        'name'        => $faker->words(2, true),
-        'description' => $faker->paragraph(),
-        'path'        => $faker->word(),
-        'type'        => 'Group',
-        'public'      => 1,
-        'user_id'     => 1,
-    ];
-});
-
 $factory->define(Issue::class, function ($faker) {
     return [
         'title'       => $faker->sentence(),
         'description' => $faker->paragraph(),
         'project_id'  => 1,
         'author_id'   => 1,
+        'assignee_id' => 0,
     ];
 });
 

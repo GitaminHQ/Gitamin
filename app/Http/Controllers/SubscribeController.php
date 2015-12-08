@@ -20,7 +20,6 @@ use Gitamin\Models\Subscriber;
 use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

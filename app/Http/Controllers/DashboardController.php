@@ -15,7 +15,6 @@ use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Date\Date;
 

@@ -24,11 +24,13 @@ class UpdateOwnerCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'owner' => new Owner(),
-            'name'  => 'Foo',
-            'path'  => 'Bar',
+            'owner'       => new Owner(),
+            'name'        => 'Foo',
+            'path'        => 'Bar',
+            'user_id'     => 1,
+            'description' => 'Description',
         ];
-        $object = new UpdateOwnerCommand($params['owner'], $params['name'], $params['path']);
+        $object = new UpdateOwnerCommand($params['owner'], $params['name'], $params['path'], $params['user_id'], $params['description']);
 
         return compact('params', 'object');
     }

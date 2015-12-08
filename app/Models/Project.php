@@ -72,12 +72,13 @@ class Project extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'          => 'int',
-        'owner_id'    => 'int',
-        'description' => 'string',
-        'path'        => 'string',
-        'creator_id'  => 'int',
-        'deleted_at'  => 'date',
+        'id'             => 'int',
+        'owner_id'       => 'int',
+        'description'    => 'string',
+        'path'           => 'string',
+        'issues_enabled' => 'boolean',
+        'creator_id'     => 'int',
+        'deleted_at'     => 'date',
     ];
 
     /**
@@ -91,6 +92,7 @@ class Project extends Model implements HasPresenter
         'visibility_level',
         'tags',
         'path',
+        'issues_enabled',
         'creator_id',
         'owner_id',
     ];

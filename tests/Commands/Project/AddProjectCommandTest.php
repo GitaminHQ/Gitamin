@@ -12,6 +12,7 @@
 namespace Gitamin\Tests\Commands\Project;
 
 use Gitamin\Commands\Project\AddProjectCommand;
+use Gitamin\Handlers\Commands\Project\AddProjectCommandHandler;
 use Gitamin\Tests\Commands\AbstractCommandTestCase;
 
 /**
@@ -24,15 +25,17 @@ class AddProjectCommandTest extends AbstractCommandTestCase
         $params = [
             'name'             => 'Test',
             'description'      => 'Foo',
-            'path'             => 'Baidu',
-            'owner_id'         => 1,
             'visibility_level' => 1,
+            'path'             => 'Baidu',
+            'creator_id'       => 1,
+            'owner_id'         => 1,
         ];
         $object = new AddProjectCommand(
             $params['name'],
             $params['description'],
             $params['visibility_level'],
             $params['path'],
+            $params['creator_id'],
             $params['owner_id']
         );
 
@@ -46,6 +49,6 @@ class AddProjectCommandTest extends AbstractCommandTestCase
 
     protected function getHandlerClass()
     {
-        return AddOwnerHandler::class;
+        return AddProjectCommandHandler::class;
     }
 }

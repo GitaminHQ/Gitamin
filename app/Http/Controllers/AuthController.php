@@ -12,7 +12,6 @@
 namespace Gitamin\Http\Controllers;
 
 use GrahamCampbell\Binput\Facades\Binput;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;

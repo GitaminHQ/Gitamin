@@ -22,7 +22,7 @@ class OwnerTest extends AbstractTestCase
     {
         $teams = factory('Gitamin\Models\Owner', 3)->create();
 
-        $this->get('/api/v1/owner');
+        $this->get('/api/v1/owners');
         $this->seeJson(['id' => $teams[0]->id]);
         $this->seeJson(['id' => $teams[1]->id]);
         $this->seeJson(['id' => $teams[2]->id]);
@@ -55,8 +55,11 @@ class OwnerTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/owners', [
-            'name' => 'Foo',
-            'path' => 'foo',
+            'name'        => 'Foo',
+            'path'        => 'foo',
+            'user_id'     => 1,
+            'description' => 'Bar',
+            'type'        => 'Group',
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -77,8 +80,11 @@ class OwnerTest extends AbstractTestCase
         $team = factory('Gitamin\Models\Owner')->create();
 
         $this->put('/api/v1/owners/1', [
-            'name' => 'Lorem Ipsum Groupous',
-            'path' => 'lig',
+            'name'        => 'Lorem Ipsum Groupous',
+            'path'        => 'lig',
+            'user_id'     => 1,
+            'description' => 'Bar',
+            'type'        => 'Group',
         ]);
         $this->seeJson(['name' => 'Lorem Ipsum Groupous']);
         $this->assertResponseOk();

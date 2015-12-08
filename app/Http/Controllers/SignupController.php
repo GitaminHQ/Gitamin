@@ -18,7 +18,6 @@ use Gitamin\Commands\User\SignupUserCommand;
 use Gitamin\Models\Invite;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

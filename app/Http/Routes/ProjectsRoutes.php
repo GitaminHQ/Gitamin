@@ -52,49 +52,49 @@ class ProjectsRoutes
             'setting'    => 'app_name',
             'as'         => 'projects.',
         ], function ($router) {
-           $router->get('{namespace}/{project}', [
+           $router->get('{owner_path}/{project_path}', [
                 'as'   => 'project_show',
                 'uses' => 'ProjectsController@showAction',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
-           $router->get('{namespace}/{project}/edit', [
+           $router->get('{owner_path}/{project_path}/edit', [
                 'as'   => 'project_edit',
                 'uses' => 'ProjectsController@editAction',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
-            $router->post('{namespace}/{project}/update', [
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+            $router->post('{owner_path}/{project_path}/update', [
                 'as'    => 'project_update',
                 'uses'  => 'ProjectsController@updateAction',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             //Issues
-            $router->get('{namespace}/{project}/issues', [
+            $router->get('{owner_path}/{project_path}/issues', [
                 'as'   => 'issue_index',
                 'uses' => 'Projects\\IssuesController@index',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             //new
-            $router->get('{namespace}/{project}/issues/new', [
+            $router->get('{owner_path}/{project_path}/issues/new', [
                 'as'   => 'issue_new',
                 'uses' => 'Projects\\IssuesController@add',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             //create
-            $router->post('{namespace}/{project}/issues', [
+            $router->post('{owner_path}/{project_path}/issues', [
                 'as'   => 'issue_create',
                 'uses' => 'Projects\\IssuesController@create',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             //show
-            $router->get('{namespace}/{project}/issues/{issue}', [
+            $router->get('{owner_path}/{project_path}/issues/{issue}', [
                 'as'   => 'issue_show',
                 'uses' => 'Projects\\IssuesController@show',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             //update
-            $router->post('{namespace}/{project}/issues/{issue}', [
+            $router->post('{owner_path}/{project_path}/issues/{issue}', [
                 'as'   => 'issue_update',
                 'uses' => 'Projects\\IssuesController@update',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+')->where('project', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
         });
     }
 }

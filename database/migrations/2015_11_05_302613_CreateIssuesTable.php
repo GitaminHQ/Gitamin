@@ -25,17 +25,17 @@ class CreateIssuesTable extends Migration
 
             $table->increments('id');
             $table->string('title');
-            $table->integer('assignee_id');
+            $table->integer('assignee_id')->nullable();
             $table->integer('author_id');
             $table->integer('project_id');
             $table->timestamps();
-            $table->integer('position')->default(0);
-            $table->string('branch_name');
-            $table->text('description');
-            $table->integer('milestone_id');
-            $table->string('state');
-            $table->integer('iid');
-            $table->integer('updated_by_id');
+            $table->integer('position')->nullable()->default(0);
+            $table->string('branch_name')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('milestone_id')->nullable();
+            $table->string('state')->nullable();
+            $table->integer('iid')->nullable();
+            $table->integer('updated_by_id')->nullable();
 
             $table->softDeletes();
 

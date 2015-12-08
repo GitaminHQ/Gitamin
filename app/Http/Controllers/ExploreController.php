@@ -15,7 +15,6 @@ use Exception;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
 use GrahamCampbell\Binput\Facades\Binput;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Date\Date;
