@@ -149,6 +149,30 @@ class Project extends Model implements HasPresenter
     }
 
     /**
+     * Find by path, or throw an exception.
+     *
+     * @param string   $owner_path
+     * @param string   $project_path
+     * @param string[] $columns
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     *
+     * @return \Gitamin\Models\User
+     */
+    public static function findByPath($owner_path, $project_path, $columns = ['projects.*'])
+    {
+        $project = static::leftJoin('owners', function ($join) {
+            $join->on('projects.owner_id', '=', 'owners.id');
+        })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner_path)->first($columns);
+
+        if (!$project) {
+            throw new ModelNotFoundException();
+        }
+
+        return $project;
+    }
+
+    /**
      * Finds all projects by visibility_level.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query

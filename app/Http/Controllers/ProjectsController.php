@@ -92,11 +92,9 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showAction($owner, $project_path)
+    public function showAction($owner_path, $project_path)
     {
-        $project = Project::leftJoin('owners', function ($join) {
-            $join->on('projects.owner_id', '=', 'owners.id');
-        })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner)->first(['projects.*']);
+        $project = Project::findByPath($owner_path, $project_path);
 
         return View::make('projects.show')
             ->withPageTitle($project->name)
@@ -113,16 +111,14 @@ class ProjectsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param string $namespace
+     * @param string $owner_path
      * @param string $project_path
      *
      * @return \Illuminate\Http\Response
      */
-    public function editAction($namespace, $project_path)
+    public function editAction($owner_path, $project_path)
     {
-        $project = Project::leftJoin('owners', function ($join) {
-            $join->on('projects.owner_id', '=', 'owners.id');
-        })->where('owners.path', '=', $project_path)->where('owners.path', '=', $namespace)->first(['projects.*']);
+        $project = Project::findByPath($owner_path, $project_path);
 
         return View::make('projects.edit')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
