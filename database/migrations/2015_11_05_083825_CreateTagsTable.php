@@ -20,15 +20,15 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('tags', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('name');
-            $table->string('slug');
-            $table->timestamps();
+            $t->increments('id');
+            $t->string('name');
+            $t->string('slug');
+            $t->timestamps();
 
-            $table->unique(['name', 'slug']);
+            $t->unique(['name', 'slug']);
         });
     }
 

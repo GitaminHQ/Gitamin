@@ -20,43 +20,43 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('projects', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('name');
-            $table->string('path');
-            $table->text('description');
-            $table->timestamps();
-            $table->integer('creator_id')->nullable();
-            $table->boolean('issues_enabled')->default(true);
-            $table->boolean('wall_enabled')->default(true);
-            $table->boolean('merge_requests_enabled')->default(true);
-            $table->boolean('wiki_enabled')->default(true);
-            $table->integer('owner_id');
-            $table->string('issues_tracker')->default('gitamin');
-            $table->string('issues_tracker_id')->nullable();
-            $table->boolean('snippets_enabled')->default(true);
-            $table->datetime('last_activity_at')->nullable();
-            $table->string('import_url')->nullable();
-            $table->integer('visibility_level')->default(0);
-            $table->boolean('archived')->default(false);
-            $table->string('avatar')->nullable();
-            $table->string('import_status')->nullable();
-            $table->float('repository_size')->default(0.0);
-            $table->integer('star_count')->default(0);
-            $table->string('import_type')->nullable();
-            $table->string('import_source')->nullable();
-            $table->integer('commit_count')->default(0);
-            $table->boolean('merge_requests_ff_only_enabled')->default(false);
-            $table->text('issues_template')->nullable();
-            $table->text('import_error')->nullable();
+            $t->increments('id');
+            $t->string('name');
+            $t->string('path');
+            $t->text('description');
+            $t->timestamps();
+            $t->integer('creator_id')->nullable();
+            $t->boolean('issues_enabled')->default(true);
+            $t->boolean('wall_enabled')->default(true);
+            $t->boolean('merge_requests_enabled')->default(true);
+            $t->boolean('wiki_enabled')->default(true);
+            $t->integer('owner_id');
+            $t->string('issues_tracker')->default('gitamin');
+            $t->string('issues_tracker_id')->nullable();
+            $t->boolean('snippets_enabled')->default(true);
+            $t->datetime('last_activity_at')->nullable();
+            $t->string('import_url')->nullable();
+            $t->integer('visibility_level')->default(0);
+            $t->boolean('archived')->default(false);
+            $t->string('avatar')->nullable();
+            $t->string('import_status')->nullable();
+            $t->float('repository_size')->default(0.0);
+            $t->integer('star_count')->default(0);
+            $t->string('import_type')->nullable();
+            $t->string('import_source')->nullable();
+            $t->integer('commit_count')->default(0);
+            $t->boolean('merge_requests_ff_only_enabled')->default(false);
+            $t->text('issues_template')->nullable();
+            $t->text('import_error')->nullable();
 
-            $table->softDeletes();
+            $t->softDeletes();
 
-            $table->index('owner_id');
-            $table->index('creator_id');
-            $table->index('path');
+            $t->index('owner_id');
+            $t->index('creator_id');
+            $t->index('path');
 
         });
     }

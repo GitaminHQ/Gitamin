@@ -22,25 +22,25 @@ class CreateOwnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('owners', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('owners', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('name');
-            $table->string('path');
-            $table->integer('user_id')->nullable();
-            $table->string('type')->nullable();
-            $table->string('description');
-            $table->string('avatar')->nullable();
-            $table->boolean('public')->nullable()->default(false);
-            $table->timestamps();
+            $t->increments('id');
+            $t->string('name');
+            $t->string('path');
+            $t->integer('user_id')->nullable();
+            $t->string('type')->nullable();
+            $t->string('description');
+            $t->string('avatar')->nullable();
+            $t->boolean('public')->nullable()->default(false);
+            $t->timestamps();
 
-            $table->index(['created_at', 'id']);
-            $table->index('name');
-            $table->index('user_id');
-            $table->unique('path');
-            $table->index('public');
-            $table->index('type');
+            $t->index(['created_at', 'id']);
+            $t->index('name');
+            $t->index('user_id');
+            $t->unique('path');
+            $t->index('public');
+            $t->index('type');
         });
     }
 

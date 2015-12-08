@@ -22,38 +22,38 @@ class CreateMergeRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('merge_requests', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('merge_requests', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('target_branch');
-            $table->integer('source_branch');
-            $table->integer('source_project_id');
-            $table->integer('author_id');
-            $table->integer('assignee_id');
-            $table->string('title');
-            $table->timestamps();
-            $table->integer('milestone_id');
-            $table->string('state');
-            $table->string('merge_status');
-            $table->integer('target_project_id');
-            $table->integer('iid');
-            $table->text('description');
-            $table->integer('position');
-            $table->datetime('locked_at');
-            $table->integer('updated_by_id');
-            $table->string('merge_error');
+            $t->increments('id');
+            $t->string('target_branch');
+            $t->integer('source_branch');
+            $t->integer('source_project_id');
+            $t->integer('author_id');
+            $t->integer('assignee_id');
+            $t->string('title');
+            $t->timestamps();
+            $t->integer('milestone_id');
+            $t->string('state');
+            $t->string('merge_status');
+            $t->integer('target_project_id');
+            $t->integer('iid');
+            $t->text('description');
+            $t->integer('position');
+            $t->datetime('locked_at');
+            $t->integer('updated_by_id');
+            $t->string('merge_error');
 
-            $table->index('assignee_id');
-            $table->index('author_id');
-            $table->index(['created_at', 'id']);
-            $table->index('created_at');
-            $table->index('milestone_id');
-            $table->index('source_branch');
-            $table->index('source_project_id');
-            $table->index('target_branch');
-            $table->index(['target_project_id', 'iid'])->unique();
-            $table->index('title');
+            $t->index('assignee_id');
+            $t->index('author_id');
+            $t->index(['created_at', 'id']);
+            $t->index('created_at');
+            $t->index('milestone_id');
+            $t->index('source_branch');
+            $t->index('source_project_id');
+            $t->index('target_branch');
+            $t->index(['target_project_id', 'iid'])->unique();
+            $t->index('title');
 
         });
     }

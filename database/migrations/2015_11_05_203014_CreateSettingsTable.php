@@ -20,13 +20,13 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('settings', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('name');
-            $table->longText('value');
-            $table->timestamps();
+            $t->increments('id');
+            $t->string('name');
+            $t->longText('value');
+            $t->timestamps();
         });
     }
 

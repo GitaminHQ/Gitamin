@@ -19,14 +19,14 @@ class CreateFailedJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('failed_jobs', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->text('connection');
-            $table->text('queue');
-            $table->text('payload');
-            $table->timestamp('failed_at');
+            $t->increments('id');
+            $t->text('connection');
+            $t->text('queue');
+            $t->text('payload');
+            $t->timestamp('failed_at');
         });
     }
 

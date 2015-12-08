@@ -21,14 +21,14 @@ class CreateInvitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('invites', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('invites', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('code')->unique();
-            $table->string('email');
-            $table->timestamp('claimed_at')->nullable();
-            $table->timestamps();
+            $t->increments('id');
+            $t->string('code')->unique();
+            $t->string('email');
+            $t->timestamp('claimed_at')->nullable();
+            $t->timestamps();
         });
     }
 

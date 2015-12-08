@@ -20,24 +20,24 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('users', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('username');
-            $table->string('password');
-            $table->rememberToken();
-            $table->string('email');
-            $table->string('api_key');
-            $table->boolean('active')->default(1);
-            $table->tinyInteger('level')->default(2);
-            $table->timestamps();
+            $t->increments('id');
+            $t->string('username');
+            $t->string('password');
+            $t->rememberToken();
+            $t->string('email');
+            $t->string('api_key');
+            $t->boolean('active')->default(1);
+            $t->tinyInteger('level')->default(2);
+            $t->timestamps();
 
-            $table->index('remember_token');
-            $table->index('active');
-            $table->unique('username');
-            $table->unique('api_key');
-            $table->unique('email');
+            $t->index('remember_token');
+            $t->index('active');
+            $t->unique('username');
+            $t->unique('api_key');
+            $t->unique('email');
         });
     }
 

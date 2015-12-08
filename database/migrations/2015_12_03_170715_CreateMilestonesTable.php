@@ -22,21 +22,21 @@ class CreateMilestonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('milestones', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('milestones', function (Blueprint $t) {
+            $t->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->string('title');
-            $table->integer('project_id');
-            $table->text('description');
-            $table->timestamp('due_date');
-            $table->timestamps();
-            $table->string('state');
-            $table->integer('iid');
+            $t->increments('id');
+            $t->string('title');
+            $t->integer('project_id');
+            $t->text('description');
+            $t->timestamp('due_date');
+            $t->timestamps();
+            $t->string('state');
+            $t->integer('iid');
 
-            $table->index('created_at');
-            $table->index('due_date');
-            $table->index('project_id');
+            $t->index('created_at');
+            $t->index('due_date');
+            $t->index('project_id');
         });
     }
 
