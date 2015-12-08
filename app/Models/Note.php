@@ -32,9 +32,51 @@
 
 namespace Gitamin\Models;
 
+use AltThree\Validator\ValidatingTrait;
+use Gitamin\Presenters\NotePresenter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Note extends Model
+class Note extends Model implements HasPresenter
 {
-    //
+    use SoftDeletes, ValidatingTrait;
+
+    /**
+     * The fillable properties.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'author_id',
+        'project_id',
+        'description',
+        'noteable_type',
+        'noteable_id',
+        'created_at',
+        'updated_at',
+    ];
+
+    /**
+     * The validation rules.
+     *
+     * @var string[]
+     */
+    public $rules = [
+        'author_id'     => 'int',
+        'project_id'    => 'int',
+        'description'   => 'required',
+        'noteable_type' => 'string|required',
+        'noteable_id'   => 'int',
+    ];
+
+    /**
+     * Get the presenter class.
+     *
+     * @return string
+     */
+    public function getPresenterClass()
+    {
+        return NotePresenter::class;
+    }
 }

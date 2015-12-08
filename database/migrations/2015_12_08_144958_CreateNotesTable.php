@@ -26,18 +26,18 @@ class CreateNotesTable extends Migration
             $t->engine = 'InnoDB';
 
             $t->increments('id');
-            $t->text('note');
+            $t->text('description');
             $t->string('noteable_type');
             $t->integer('author_id');
             $t->timestamps();
             $t->integer('project_id');
-            $t->string('attachment');
-            $t->string('line_code');
-            $t->string('commit_id');
+            $t->string('attachment')->nullable();
+            $t->string('line_code')->nullable();
+            $t->string('commit_id')->nullable();
             $t->integer('noteable_id');
             $t->boolean('system')->default(false);
-            $t->text('st_diff');
-            $t->integer('updated_by_id');
+            $t->text('st_diff')->nullable();
+            $t->integer('updated_by_id')->nullable();
             $t->boolean('is_award')->default(false);
 
             $t->index('author_id');
