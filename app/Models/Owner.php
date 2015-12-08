@@ -53,7 +53,13 @@ class Owner extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'path', 'user_id', 'description', 'type'];
+    protected $fillable = [
+        'name',
+        'path',
+        'user_id',
+        'description',
+        'type',
+    ];
 
     /**
      * The validation rules.
@@ -76,6 +82,27 @@ class Owner extends Model
     public function projects()
     {
         return $this->hasMany(Project::class, 'owner_id', 'id');
+    }
+
+    /**
+     * Find by path, or throw an exception.
+     *
+     * @param string   $path
+     * @param string[] $columns
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     *
+     * @return \Gitamin\Models\User
+     */
+    public static function findByPath($path, $columns = ['*'])
+    {
+        $owner = static::where('path', $path)->first($columns);
+
+        if (!$owner) {
+            throw new ModelNotFoundException();
+        }
+
+        return $owner;
     }
 
     /**

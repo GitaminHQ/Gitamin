@@ -88,7 +88,7 @@ class GroupsController extends Controller
      */
     public function showAction($path)
     {
-        $group = Group::where('path', '=', $path)->first();
+        $group = Group::findByPath($path);
 
         return View::make('groups.show')
             ->withPageTitle($group->name)
@@ -143,7 +143,7 @@ class GroupsController extends Controller
      */
     public function editAction($path)
     {
-        $group = Group::where('path', '=', $path)->first();
+        $group = Group::findByPath($path);
 
         return View::make('groups.edit')
             ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
