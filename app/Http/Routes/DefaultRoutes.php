@@ -27,12 +27,12 @@ class DefaultRoutes
     {
         //Homepage
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['app.hasSetting', 'auth'],
             'setting'    => 'app_name',
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'ExploreController@index',
+                'uses' => 'ExploreController@indexAction',
             ]);
         });
 
