@@ -40,7 +40,7 @@ class ProjectController extends AbstractApiController
         if ($auth->check()) {
             $projects = Project::whereRaw('1 = 1');
         } else {
-            $projects = Project::enabled();
+            $projects = Project::whereRaw('1 = 1');
         }
 
         return $this->paginator($projects->paginate(Binput::get('per_page', 20)), $request);
@@ -69,11 +69,10 @@ class ProjectController extends AbstractApiController
             $project = $this->dispatch(new AddProjectCommand(
                 Binput::get('name'),
                 Binput::get('description'),
-                Binput::get('status'),
-                Binput::get('slug'),
-                Binput::get('order'),
-                Binput::get('team_id'),
-                (bool) Binput::get('enabled', true)
+                Binput::get('visibility_level'),
+                Binput::get('path'),
+                Binput::get('creator_id'),
+                Binput::get('owner_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -110,11 +109,10 @@ class ProjectController extends AbstractApiController
                 $project,
                 Binput::get('name'),
                 Binput::get('description'),
-                Binput::get('status'),
-                Binput::get('slug'),
-                Binput::get('order'),
-                Binput::get('team_id'),
-                (bool) Binput::get('enabled', true)
+                Binput::get('visibility_level'),
+                Binput::get('path'),
+                Binput::get('creator_id'),
+                Binput::get('owner_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

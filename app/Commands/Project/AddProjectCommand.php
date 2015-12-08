@@ -78,6 +78,7 @@ final class AddProjectCommand
      * @param string $path
      * @param int    $creator_id
      * @param int    $owner_id
+     * @param bool   $issues_enabled
      *
      * @return void
      */

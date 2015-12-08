@@ -36,9 +36,10 @@ class IssueController extends AbstractApiController
      */
     public function getIssues(Request $request, Guard $auth)
     {
-        $issueVisiblity = $auth->check() ? 0 : 1;
+        //$issuePosition = $auth->check() ? 0 : 1;
+        $issuePosition = $auth->check() ? 0 : -1;
 
-        $issues = Issue::where('visible', '>=', $issueVisiblity)->paginate(Binput::get('per_page', 20));
+        $issues = Issue::where('position', '>=', $issuePosition)->paginate(Binput::get('per_page', 20));
 
         return $this->paginator($issues, $request);
     }
@@ -66,14 +67,10 @@ class IssueController extends AbstractApiController
     {
         try {
             $issue = $this->dispatch(new AddIssueCommand(
-                Binput::get('name'),
-                Binput::get('status'),
-                Binput::get('message'),
-                Binput::get('visible', true),
-                Binput::get('user_id'),
-                Binput::get('project_id'),
-                Binput::get('notify', true),
-                Binput::get('created_at')
+                Binput::get('title'),
+                Binput::get('description'),
+                Binput::get('author_id'),
+                Binput::get('project_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -94,14 +91,10 @@ class IssueController extends AbstractApiController
         try {
             $issue = $this->dispatch(new UpdateIssueCommand(
                 $issue,
-                Binput::get('name'),
-                Binput::get('status'),
-                Binput::get('message'),
-                Binput::get('visible', true),
-                Binput::get('user_id'),
-                Binput::get('project_id'),
-                Binput::get('notify', true),
-                Binput::get('created_at')
+                Binput::get('title'),
+                Binput::get('description'),
+                Binput::get('author_id'),
+                Binput::get('project_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

@@ -23,24 +23,16 @@ class AddIssueCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'           => 'Test',
-            'status'         => 1,
-            'message'        => 'Foo bar baz',
-            'visible'        => 1,
-            'user_id'        => 1,
-            'project_id'     => 1,
-            'notify'         => false,
-            'issue_date'     => null,
+            'title'       => 'Test',
+            'description' => 'Foo bar baz',
+            'author_id'   => 1,
+            'project_id'  => 1,
         ];
         $object = new AddIssueCommand(
-            $params['name'],
-            $params['status'],
-            $params['message'],
-            $params['visible'],
-            $params['user_id'],
-            $params['project_id'],
-            $params['notify'],
-            $params['issue_date']
+            $params['title'],
+            $params['description'],
+            $params['author_id'],
+            $params['project_id']
         );
 
         return compact('params', 'object');

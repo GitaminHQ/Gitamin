@@ -55,13 +55,12 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'        => 'Foo',
-            'description' => 'Bar',
-            'status'      => 1,
-            'slug'        => 'Baidu',
-            'order'       => 1,
-            'team_id'     => 1,
-            'enabled'     => true,
+            'name'             => 'Foo',
+            'description'      => 'Bar',
+            'visibility_level' => 1,
+            'path'             => 'Baidu',
+            'creator_id'       => 1,
+            'owner_id'         => 1,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -72,14 +71,15 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'        => 'Foo',
-            'description' => 'Bar',
-            'status'      => 1,
-            'slug'        => 'Alibaba',
-            'order'       => 1,
-            'team_id'     => 1,
+            'name'             => 'Foo',
+            'description'      => 'Bar',
+            'visibility_level' => 1,
+            'path'             => 'Alibaba',
+            'creator_id'       => 1,
+            'owner_id'         => 1,
         ]);
-        $this->seeJson(['name' => 'Foo', 'enabled' => true]);
+        //$this->seeJson(['name' => 'Foo', 'issues_enabled' => true]);
+        $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
     }
 
@@ -88,15 +88,15 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'        => 'Foo',
-            'description' => 'Bar',
-            'status'      => 1,
-            'slug'        => 'Tencent',
-            'order'       => 1,
-            'team_id'     => 1,
-            'enabled'     => 0,
+            'name'             => 'Foo',
+            'description'      => 'Bar',
+            'visibility_level' => 1,
+            'path'             => 'Tencent',
+            'creator_id'       => 1,
+            'owner_id'         => 1,
         ]);
-        $this->seeJson(['name' => 'Foo', 'enabled' => false]);
+        //$this->seeJson(['name' => 'Foo', 'issues_enabled' => false]);
+        $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
     }
 
@@ -115,7 +115,12 @@ class ProjectTest extends AbstractTestCase
         $project = factory('Gitamin\Models\Project')->create();
 
         $this->put('/api/v1/projects/1', [
-            'name' => 'Foo',
+            'name'             => 'Foo',
+            'description'      => 'Bar',
+            'visibility_level' => 1,
+            'path'             => 'Baz',
+            'creator_id'       => 1,
+            'owner_id'         => 1,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();

@@ -25,15 +25,15 @@ class RemoveOwnerCommandHandler
      */
     public function handle(RemoveOwnerCommand $command)
     {
-        $group = $command->group;
+        $owner = $command->owner;
 
-        event(new OwnerWasRemovedEvent($team));
+        event(new OwnerWasRemovedEvent($owner));
 
         // Remove the owner id from all project.
-        $group->projects->map(function ($project) {
+        $owner->projects->map(function ($project) {
             $project->update(['owner_id' => 0]);
         });
 
-        $group->delete();
+        $owner->delete();
     }
 }

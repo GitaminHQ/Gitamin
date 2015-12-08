@@ -14,7 +14,6 @@ namespace Gitamin\Http\Controllers;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Project;
 use Gitter\Client;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
 class RepositoryController extends Controller

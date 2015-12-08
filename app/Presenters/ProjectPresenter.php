@@ -24,7 +24,7 @@ class ProjectPresenter extends AbstractPresenter
      */
     public function status_color()
     {
-        switch ($this->wrappedObject->status) {
+        switch ($this->wrappedObject->visibility_level) {
             case 1: return 'greens';
             case 2: return 'blues';
             case 3: return 'yellows';
@@ -42,7 +42,6 @@ class ProjectPresenter extends AbstractPresenter
         return array_merge($this->wrappedObject->toArray(), [
             'created_at'  => $this->created_at(),
             'updated_at'  => $this->updated_at(),
-            'namespace'   => $this->wrappedObject->group->path,
             'status_name' => $this->wrappedObject->humanStatus,
         ]);
     }

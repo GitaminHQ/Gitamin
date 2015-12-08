@@ -13,9 +13,8 @@ namespace Gitamin\Http\Controllers;
 
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
-use Gitamin\Models\ProjectNamespace;
+use Gitamin\Models\Owner;
 use GrahamCampbell\Markdown\Facades\Markdown;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 use Roumen\Feed\Facades\Feed;
 
@@ -45,41 +44,41 @@ class FeedController extends Controller
     /**
      * Generates an Atom feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectNamespace|null $namespace
+     * @param \Gitamin\Models\Owner|null $owner
      *
      * @return \Illuminate\Http\Response
      */
-    public function atomAction(ProjectNamespace $namespace = null)
+    public function atomAction(Owner $owner = null)
     {
-        return $this->feedAction($namespace, false);
+        return $this->feedAction($owner, false);
     }
 
     /**
      * Generates a Rss feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectNamespace|null $group
+     * @param \Gitamin\Models\Owner|null $owner
      *
      * @return \Illuminate\Http\Response
      */
-    public function rssAction(ProjectNamespace $namespace = null)
+    public function rssAction(Owner $owner = null)
     {
         $this->feed->lang = Setting::get('app_locale');
 
-        return $this->feedAction($namespace, true);
+        return $this->feedAction($owner, true);
     }
 
     /**
      * Generates a feed of all issues.
      *
-     * @param \Gitamin\Models\ProjectNamespace|null $namespace
-     * @param bool                                  $isRss
+     * @param \Gitamin\Models\Owner|null $owner
+     * @param bool                       $isRss
      *
      * @return \Illuminate\Http\Response
      */
-    private function feedAction(ProjectNamespace &$namespace, $isRss)
+    private function feedAction(Owner &$owner, $isRss)
     {
-        if ($namespace->exists) {
-            $namespace->projects->map(function ($project) {
+        if ($owner->exists) {
+            $owner->projects->map(function ($project) {
                 $project->issues()->visible()->orderBy('created_at', 'desc')->get()->map(function ($issue) use ($isRss) {
                     $this->feedAddItem($issue, $isRss);
                 });

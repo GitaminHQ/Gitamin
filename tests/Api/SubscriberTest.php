@@ -43,11 +43,11 @@ class SubscriberTest extends AbstractTestCase
         $this->expectsEvents('Gitamin\Events\Subscriber\SubscriberHasSubscribedEvent');
 
         $this->post('/api/v1/subscribers', [
-            'email' => 'james@cachethq.io',
+            'email' => 'gitamin@gitamin.com',
         ]);
         $this->assertResponseOk();
         $this->seeHeader('Content-Type', 'application/json');
-        $this->seeJson(['email' => 'james@cachethq.io']);
+        $this->seeJson(['email' => 'gitamin@gitamin.com']);
     }
 
     public function testCreateSubscriberAutoVerified()
@@ -55,12 +55,12 @@ class SubscriberTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/subscribers', [
-            'email'  => 'james@cachethq.io',
+            'email'  => 'gitamin@gitamin.com',
             'verify' => true,
         ]);
         $this->assertResponseOk();
         $this->seeHeader('Content-Type', 'application/json');
-        $this->seeJson(['email' => 'james@cachethq.io']);
+        $this->seeJson(['email' => 'gitamin@gitamin.com']);
     }
 
     public function testDeleteSubscriber()

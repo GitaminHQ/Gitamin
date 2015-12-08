@@ -11,37 +11,40 @@
 
 use Carbon\Carbon;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
-use Gitamin\Models\ProjectTeam;
 use Gitamin\Models\Subscriber;
 use Gitamin\Models\User;
 
-$factory->define(Project::class, function ($faker) {
+$factory->define(Owner::class, function ($faker) {
     return [
-        'name'        => $faker->sentence(),
+        'name'        => $faker->words(2, true),
         'description' => $faker->paragraph(),
-        'status'      => 1,
-        'slug'        => $faker->words(2, true),
-        'order'       => 0,
-        'team_id'     => 1,
-        'enabled'     => true,
+        'path'        => $faker->unique()->word,
+        'type'        => 'Group',
+        'public'      => 1,
+        'user_id'     => 1,
     ];
 });
 
-$factory->define(ProjectTeam::class, function ($faker) {
+$factory->define(Project::class, function ($faker) {
     return [
-        'name'  => $faker->words(2, true),
-        'slug'  => $faker->words(2, true),
-        'order' => 0,
+        'name'             => $faker->words(2, true),
+        'description'      => $faker->paragraph(),
+        'path'             => $faker->word(),
+        'owner_id'         => 1,
+        'creator_id'       => 1,
+        'visibility_level' => 1,
     ];
 });
 
 $factory->define(Issue::class, function ($faker) {
     return [
-        'name'    => $faker->sentence(),
-        'message' => $faker->paragraph(),
-        'status'  => 1,
-        'visible' => 1,
+        'title'       => $faker->sentence(),
+        'description' => $faker->paragraph(),
+        'project_id'  => 1,
+        'author_id'   => 1,
+        'assignee_id' => 0,
     ];
 });
 

@@ -104,7 +104,6 @@ class GroupsController extends Controller
     {
         return View::make('groups.new')
             ->withPageTitle(trans('dashboard.groups.new.title').' - '.trans('dashboard.dashboard'));
-            //->withGroups(ProjectNamespace::all());
     }
 
     /**
@@ -138,7 +137,7 @@ class GroupsController extends Controller
     /**
      * Shows the edit project namespace view.
      *
-     * @param \Gitamin\Models\ProjectNamespace $namespace
+     * @param \Gitamin\Models\Owner $namespace
      *
      * @return \Illuminate\View\View
      */
@@ -154,7 +153,7 @@ class GroupsController extends Controller
     /**
      * Updates a project namespace.
      *
-     * @param \Gitamin\Models\ProjectNamespace $namespace
+     * @param \Gitamin\Models\Owner $namespace
      *
      * @return \Illuminate\Http\RedirectResponse
      */

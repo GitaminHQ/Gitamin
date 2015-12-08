@@ -14,7 +14,6 @@ namespace Gitamin\Http\Controllers;
 use Gitamin\Models\Setting;
 use Gitamin\Models\User;
 use GrahamCampbell\Binput\Facades\Binput;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;

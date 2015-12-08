@@ -11,44 +11,44 @@
 
 namespace Gitamin\Http\Controllers\Api;
 
-use Gitamin\Commands\ProjectNamespace\AddProjectNamespaceCommand;
-use Gitamin\Commands\ProjectNamespace\RemoveProjectNamespaceCommand;
-use Gitamin\Commands\ProjectNamespace\UpdateProjectNamespaceCommand;
-use Gitamin\Models\ProjectNamespace;
+use Gitamin\Commands\Owner\AddOwnerCommand;
+use Gitamin\Commands\Owner\RemoveOwnerCommand;
+use Gitamin\Commands\Owner\UpdateOwnerCommand;
+use Gitamin\Models\Owner;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class ProjectNamespaceController extends AbstractApiController
+class OwnerController extends AbstractApiController
 {
     use DispatchesJobs;
 
     /**
-     * Get all teams.
+     * Get all owners.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getTeams(Request $request)
+    public function getOwners(Request $request)
     {
-        $teams = ProjectNamespace::paginate(Binput::get('per_page', 20));
+        $owners = Owner::paginate(Binput::get('per_page', 20));
 
-        return $this->paginator($teams, $request);
+        return $this->paginator($owners, $request);
     }
 
     /**
-     * Get a single team.
+     * Get a single owner.
      *
-     * @param \Gitamin\Models\ProjectNamespace $team
+     * @param \Gitamin\Models\Owner $owner
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getTeam(ProjectNamespace $team)
+    public function getOwner(Owner $owner)
     {
-        return $this->item($team);
+        return $this->item($owner);
     }
 
     /**
@@ -56,54 +56,58 @@ class ProjectNamespaceController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postTeams()
+    public function postOwners()
     {
         try {
-            $team = $this->dispatch(new AddProjectNamespaceCommand(
+            $owner = $this->dispatch(new AddOwnerCommand(
                 Binput::get('name'),
                 Binput::get('path'),
-                Binput::get('order', 0)
+                Binput::get('user_id'),
+                Binput::get('description'),
+                Binput::get('type')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
         }
 
-        return $this->item($team);
+        return $this->item($owner);
     }
 
     /**
-     * Update an existing team.
+     * Update an existing owner.
      *
-     * @param \Gitamin\Models\ProjectNamespace $team
+     * @param \Gitamin\Models\Owner $owner
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function putTeam(ProjectNamespace $team)
+    public function putOwner(Owner $owner)
     {
         try {
-            $team = $this->dispatch(new UpdateProjectNamespaceCommand(
-                $team,
+            $owner = $this->dispatch(new UpdateOwnerCommand(
+                $owner,
                 Binput::get('name'),
                 Binput::get('path'),
-                Binput::get('order', 0)
+                Binput::get('user_id'),
+                Binput::get('description'),
+                Binput::get('type')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
         }
 
-        return $this->item($team);
+        return $this->item($owner);
     }
 
     /**
-     * Delete an existing team.
+     * Delete an existing owner.
      *
-     * @param \Gitamin\Models\ProjectNamespace $team
+     * @param \Gitamin\Models\Owner $owner
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function deleteTeam(ProjectNamespace $team)
+    public function deleteOwner(Owner $owner)
     {
-        $this->dispatch(new RemoveProjectNamespaceCommand($team));
+        $this->dispatch(new RemoveOwnerCommand($owner));
 
         return $this->noContent();
     }
