@@ -26,9 +26,9 @@
         "graham-campbell/throttle": "^5.1",
         "graham-campbell/exceptions": "^5.1",
         "guzzlehttp/guzzle": "^6.1",
-        "jenssegers/date": "~3.0.13",
+        "jenssegers/date": "^3.0.13",
         "mccool/laravel-auto-presenter": "^4.2",
-        "roumen/feed": "^2.9"
+        "roumen/feed": "^2.9.7"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
