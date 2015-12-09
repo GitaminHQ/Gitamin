@@ -19,8 +19,8 @@
 #  title       :string(255)
 #  data        :text
 #  project_id  :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  created_at  :timestamp
+#  updated_at  :timestamp
 #  action      :integer
 #  author_id   :integer
 #

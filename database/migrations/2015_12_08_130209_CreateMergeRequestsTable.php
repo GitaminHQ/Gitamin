@@ -40,7 +40,7 @@ class CreateMergeRequestsTable extends Migration
             $t->integer('iid');
             $t->text('description');
             $t->integer('position');
-            $t->datetime('locked_at');
+            $t->timestamp('locked_at');
             $t->integer('updated_by_id');
             $t->string('merge_error');
 

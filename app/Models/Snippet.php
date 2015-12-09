@@ -18,10 +18,10 @@
 #  content          :text
 #  author_id        :integer          not null
 #  project_id       :integer
-#  created_at       :datetime
-#  updated_at       :datetime
+#  created_at       :timestamp
+#  updated_at       :timestamp
 #  file_name        :string(255)
-#  expires_at       :datetime
+#  expires_at       :timestamp
 #  type             :string(255)
 #  visibility_level :integer          default(0), not null
 #

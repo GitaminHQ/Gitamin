@@ -16,9 +16,9 @@
 #  id          :integer          not null, primary key
 #  name        :string(255)      not null
 #  path        :string(255)      not null
-#  user_id    :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  user_id     :integer
+#  created_at  :timestamp
+#  updated_at  :timestamp
 #  type        :string(255)
 #  description :string(255)      default(""), not null
 #  avatar      :string(255)

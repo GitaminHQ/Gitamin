@@ -16,8 +16,8 @@
 #  id                      :integer          not null, primary key
 #  url                     :string(255)
 #  project_id              :integer
-#  created_at              :datetime
-#  updated_at              :datetime
+#  created_at              :timestamp
+#  updated_at              :timestamp
 #  type                    :string(255)      default("ProjectHook")
 #  service_id              :integer
 #  push_events             :boolean          default(TRUE), not null

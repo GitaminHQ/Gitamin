@@ -18,8 +18,8 @@
 #  assignee_id   :integer
 #  author_id     :integer
 #  project_id    :integer
-#  created_at    :datetime
-#  updated_at    :datetime
+#  created_at    :timestamp
+#  updated_at    :timestamp
 #  position      :integer          default(0)
 #  branch_name   :string(255)
 #  description   :text

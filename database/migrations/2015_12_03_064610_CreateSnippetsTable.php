@@ -32,7 +32,7 @@ class CreateSnippetsTable extends Migration
             $t->integer('project_id');
             $t->timestamps();
             $t->string('file_name');
-            $t->datetime('expires_at');
+            $t->timestamp('expires_at');
             $t->string('type');
             $t->integer('visibility_level')->default(0);
 

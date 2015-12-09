@@ -20,12 +20,12 @@
 #  user_id            :integer
 #  notification_level :integer          not null
 #  type               :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
+#  created_at         :timestamp
+#  updated_at         :timestamp
 #  created_by_id      :integer
 #  invite_email       :string(255)
 #  invite_token       :string(255)
-#  invite_accepted_at :datetime
+#  invite_accepted_at :timestamp
 #
 
 namespace Gitamin\Models;
