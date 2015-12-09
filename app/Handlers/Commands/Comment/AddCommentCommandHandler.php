@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Handlers\Commands\Note;
+namespace Gitamin\Handlers\Commands\Comment;
 
-use Gitamin\Commands\Note\AddNoteCommand;
+use Gitamin\Commands\Comment\AddCommentCommand;
 use Gitamin\Dates\DateFactory;
-use Gitamin\Events\Note\NoteWasAddedEvent;
-use Gitamin\Models\Note;
+use Gitamin\Events\Comment\CommentWasAddedEvent;
+use Gitamin\Models\Comment;
 use Gitamin\Models\Project;
 
-class AddNoteCommandHandler
+class AddCommentCommandHandler
 {
     /**
      * The date factory instance.
@@ -39,18 +39,18 @@ class AddNoteCommandHandler
     }
 
     /**
-     * Handle the report note command.
+     * Handle the report comment command.
      *
-     * @param \Gitamin\Commands\Issue\AddIssueCommand $command
+     * @param \Gitamin\Commands\Comment\AddCommentCommand $command
      *
-     * @return \Gitamin\Models\Issue
+     * @return \Gitamin\Models\Comment
      */
-    public function handle(AddNoteCommand $command)
+    public function handle(AddCommentCommand $command)
     {
         $data = [
-            'description'   => $command->description,
-            'noteable_type' => $command->noteable_type,
-            'noteable_id'   => $command->noteable_id,
+            'message'     => $command->message,
+            'target_type' => $command->target_type,
+            'target_id'   => $command->target_id,
         ];
 
         // Link with the user.
@@ -62,11 +62,11 @@ class AddNoteCommandHandler
             $data['project_id'] = $command->project_id;
         }
 
-        // Create the note
-        $note = Note::create($data);
+        // Create the comment
+        $comment = Comment::create($data);
 
-        event(new NoteWasAddedEvent($note));
+        event(new CommentWasAddedEvent($comment));
 
-        return $note;
+        return $comment;
     }
 }

@@ -11,11 +11,11 @@
 
 # == Schema Information
 #
-# Table name: notes
+# Table name: comments
 #
 #  id            :integer          not null, primary key
-#  note          :text
-#  noteable_type :string(255)
+#  message       :text
+#  target_type   :string(255)
 #  author_id     :integer
 #  created_at    :datetime
 #  updated_at    :datetime
@@ -23,7 +23,7 @@
 #  attachment    :string(255)
 #  line_code     :string(255)
 #  commit_id     :string(255)
-#  noteable_id   :integer
+#  target_id     :integer
 #  system        :boolean          default(FALSE), not null
 #  st_diff       :text
 #  updated_by_id :integer
@@ -33,12 +33,12 @@
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
-use Gitamin\Presenters\NotePresenter;
+use Gitamin\Presenters\CommentPresenter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Note extends Model implements HasPresenter
+class Comment extends Model implements HasPresenter
 {
     use SoftDeletes, ValidatingTrait;
 
@@ -50,9 +50,9 @@ class Note extends Model implements HasPresenter
     protected $fillable = [
         'author_id',
         'project_id',
-        'description',
-        'noteable_type',
-        'noteable_id',
+        'message',
+        'target_type',
+        'target_id',
         'created_at',
         'updated_at',
     ];
@@ -63,11 +63,11 @@ class Note extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'author_id'     => 'int',
-        'project_id'    => 'int',
-        'description'   => 'required',
-        'noteable_type' => 'string|required',
-        'noteable_id'   => 'int',
+        'author_id'   => 'int',
+        'project_id'  => 'int',
+        'message'     => 'required',
+        'target_type' => 'string|required',
+        'target_id'   => 'int',
     ];
 
     /**
@@ -77,6 +77,6 @@ class Note extends Model implements HasPresenter
      */
     public function getPresenterClass()
     {
-        return NotePresenter::class;
+        return CommentPresenter::class;
     }
 }

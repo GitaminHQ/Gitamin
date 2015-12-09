@@ -54,9 +54,12 @@ class CreateProjectsTable extends Migration
 
             $t->softDeletes();
 
-            $t->index('owner_id');
+            $t->index(['created_at', 'id']);
             $t->index('creator_id');
+            $t->index('last_activity_at');
+            $t->index('owner_id');
             $t->index('path');
+            $t->index('star_count');
 
         });
     }

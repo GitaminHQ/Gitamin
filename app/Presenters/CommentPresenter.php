@@ -16,7 +16,7 @@ use Gitamin\Presenters\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Jenssegers\Date\Date;
 
-class NotePresenter extends AbstractPresenter
+class CommentPresenter extends AbstractPresenter
 {
     use TimestampsTrait;
 
@@ -27,7 +27,7 @@ class NotePresenter extends AbstractPresenter
      */
     public function formattedMessage()
     {
-        return Markdown::convertToHtml($this->wrappedObject->description);
+        return Markdown::convertToHtml($this->wrappedObject->message);
     }
 
     /**
@@ -92,29 +92,6 @@ class NotePresenter extends AbstractPresenter
     public function timestamp_iso()
     {
         return $this->created_at_iso;
-    }
-
-    /**
-     * Present the status with an icon.
-     *
-     * @return string
-     */
-    public function icon()
-    {
-        switch ($this->wrappedObject->state) {
-            case 0: // Scheduled
-                return 'fa fa-calendar';
-            case 1: // Investigating
-                return 'fa fa-flag oranges';
-            case 2: // Identified
-                return 'fa fa-warning yellows';
-            case 3: // Watching
-                return 'fa fa-eye blues';
-            case 4: // Fixed
-                return 'fa fa-wrench greens';
-            default: // Something actually broke, this shouldn't happen.
-                return '';
-        }
     }
 
     /**

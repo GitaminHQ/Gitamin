@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Events\Note;
+namespace Gitamin\Events\Comment;
 
 use Gitamin\Events\EventInterface;
 
-interface NoteEventInterface extends EventInterface
+interface CommentEventInterface extends EventInterface
 {
     //
 }

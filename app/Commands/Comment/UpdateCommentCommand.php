@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\Note;
+namespace Gitamin\Commands\Comment;
 
-final class UpdateNoteCommand
+final class UpdateCommentCommand
 {
     /**
      * Create a new command instance.

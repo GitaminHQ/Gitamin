@@ -14,22 +14,22 @@ namespace Gitamin\Tests\Api;
 use Gitamin\Tests\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class NoteTest extends AbstractTestCase
+class CommentTest extends AbstractTestCase
 {
     use DatabaseMigrations;
 
-    public function testPostNote()
+    public function testPostComment()
     {
         $this->beUser();
 
-        $this->post('/api/v1/notes', [
-            'description'   => 'Foo',
-            'noteable_type' => 'issue',
-            'noteable_id'   => 1,
-            'author_id'     => 1,
-            'project_id'    => 1,
+        $this->post('/api/v1/comments', [
+            'message'     => 'Foo',
+            'target_type' => 'Issue',
+            'target_id'   => 1,
+            'author_id'   => 1,
+            'project_id'  => 1,
         ]);
-        $this->seeJson(['description' => 'Foo']);
+        $this->seeJson(['message' => 'Foo']);
         $this->assertResponseOk();
     }
 }
