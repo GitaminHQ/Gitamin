@@ -2,42 +2,42 @@
 
 namespace Gitamin\Http\Controllers\Api;
 
-use Gitamin\Commands\Note\AddNoteCommand;
-use Gitamin\Models\Note;
+use Gitamin\Commands\Comment\AddCommentCommand;
+use Gitamin\Models\Comment;
 use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class NoteController extends AbstractApiController
+class CommentController extends AbstractApiController
 {
     use DispatchesJobs;
 
-    public function getNotes()
+    public function getComments()
     {
-        echo 'getNotes';
+        echo 'getComments';
     }
 
-    public function getNote(Note $note)
+    public function getComment(Comment $comment)
     {
-        echo 'getNote';
+        echo 'getComment';
     }
 
     /**
-     * Create a new note.
+     * Create a new comment.
      *
      * @param \Illuminate\Contracts\Auth\Guard $auth
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postNotes(Guard $auth)
+    public function postComments(Guard $auth)
     {
         try {
-            $note = $this->dispatch(new AddNoteCommand(
-                Binput::get('description'),
-                Binput::get('noteable_type'),
-                Binput::get('noteable_id'),
+            $comment = $this->dispatch(new AddCommentCommand(
+                Binput::get('message'),
+                Binput::get('target_type'),
+                Binput::get('target_id'),
                 Binput::get('author_id'),
                 Binput::get('project_id')
             ));
@@ -45,6 +45,6 @@ class NoteController extends AbstractApiController
             throw new BadRequestHttpException();
         }
 
-        return $this->item($note);
+        return $this->item($comment);
     }
 }

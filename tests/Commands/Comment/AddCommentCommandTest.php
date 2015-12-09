@@ -9,30 +9,30 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Commands\Note;
+namespace Gitamin\Tests\Commands\Comment;
 
-use Gitamin\Commands\Note\AddNoteCommand;
-use Gitamin\Handlers\Commands\Note\AddNoteCommandHandler;
+use Gitamin\Commands\Comment\AddCommentCommand;
+use Gitamin\Handlers\Commands\Comment\AddCommentCommandHandler;
 use Gitamin\Tests\Commands\AbstractCommandTestCase;
 
 /**
- * This is the add note command test class.
+ * This is the add comment command test class.
  */
-class AddNoteCommandTest extends AbstractCommandTestCase
+class AddCommentCommandTest extends AbstractCommandTestCase
 {
     protected function getObjectAndParams()
     {
         $params = [
-            'description'   => 'Foo bar baz',
-            'noteable_type' => 'issue',
-            'noteable_id'   => 1,
-            'author_id'     => 1,
-            'project_id'    => 1,
+            'message'     => 'Foo bar baz',
+            'target_type' => 'Issue',
+            'target_id'   => 1,
+            'author_id'   => 1,
+            'project_id'  => 1,
         ];
-        $object = new AddNoteCommand(
-            $params['description'],
-            $params['noteable_type'],
-            $params['noteable_id'],
+        $object = new AddCommentCommand(
+            $params['message'],
+            $params['target_type'],
+            $params['target_id'],
             $params['author_id'],
             $params['project_id']
         );
@@ -47,6 +47,6 @@ class AddNoteCommandTest extends AbstractCommandTestCase
 
     protected function getHandlerClass()
     {
-        return AddNoteCommandHandler::class;
+        return AddCommentCommandHandler::class;
     }
 }

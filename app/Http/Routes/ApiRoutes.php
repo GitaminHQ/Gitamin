@@ -43,9 +43,9 @@ class ApiRoutes
             $router->get('issues', 'IssueController@getIssues');
             $router->get('issues/{issue}', 'IssueController@getIssue');
 
-            // Notes
-            $router->get('notes', 'NoteController@getNotes');
-            $router->get('notes/{note}', 'NoteController@getNote');
+            // Comments
+            $router->get('comments', 'CommentController@getComments');
+            $router->get('comments/{comment}', 'CommentController@getComment');
 
             // Authorization Required
             $router->group(['middleware' => 'auth.api'], function ($router) {
@@ -54,7 +54,7 @@ class ApiRoutes
                 $router->post('projects', 'ProjectController@postProjects');
                 $router->post('owners', 'OwnerController@postOwners');
                 $router->post('issues', 'IssueController@postIssues');
-                $router->post('notes', 'NoteController@postNotes');
+                $router->post('comments', 'CommentController@postComments');
                 $router->post('subscribers', 'SubscriberController@postSubscribers');
 
                 $router->put('owners/{owner}', 'OwnerController@putOwner');

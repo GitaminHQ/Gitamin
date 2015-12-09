@@ -10,6 +10,7 @@
  */
 
 use Carbon\Carbon;
+use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
@@ -21,7 +22,7 @@ $factory->define(Owner::class, function ($faker) {
         'name'        => $faker->words(2, true),
         'description' => $faker->paragraph(),
         'path'        => $faker->unique()->word,
-        'type'        => 'Group',
+        'type'        => $faker->randomElement(['Group', 'User']),
         'public'      => 1,
         'user_id'     => 1,
     ];
@@ -45,6 +46,16 @@ $factory->define(Issue::class, function ($faker) {
         'project_id'  => 1,
         'author_id'   => 1,
         'assignee_id' => 0,
+    ];
+});
+
+$factory->define(Comment::class, function ($faker) {
+    return [
+        'message'     => $faker->paragraph(),
+        'target_type' => $faker->randomElement(['Issue', 'MergeRequest']),
+        'target_id'   => 1,
+        'project_id'  => 1,
+        'author_id'   => 1,
     ];
 });
 
