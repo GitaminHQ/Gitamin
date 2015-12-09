@@ -32,11 +32,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-
     const CREATED = 1;
     const UPDATED = 2;
     const CLOSED = 3;
-	const REOPENED = 4;
+    const REOPENED = 4;
     const PUSHED = 5;
     const COMMENTED = 6;
     const MERGED = 7;
