@@ -22,7 +22,7 @@
                                 @if($activities->count() > 1)
                                 <span class="drag-handle"><i class="fa fa-reorder"></i></span>
                                 @endif
-                                <a href="{{ route('dashboard.activity.show', $activity->id) }}">{{ $activity->name }}</a> <small>{{ $activity->humanStatus }}</small>
+                                <a href="{{  $activity->id }}">{{ $activity->title }}</a> <small>{{ $activity->author->username }}</small>
                             </h4>
                             @if($activity->team)
                             <p><small>{{ trans('dashboard.activity.listed_team', ['name' => $activity->team->name]) }}</small></p>

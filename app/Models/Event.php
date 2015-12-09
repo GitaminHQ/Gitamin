@@ -27,9 +27,54 @@
 
 namespace Gitamin\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    //
+
+    const CREATED = 1;
+    const UPDATED = 2;
+    const CLOSED = 3;
+	const REOPENED = 4;
+    const PUSHED = 5;
+    const COMMENTED = 6;
+    const MERGED = 7;
+    const JOINED = 8; # User joined project
+    const LEFT = 9; # User left project
+    const DESTROYED = 10;
+
+    /**
+     * Finds all rencent events.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeRecent(Builder $query)
+    {
+        return $query->orderBy('id', 'desc');
+    }
+
+    /**
+     * Finds all code push events.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCodePush(Builder $query)
+    {
+        return $query->where('action', '=', self::PUSHED);
+    }
+
+    /**
+     * Events can belong to an author.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id', 'id');
+    }
 }
