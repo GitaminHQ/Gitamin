@@ -11,6 +11,7 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
+use Gitamin\Models\Moment;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
@@ -71,8 +72,7 @@ class ActivityController extends Controller
 
     public function index()
     {
-        $activities = [];
-
+        $activities = Moment::recent()->CodePush()->get();
         $this->subMenu['activity']['active'] = true;
 
         return View::make('dashboard.activity.index')
