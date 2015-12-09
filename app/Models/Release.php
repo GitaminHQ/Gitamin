@@ -17,8 +17,8 @@
 #  tag         :string(255)
 #  description :text
 #  project_id  :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  created_at  :timestamp
+#  updated_at  :timestamp
 #
 
 namespace Gitamin\Models;

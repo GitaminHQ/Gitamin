@@ -18,8 +18,8 @@
 #  project_id  :integer          not null
 #  description :text
 #  due_date    :date
-#  created_at  :datetime
-#  updated_at  :datetime
+#  created_at  :timestamp
+#  updated_at  :timestamp
 #  state       :string(255)
 #  iid         :integer
 #

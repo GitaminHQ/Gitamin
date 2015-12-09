@@ -17,8 +17,8 @@
 #  message       :text
 #  target_type   :string(255)
 #  author_id     :integer
-#  created_at    :datetime
-#  updated_at    :datetime
+#  created_at    :timestamp
+#  updated_at    :timestamp
 #  project_id    :integer
 #  attachment    :string(255)
 #  line_code     :string(255)

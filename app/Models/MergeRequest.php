@@ -20,8 +20,8 @@
 #  author_id         :integer
 #  assignee_id       :integer
 #  title             :string(255)
-#  created_at        :datetime
-#  updated_at        :datetime
+#  created_at        :timestamp
+#  updated_at        :timestamp
 #  milestone_id      :integer
 #  state             :string(255)
 #  merge_status      :string(255)
@@ -29,7 +29,7 @@
 #  iid               :integer
 #  description       :text
 #  position          :integer          default(0)
-#  locked_at         :datetime
+#  locked_at         :timestamp
 #  updated_by_id     :integer
 #  merge_error       :string(255)
 #

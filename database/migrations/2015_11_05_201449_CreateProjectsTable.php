@@ -37,7 +37,7 @@ class CreateProjectsTable extends Migration
             $t->string('issues_tracker')->default('gitamin');
             $t->string('issues_tracker_id')->nullable();
             $t->boolean('snippets_enabled')->default(true);
-            $t->datetime('last_activity_at')->nullable();
+            $t->timestamp('last_activity_at')->nullable();
             $t->string('import_url')->nullable();
             $t->integer('visibility_level')->default(0);
             $t->boolean('archived')->default(false);
