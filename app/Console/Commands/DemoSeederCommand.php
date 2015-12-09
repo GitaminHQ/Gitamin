@@ -74,10 +74,28 @@ class DemoSeederCommand extends Command
     {
         $defaultOwners = [
             [
-                'name'        => 'Baidu Corp',
+                'name'        => 'Baidu',
                 'path'        => 'Baidu',
                 'description' => 'www.baidu.com',
                 'type'        => 'Group',
+            ],
+            [
+                'name'        => 'Alibaba',
+                'path'        => 'Alibaba',
+                'description' => 'www.alibaba.com',
+                'type'        => 'Group',
+            ],
+            [
+                'name'        => 'Tencent',
+                'path'        => 'Tencent',
+                'description' => 'www.qq.com',
+                'type'        => 'Group',
+            ],
+            [
+                'name'        => 'demo',
+                'path'        => 'demo',
+                'description' => '',
+                'type'        => 'User',
             ],
         ];
 
@@ -101,25 +119,25 @@ class DemoSeederCommand extends Command
                 'description'      => 'Used by third-parties to connect to us',
                 'visibility_level' => 0,
                 'owner_id'         => 1,
-                'path'             => 'Gitamin',
+                'path'             => 'api',
             ], [
                 'name'             => 'Documentation',
                 'description'      => 'Kindly powered by Readme.io',
                 'visibility_level' => 1,
-                'owner_id'         => 1,
-                'path'             => 'Baidu',
+                'owner_id'         => 2,
+                'path'             => 'doc',
             ], [
                 'name'             => 'Website',
-                'description'      => '',
+                'description'      => 'Tencent Holdings Limited is a Chinese investment holding company',
                 'visibility_level' => 1,
-                'owner_id'         => 1,
-                'path'             => 'Alibaba',
+                'owner_id'         => 3,
+                'path'             => 'website',
             ], [
                 'name'             => 'Blog',
                 'description'      => 'The Gitamin Blog.',
                 'visibility_level' => 1,
-                'owner_id'         => 1,
-                'path'             => 'Tencent',
+                'owner_id'         => 4,
+                'path'             => 'blog',
             ],
         ];
 
