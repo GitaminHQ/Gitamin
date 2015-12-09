@@ -30,8 +30,14 @@ This package is currently in (very-)alpha stage, so all of the following feature
 
 ## Requirements
 
-- PHP 5.5.9+
-- [Composer](https://getcomposer.org)
+There are a few things that you will need to have set up in order to run Gitamin:
+
+- A web server: **Nginx**, **Apache** (with mod_rewrite), or **Lighttpd**
+- **PHP 5.5.9+** with the following extensions: mbstring, pdo_mysql
+- **MySQL** or **PostgreSQL**
+- **Git 1.7.10+**
+- **Redis 2.4+**
+- **Composer**
 
 ## Installation
 
