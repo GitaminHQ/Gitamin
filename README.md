@@ -2,11 +2,8 @@
 
 
 [![Build Status](https://travis-ci.org/gitaminhq/Gitamin.svg)](https://travis-ci.org/gitaminhq/Gitamin)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/gitaminhq/Gitamin.svg?style=flat-square)](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/code-structure)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/?branch=master)
-[![Version](https://img.shields.io/packagist/v/gitaminhq/Gitamin.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
 [![License](https://poser.pugx.org/gitaminhq/Gitamin/license.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
-[![Total Downloads](https://img.shields.io/packagist/dt/gitaminhq/Gitamin.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
 
 ![Gitamin](https://camo.githubusercontent.com/0befc9a96508922a1b1465952ecf2d3e00115a7e/687474703a2f2f7777772e363438322e636f6d2f676974616d696e2e706e673f726e643d313233)
 
@@ -22,7 +19,7 @@ This package is currently in (very-)alpha stage, so all of the following feature
 
 * Multiple repository support
 * Commit history, blame, diff
-* Pull Requests
+* Merge Requests
 * Web Hooks
 * Repository statistics
 * Issues tracking
@@ -33,8 +30,14 @@ This package is currently in (very-)alpha stage, so all of the following feature
 
 ## Requirements
 
-- PHP 5.5.9+
-- [Composer](https://getcomposer.org)
+There are a few things that you will need to have set up in order to run Gitamin:
+
+- A web server: **Nginx**, **Apache** (with mod_rewrite), or **Lighttpd**
+- **PHP 5.5.9+** with the following extensions: mbstring, pdo_mysql
+- **MySQL** or **PostgreSQL**
+- **Git 1.7.10+**
+- **Redis 2.4+**
+- **Composer**
 
 ## Installation
 
