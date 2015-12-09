@@ -43,16 +43,26 @@ class Comment extends Model implements HasPresenter
     use SoftDeletes, ValidatingTrait;
 
     /**
+     * The attributes that should be casted to native types.
+     *
+     * @var string[]
+     */
+    protected $casts = [
+        'id'         => 'int',
+        'deleted_at' => 'date',
+    ];
+
+    /**
      * The fillable properties.
      *
      * @var string[]
      */
     protected $fillable = [
-        'author_id',
-        'project_id',
         'message',
         'target_type',
         'target_id',
+        'author_id',
+        'project_id',
         'created_at',
         'updated_at',
     ];

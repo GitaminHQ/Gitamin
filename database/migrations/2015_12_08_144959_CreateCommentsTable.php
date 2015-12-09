@@ -40,6 +40,8 @@ class CreateCommentsTable extends Migration
             $t->integer('updated_by_id')->nullable();
             $t->boolean('is_award')->default(false);
 
+            $t->softDeletes();
+
             $t->index('author_id');
             $t->index('commit_id');
             $t->index(['created_at', 'id']);
