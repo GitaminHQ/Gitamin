@@ -53,8 +53,6 @@ class DashboardController extends Controller
     public function showDashboard()
     {
         $projects = Project::get();
-        //var_dump($projects);
-        //$projects = [];
         $issues = $this->getIssues();
         $subscribers = $this->getSubscribers();
 
