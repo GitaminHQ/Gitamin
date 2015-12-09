@@ -11,25 +11,43 @@
 
 namespace Gitamin\Commands\Comment;
 
+use Gitamin\Models\Comment;
+
 final class UpdateCommentCommand
 {
     /**
-     * Create a new command instance.
+     * The comment to update.
      *
-     * @return void
+     * @var \Gitamin\Models\Comment
      */
-    public function __construct()
-    {
-        //
-    }
+    public $comment;
 
     /**
-     * Execute the command.
+     * The comment message.
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * The validation rules.
+     *
+     * @var string[]
+     */
+    public $rules = [
+        'message'     => 'required|string',
+    ];
+
+    /**
+     * Create a new update comment command instance.
+     *
+     * @param string $message
      *
      * @return void
      */
-    public function handle()
+    public function __construct(Comment $comment, $message)
     {
-        //
+        $this->comment = $comment;
+        $this->message = $message;
     }
 }

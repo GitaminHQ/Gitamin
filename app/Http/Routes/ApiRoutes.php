@@ -60,10 +60,12 @@ class ApiRoutes
                 $router->put('owners/{owner}', 'OwnerController@putOwner');
                 $router->put('projects/{project}', 'ProjectController@putProject');
                 $router->put('issues/{issue}', 'IssueController@putIssue');
+                $router->put('comments/{comment}', 'CommentController@putComment');
 
                 $router->delete('owners/{owner}', 'OwnerController@deleteOwner');
                 $router->delete('projects/{project}', 'ProjectController@deleteProject');
                 $router->delete('issues/{issue}', 'IssueController@deleteIssue');
+                $router->delete('comments/{comment}', 'CommentController@deleteComment');
                 $router->delete('subscribers/{subscriber}', 'SubscriberController@deleteSubscriber');
             });
         });

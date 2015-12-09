@@ -9,25 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Commands\Comment;
+namespace Gitamin\Events\Comment;
 
 use Gitamin\Models\Comment;
 
-final class RemoveCommentCommand
+class CommentWasRemovedEvent implements CommentEventInterface
 {
     /**
-     * The comment to remove.
+     * The comment that has been removed.
      *
      * @var \Gitamin\Models\Comment
      */
     public $comment;
 
     /**
-     * Create a new remove comment command instance.
-     *
-     * @param \Gitamin\Models\Comment $comment
-     *
-     * @return void
+     * Create a new comment was removed event instance.
      */
     public function __construct(Comment $comment)
     {

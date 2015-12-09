@@ -18,18 +18,79 @@ class CommentTest extends AbstractTestCase
 {
     use DatabaseMigrations;
 
+    public function testGetComments()
+    {
+        $comments = factory('Gitamin\Models\Comment', 3)->create();
+
+        $this->get('/api/v1/comments');
+        $this->seeJson(['id' => $comments[0]->id]);
+        $this->seeJson(['id' => $comments[1]->id]);
+        $this->seeJson(['id' => $comments[2]->id]);
+        $this->assertResponseOk();
+    }
+
+    public function testGetInvalidComment()
+    {
+        $this->get('/api/v1/comments/0');
+        $this->assertResponseStatus(404);
+    }
+
+    public function testPostCommentUnauthorized()
+    {
+        $this->post('/api/v1/comments');
+        $this->assertResponseStatus(401);
+    }
+
+    public function testPostCommentNoData()
+    {
+        $this->beUser();
+
+        $this->post('/api/v1/comments');
+        $this->assertResponseStatus(400);
+    }
+
     public function testPostComment()
     {
         $this->beUser();
 
         $this->post('/api/v1/comments', [
-            'message'     => 'Foo',
+            'message'     => 'Lorem ipsum dolor sit amet',
             'target_type' => 'Issue',
             'target_id'   => 1,
             'author_id'   => 1,
             'project_id'  => 1,
         ]);
-        $this->seeJson(['message' => 'Foo']);
+        $this->seeJson(['message' => 'Lorem ipsum dolor sit amet']);
         $this->assertResponseOk();
+    }
+
+    public function testGetNewComment()
+    {
+        $comment = factory('Gitamin\Models\Comment')->create();
+
+        $this->get('/api/v1/comments/1');
+        $this->seeJson(['message' => $comment->message]);
+        $this->assertResponseOk();
+    }
+
+    public function testPutComment()
+    {
+        $this->beUser();
+        $comment = factory('Gitamin\Models\Comment')->create();
+
+        $this->put('/api/v1/comments/1', [
+            'message' => 'Foo bar baz',
+        ]);
+        $this->seeJson(['message' => 'Foo bar baz']);
+        $this->assertResponseOk();
+    }
+
+    public function testDeleteComment()
+    {
+        $this->beUser();
+        $project = factory('Gitamin\Models\Comment')->create();
+
+        $this->delete('/api/v1/comments/1');
+        $this->assertResponseStatus(204);
     }
 }

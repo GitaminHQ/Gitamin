@@ -24,6 +24,6 @@ class Group extends Owner
      */
     public function scopeIsGroup($query)
     {
-        return $query->where('type', 'group');
+        return $query->where('type', 'Group');
     }
 }

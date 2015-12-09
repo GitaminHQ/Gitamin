@@ -11,6 +11,7 @@
 
 namespace Gitamin\Console\Commands;
 
+use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
@@ -56,6 +57,7 @@ class DemoSeederCommand extends Command
         $this->seedOwners();
         $this->seedProjects();
         $this->seedIssues();
+        $this->seedComments();
         $this->seedSettings();
         $this->seedSubscribers();
         $this->seedUsers();
@@ -176,6 +178,58 @@ class DemoSeederCommand extends Command
     }
 
     /**
+     * Seed the comments table.
+     *
+     * @return void
+     */
+    protected function seedComments()
+    {
+        $defaultComments = [
+            [
+                'message'     => ':+1: We totally nailed the fix.',
+                'target_type' => 'Issue',
+                'target_id'   => 3,
+                'author_id'   => 1,
+                'project_id'  => 1,
+            ],
+            [
+                'message'     => ":ship: We've deployed a fix.",
+                'target_type' => 'MergeRequest',
+                'target_id'   => 1,
+                'author_id'   => 3,
+                'project_id'  => 2,
+            ],
+            [
+                'message'     => "We've identified the problem. Our engineers are currently looking at it.",
+                'target_type' => 'Issue',
+                'target_id'   => 1,
+                'author_id'   => 2,
+                'project_id'  => 1,
+            ],
+            [
+                'message'     => 'Something went wrong, with something or another.',
+                'target_type' => 'Issue',
+                'target_id'   => 1,
+                'author_id'   => 1,
+                'project_id'  => 2,
+            ],
+            [
+                'message'     => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
+                'target_type' => 'MergeRequest',
+                'target_id'   => 1,
+                'author_id'   => 1,
+                'project_id'  => 3,
+            ],
+        ];
+
+        Comment::truncate();
+
+        foreach ($defaultComments as $comment) {
+            Comment::create($comment);
+        }
+    }
+
+    /**
      * Seed the settings table.
      *
      * @return void
@@ -231,9 +285,9 @@ class DemoSeederCommand extends Command
     {
         $users = [
             [
-                'username' => 'test',
-                'password' => 'test123',
-                'email'    => 'test@test.com',
+                'username' => 'demo',
+                'password' => 'demo',
+                'email'    => 'demo@gitamin.com',
                 'level'    => 1,
                 'api_key'  => '9yMHsdioQosnyVK4iCVR',
             ],
