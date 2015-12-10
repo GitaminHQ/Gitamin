@@ -72,7 +72,7 @@ class ActivityController extends Controller
 
     public function index()
     {
-        $activities = Moment::recent()->CodePush()->get();
+        $activities = Moment::recent()->get();
         $this->subMenu['activity']['active'] = true;
 
         return View::make('dashboard.activity.index')
