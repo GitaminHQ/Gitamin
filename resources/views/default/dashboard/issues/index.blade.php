@@ -30,8 +30,8 @@
                                 @endif
                             </div>
                             <div class="col-xs-6 text-right">
-                                <a href="/dashboard/issues/{{ $issue->id }}/edit" class="btn btn-sm btn-default">{{ trans('forms.edit') }}</a>
-                                <a href="/dashboard/issues/{{ $issue->id }}/delete" class="btn btn-sm btn-danger confirm-action" data-method='DELETE'>{{ trans('forms.delete') }}</a>
+                                <a href="{{ $issue->url }}/edit" class="btn btn-sm btn-default">{{ trans('forms.edit') }}</a>
+                                <a href="{{ $issue->url }}/delete" class="btn btn-sm btn-danger confirm-action" data-method='DELETE'>{{ trans('forms.delete') }}</a>
                             </div>
                         </div>
                         @endforeach

@@ -12,6 +12,7 @@
 namespace Gitamin\Http\Controllers\Projects;
 
 use Gitamin\Commands\Issue\AddIssueCommand;
+use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
@@ -29,7 +30,7 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($namespace, $project_path)
+    public function indexAction($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
 
@@ -51,11 +52,11 @@ class IssuesController extends Controller
             ->withActiveItem($this->active_item);
     }
 
-    public function add($namespace, $project_path)
+    public function newAction($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
 
-        return View::make('projects.issues.add')
+        return View::make('projects.issues.new')
             ->withProject($project)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
             ->withActiveItem($this->active_item);
@@ -66,7 +67,7 @@ class IssuesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($namespace, $project_path)
+    public function createAction($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
         $issueData = Binput::get('issue');
@@ -82,7 +83,46 @@ class IssuesController extends Controller
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('projects.issue_index', ['namespace' => $namespace, 'project' => $project_path])
+        return Redirect::route('projects.issue_index', ['owner' => $namespace, 'project' => $project_path])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.new.success')));
+    }
+
+    public function editAction($owner_path, $project_path, Issue $issue)
+    {
+        $project = Project::findByPath($owner_path, $project_path);
+
+        return View::make('projects.issues.edit')
+            ->withProject($project)
+            ->withIssue($issue)
+            ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
+            ->withActiveItem($this->active_item);
+    }
+
+    public function updateAction($owner_path, $project_path, Issue $issue)
+    {
+        $project = Project::findByPath($owner_path, $project_path);
+        $issueData = Binput::get('issue');
+
+        try {
+            $issueData['author_id'] = Auth::user()->id;
+            $issueData['project_id'] = $project->id;
+            $issueData['issue'] = $issue;
+            $issue = $this->dispatchFromArray(UpdateIssueCommand::class, $issueData);
+        } catch (ValidationException $e) {
+            return Redirect::route('projects.issue_edit', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $issue->id])
+                ->withInput(Binput::all())
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.edit.failure')))
+                ->withErrors($e->getMessageBag());
+        }
+
+        //Do nothing
+        /*
+        if ($issue->project) {
+            $issue->project->update(['status' => Binput::get('project_status')]);
+        }
+        */
+
+        return Redirect::route('projects.issue_edit', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $issue->id])
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.edit.success')));
     }
 }
