@@ -253,7 +253,7 @@ class DemoSeederCommand extends Command
         }
     }
 
-     /**
+    /**
      * Seed the comments table.
      *
      * @return void
@@ -285,6 +285,7 @@ class DemoSeederCommand extends Command
             Moment::create($moment);
         }
     }
+
     /**
      * Seed the settings table.
      *
