@@ -119,16 +119,6 @@ class Project extends Model implements HasPresenter
     }
 
     /**
-     * Projects can belong to an owner.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function projectOwner()
-    {
-        return $this->belongsTo(Owner::class, 'owner_id', 'id');
-    }
-
-    /**
      * Lookup all of the issues reported on the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -206,6 +196,16 @@ class Project extends Model implements HasPresenter
     public function getHumanVisibilityLevelAttribute()
     {
         return trans('gitamin.projects.status.'.$this->visibility_level);
+    }
+
+    /**
+     * Returns project owner path.
+     *
+     * @return bool
+     */
+    public function getOwnerPathAttribute()
+    {
+        return $this->owner->path;
     }
 
     /**

@@ -46,7 +46,7 @@ class ProjectsController extends Controller
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
-            ->withGroups(Owner::Mine()->get());
+            ->withOwners(Owner::where('user_id', '=', Auth::user()->id)->get());
     }
 
     /**
@@ -145,6 +145,7 @@ class ProjectsController extends Controller
         try {
             $projectData['project'] = $project;
             $projectData['creator_id'] = Auth::user()->id;
+            $projectData['owner_id'] = $project->owner->id;
             $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])
@@ -155,7 +156,7 @@ class ProjectsController extends Controller
         // The project was updated successfully, so now let's deal with the tags.
         $tags = preg_split('/ ?, ?/', $tags);
 
-        return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])
+        return Redirect::route('projects.project_edit', ['owner' => $project->owner_path, 'project' => $project->path])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.edit.success')));
     }
 }

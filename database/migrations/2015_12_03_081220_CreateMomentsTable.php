@@ -26,12 +26,12 @@ class CreateMomentsTable extends Migration
             $t->engine = 'InnoDB';
 
             $t->increments('id');
-            $t->string('target_type');
-            $t->integer('target_id');
-            $t->string('title');
-            $t->text('data');
+            $t->string('target_type')->nullable();
+            $t->integer('target_id')->nullable();
+            $t->string('title')->nullable();
+            $t->text('data')->nullable();
 
-            $t->integer('project_id');
+            $t->integer('project_id')->nullable();
             $t->timestamps();
             $t->integer('action');
             $t->integer('author_id');
