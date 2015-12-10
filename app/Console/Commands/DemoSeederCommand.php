@@ -13,6 +13,7 @@ namespace Gitamin\Console\Commands;
 
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Moment;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
 use Gitamin\Models\Setting;
@@ -58,6 +59,7 @@ class DemoSeederCommand extends Command
         $this->seedProjects();
         $this->seedIssues();
         $this->seedComments();
+        $this->seedMoments();
         $this->seedSettings();
         $this->seedSubscribers();
         $this->seedUsers();
@@ -251,6 +253,38 @@ class DemoSeederCommand extends Command
         }
     }
 
+     /**
+     * Seed the comments table.
+     *
+     * @return void
+     */
+    protected function seedMoments()
+    {
+        $defaultMoments = [
+            [
+                'message'     => ':+1: We totally nailed the fix.',
+                'target_type' => 'Issue',
+                'target_id'   => 3,
+                'action'      => Moment::COMMENTED,
+                'author_id'   => 1,
+                'project_id'  => 1,
+            ],
+            [
+                'message'     => ":ship: We've deployed a fix.",
+                'target_type' => 'Issue',
+                'target_id'   => 2,
+                'action'      => Moment::CREATED,
+                'author_id'   => 1,
+                'project_id'  => 2,
+            ],
+        ];
+
+        Moment::truncate();
+
+        foreach ($defaultMoments as $moment) {
+            Moment::create($moment);
+        }
+    }
     /**
      * Seed the settings table.
      *
