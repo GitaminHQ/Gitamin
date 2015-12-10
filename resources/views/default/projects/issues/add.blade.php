@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-12">
                 @include('dashboard.partials.errors')
-                <form class="form-horizontal" name="IssueForm" action="{{ route('projects.issue_index', ['namespace'=>$project->namespace, 'project'=>$project->path]) }}" role="form" method="POST" autocomplete="off">
+                <form class="form-horizontal" name="IssueForm" action="{{ route('projects.issue_index', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}" role="form" method="POST" autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
