@@ -31,7 +31,7 @@ class IssuesController extends Controller
      */
     public function index($namespace, $project_path)
     {
-        $project = $this->getProject($namespace, $project_path);
+        $project = Project::findByPath($namespace, $project_path);
 
         return View::make('projects.issues.index')
             ->withProject($project)
@@ -42,7 +42,7 @@ class IssuesController extends Controller
 
     public function add($namespace, $project_path)
     {
-        $project = $this->getProject($namespace, $project_path);
+        $project = Project::findByPath($namespace, $project_path);
 
         return View::make('projects.issues.add')
             ->withProject($project)
@@ -57,7 +57,7 @@ class IssuesController extends Controller
      */
     public function create($namespace, $project_path)
     {
-        $project = $this->getProject($namespace, $project_path);
+        $project = Project::findByPath($namespace, $project_path);
         $issueData = Binput::get('issue');
 
         try {

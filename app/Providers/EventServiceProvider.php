@@ -24,6 +24,17 @@ class EventServiceProvider extends ServiceProvider
         'Gitamin\Events\Issue\IssueWasAddedEvent' => [
             'Gitamin\Handlers\Events\Issue\SendIssueEmailNotificationHandler',
         ],
+        // Project related moments
+        'Gitamin\Events\Project\ProjectWasAdedEvent' => [
+            'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
+        ],
+        'Gitamin\Events\Project\ProjectWasUpdatedEvent' => [
+            'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
+        ],
+        'Gitamin\Events\Project\ProjectWasRemovedEvent' => [
+            'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
+        ],
+        // Suscriber
         'Gitamin\Events\Subscriber\SubscriberHasSubscribedEvent' => [
             'Gitamin\Handlers\Events\Subscriber\SendSubscriberVerificationEmailHandler',
         ],
