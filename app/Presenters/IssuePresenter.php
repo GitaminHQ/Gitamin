@@ -96,9 +96,9 @@ class IssuePresenter extends AbstractPresenter
 
     public function test()
     {
-
-        return "test";
+        return 'test';
     }
+
     /**
      * Present the status with an icon.
      *

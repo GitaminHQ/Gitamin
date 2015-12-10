@@ -12,9 +12,9 @@
 namespace Gitamin\Presenters;
 
 use Gitamin\Facades\Setting;
-use Gitamin\Models\Moment;
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Moment;
 use Gitamin\Presenters\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Jenssegers\Date\Date;
@@ -33,10 +33,9 @@ class MomentPresenter extends AbstractPresenter
         return Markdown::convertToHtml($this->wrappedObject->data);
     }
 
-
     public function formattedTarget()
     {
-        if($this->wrappedObject->target instanceof Comment) {
+        if ($this->wrappedObject->target instanceof Comment) {
             return Markdown::convertToHtml($this->wrappedObject->target->message);
         } elseif ($this->wrappedObject->target instanceof Issue) {
             return Markdown::convertToHtml($this->wrappedObject->target->description);
@@ -44,7 +43,7 @@ class MomentPresenter extends AbstractPresenter
     }
 
     /** 
-     * Get the moment action summary
+     * Get the moment action summary.
      *
      * @return string
      */
@@ -64,7 +63,7 @@ class MomentPresenter extends AbstractPresenter
 
     public function icon()
     {
-        if($this->wrappedObject->target instanceof Comment) {
+        if ($this->wrappedObject->target instanceof Comment) {
             return 'fa fa-comments-o';
         } elseif ($this->wrappedObject->target instanceof Issue) {
             return 'fa fa-exclamation-circle';
@@ -72,6 +71,7 @@ class MomentPresenter extends AbstractPresenter
             return 'fa fa-code-fork';
         }
     }
+
     /**
      * Present formatted date time.
      *

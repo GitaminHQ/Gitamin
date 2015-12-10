@@ -27,7 +27,6 @@
 
 namespace Gitamin\Models;
 
-use Gitamin\Presenters\IssuePresenter;
 use Gitamin\Presenters\MomentPresenter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -133,7 +132,7 @@ class Moment extends Model implements HasPresenter
     }
 
     /**
-     * Moments can belong to a target
+     * Moments can belong to a target.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
