@@ -84,6 +84,7 @@ class Moment extends Model
         'title'       => 'string',
         'data'        => 'string',
     ];
+
     /**
      * Finds all rencent moments.
      *

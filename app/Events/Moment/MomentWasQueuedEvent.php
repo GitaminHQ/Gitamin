@@ -13,7 +13,7 @@ namespace Gitamin\Events\Moment;
 
 use Gitamin\Models\Moment;
 
-class ProjectWasQueuedEvent implements MomentEventInterface
+class MomentWasQueuedEvent implements MomentEventInterface
 {
     /**
      * The moment object.

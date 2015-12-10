@@ -11,19 +11,14 @@
 
 namespace Gitamin\Handlers\Events\Project;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Gitamin\Events\Project\ProjectEventInterface;
-use Gitamin\Events\Project\ProjectWasAddedEvent;
-use Gitamin\Events\Project\ProjectWasUpdatedEvent;
 use Gitamin\Events\Project\ProjectWasRemovedEvent;
-use Gitamin\Handlers\Commands\Moment\AddMomentCommandHandler;
-use Gitamin\Commands\Moment\AddMomentCommand;
-use Gitamin\Models\Project;
 use Gitamin\Models\Moment;
+use Gitamin\Models\Project;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class SendProjectMomentHandler
 {
-
     use DispatchesJobs;
 
     /**
@@ -31,9 +26,9 @@ class SendProjectMomentHandler
      */
     public function handle(ProjectEventInterface $event)
     {
-        if($event instanceof ProjectWasUpdateEvent) {
+        if ($event instanceof ProjectWasUpdateEvent) {
             $action = Moment::UPDATED;
-        } else if ($event instanceof ProjectWasRemovedEvent) {
+        } elseif ($event instanceof ProjectWasRemovedEvent) {
             $action = Moment::CLOSED;
         } else {
             $action = Moment::CREATED;
@@ -47,8 +42,7 @@ class SendProjectMomentHandler
      *
      * @param \Gitamin\Models\Project $project
      * @param int                     $action
-     *
-    */
+     */
     protected function trigger(Project &$project, $action)
     {
         $data = [

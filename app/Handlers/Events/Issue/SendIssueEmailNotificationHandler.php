@@ -77,7 +77,7 @@ class SendIssueEmailNotificationHandler
                     'token'            => $subscriber->token,
                     'unsubscribe_link' => route('subscribe.unsubscribe', ['code' => $subscriber->verify_code]),
                 ];
-                error_log(var_export($mail,true), 3, '/tmp/mail.log');
+                error_log(var_export($mail, true), 3, '/tmp/mail.log');
                 $this->mailer->queue([
                     'html' => 'emails.issues.new-html',
                     'text' => 'emails.issues.new-text',

@@ -41,7 +41,7 @@ final class AddMomentCommand
      */
     public $target_id;
 
-     /**
+    /**
      * The moment action.
      *
      * @var int

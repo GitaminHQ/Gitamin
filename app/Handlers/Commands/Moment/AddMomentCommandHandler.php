@@ -51,10 +51,10 @@ class AddMomentCommandHandler
             'author_id' => $command->author_id,
         ];
 
-        if($command->title) {
+        if ($command->title) {
             $data['title'] = $command->title;
         }
-        if($command->data) {
+        if ($command->data) {
             $data['data'] = $command->data;
         }
         // Link with the target.

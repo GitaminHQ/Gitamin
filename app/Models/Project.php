@@ -198,14 +198,13 @@ class Project extends Model implements HasPresenter
         return trans('gitamin.projects.status.'.$this->visibility_level);
     }
 
-     /**
+    /**
      * Returns project owner path.
      *
      * @return bool
      */
     public function getOwnerPathAttribute()
     {
-
         return $this->owner->path;
     }
 
