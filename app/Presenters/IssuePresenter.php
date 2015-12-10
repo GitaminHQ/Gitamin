@@ -94,6 +94,11 @@ class IssuePresenter extends AbstractPresenter
         return $this->created_at_iso;
     }
 
+    public function test()
+    {
+
+        return "test";
+    }
     /**
      * Present the status with an icon.
      *

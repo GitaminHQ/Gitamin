@@ -1,0 +1,181 @@
+/**
+ * Dashboard events feed
+ *
+ */
+.moment-item {
+  font-size: $gl-font-size;
+  padding: $gl-padding $gl-padding $gl-padding ($gl-padding + $gl-avatar-size + 15px);
+  margin-left: -$gl-padding;
+  margin-right: -$gl-padding;
+  border-bottom: 1px solid $table-border-color;
+  color: #7f8fa4;
+
+  &.moment-inline {
+    .avatar {
+      position: relative;
+      top: -2px;
+    }
+
+    .moment-title,
+    .moment-item-timestamp {
+      line-height: 44px;
+    }
+  }
+
+  a {
+    color: #4c4e54;
+  }
+
+  .avatar {
+    margin-left: -($gl-avatar-size + 15px);
+  }
+  
+  .s46 {
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+  }
+
+  .moment-title {
+    @include str-truncated(calc(100% - 174px));
+    font-weight: 600;
+
+    .author_name {
+      color: #333;
+    }
+  }
+
+  .moment-body {
+    margin-right: 174px;
+
+    .moment-comment {
+      margin-top: 5px;
+      word-wrap: break-word;
+
+      .md {
+        color: #7f8fa4;
+        font-size: $gl-font-size;
+
+        iframe.twitter-share-button {
+          vertical-align: bottom;
+        }
+      }
+
+      pre {
+        border: none;
+        background: #f9f9f9;
+        border-radius: 0;
+        color: #777;
+        margin: 0 20px;
+        overflow: hidden;
+      }
+
+      .note-image-attach {
+        margin-top: 4px;
+        margin-left: 0px;
+        max-width: 200px;
+        float: none;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .moment-comment-icon {
+      color: #777;
+      float: left;
+      font-size: $gl-font-size;
+      line-height: 16px;
+      margin-right: 5px;
+    }
+  }
+  .event_icon {
+    position: relative;
+    float: right;
+    border: 1px solid #EEE;
+    padding: 5px;
+    @include border-radius(5px);
+    background: #F9F9F9;
+    margin-left: 10px;
+    top: -6px;
+    img {
+      width: 20px;
+    }
+  }
+
+  &:last-child { border:none }
+
+  .event_commits {
+    margin-top: 9px;
+
+    li {
+      &.commit {
+        background: transparent;
+        padding: 3px;
+        padding-left: 0;
+        border: none;
+        .commit-row-title {
+          font-size: $gl-font-size;
+        }
+      }
+
+      &.commits-stat {
+        margin-top: 3px;
+        display: block;
+        padding: 3px;
+        padding-left: 0;
+
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+
+  .moment-item-timestamp {
+    float: right;
+    line-height: 22px;
+  }
+}
+
+
+/*
+ * Last push widget
+ */
+.moment-last-push {
+  overflow: auto;
+  .moment-last-push-text {
+    @include str-truncated(100%);
+    padding: 5px 0;
+    font-size: 13px;
+    float:left;
+    margin-right: -150px;
+    padding-right: 150px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .moment-item {
+    padding-left: $gl-padding;
+
+    .moment-title {
+      white-space: normal;
+      overflow: visible;
+      max-width: 100%;
+    }
+    .avatar {
+      display: none;
+    }
+
+    .moment-body {
+      margin: 0;
+      border-left: 2px solid #DDD;
+      padding-left: 10px;
+    }
+
+    .moment-item-timestamp {
+      display: none;
+    }
+  }
+}

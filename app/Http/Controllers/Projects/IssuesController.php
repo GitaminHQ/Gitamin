@@ -40,6 +40,17 @@ class IssuesController extends Controller
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
 
+    public function showAction($owner_path, $project_path, $issue)
+    {
+        $project = Project::findByPath($owner_path, $project_path);
+
+        return View::make('projects.issues.show')
+            ->withProject($project)
+            ->withIssue($issue)
+            ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
+            ->withActiveItem($this->active_item);
+    }
+
     public function add($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
