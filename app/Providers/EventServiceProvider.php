@@ -33,5 +33,15 @@ class EventServiceProvider extends ServiceProvider
         'Gitamin\Events\User\UserWasInvitedEvent' => [
             'Gitamin\Handlers\Events\User\SendInviteUserEmailHandler',
         ],
+        // Project related moments
+        'Gitamin\Events\Project\ProjectWasAdedEvent' => [
+            'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
+        ],
+        'Gitamin\Events\Project\ProjectWasUpdatedEvent' => [
+            'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
+        ],
+        'Gitamin\Events\Project\ProjectWasRemovedEvent' => [
+            'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
+        ],
     ];
 }

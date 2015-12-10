@@ -76,24 +76,28 @@ class DemoSeederCommand extends Command
             [
                 'name'        => 'Baidu',
                 'path'        => 'Baidu',
+                'user_id'     => 1,
                 'description' => 'www.baidu.com',
                 'type'        => 'Group',
             ],
             [
                 'name'        => 'Alibaba',
                 'path'        => 'Alibaba',
+                'user_id'     => 1,
                 'description' => 'www.alibaba.com',
                 'type'        => 'Group',
             ],
             [
                 'name'        => 'Tencent',
                 'path'        => 'Tencent',
+                'user_id'     => 1,
                 'description' => 'www.qq.com',
                 'type'        => 'Group',
             ],
             [
                 'name'        => 'demo',
                 'path'        => 'demo',
+                'user_id'     => 1,
                 'description' => '',
                 'type'        => 'User',
             ],

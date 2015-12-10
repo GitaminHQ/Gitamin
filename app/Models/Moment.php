@@ -44,6 +44,47 @@ class Moment extends Model
     const DESTROYED = 10;
 
     /**
+     * The attributes that should be casted to native types.
+     *
+     * @var string[]
+     */
+    protected $casts = [
+        'id'         => 'int',
+        'deleted_at' => 'date',
+    ];
+
+    /**
+     * The fillable properties.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'target_type',
+        'target_id',
+        'action',
+        'author_id',
+        'project_id',
+        'title',
+        'data',
+        'created_at',
+        'updated_at',
+    ];
+
+    /**
+     * The validation rules.
+     *
+     * @var string[]
+     */
+    public $rules = [
+        'target_type' => 'string',
+        'target_id'   => 'int',
+        'action'      => 'int',
+        'author_id'   => 'int',
+        'project_id'  => 'int',
+        'title'       => 'string',
+        'data'        => 'string',
+    ];
+    /**
      * Finds all rencent moments.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query

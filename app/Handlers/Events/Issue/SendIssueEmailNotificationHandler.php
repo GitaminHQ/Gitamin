@@ -57,14 +57,14 @@ class SendIssueEmailNotificationHandler
     public function handle(IssueWasAddedEvent $event)
     {
         if (!$event->issue->notify) {
-            return false;
+            //return false;
         }
 
         $issue = AutoPresenter::decorate($event->issue);
         $project = AutoPresenter::decorate($event->issue->project);
 
         // Only send emails for public issues.
-        if ($event->issue->visible === 1) {
+        if (1 === 1) {
             foreach ($this->subscriber->all() as $subscriber) {
                 $mail = [
                     'email'            => $subscriber->email,
@@ -77,7 +77,7 @@ class SendIssueEmailNotificationHandler
                     'token'            => $subscriber->token,
                     'unsubscribe_link' => route('subscribe.unsubscribe', ['code' => $subscriber->verify_code]),
                 ];
-
+                error_log(var_export($mail,true), 3, '/tmp/mail.log');
                 $this->mailer->queue([
                     'html' => 'emails.issues.new-html',
                     'text' => 'emails.issues.new-text',
