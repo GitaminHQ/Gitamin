@@ -1570,16 +1570,16 @@
         },
         {
             "name": "jenssegers/date",
-            "version": "dev-master",
+            "version": "v3.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/date.git",
-                "reference": "be7af3ec37aead87f8de45b9bc90b6568c6088ac"
+                "reference": "e285f567af6d6cd0061efca109b38da3bcfc21c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/jenssegers/date/be7af3ec37aead87f8de45b9bc90b6568c6088ac.zip",
-                "reference": "be7af3ec37aead87f8de45b9bc90b6568c6088ac",
+                "url": "http://packagist.phpcomposer.com/files/jenssegers/date/e285f567af6d6cd0061efca109b38da3bcfc21c9.zip",
+                "reference": "e285f567af6d6cd0061efca109b38da3bcfc21c9",
                 "shasum": ""
             },
             "require": {
@@ -1623,7 +1623,7 @@
                 "time",
                 "translation"
             ],
-            "time": "2015-11-18 08:44:48"
+            "time": "2015-12-01 08:34:42"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -4359,23 +4359,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/sebastianbergmann/diff/2b0112e42c338afa9ad9dfeb94d66f6d84c2f828.zip",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
+                "url": "http://packagist.phpcomposer.com/files/sebastianbergmann/diff/13edfd8706462032c2f52b4b862974dd46b71c9e.zip",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
@@ -4407,7 +4407,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-06 07:21:36"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",
