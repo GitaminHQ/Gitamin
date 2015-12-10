@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
-                <form name="CreateProjectForm" class="form-horizontal" role="form" action="{{ route('projects.project_update', ['namespace'=>$project->namespace, 'path'=>$project->path]) }}" method="POST">
+                <form name="CreateProjectForm" class="form-horizontal" role="form" action="{{ route('projects.project_update', ['owner'=>$project->owner_path, 'path'=>$project->path]) }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">
@@ -86,7 +86,7 @@
                     <input type="hidden" name="project[id]" value="{{ $project->id }}">
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                        <a class="btn btn-cancel" href="{{ route('projects.project_show', ['namespace' => $project->namespace, 'project' => $project->path]) }}">{{ trans('forms.cancel') }}</a>
+                        <a class="btn btn-cancel" href="{{ route('projects.project_show', ['owner' => $project->owner_path, 'project' => $project->path]) }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

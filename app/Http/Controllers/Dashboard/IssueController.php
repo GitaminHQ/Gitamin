@@ -90,7 +90,7 @@ class IssueController extends Controller
         return View::make('dashboard.issues.add')
             ->withPageTitle(trans('dashboard.issues.add.title').' - '.trans('dashboard.dashboard'))
             ->withProjectsInTeams(Group::with('projects')->get())
-            ->withProjectsOutTeams(Project::where('namespace_id', 0)->get());
+            ->withProjectsOutTeams(Project::where('owner_id', 0)->get());
     }
 
     /**
@@ -104,9 +104,9 @@ class IssueController extends Controller
             $issue = $this->dispatch(new AddIssueCommand(
                 Binput::get('name'),
                 Binput::get('status'),
-                Binput::get('message'),
+                Binput::get('descritpion'),
                 Binput::get('visible', true),
-                Auth::user()->id,
+                1,
                 Binput::get('project_id'),
                 Binput::get('notify', true),
                 Binput::get('created_at'),
