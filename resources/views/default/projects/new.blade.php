@@ -35,22 +35,22 @@
                             <input type="text" class="form-control" name="project[name]"  value="{{ Input::old('project.name') }}" id="project-name" required>
                         </div>
                     </div>
-                    @if($groups->count() > 0)
+                    @if($owners->count() > 0)
                     <div class="form-group">
                         <label class="control-label">{{ trans('forms.projects.owner') }}</label>
                         <div class="col-sm-10">
                         <select name="project[owner_id]" class="form-control select2" tableindex="2">
                             <optgroup label="Users">
-                            @foreach($groups as $group)
-                            @if($group->type == 'user')
-                            <option value="{{ $group->id }}" {{ Input::old('project.owner_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                            @foreach($owners as $owner)
+                            @if($owner->type == 'User')
+                            <option value="{{ $owner->id }}" {{ Input::old('project.owner_id') == $owner->id ? 'selected' : null }}>{{ $owner->name }}</option>
                             @endif
                             @endforeach
                             </optgroup>
                             <optgroup label="Groups">
-                            @foreach($groups as $group)
-                            @if($group->type == 'group')
-                            <option value="{{ $group->id }}" {{ Input::old('project.owner_id') == $group->id ? 'selected' : null }}>{{ $group->name }}</option>
+                            @foreach($owners as $owner)
+                            @if($owner->type == 'Group')
+                            <option value="{{ $owner->id }}" {{ Input::old('project.owner_id') == $owner->id ? 'selected' : null }}>{{ $owner->name }}</option>
                             @endif
                             @endforeach
                             </optgroup> 

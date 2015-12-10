@@ -17,10 +17,6 @@
     <p>
         {!! $html_content !!}
     </p>
-
-    @if($show_support)
-    <p>{!! trans('gitamin.powered_by', ['app' => $app_name]) !!}</p>
-    @endif
     <p>
         <small><a href="{{ $unsubscribe_link }}">{!! trans('gitamin.subscriber.email.unsubscribe') !!}</a></small>
     </p>

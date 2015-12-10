@@ -14,10 +14,10 @@
                     <span class="label label-info">{{ $project_count }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/activit*') !!}>
-                <a href="{{ route('dashboard.activity.index') }}">
+            <li {!! set_active('dashboard/moment*') !!}>
+                <a href="{{ route('dashboard.moments.index') }}">
                     <i class="fa fa-sliders"></i>
-                    <span>{{ trans('dashboard.activity.activity') }}</span>
+                    <span>{{ trans('dashboard.moments.moments') }}</span>
                 </a>
             </li>
             <li {!! set_active('*groups*') !!}>

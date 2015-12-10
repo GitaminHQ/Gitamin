@@ -87,14 +87,14 @@ class DashboardRoutes
 
             });
 
-            // Activity
+            // Moments
             $router->group([
-                'as'     => 'activity.',
-                'prefix' => 'activity',
+                'as'     => 'moments.',
+                'prefix' => 'moments',
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'ActivityController@index',
+                    'uses' => 'MomentController@index',
                 ]);
             });
 
