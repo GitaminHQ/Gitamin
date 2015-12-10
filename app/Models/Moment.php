@@ -27,10 +27,12 @@
 
 namespace Gitamin\Models;
 
+use Gitamin\Presenters\MomentPresenter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Moment extends Model
+class Moment extends Model implements HasPresenter
 {
     const CREATED = 1;
     const UPDATED = 2;
@@ -110,6 +112,16 @@ class Moment extends Model
     }
 
     /**
+     * A moment belongs to a project.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'project_id', 'id');
+    }
+
+    /**
      * Moments can belong to an author.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -117,5 +129,25 @@ class Moment extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id', 'id');
+    }
+
+    /**
+     * Moments can belong to a target.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function target()
+    {
+        return $this->belongsTo('Gitamin\\Models\\'.$this->target_type, 'target_id', 'id');
+    }
+
+    /**
+     * Get the presenter class.
+     *
+     * @return string
+     */
+    public function getPresenterClass()
+    {
+        return MomentPresenter::class;
     }
 }

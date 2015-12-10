@@ -87,7 +87,7 @@ class ProjectsRoutes
             //show
             $router->get('{owner_path}/{project_path}/issues/{issue}', [
                 'as'   => 'issue_show',
-                'uses' => 'Projects\\IssuesController@show',
+                'uses' => 'Projects\\IssuesController@showAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             //update

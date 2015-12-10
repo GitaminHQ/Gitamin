@@ -81,6 +81,16 @@ class Comment extends Model implements HasPresenter
     ];
 
     /**
+     * A comment belongs to a project.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'project_id', 'id');
+    }
+
+    /**
      * Get the presenter class.
      *
      * @return string

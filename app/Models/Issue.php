@@ -107,11 +107,11 @@ class Issue extends Model implements HasPresenter
     }
 
     /**
-     * An issue belongs to a user.
+     * An issue belongs to an author.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function author()
     {
         return $this->belongsTo(User::class, 'author_id', 'id');
     }
@@ -127,6 +127,11 @@ class Issue extends Model implements HasPresenter
 
         return $statuses[rand(0, 2)];
         //return $statuses[$this->state];
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('projects.issue_show', ['owner' => $this->project->owner_path, 'project' => $this->project->path, 'issue' => $this->id]);
     }
 
     /**
