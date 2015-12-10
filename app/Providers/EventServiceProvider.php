@@ -33,7 +33,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         'Gitamin\Events\Project\ProjectWasRemovedEvent' => [
             'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
-        ]
+        ],
         // Suscriber
         'Gitamin\Events\Subscriber\SubscriberHasSubscribedEvent' => [
             'Gitamin\Handlers\Events\Subscriber\SendSubscriberVerificationEmailHandler',
