@@ -39,27 +39,15 @@ class MomentController extends Controller
     {
         $this->subMenu = [
             'moments' => [
-                'title'  => trans('dashboard.moments.all'),
+                'title'  => trans('dashboard.projects.yours'),
                 'url'    => route('dashboard.moments.index'),
                 'icon'   => 'fa fa-sliders',
                 'active' => false,
             ],
             'project_update' => [
-                'title'  => trans('dashboard.moments.project_update'),
+                'title'  => trans('dashboard.projects.starred'),
                 'url'    => route('dashboard.moments.index'),
                 'icon'   => 'fa fa-edit',
-                'active' => false,
-            ],
-            'topic' => [
-                'title'  => trans('dashboard.moments.topic'),
-                'url'    => route('dashboard.moments.index'),
-                'icon'   => 'fa fa-comment',
-                'active' => false,
-            ],
-            'watched_project' => [
-                'title'  => trans('dashboard.moments.watched_project'),
-                'url'    => route('dashboard.moments.index'),
-                'icon'   => 'fa fa-eye',
                 'active' => false,
             ],
         ];

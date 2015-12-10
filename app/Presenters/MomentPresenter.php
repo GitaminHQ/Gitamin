@@ -52,9 +52,9 @@ class MomentPresenter extends AbstractPresenter
     {
         switch ($this->wrappedObject->action) {
             case Moment::CREATED:
-                return 'Created';
+                return 'created';
             case Moment::CLOSED:
-                return 'Closed';
+                return 'closed';
             case Moment::COMMENTED:
                 return 'commented on';
             default:
