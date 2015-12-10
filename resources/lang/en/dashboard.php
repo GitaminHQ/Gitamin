@@ -61,15 +61,15 @@ return [
         ],
     ],
 
-    // Activities
-    'activity' => [
-        'activity'        => 'Activity',
+    // Moments
+    'moments' => [
+        'moments'         => 'Moments',
         'all'             => 'All',
         'project_update'  => 'Project updated',
         'topic'           => 'Topic',
         'watched_project' => 'Project watched',
         'add'             => [
-            'title'   => 'No Activities.',
+            'title'   => 'No Moments.',
             'message' => 'There are no activities.',
         ],
     ],
