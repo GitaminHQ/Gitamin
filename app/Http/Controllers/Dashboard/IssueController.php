@@ -11,18 +11,9 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
-use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Issue\AddIssueCommand;
-use Gitamin\Commands\Issue\RemoveIssueCommand;
-use Gitamin\Commands\Issue\UpdateIssueCommand;
-use Gitamin\Models\Group;
 use Gitamin\Models\Issue;
-use Gitamin\Models\Project;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 class IssueController extends Controller
