@@ -145,13 +145,28 @@ return [
         ],
     ],
 
+    // Signin fields
+    'signin' => [
+        'signin'        => 'Sign in',
+        'title'         => 'Existing user? Sign in',
+        'email'         => 'Email',
+        'password'      => 'Password',
+        '2fauth'        => 'Authentication Code',
+        'invalid'       => 'Invalid email or password',
+        'invalid-token' => 'Invalid token',
+        'cookies'       => 'You must enable cookies to sign in.',
+        'success'       => 'Signed in successfully.',
+    ],
+
     'signup' => [
+        'signup'   => 'Sign up',
         'title'    => 'Sign Up',
         'username' => 'Username',
         'email'    => 'Email',
         'password' => 'Password',
         'success'  => 'Your account has been created.',
         'failure'  => 'Something went wrong with the signup.',
+        'taken'    => 'Username or email has already been taken.',
     ],
 
     // Admin Area

@@ -50,7 +50,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showDashboard()
+    public function indexAction()
     {
         $projects = Project::get();
         $issues = $this->getIssues();

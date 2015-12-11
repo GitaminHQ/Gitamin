@@ -15,7 +15,7 @@ use Gitamin\Models\Moment;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
-class MomentController extends Controller
+class MomentsController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -16,7 +16,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
-class ProjectController extends Controller
+class ProjectsController extends Controller
 {
     use DispatchesJobs;
 

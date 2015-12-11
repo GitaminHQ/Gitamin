@@ -25,20 +25,43 @@ class DefaultRoutes
      */
     public function map(Registrar $router)
     {
-        //Default Page
+        //Default - Dashboard
         $router->group([
             'middleware' => ['app.hasSetting', 'auth'],
             'setting'    => 'app_name',
+            'as'         => 'dashboard.'
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'DashboardController@showDashboard',
+                'uses' => 'DashboardController@indexAction',
             ]);
         });
-
         //Install Area
         $router->group(['middleware' => ['app.isInstalled', 'localize']], function ($router) {
             $router->controller('install', 'InstallController');
+        });
+
+        //Signup Area
+        $router->group([
+            'middleware' => ['app.hasSetting', 'guest'],
+            'setting'    => 'app_name',
+            'as'         => 'signup.',
+        ], function ($router) {
+            $router->get('signup', [
+                'as'         => 'signup',
+                'uses'       => 'SignupController@getSignup',
+            ]);
+            $router->post('signup', [
+                'uses' => 'SignupController@postSignup',
+            ]);
+
+            $router->get('signup/invite/{code}', [
+                'as' => 'invite',
+                'uses' => 'SignupController@getSignup',
+            ]);
+            $router->post('signup/invite/{code}', [
+                'uses' => 'SignupController@postSignup',
+            ]);
         });
 
         //Explore Area

@@ -48,12 +48,12 @@ class AuthController extends Controller
             Auth::attempt($loginData);
 
             return Redirect::intended('dashboard')
-                ->withSuccess(trans('forms.login.success'));
+                ->withSuccess(trans('gitamin.signin.success'));
         }
 
         return Redirect::route('auth.login')
             ->withInput(Binput::except('password'))
-            ->withError(trans('forms.login.invalid'));
+            ->withError(trans('gitamin.signin.invalid'));
     }
 
     /**

@@ -48,7 +48,7 @@
     </script>
     <script src="{{ elixir('dist/js/all.js') }}"></script>
 </head>
-<body class="explore-page">
+<body class="@yield('bodyClass')">
 
     @include('partials.banner')
 
