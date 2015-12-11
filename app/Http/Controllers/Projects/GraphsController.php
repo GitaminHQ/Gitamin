@@ -2,19 +2,14 @@
 
 namespace Gitamin\Http\Controllers\Projects;
 
-use Gitamin\Commands\Issue\AddIssueCommand;
-use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Http\Controllers\Controller;
-use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use GrahamCampbell\Binput\Facades\Binput;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 class GraphsController extends Controller
 {
     protected $active_item = 'graphs';
+
     /**
      * Display a listing of the resource.
      *
