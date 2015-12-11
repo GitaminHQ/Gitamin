@@ -47,7 +47,8 @@ class AuthController extends Controller
             // We probably want to add support for "Remember me" here.
             Auth::attempt($loginData);
 
-            return Redirect::intended('dashboard');
+            return Redirect::intended('dashboard')
+                ->withSuccess(trans('forms.login.success'));
         }
 
         return Redirect::route('auth.login')
@@ -64,6 +65,7 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return Redirect::to('/');
+        return Redirect::to('/')
+            ->withSuccess(trans('forms.logout.success'));
     }
 }

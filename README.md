@@ -30,6 +30,7 @@ This package is currently in (very-)alpha stage, so all of the following feature
 ![Gitamin Profile Settings](https://camo.githubusercontent.com/50134ffc1fc11e9f1014f344e4b93c762de0ccdb/687474703a2f2f7777772e363438322e636f6d2f70726f66696c652e706e673f726e643d31)
 ![Gitamin New Project](https://camo.githubusercontent.com/5853e06153e5c89948b527972fa40ad625e4bb92/687474703a2f2f7777772e363438322e636f6d2f70726f6a6563742e706e673f726e643d31)
 ![Gitamin Moments](https://camo.githubusercontent.com/ac442f28be49d6b807e58d78fe6f881945ea9ade/687474703a2f2f7777772e363438322e636f6d2f6d6f6d656e74732e706e67)
+![Gitamin Login](https://camo.githubusercontent.com/3661a7f62f4895bd23357921ca0001e2c42be52e/687474703a2f2f7777772e363438322e636f6d2f6c6f67696e2e706e67)
 
 ## Requirements
 

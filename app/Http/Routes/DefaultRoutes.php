@@ -25,14 +25,14 @@ class DefaultRoutes
      */
     public function map(Registrar $router)
     {
-        //Homepage
+        //Default Page
         $router->group([
             'middleware' => ['app.hasSetting', 'auth'],
             'setting'    => 'app_name',
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'ExploreController@indexAction',
+                'uses' => 'DashboardController@showDashboard',
             ]);
         });
 
