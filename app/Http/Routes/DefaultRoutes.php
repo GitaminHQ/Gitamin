@@ -29,7 +29,7 @@ class DefaultRoutes
         $router->group([
             'middleware' => ['app.hasSetting', 'auth'],
             'setting'    => 'app_name',
-            'as'         => 'dashboard.'
+            'as'         => 'dashboard.',
         ], function ($router) {
             $router->get('/', [
                 'as'   => 'index',
@@ -56,7 +56,7 @@ class DefaultRoutes
             ]);
 
             $router->get('signup/invite/{code}', [
-                'as' => 'invite',
+                'as'   => 'invite',
                 'uses' => 'SignupController@getSignup',
             ]);
             $router->post('signup/invite/{code}', [

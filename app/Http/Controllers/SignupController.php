@@ -17,12 +17,12 @@ use Gitamin\Commands\Owner\AddOwnerCommand;
 use Gitamin\Commands\User\SignupUserCommand;
 use Gitamin\Models\Invite;
 use GrahamCampbell\Binput\Facades\Binput;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Illuminate\Database\QueryException;
 
 class SignupController extends Controller
 {
