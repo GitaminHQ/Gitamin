@@ -121,9 +121,10 @@ class ProjectsController extends Controller
         $project = Project::findByPath($owner_path, $project_path);
 
         return View::make('projects.edit')
-            ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
+            ->withPageTitle(trans('dashboard.projects.edit.title').' - '.trans('dashboard.dashboard'))
             ->withProject($project)
             ->withGroupId('')
+            ->withActiveItem('project_edit')
             ->withGroups(Group::all());
     }
 
