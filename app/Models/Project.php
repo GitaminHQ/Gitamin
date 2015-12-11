@@ -22,7 +22,7 @@
 #  creator_id             :integer
 #  issues_enabled         :boolean          default(TRUE), not null
 #  wall_enabled           :boolean          default(TRUE), not null
-#  merge_requests_enabled :boolean          default(TRUE), not null
+#  pull_requests_enabled  :boolean          default(TRUE), not null
 #  wiki_enabled           :boolean          default(TRUE), not null
 #  owner_id               :integer
 #  issues_tracker         :string(255)      default("gitlab"), not null

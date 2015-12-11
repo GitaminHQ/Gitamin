@@ -70,8 +70,8 @@
                          <div class="form-group">  
                          <label class="control-label"></label> 
                             <div class="col-sm-10">    
-                                <input {!! $project->merge_requests_enabled ? 'checked="checked"' : null !!} checked="checked" type="checkbox" name="project[merge_requests_enabled]" value="1">
-                                <strong>Merge Requests</strong> - Submit changes to be merged upstream.
+                                <input {!! $project->pull_requests_enabled ? 'checked="checked"' : null !!} checked="checked" type="checkbox" name="project[pull_requests_enabled]" value="1">
+                                <strong>Pull Requests</strong> - Submit changes to be merged upstream.
                             </div>
                         </div>
                         <div class="form-group">  

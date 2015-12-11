@@ -7,7 +7,7 @@
             <li><a href="{{ route('projects.project_edit', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}"><i class="fa fa-area-chart"><span>Graphs</span></i></a>
             <li><a href="{{ route('projects.project_edit', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}"><i class="fa fa-code-fork"><span>Network</span></i></a>
             <li><a href="{{ route('projects.project_edit', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}"><i class="fa fa-clock-o"><span>Milestones</span></i></a>
-            <li><a href="{{ route('projects.project_edit', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}"><i class="fa fa-tasks"></i><span>Merge Requests</span></a></li>
+            <li><a href="{{ route('projects.project_edit', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}"><i class="fa fa-tasks"></i><span>Pull Requests</span></a></li>
             <li><a href="{{ route('projects.project_edit', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}"><i class="fa fa-gear"></i><span>Settings</span></a></li>
         </ul>
     </div>

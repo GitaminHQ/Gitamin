@@ -82,14 +82,14 @@ class DashboardRoutes
                 ]);
             });
 
-            // Merge Requests
+            // Pull Requests
             $router->group([
-                'as'     => 'merge_requests.',
-                'prefix' => 'merge_requests',
+                'as'     => 'pull_requests.',
+                'prefix' => 'pull_requests',
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MergeRequestsController@indexAction',
+                    'uses' => 'PullRequestsController@indexAction',
                 ]);
             });
 

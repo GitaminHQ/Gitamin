@@ -33,7 +33,7 @@ class CreateWebHooksTable extends Migration
             $t->integer('service_id');
             $t->boolean('push_events')->default(true);
             $t->boolean('issues_events')->default(false);
-            $t->boolean('merge_requests_events')->default(false);
+            $t->boolean('pull_requests_events')->default(false);
             $t->boolean('tag_push_events')->default(false);
             $t->boolean('comment_events')->default(false);
             $t->boolean('enable_ssl_verification')->default(true);
