@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\View;
 class SnippetController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the snippets.
      *
      * @return \Illuminate\Http\Response
      */
-    public function showSnippets()
+    public function indexAction()
     {
         $snippets = [];
 
