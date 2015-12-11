@@ -14,19 +14,14 @@ namespace Gitamin\Http\Controllers\Dashboard;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
-class MergeRequestController extends Controller
+class MilestonesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function indexAction()
     {
-        $mergeRequests = [];
+        $milestones = [];
 
-        return View::make('dashboard.merge_requests.index')
-            ->withPageTitle(trans('dashboard.merge_requests.merge_requests'))
-            ->withMergeRequests($mergeRequests);
+        return View::make('dashboard.milestones.index')
+            ->withPageTitle(trans('dashboard.milestones.milestones'))
+            ->withMilestones($milestones);
     }
 }

@@ -27,18 +27,6 @@ return [
         'session_driver'        => 'Session Driver',
     ],
 
-    // Login form fields
-    'login' => [
-        'title'         => 'Existing user? Log in',
-        'email'         => 'Email',
-        'password'      => 'Password',
-        '2fauth'        => 'Authentication Code',
-        'invalid'       => 'Invalid email or password',
-        'invalid-token' => 'Invalid token',
-        'cookies'       => 'You must enable cookies to login.',
-        'success'       => 'Logged in successfully.',
-    ],
-
     // Logout
     'logout' => [
         'success' => 'Logged out successfully.',

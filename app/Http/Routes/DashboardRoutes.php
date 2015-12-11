@@ -25,19 +25,7 @@ class DashboardRoutes
      */
     public function map(Registrar $router)
     {
-        // Dashboard
-        $router->group([
-            'middleware' => ['app.hasSetting', 'auth'],
-            'setting'    => 'app_name',
-            'as'         => 'dashboard.',
-        ], function ($router) {
-            $router->get('dashboard', [
-                'as'   => 'index',
-                'uses' => 'DashboardController@showDashboard',
-            ]);
-
-        });
-
+        //Dashboard area
         $router->group([
             'middleware' => 'auth',
             'prefix'     => 'dashboard',
@@ -52,11 +40,11 @@ class DashboardRoutes
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'ProjectController@indexAction',
+                    'uses' => 'ProjectsController@indexAction',
                 ]);
                 $router->get('starred', [
                     'as'   => 'starred',
-                    'uses' => 'ProjectController@starredAction',
+                    'uses' => 'ProjectsController@starredAction',
                 ]);
             });
 
@@ -79,7 +67,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MomentController@indexAction',
+                    'uses' => 'MomentsController@indexAction',
                 ]);
             });
 
@@ -90,7 +78,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MilestoneController@indexAction',
+                    'uses' => 'MilestonesController@indexAction',
                 ]);
             });
 
@@ -101,7 +89,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MergeRequestController@indexAction',
+                    'uses' => 'MergeRequestsController@indexAction',
                 ]);
             });
 
@@ -112,7 +100,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'SnippetController@indexAction',
+                    'uses' => 'SnippetsController@indexAction',
                 ]);
             });
 
@@ -123,7 +111,7 @@ class DashboardRoutes
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'IssueController@indexAction',
+                    'uses' => 'IssuesController@indexAction',
                 ]);
             });
 

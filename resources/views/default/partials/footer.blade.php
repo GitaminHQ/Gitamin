@@ -13,18 +13,18 @@
                     @endif
                     @if($current_user)
                     <li>
-                        <a class="btn btn-link" href="/auth/logout">{{ trans('dashboard.logout') }}</a>
+                        <a href="/auth/logout">{{ trans('dashboard.logout') }}</a>
                     </li>
                     @else
                      <li>
-                        <a class="btn btn-link" href="/auth/login">{{ trans('forms.login') }}</a>
+                        <a href="/auth/login">{{ trans('gitamin.signin.signin') }}</a>
                     </li>
                     @endif
                     <li>
-                        <a class="btn btn-link" href="{{ route('feed.rss') }}">{{ trans('gitamin.rss-feed') }}</a>
+                        <a href="{{ route('feed.rss') }}">{{ trans('gitamin.rss-feed') }}</a>
                     </li>
                     <li>
-                        <a class="btn btn-link" href="{{ route('feed.atom') }}">{{ trans('gitamin.atom-feed') }}</a>
+                        <a href="{{ route('feed.atom') }}">{{ trans('gitamin.atom-feed') }}</a>
                     </li>
                     @if(subscribers_enabled())
                     <li>

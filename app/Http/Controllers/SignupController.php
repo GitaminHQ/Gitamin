@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Database\QueryException;
 
 class SignupController extends Controller
 {
@@ -48,6 +49,7 @@ class SignupController extends Controller
 
         return View::make('signup')
             ->withCode($invite ? $invite->code : '')
+            ->withPageTitle('signup')
             ->withUsername(Binput::old('username'))
             ->withEmail(Binput::old('emai', $invite ? $invite->email : ''));
     }
@@ -89,10 +91,15 @@ class SignupController extends Controller
             ];
             $this->dispatchFromArray(AddOwnerCommand::class, $ownerData);
         } catch (ValidationException $e) {
-            return Redirect::route('auth.signup', ['code' => $code])
+            return Redirect::route('signup.signup', ['code' => $code])
                 ->withInput(Binput::except('password'))
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
                 ->withErrors($e->getMessageBag());
+        } catch (QueryException $e) {
+            return Redirect::route('signup.signup', ['code' => $code])
+                ->withInput(Binput::except('password'))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
+                ->withErrors(trans('gitamin.signup.taken'));
         }
 
         //$this->dispatch(new ClaimInviteCommand($invite));

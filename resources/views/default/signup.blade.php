@@ -1,16 +1,21 @@
-@extends('layout.master')
+@extends('layout.clean')
+
+@section('bodyClass', 'login')
 
 @section('content')
 
 
-@include('dashboard.partials.errors')
 
-<div class="panel panel-meassage">
-    <div class="panel-heading">
-        <strong>{{ trans('gitamin.signup.title') }}</strong>
-    </div>
-    <div class="panel-body">
-        <form action="{{ route('auth.signup') }}" method="post" class="form">
+<div class="login-panel">
+    <div class="logo">
+            <img src="/img/login-logo.png" />
+    </div> 
+    <div class="form-bg">
+         <div class="login-title">
+            <strong>{{ trans('gitamin.signup.title') }}</strong>
+        </div>
+        @include('dashboard.partials.errors')
+        <form action="{{ route('signup.signup') }}" method="post" class="form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="username">{{ trans('gitamin.signup.username') }}</label>
@@ -24,7 +29,10 @@
                 <label for="password">{{ trans('gitamin.signup.password') }}</label>
                 <input class="form-control" type="password" name="password">
             </div>
-            <button type="submit" class="btn btn-success">{{ trans('forms.signup') }}</button>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-success">{{ trans('gitamin.signup.signup') }}</button>
+                <a class="btn btn-default pull-right" href="{{ route('auth.login') }}">{{ trans('gitamin.signin.title') }}</a>
+            </div>
         </form>
     </div>
 </div>

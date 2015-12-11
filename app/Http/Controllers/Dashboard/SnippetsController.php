@@ -14,7 +14,7 @@ namespace Gitamin\Http\Controllers\Dashboard;
 use Gitamin\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 
-class SnippetController extends Controller
+class SnippetsController extends Controller
 {
     /**
      * Display a listing of the snippets.

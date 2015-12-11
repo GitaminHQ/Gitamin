@@ -24,7 +24,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
-class ProjectController extends Controller
+class ProjectsController extends Controller
 {
     use DispatchesJobs;
 
