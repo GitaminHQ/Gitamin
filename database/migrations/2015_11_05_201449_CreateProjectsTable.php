@@ -31,7 +31,7 @@ class CreateProjectsTable extends Migration
             $t->integer('creator_id')->nullable();
             $t->boolean('issues_enabled')->default(true);
             $t->boolean('wall_enabled')->default(true);
-            $t->boolean('merge_requests_enabled')->default(true);
+            $t->boolean('pull_requests_enabled')->default(true);
             $t->boolean('wiki_enabled')->default(true);
             $t->integer('owner_id');
             $t->string('issues_tracker')->default('gitamin');
@@ -48,7 +48,7 @@ class CreateProjectsTable extends Migration
             $t->string('import_type')->nullable();
             $t->string('import_source')->nullable();
             $t->integer('commit_count')->default(0);
-            $t->boolean('merge_requests_ff_only_enabled')->default(false);
+            $t->boolean('pull_requests_ff_only_enabled')->default(false);
             $t->text('issues_template')->nullable();
             $t->text('import_error')->nullable();
 

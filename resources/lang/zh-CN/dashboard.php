@@ -194,10 +194,10 @@ return [
         ],
     ],
 
-    // Merge Requests
-    'merge_requests' => [
-        'merge_requests' => '合并请求',
-        'add'            => [
+    // Pull Requests
+    'pull_requests' => [
+        'pull_requests' => '合并请求',
+        'add'           => [
             'title'   => '添加',
             'message' => '添加合并请求',
         ],

@@ -18,7 +18,7 @@
             <ul class="nav nav-tabs">
                 <li><a href="/Baidu/Gitamin"><i class="fa fa-code"></i><span>Code</span></a></li>
                 <li class="active"><a href="/Gitamin/issues"><i class="fa fa-exclamation-circle"></i><span>Issues</span></a></li>
-                <li><a href="/Baidu/Gitamin/stats/master"><i class="fa fa-tasks"></i><span>Merge Requests</span></a></li>
+                <li><a href="/Baidu/Gitamin/stats/master"><i class="fa fa-tasks"></i><span>Pull Requests</span></a></li>
             </ul>
         </div>
     </div>

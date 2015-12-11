@@ -155,12 +155,12 @@ return [
         ],
     ],
 
-    // Merge Requests
-    'merge_requests' => [
-        'merge_requests' => 'Merge Requests',
-        'add'            => [
-            'title'   => 'Add a New merge request.',
-            'message' => 'There are no merge requests.',
+    // Pull Requests
+    'pull_requests' => [
+        'pull_requests' => 'Pull Requests',
+        'add'           => [
+            'title'   => 'Add a New pull request.',
+            'message' => 'There are no pull requests.',
         ],
     ],
 

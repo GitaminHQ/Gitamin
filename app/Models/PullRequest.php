@@ -11,7 +11,7 @@
 
 # == Schema Information
 #
-# Table name: merge_requests
+# Table name: pull_requests
 #
 #  id                :integer          not null, primary key
 #  target_branch     :string(255)      not null
@@ -38,7 +38,7 @@ namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MergeRequest extends Model
+class PullRequest extends Model
 {
     //
 }

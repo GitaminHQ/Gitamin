@@ -16,7 +16,7 @@ This package is currently in (very-)alpha stage, so all of the following feature
 
 * Multiple repository support
 * Commit history, blame, diff
-* Merge Requests
+* Pull Requests
 * Web Hooks
 * Repository statistics
 * Issues tracking

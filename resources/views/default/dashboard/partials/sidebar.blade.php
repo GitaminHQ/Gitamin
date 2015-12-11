@@ -41,10 +41,10 @@
                     <span class="label label-info">{{ $issue_count }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/merge_request*') !!}>
-                <a href="{{ route('dashboard.merge_requests.index') }}">
+            <li {!! set_active('dashboard/pull_request*') !!}>
+                <a href="{{ route('dashboard.pull_requests.index') }}">
                     <i class="fa fa-tasks"></i>
-                    <span>{{ trans('dashboard.merge_requests.merge_requests') }}</span>
+                    <span>{{ trans('dashboard.pull_requests.pull_requests') }}</span>
                 </a>
             </li>
             <li {!! set_active('dashboard/snippet*') !!}>

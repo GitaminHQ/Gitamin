@@ -13,7 +13,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMergeRequestsTable extends Migration
+class CreatePullRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,7 +22,7 @@ class CreateMergeRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('merge_requests', function (Blueprint $t) {
+        Schema::create('pull_requests', function (Blueprint $t) {
             $t->engine = 'InnoDB';
 
             $t->increments('id');
@@ -65,6 +65,6 @@ class CreateMergeRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('merge_requests');
+        Schema::drop('pull_requests');
     }
 }
