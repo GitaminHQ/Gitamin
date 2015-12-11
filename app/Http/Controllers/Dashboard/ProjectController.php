@@ -11,17 +11,9 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
-use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Project\AddProjectCommand;
-use Gitamin\Commands\Project\RemoveProjectCommand;
-use Gitamin\Commands\Project\UpdateProjectCommand;
-use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
-use Gitamin\Models\Tag;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 class ProjectController extends Controller
