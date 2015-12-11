@@ -11,20 +11,21 @@
                 <a href="{{ route('dashboard.projects.index') }}">
                     <i class="fa fa-cubes"></i>
                     <span>{{ trans('dashboard.projects.projects') }}</span>
-                    <span class="label label-info">{{ $project_count }}</span>
+                    <!-- <span class="label label-info">{{ $project_count }}</span> -->
                 </a>
             </li>
             <li {!! set_active('dashboard/moment*') !!}>
                 <a href="{{ route('dashboard.moments.index') }}">
                     <i class="fa fa-sliders"></i>
                     <span>{{ trans('dashboard.moments.moments') }}</span>
+                    <span class="label label-info">{{ $moment_count }}</span>
                 </a>
             </li>
             <li {!! set_active('*groups*') !!}>
                 <a href="{{ route('dashboard.groups.index') }}">
                     <i class="fa fa-group"></i>
                     <span>{{ trans('gitamin.groups.groups') }}</span>
-                    <span class="label label-info">{{ $group_count }}</span>
+                    <!-- <span class="label label-info">{{ $group_count }}</span> -->
                 </a>
             </li>
             <li {!! set_active('dashboard/milestone*') !!}>

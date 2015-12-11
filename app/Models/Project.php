@@ -119,6 +119,16 @@ class Project extends Model implements HasPresenter
     }
 
     /**
+     * Projects can belong to a creator.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id', 'id');
+    }
+
+    /**
      * Lookup all of the issues reported on the project.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
-                <form name="CreateProjectTeamForm" class="form-horizontal" role="form" action="{{ route('groups.group_update', ['namespace'=>$group->path])}}" method="POST">
+                <form name="CreateProjectTeamForm" class="form-horizontal" role="form" action="{{ route('groups.group_update', ['owner'=>$group->path])}}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="form-group">

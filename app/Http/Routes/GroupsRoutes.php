@@ -52,19 +52,19 @@ class GroupsRoutes
             'setting'    => 'app_name',
             'as'         => 'groups.',
         ], function ($router) {
-           $router->get('{namespace}', [
+           $router->get('{owner_path}', [
                 'as'   => 'group_show',
                 'uses' => 'GroupsController@showAction',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+');
 
-           $router->get('{namespace}/edit', [
+           $router->get('{owner_path}/edit', [
                 'as'   => 'group_edit',
                 'uses' => 'GroupsController@editAction',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+');
-            $router->post('{namespace}/update', [
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+');
+            $router->post('{owner_path}', [
                 'as'    => 'group_update',
                 'uses'  => 'GroupsController@updateAction',
-            ])->where('namespace', '[a-zA-z.0-9_\-]+');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+');
 
         });
     }
