@@ -13,6 +13,7 @@ namespace Gitamin\Composers;
 
 use Gitamin\Models\Group;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Moment;
 use Gitamin\Models\Project;
 use Illuminate\Contracts\View\View;
 
@@ -30,5 +31,6 @@ class DashboardComposer
         $view->withIssueCount(Issue::all()->count());
         $view->withProjectCount(Project::all()->count());
         $view->withGroupCount(Group::IsGroup()->Mine()->count());
+        $view->withMomentCount(Moment::all()->count());
     }
 }

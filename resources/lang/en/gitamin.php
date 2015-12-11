@@ -46,18 +46,18 @@ return [
      // Project teams
     'groups' => [
         'groups'      => 'Groups',
-        'no_projects' => 'You should add a project team.',
+        'no_projects' => 'You should add a project group.',
         'yours'       => 'Your Groups',
         'explore'     => 'Explore Groups',
         'add'         => [
             'title'   => 'New Group',
-            'success' => 'Project team added.',
-            'failure' => 'Something went wrong with the project team.',
+            'success' => 'Project group added.',
+            'failure' => 'Something went wrong with the project group.',
         ],
         'edit'        => [
             'title'   => 'Group settings',
-            'success' => 'Project team updated.',
-            'failure' => 'Something went wrong with the project team.',
+            'success' => 'Project group updated.',
+            'failure' => 'Something went wrong with the project group.',
         ],
         'delete'      => [
             'success' => 'Project Group deleted.',
@@ -81,6 +81,14 @@ return [
             3 => 'Watching',
             4 => 'Fixed',
         ],
+    ],
+
+    // Moments
+    'moments' => [
+        'created'   => 'created',
+        'updated'   => 'updated',
+        'closed'    => 'closed',
+        'commented' => 'commented on',
     ],
 
     'profiles' => [

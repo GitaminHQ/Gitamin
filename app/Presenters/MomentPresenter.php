@@ -15,6 +15,7 @@ use Gitamin\Facades\Setting;
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Moment;
+use Gitamin\Models\Project;
 use Gitamin\Presenters\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Jenssegers\Date\Date;
@@ -39,6 +40,8 @@ class MomentPresenter extends AbstractPresenter
             return Markdown::convertToHtml($this->wrappedObject->target->message);
         } elseif ($this->wrappedObject->target instanceof Issue) {
             return Markdown::convertToHtml($this->wrappedObject->target->description);
+        } elseif ($this->wrappedObject->target instanceof Project) {
+            return Markdown::convertToHtml($this->wrappedObject->target->description);
         }
     }
 
@@ -51,11 +54,13 @@ class MomentPresenter extends AbstractPresenter
     {
         switch ($this->wrappedObject->action) {
             case Moment::CREATED:
-                return 'created';
+                return trans('gitamin.moments.created');
+            case Moment::UPDATED:
+                return trans('gitamin.moments.updated');
             case Moment::CLOSED:
-                return 'closed';
+                return trans('gitamin.moments.closed');
             case Moment::COMMENTED:
-                return 'commented on';
+                return trans('gitamin.moments.commented');
             default:
                 return 'Unknow';
         }
@@ -63,7 +68,9 @@ class MomentPresenter extends AbstractPresenter
 
     public function icon()
     {
-        if ($this->wrappedObject->target instanceof Comment) {
+        if ($this->wrappedObject->target instanceof Project) {
+            return 'fa fa-cubes';
+        } elseif ($this->wrappedObject->target instanceof Comment) {
             return 'fa fa-comments-o';
         } elseif ($this->wrappedObject->target instanceof Issue) {
             return 'fa fa-exclamation-circle';

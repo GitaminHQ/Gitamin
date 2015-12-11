@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fe28abf6c01ecc5535b99bb6a936b26d",
-    "content-hash": "d2c3cc46b31ddd2ec2b345f6f1cf3227",
+    "hash": "b824b01238231a993f7c30ea5f3e41c2",
+    "content-hash": "7e1942d0b5cf3283506a83915e90dae2",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -2294,16 +2294,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.1",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32"
+                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/paragonie/random_compat/a208865a5aeffc2dbbef2a5b3409887272d93f32.zip",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32",
+                "url": "http://packagist.phpcomposer.com/files/paragonie/random_compat/d762ee5b099a29044603cd4649851e81aa66cb47.zip",
+                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
                 "shasum": ""
             },
             "require": {
@@ -2338,7 +2338,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-01 02:52:15"
+            "time": "2015-12-10 14:48:13"
         },
         {
             "name": "psr/http-message",
@@ -4167,16 +4167,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.19",
+            "version": "4.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4"
+                "reference": "7438c43bc2bbb2febe1723eb595b1c49283a26ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/b2caaf8947aba5e002d42126723e9d69795f32b4.zip",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4",
+                "url": "http://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/7438c43bc2bbb2febe1723eb595b1c49283a26ad.zip",
+                "reference": "7438c43bc2bbb2febe1723eb595b1c49283a26ad",
                 "shasum": ""
             },
             "require": {
@@ -4185,7 +4185,7 @@
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
-                "php": ">=5.3.3",
+                "php": "~5.3.3|~5.4|~5.5|~5.6",
                 "phpspec/prophecy": "^1.3.1",
                 "phpunit/php-code-coverage": "~2.1",
                 "phpunit/php-file-iterator": "~1.4",
@@ -4235,7 +4235,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-11-30 08:18:59"
+            "time": "2015-12-10 07:48:52"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

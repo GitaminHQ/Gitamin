@@ -13,6 +13,7 @@ namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
+use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Group;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
@@ -129,12 +130,12 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param string $namespace
+     * @param string $owner_path
      * @param string $project_path
      *
      * @return \Illuminate\Http\Response
      */
-    public function updateAction($namespace, $project_path)
+    public function updateAction($owner_path, $project_path)
     {
         $projectData = Binput::get('project');
         $tags = array_pull($projectData, 'tags');
@@ -147,7 +148,7 @@ class ProjectsController extends Controller
             $projectData['owner_id'] = $project->owner->id;
             $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
         } catch (ValidationException $e) {
-            return Redirect::route('projects.project_edit', ['namespace' => $project->namespace, 'project' => $project->path])
+            return Redirect::route('projects.project_edit', ['owner' => $project->owner_path, 'project' => $project->path])
                 ->withInput(Binput::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.edit.failure')))
                 ->withErrors($e->getMessageBag());

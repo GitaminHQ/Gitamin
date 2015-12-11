@@ -61,7 +61,7 @@ class ProjectsRoutes
                 'as'   => 'project_edit',
                 'uses' => 'ProjectsController@editAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-            $router->post('{owner_path}/{project_path}/update', [
+            $router->post('{owner_path}/{project_path}', [
                 'as'    => 'project_update',
                 'uses'  => 'ProjectsController@updateAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');

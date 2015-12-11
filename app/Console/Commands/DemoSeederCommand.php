@@ -125,24 +125,28 @@ class DemoSeederCommand extends Command
                 'description'      => 'Used by third-parties to connect to us',
                 'visibility_level' => 0,
                 'owner_id'         => 1,
+                'creator_id'       => 1,
                 'path'             => 'api',
             ], [
                 'name'             => 'Documentation',
                 'description'      => 'Kindly powered by Readme.io',
                 'visibility_level' => 1,
                 'owner_id'         => 2,
+                'creator_id'       => 1,
                 'path'             => 'doc',
             ], [
                 'name'             => 'Website',
                 'description'      => 'Tencent Holdings Limited is a Chinese investment holding company',
                 'visibility_level' => 1,
                 'owner_id'         => 3,
+                'creator_id'       => 1,
                 'path'             => 'website',
             ], [
                 'name'             => 'Blog',
                 'description'      => 'The Gitamin Blog.',
                 'visibility_level' => 1,
                 'owner_id'         => 4,
+                'creator_id'       => 1,
                 'path'             => 'blog',
             ],
         ];
