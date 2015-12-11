@@ -12,7 +12,6 @@
 </div>
 
 <div class="content-wrapper">
-
     @include('projects.partials.sub-navbar')
     <div class="row">
         <div class="col-sm-12">
@@ -27,7 +26,7 @@
                 @foreach($issues as $issue)
                 <div class="row striped-list-item">
                     <div class="col-xs-6">
-                        <i class="{{ $issue->icon }}"></i> <strong>{{ $issue->title }}</strong>
+                        <i class="{{ $issue->icon }}"></i> <a href="{{ $issue->url }}"><strong>{{ $issue->title }}</strong></a>
                         <p><small>#{{ $issue->id }}</small></p>
                     </div>
                     <div class="col-xs-6 text-right">

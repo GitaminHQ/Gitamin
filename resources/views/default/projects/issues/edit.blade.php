@@ -11,6 +11,7 @@
         &gt; <small>{{ trans('dashboard.issues.add.title') }}</small>
     </div>
     <div class="content-wrapper">
+        @include('projects.partials.sub-navbar')
         <div class="row">
             <div class="col-md-12">
                 @include('dashboard.partials.errors')
@@ -32,6 +33,7 @@
                                 <!--<div class="help-block pull-right">{{ trans('forms.issues.description-help') }}</div>-->
                             </div>
                         </div>
+                        <!--
                         <div class="form-group">
                             <label class="control-label" for="issue_assignee_id"><i class="fa fa-user"></i> {{ trans('forms.issues.assign_to') }}</label>
                             <div class="col-sm-4">
@@ -46,7 +48,7 @@
                                 <a class="btn assign-to-me-link" href="#">{{ trans('forms.issues.assign_to_me')}}</a>
                             </div>
                         </div>
-                        
+                        -->
                     </fieldset>
 
                     <div class="form-actions">

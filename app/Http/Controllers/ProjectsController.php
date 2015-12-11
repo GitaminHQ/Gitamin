@@ -13,7 +13,6 @@ namespace Gitamin\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Project\AddProjectCommand;
-use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Group;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;

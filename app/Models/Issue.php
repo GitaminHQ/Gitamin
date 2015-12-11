@@ -117,6 +117,16 @@ class Issue extends Model implements HasPresenter
     }
 
     /**
+     * Returns all comments of the issue.
+     *
+     * @return \Gitamin\Models\Comment[]
+     */
+    public function comments()
+    {
+        return Comment::where('target_type', '=', 'Issue')->where('target_id', '=', $this->id)->orderBy('id', 'asc')->get();
+    }
+
+    /**
      * Returns a human readable version of the status.
      *
      * @return string

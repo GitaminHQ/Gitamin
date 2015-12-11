@@ -35,11 +35,23 @@ class IssuesController extends Controller
     public function __construct()
     {
         $this->subMenu = [
-            'issues' => [
+            'open' => [
+                'title'  => trans('dashboard.issues.open'),
+                'url'    => route('dashboard.issues.index'),
+                'icon'   => 'fa fa-eye',
+                'active' => true,
+            ],
+            'closed' => [
+                'title'  => trans('dashboard.issues.closed'),
+                'url'    => route('dashboard.issues.index'),
+                'icon'   => 'fa fa-close',
+                'active' => false,
+            ],
+            'all' => [
                 'title'  => trans('dashboard.issues.all'),
                 'url'    => route('dashboard.issues.index'),
                 'icon'   => 'fa fa-exclamation-circle',
-                'active' => true,
+                'active' => false,
             ],
         ];
 
