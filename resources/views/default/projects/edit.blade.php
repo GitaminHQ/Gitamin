@@ -11,6 +11,7 @@
         &gt; <small>{{ trans('dashboard.projects.edit.title') }}</small>
     </div>
     <div class="content-wrapper">
+        @include('projects.partials.sub-navbar')
         <div class="row">
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')

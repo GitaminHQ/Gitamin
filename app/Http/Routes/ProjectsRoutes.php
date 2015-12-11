@@ -97,6 +97,30 @@ class ProjectsRoutes
                 'uses' => 'Projects\\IssuesController@updateAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
+            //Pull Requests
+            $router->get('{owner_path}/{project_path}/pulls', [
+                'as'   => 'pull_index',
+                'uses' => 'Projects\\PullRequestsController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Wiki
+            $router->get('{owner_path}/{project_path}/wiki', [
+                'as'   => 'wiki_index',
+                'uses' => 'Projects\\WikiController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Pulse
+            $router->get('{owner_path}/{project_path}/pulse', [
+                'as'   => 'pulse_index',
+                'uses' => 'Projects\\PulseController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Graphs
+            $router->get('{owner_path}/{project_path}/graphs', [
+                'as'   => 'graph_index',
+                'uses' => 'Projects\\GraphsController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
             //Comments
             //create
             $router->post('{owner_path}/{project_path}/comments', [
