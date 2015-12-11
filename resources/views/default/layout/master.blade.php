@@ -30,7 +30,7 @@
     <title>{{ $app_name.' | Gitamin' . $page_title }} {{ $page_title }}</title>
 
     <link href="{{ $google_fonts_url }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ elixir('dist/css/all.css') }}">
+    <link rel="stylesheet" href="{{ elixir('dist/css/gitamin.css') }}">
 
     @include('partials.stylesheet')
 
@@ -46,7 +46,7 @@
         var Global = {};
         Global.locale = '{{ $app_locale }}';
     </script>
-    <script src="{{ elixir('dist/js/all.js') }}"></script>
+    <script src="{{ elixir('dist/js/gitamin.js') }}"></script>
 </head>
 <body class="@yield('bodyClass')">
 

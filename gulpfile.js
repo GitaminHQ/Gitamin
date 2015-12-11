@@ -11,7 +11,7 @@ elixir(function (mix) {
             'vendor/bower_components/sweetalert/dist/sweetalert.css',
             'vendor/bower_components/select2/dist/css/select2.css',
             'public/dist/css/app.css'
-        ], 'public/dist/css/all.css', './')
+        ], 'public/dist/css/gitamin.css', './')
         .scripts([
             'vendor/bower_components/jquery/dist/jquery.js',
             'vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
@@ -30,7 +30,7 @@ elixir(function (mix) {
             'vendor/bower_components/sweetalert/dist/sweetalert.min.js',
             'resources/assets/js/app.js',
             'resources/assets/js/**/*.js'
-        ], 'public/dist/js/all.js', './')
-        .version(['public/dist/css/all.css', 'public/dist/js/all.js'])
+        ], 'public/dist/js/gitamin.js', './')
+        .version(['public/dist/css/gitamin.css', 'public/dist/js/gitamin.js'])
         .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/');
 });
