@@ -18,7 +18,7 @@
                     <div class="content_list">
                     @forelse($moments as $moment)
                         @if($moment->target)
-                        @include('moments.partials.common')
+                        @include('moments.partials.'.strtolower($moment->target_type))
                     @endif
                     @empty
                     <div class="list-group-item text-danger">{{ trans('dashboard.moments.add.message') }}</div>
