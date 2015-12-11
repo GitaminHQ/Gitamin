@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="sidebar-inner">
         <ul>
-            <li {!! set_active('dashboard') !!}>
+            <li {!! set_active('dashboard') !!}{!! set_active('/') !!}>
                 <a href="{{ route('dashboard.index') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>{{ trans('dashboard.dashboard') }}</span>
@@ -33,7 +33,7 @@
                     <span>{{ trans('dashboard.milestones.milestones') }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/issues*') !!}>
+            <li {!! set_active('*issues*') !!}>
                 <a href="{{ route('dashboard.issues.index') }}">
                     <i class="fa fa-exclamation-circle"></i>
                     <span>{{ trans('dashboard.issues.issues') }}</span>

@@ -21,7 +21,7 @@
                         @foreach($issues as $issue)
                         <div class="row striped-list-item">
                             <div class="col-xs-6">
-                                <i class="{{ $issue->icon }}"></i> <strong>{{ $issue->title }}</strong>
+                                <i class="{{ $issue->icon }}"></i> <a href="{{ $issue->url }}"><strong>{{ $issue->title }}</strong></a>
                                 @if($issue->description)
                                 <p><small>{{ Str::words($issue->description, 5) }}</small></p>
                                 @endif

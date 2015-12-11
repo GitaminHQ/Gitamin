@@ -71,35 +71,37 @@ class ProjectsRoutes
                 'as'   => 'issue_index',
                 'uses' => 'Projects\\IssuesController@indexAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
             //new
             $router->get('{owner_path}/{project_path}/issues/new', [
                 'as'   => 'issue_new',
                 'uses' => 'Projects\\IssuesController@newAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
             //create
             $router->post('{owner_path}/{project_path}/issues', [
                 'as'   => 'issue_create',
                 'uses' => 'Projects\\IssuesController@createAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
             //show
             $router->get('{owner_path}/{project_path}/issues/{issue}', [
                 'as'   => 'issue_show',
                 'uses' => 'Projects\\IssuesController@showAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
              //edit
             $router->get('{owner_path}/{project_path}/issues/{issue}/edit', [
                 'as'   => 'issue_edit',
                 'uses' => 'Projects\\IssuesController@editAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
             //update
             $router->post('{owner_path}/{project_path}/issues/{issue}', [
                 'as'   => 'issue_update',
                 'uses' => 'Projects\\IssuesController@updateAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Comments
+            //create
+            $router->post('{owner_path}/{project_path}/comments', [
+                'as'   => 'comment_create',
+                'uses' => 'Projects\\CommentsController@createAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
         });
     }
