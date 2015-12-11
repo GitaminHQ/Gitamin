@@ -74,7 +74,7 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function indexAction()
     {
         $projects = Project::orderBy('created_at')->get();
         $this->subMenu['yours']['active'] = true;
@@ -85,7 +85,12 @@ class ProjectController extends Controller
             ->withSubMenu($this->subMenu);
     }
 
-    public function starred()
+    /**
+     * Shows the starred projects view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function starredAction()
     {
         $this->subMenu['starred']['active'] = true;
         $projects = Project::orderBy('created_at')->get();
@@ -96,142 +101,5 @@ class ProjectController extends Controller
             ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
             ->withProjects($projects)
             ->withSubMenu($this->subMenu);
-    }
-
-    /**
-     * Shows the project view.
-     *
-     * @param \Gitamin\Models\Project $project
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showProject(Project $project)
-    {
-        $teams = Owner::all();
-
-        $pageTitle = sprintf('"%s" - %s - %s', $project->name, trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
-
-        return View::make('dashboard.projects.show')
-            ->withPageTitle($pageTitle)
-            ->withProject($project)
-            ->withTeams($teams);
-    }
-
-    /**
-     * Shows the edit project view.
-     *
-     * @param \Gitamin\Models\Project $project
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showEditProject(Project $project)
-    {
-        $teams = Owner::all();
-
-        $pageTitle = sprintf('"%s" - %s - %s', $project->name, trans('dashboard.projects.edit.title'), trans('dashboard.dashboard'));
-
-        return View::make('dashboard.projects.edit')
-            ->withPageTitle($pageTitle)
-            ->withProject($project)
-            ->withTeams($teams);
-    }
-
-    /**
-     * Updates a project.
-     *
-     * @param \Gitamin\Models\Project $projects
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function updateProjectAction(Project $project)
-    {
-        $projectData = Binput::get('project');
-        $tags = array_pull($projectData, 'tags');
-
-        try {
-            $projectData['project'] = $project;
-            $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.projects.edit', ['id' => $project->id])
-                ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.edit.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        // The project was added successfully, so now let's deal with the tags.
-        $tags = preg_split('/ ?, ?/', $tags);
-
-        // For every tag, do we need to create it?
-        $projectTags = array_map(function ($taggable) use ($project) {
-            return Tag::firstOrCreate(['name' => $taggable])->id;
-        }, $tags);
-
-        $project->tags()->sync($projectTags);
-
-        return Redirect::route('dashboard.projects.edit', ['id' => $project->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.edit.success')));
-    }
-
-    /**
-     * Shows the add project view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAddProject()
-    {
-        $teamId = (int) Binput::get('team_id');
-
-        return View::make('dashboard.projects.add')
-            ->withPageTitle(trans('dashboard.projects.add.title').' - '.trans('dashboard.dashboard'))
-            ->withTeamId($teamId)
-            ->withTeams(Owner::all());
-    }
-
-    /**
-     * Creates a new project.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function createProjectAction()
-    {
-        $projectData = Binput::get('project');
-        $tags = array_pull($projectData, 'tags');
-
-        try {
-            $project = $this->dispatchFromArray(AddProjectCommand::class, $projectData);
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.projects.add')
-                ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.add.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        // The project was added successfully, so now let's deal with the tags.
-        $tags = preg_split('/ ?, ?/', $tags);
-
-        // For every tag, do we need to create it?
-        $projectTags = array_map(function ($taggable) use ($project) {
-            return Tag::firstOrCreate(['name' => $taggable])->id;
-        }, $tags);
-
-        $project->tags()->sync($projectTags);
-
-        return Redirect::route('dashboard.projects.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.add.success')));
-    }
-
-    /**
-     * Deletes a given project.
-     *
-     * @param \Gitamin\Models\Project $project
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function deleteProjectAction(Project $project)
-    {
-        $this->dispatch(new RemoveProjectCommand($project));
-
-        return Redirect::route('dashboard.projects.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.delete.success')));
     }
 }

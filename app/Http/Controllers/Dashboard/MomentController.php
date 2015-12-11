@@ -58,7 +58,7 @@ class MomentController extends Controller
         ]);
     }
 
-    public function index()
+    public function indexAction()
     {
         $moments = Moment::recent()->get();
         $this->subMenu['moments']['active'] = true;

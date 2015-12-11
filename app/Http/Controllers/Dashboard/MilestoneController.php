@@ -16,17 +16,7 @@ use Illuminate\Support\Facades\View;
 
 class MilestoneController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    public function showMilestones()
+    public function indexAction()
     {
         $milestones = [];
 

@@ -52,27 +52,12 @@ class DashboardRoutes
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'ProjectController@index',
+                    'uses' => 'ProjectController@indexAction',
                 ]);
                 $router->get('starred', [
                     'as'   => 'starred',
-                    'uses' => 'ProjectController@starred',
+                    'uses' => 'ProjectController@starredAction',
                 ]);
-                $router->get('add', [
-                    'as'   => 'add',
-                    'uses' => 'ProjectController@showAddProject',
-                ]);
-                $router->post('add', 'ProjectController@createProjectAction');
-                $router->get('{project}', [
-                    'as'   => 'show',
-                    'uses' => 'ProjectController@showProject',
-                ]);
-                $router->get('{project}/edit', [
-                    'as'   => 'edit',
-                    'uses' => 'ProjectController@showEditProject',
-                ]);
-                $router->delete('{project}/delete', 'ProjectController@deleteProjectAction');
-                $router->post('{project}/edit', 'ProjectController@updateProjectAction');
             });
 
             //Groups
@@ -94,7 +79,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MomentController@index',
+                    'uses' => 'MomentController@indexAction',
                 ]);
             });
 
@@ -105,7 +90,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MilestoneController@showMilestones',
+                    'uses' => 'MilestoneController@indexAction',
                 ]);
             });
 
@@ -116,7 +101,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'MergeRequestController@showMergeRequests',
+                    'uses' => 'MergeRequestController@indexAction',
                 ]);
             });
 
@@ -127,7 +112,7 @@ class DashboardRoutes
                 ], function ($router) {
                    $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'SnippetController@showSnippets',
+                    'uses' => 'SnippetController@indexAction',
                 ]);
             });
 
@@ -138,22 +123,8 @@ class DashboardRoutes
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'IssueController@showIssues',
+                    'uses' => 'IssueController@indexAction',
                 ]);
-                $router->get('add', [
-                    'as'   => 'add',
-                    'uses' => 'IssueController@showAddIssue',
-                ]);
-                $router->post('add', 'IssueController@createIssueAction');
-                $router->delete('{issue}/delete', [
-                    'as'   => 'delete',
-                    'uses' => 'IssueController@deleteIssueAction',
-                ]);
-                $router->get('{issue}/edit', [
-                    'as'   => 'edit',
-                    'uses' => 'IssueController@showEditIssueAction',
-                ]);
-                $router->post('{issue}/edit', 'IssueController@editIssueAction');
             });
 
             // Subscribers
@@ -163,7 +134,7 @@ class DashboardRoutes
             ], function ($router) {
                 $router->get('/', [
                     'as'   => 'index',
-                    'uses' => 'SubscriberController@showSubscribers',
+                    'uses' => 'SubscriberController@indexAction',
                 ]);
                 $router->get('add', [
                     'as'   => 'add',

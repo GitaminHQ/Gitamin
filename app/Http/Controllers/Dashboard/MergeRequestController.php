@@ -21,7 +21,7 @@ class MergeRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showMergeRequests()
+    public function indexAction()
     {
         $mergeRequests = [];
 

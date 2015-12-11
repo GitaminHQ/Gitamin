@@ -10,9 +10,6 @@
                 <span class="uppercase">
                     <i class="fa fa-exclamation-circle"></i> {{ trans('dashboard.issues.issues') }}
                 </span>
-                <a class="btn btn-sm btn-success pull-right" href="{{ route('dashboard.issues.add') }}">
-                    {{ trans('dashboard.issues.add.title') }}
-                </a>
                 <div class="clearfix"></div>
             </div>
             <div class="row">

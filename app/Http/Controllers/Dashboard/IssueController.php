@@ -57,142 +57,16 @@ class IssueController extends Controller
     }
 
     /**
-     * Shows the index view.
-     * 
-     * @return \Illuminate\View\View
-     */
-    public function showIndex()
-    {
-        return View::make('dashboard.projects.issues.index');
-    }
-
-    /**
      * Shows the issues view.
      *
      * @return \Illuminate\View\View
      */
-    public function showIssues()
+    public function indexAction()
     {
         $issues = Issue::orderBy('created_at', 'desc')->get();
 
         return View::make('dashboard.issues.index')
             ->withPageTitle(trans('dashboard.issues.issues').' - '.trans('dashboard.dashboard'))
             ->withIssues($issues);
-    }
-
-    /**
-     * Shows the add issue view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAddIssue()
-    {
-        return View::make('dashboard.issues.add')
-            ->withPageTitle(trans('dashboard.issues.add.title').' - '.trans('dashboard.dashboard'))
-            ->withProjectsInTeams(Group::with('projects')->get())
-            ->withProjectsOutTeams(Project::where('owner_id', 0)->get());
-    }
-
-    /**
-     * Creates a new issue.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function createIssueAction()
-    {
-        try {
-            $issue = $this->dispatch(new AddIssueCommand(
-                Binput::get('name'),
-                Binput::get('status'),
-                Binput::get('descritpion'),
-                Binput::get('visible', true),
-                1,
-                Binput::get('project_id'),
-                Binput::get('notify', true),
-                Binput::get('created_at'),
-                null,
-                null
-            ));
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.issues.add')
-                ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.add.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        return Redirect::route('dashboard.issues.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.add.success')));
-    }
-
-    /**
-     * Deletes a given issue.
-     *
-     * @param \Gitamin\Models\Issue $issue
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function deleteIssueAction(Issue $issue)
-    {
-        $this->dispatch(new RemoveIssueCommand($issue));
-
-        return Redirect::route('dashboard.issues.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.delete.success')));
-    }
-
-    /**
-     * Shows the edit issue view.
-     *
-     * @param \Gitamin\Models\Issue $issue
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showEditIssueAction(Issue $issue)
-    {
-        return View::make('dashboard.issues.edit')
-            ->withPageTitle(trans('dashboard.issues.edit.title').' - '.trans('dashboard.dashboard'))
-            ->withIssue($issue)
-            ->withProjectsInTeams(Group::with('projects')->get())
-            ->withProjectsOutTeams(Project::where('namespace_id', 0)->get());
-    }
-
-    /**
-     * Edit an issue.
-     *
-     * @param \Gitamin\Models\Issue $issue
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function editIssueAction(Issue $issue)
-    {
-        try {
-            $issue = $this->dispatch(new UpdateIssueCommand(
-                $issue,
-                Binput::get('name'),
-                Binput::get('status'),
-                Binput::get('message'),
-                Binput::get('visible', true),
-                Auth::user()->id,
-                Binput::get('project_id'),
-                Binput::get('notify', true),
-                Binput::get('created_at'),
-                null,
-                null
-            ));
-        } catch (ValidationException $e) {
-            return Redirect::route('dashboard.issues.edit', ['id' => $issue->id])
-                ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.edit.failure')))
-                ->withErrors($e->getMessageBag());
-        }
-
-        //Do nothing
-        /*
-        if ($issue->project) {
-            $issue->project->update(['status' => Binput::get('project_status')]);
-        }
-        */
-
-        return Redirect::route('dashboard.issues.edit', ['id' => $issue->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.edit.success')));
     }
 }

@@ -30,7 +30,7 @@ class SubscriberController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showSubscribers()
+    public function indexAction()
     {
         return View::make('dashboard.subscribers.index')
             ->withPageTitle(trans('dashboard.subscribers.subscribers').' - '.trans('dashboard.dashboard'))
