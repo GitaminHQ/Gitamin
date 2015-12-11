@@ -1,54 +1,40 @@
 body.login {
-    background: linear-gradient(rgba($gitamin-icons, 0.2), rgba($gitamin-icons, 0.3)), $green-normal;
+    background: $gray-normal;
+    .login-panel {
+        width: 600px;
+        margin: 0 auto;
+        .form-bg {    
+            padding: 50px 60px;
+            background-color: #fff;
+            box-shadow: 0 3px 8px 1px #c2c2c2;
+            border-radius: 6px;
+        }
 
-    .form-bg {
-        padding:20px;
-        border-radius:10px;
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 320px;
-        height: 280px;
-    }
+        .logo {
+            margin: 40px 0;
+        }
 
-    .logo {
-        margin-bottom: 10px;
-    }
+        .login-title {
+            margin: 0;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1;
+            font-size: 24px;
+        }
 
-    p {
-        color: white;
-        text-align: center;
-        font-weight: 600;
-        font-size: 18px;
-    }
+        p {
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
 
-    .login-input {
-        height: 45px;
-    }
+        .login-input {
+            height: 45px;
+        }
 
-    i {
-        font-size: 22px;
-    }
-
-    .btn {
-        &.btn-white {
-            background-color: white;
-            transition: background-color 0.5s ease;
-
-            &.btn-trans {
-                background-color: transparent;
-                border: 1px solid white;
-                border-radius: 4px;
-                color: white;
-
-                &:hover {
-                    background-color: white;
-                    color: $green-normal;
-                }
-            }
+        i {
+            font-size: 22px;
         }
     }
 }
