@@ -10,56 +10,49 @@
                 <span class="uppercase">
                     <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
                 </span>
-                <a class="btn btn-success pull-right" href="{{ route('projects.new') }}">
-                    <i class="fa fa-plus"></i>
-                    {{ trans('gitamin.projects.new.title') }}
-                </a>
                 <div class="clearfix"></div>
             </div>
             @include('dashboard.partials.errors')
             <div class="row">
-                <div class="col-sm-12 striped-list" id="project-list">
-                    @forelse($projects as $project)
-                    <div class="row striped-list-item {{ !$project->wall_enabled ? 'bg-warning' : null }}" data-project-id="{{ $project->id }}">
-                        <div class="col-xs-6">
-                            @if($projects->count() > 1)
-                            <span class="drag-handle"><i class="fa fa-reorder"></i></span>
-                            @endif
-                            <a href="{{ route('projects.project_show',['owner'=>$project->owner->path,'project'=>$project->path]) }}">{{ $project->owner->name}} / {{ $project->name }}</a> <small>{{ $project->humanStatus }}</small>
-                           
-                            <!--
-                            @if($project->team)
-                            <p><small><a href="/{{ $project->team->slug }}">{{ trans('dashboard.projects.listed_team', ['name' => $project->team->name]) }} </a></small></p>
-                            @endif
-                            -->
-                            @if($project->description)
-                            <p>{{ $project->description }}</p>
-                            @endif
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <i class="fa fa-star"></i> 0
+                <div class="col-sm-12 projects-list-holder" id="project-list">
+                    <div class="projects-search-form">
+                        <div class="input-group">
+                        <input class="projects-list-filter form-control" id="filter_projects" name="filter_projects" placeholder="Filter by name" spellcheck="false" type="search">
+                        <span class="input-group-btn">
+                        <a class="btn btn-green" href="{{ route('projects.new') }}"><i class="fa fa-plus"></i>
+                        {{ trans('gitamin.projects.new.title') }}
+                        </a></span>
                         </div>
                     </div>
-                    @empty
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <i class="fa fa-bookmark-o"></i> {{ trans('dashboard.projects.new.message') }}
+                    <ul class="projects-list">
+                        @forelse($projects as $project)
+                        <li class="project-row">
+                            <a class="project" href="{{ $project->url }}">
+                            <div class="dash-project-avatar">
+                            <div class="avatar project-avatar s46 identicon" style="background-color: #E0F2F1; color: #555">{{ $project->id }}</div>
                             </div>
-                        <div class="col-xs-4">
-                            <a class="btn btn-success" href="{{ route('projects.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.projects.new.title') }}</a>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <i class="fa fa-users"></i> {{ trans('dashboard.groups.new.message') }}
-                        </div>
-                        <div class="col-xs-4">
-                            <a class="btn btn-success" href="{{ route('groups.new') }}"><i class="fa fa-plus"></i> {{ trans('dashboard.groups.new.title') }}</a>
-                        </div>
-                    </div>
-                    <hr>
-                    @endforelse
+                            <span class="project-full-name">
+                            <span class="namespace-name">
+                            {{ $project->owner->name }}
+                            /
+                            </span>
+                            <span class="project-name filter-title">
+                            {{ $project->name }}
+                            </span>
+                            </span>
+                            </a><div class="project-controls">
+                            <span>
+                            <i class="fa fa-star"></i>
+                            0
+                            </span>
+                            </div>
+                            <div class="project-description">
+                            <p>{{ $project->description }}</p>
+                            </div>
+                        </li>
+                        @empty
+                        @endforelse
+                    </ul>
                 </div>
             </div>
         </div>
