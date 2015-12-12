@@ -48,18 +48,6 @@
                                     </div>
                                     </div>
                                     <div class='form-group'>
-                                    <label class="control-label" for="user_skype">Skype</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_skype" name="user[skype]" type="text" value="" /></div>
-                                    </div>
-                                    <div class='form-group'>
-                                    <label class="control-label" for="user_linkedin">Linkedin</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_linkedin" name="user[linkedin]" type="text" value="" /></div>
-                                    </div>
-                                    <div class='form-group'>
-                                    <label class="control-label" for="user_twitter">Twitter</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_twitter" name="user[twitter]" type="text" value="" /></div>
-                                    </div>
-                                    <div class='form-group'>
                                     <label class="control-label" for="user_website_url">Website</label>
                                     <div class='col-sm-10'><input class="form-control" id="user_website_url" name="user[website_url]" type="text" value="" /></div>
                                     </div>

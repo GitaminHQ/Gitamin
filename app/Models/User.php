@@ -9,6 +9,22 @@
  * file that was distributed with this source code.
  */
 
+# == Schema Information
+#
+# Table name: users
+#
+#  id             :integer          not null, primary key
+#  username       :string(255)
+#  password       :string(255)
+#  remember_token :string(100)
+#  email          :integer
+#  api_key        :string(255)
+#  active         :boolean          default(FALSE)
+#  level          :integer          default(2)
+#  created_at     :timestamp
+#  updated_at     :timestamp
+#
+
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;

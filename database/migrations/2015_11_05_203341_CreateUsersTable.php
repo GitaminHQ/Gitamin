@@ -26,8 +26,10 @@ class CreateUsersTable extends Migration
             $t->increments('id');
             $t->string('username');
             $t->string('password');
+            $t->string('name')->nullable();
             $t->rememberToken();
             $t->string('email');
+            $t->string('avatar')->nullable();
             $t->string('api_key');
             $t->boolean('active')->default(1);
             $t->tinyInteger('level')->default(2);
