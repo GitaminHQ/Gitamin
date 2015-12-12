@@ -20,13 +20,13 @@
                         This information will appear on your profile.
                         </div>
                         <div class="prepend-top-default"></div>
-                        <form class="edit_user form-horizontal">
+                        <form class="edit_user form-horizontal" method="POST">
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label class="control-label" for="user_name">Name</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" id="user_name" name="user[name]" required="required" type="text" value="Administrator">
+                                            <input class="form-control" id="user_name" name="user[name]" required="required" type="text" value="{{ Input::old('user.name', $current_user->username) }}">
                                             <span class="help-block">Enter your name, so people you know can recognize you.</span>
                                         </div>
                                     </div>
@@ -34,7 +34,7 @@
                                     <div class="form-group">
                                         <label class="control-label" for="user_email">Email</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" id="user_email" name="user[email]" required="required" type="text" value="admin@example.com">
+                                            <input class="form-control" id="user_email" name="user[email]" required="required" type="text" value="{{ Input::old('user.email', $current_user->email) }}">
                                             <span class="help-block">We also use email for avatar detection if no avatar is uploaded.</span>
                                         </div>
                                     </div>
@@ -46,18 +46,6 @@
                                     <option value="admin@example.com">admin@example.com</option></select>
                                     <span class='help-block'>This email will be displayed on your public profile.</span>
                                     </div>
-                                    </div>
-                                    <div class='form-group'>
-                                    <label class="control-label" for="user_skype">Skype</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_skype" name="user[skype]" type="text" value="" /></div>
-                                    </div>
-                                    <div class='form-group'>
-                                    <label class="control-label" for="user_linkedin">Linkedin</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_linkedin" name="user[linkedin]" type="text" value="" /></div>
-                                    </div>
-                                    <div class='form-group'>
-                                    <label class="control-label" for="user_twitter">Twitter</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_twitter" name="user[twitter]" type="text" value="" /></div>
                                     </div>
                                     <div class='form-group'>
                                     <label class="control-label" for="user_website_url">Website</label>

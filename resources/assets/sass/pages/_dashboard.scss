@@ -1,10 +1,53 @@
-.componet-inline-update {
-    @extend .text-right;
-    padding-top: 8px;
-    label {
-        display: initial;
-        font-weight: normal;
+.dashboard {
+  .side {
+    .panel {
+      .panel-heading {
+        background: $background-color;
+        border-top-left-radius: 0;
+      }
+      border-top-left-radius: 0;
     }
+  }
 }
 
-@import "modules/stats";
+.dashboard-search-filter {
+  padding:5px;
+
+  .search-text-input {
+    float:left;
+    @extend .col-md-2;
+  }
+  .btn {
+    margin-left: 5px;
+    float:left;
+  }
+}
+
+.project-access-icon {
+  margin-left: 10px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+
+  i {
+    color: #888;
+  }
+}
+
+.dash-project-avatar {
+  float: left;
+
+  .avatar {
+    @include border-radius(50%);
+  }
+
+  .identicon {
+    line-height: 46px;
+  }
+}
+
+.dash-project-access-icon {
+  float: left;
+  margin-right: 5px;
+  width: 16px;
+}

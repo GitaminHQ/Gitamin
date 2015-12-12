@@ -14,11 +14,10 @@ $fa-font-size-base:   12px !default;
 @import "modules/well";
 @import "modules/alerts";
 @import "modules/panels";
-
-
 @import "modules/blocks";
 @import "modules/buttons";
 @import "modules/selects";
+@import "modules/avatar";
 
 // Styles for partials
 @import "partials/base";
@@ -34,6 +33,7 @@ $fa-font-size-base:   12px !default;
 @import "pages/dashboard";
 @import "pages/codemirror";
 @import "pages/moments";
+@import "pages/projects";
 // Error pages can have their own overrides.
 @import "pages/errors";
 

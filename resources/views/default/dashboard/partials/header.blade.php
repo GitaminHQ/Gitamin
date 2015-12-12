@@ -10,7 +10,7 @@
                         <a href="{{ route('projects.new') }}"><i class="fa fa-plus"></i></a>
                     </li>
                      @if($current_user->isAdmin)
-                    <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('gitamin.admin.title') }}">
+                    <li data-toggle="tooltip" data-placement="bottom" title="{{ trans('admin.title') }}">
                         <a href="{{ route('admin.index') }}"><i class="fa fa-wrench"></i></a>
                     </li>
                     @endif
@@ -25,7 +25,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="profile-dropdown">
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ url('dashboard/user') }}"><i class="fa fa-user"></i> {{ trans('dashboard.profile') }}</a>
+                            <a role="menuitem" tabindex="-1" href="{{ route('profile.index') }}"><i class="fa fa-user"></i> {{ trans('dashboard.profile') }}</a>
                         </li>
                         <li role="presentation">
                             <a role="menuitem" tabindex="-1" href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i> {{ trans('dashboard.logout') }}</a>

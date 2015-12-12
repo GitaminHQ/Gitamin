@@ -19,24 +19,11 @@
                 <div class="list-group">
                     @forelse($projects as $project)
                     <div class="list-group-item">
-                        <form class='project-inline form-vertical' data-messenger="{{trans('dashboard.projects.edit.success')}}">
-                            <div class="row striped-list-item">
-                                <div class="col-lg-4 col-md-3 col-sm-12">
-                                    <h4>{{ $project->name }}</h4>
-                                </div>
-                                <div class="col-lg-8 col-md-9 col-sm-12 radio-items componet-inline-update">
-                                    @foreach(trans('gitamin.projects.status') as $statusID => $status)
-                                    <div class="radio-inline">
-                                        <label>
-                                            <input type="radio" name="status" value="{{ $statusID }}" {{ (int) $project->status === $statusID ? 'checked' : null }}>
-                                            {{ $status }}
-                                        </label>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <input type="hidden" name="project_id" value="{{ $project->id }}">
-                        </form>
+                        <div class="row striped-list-item">
+                            <div class="col-lg-4 col-md-3 col-sm-12">
+                                <h4><a href="{{ $project->url }}">{{$project->owner->name}}/{{ $project->name }}</a></h4>
+                            </div> 
+                        </div>
                     </div>
                     @empty
                     <div class="list-group-item"><a href="{{ route('projects.new') }}">{{ trans('dashboard.projects.new.message') }}</a></div>
