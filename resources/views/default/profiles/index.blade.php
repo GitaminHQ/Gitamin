@@ -30,15 +30,6 @@
                                             <span class="help-block">Enter your name, so people you know can recognize you.</span>
                                         </div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for="user_email">Email</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" id="user_email" name="user[email]" required="required" type="text" value="{{ Input::old('user.email', $current_user->email) }}">
-                                            <span class="help-block">We also use email for avatar detection if no avatar is uploaded.</span>
-                                        </div>
-                                    </div>
-
                                     <div class='form-group'>
                                     <label class="control-label" for="user_public_email">Public email</label>
                                     <div class='col-sm-10'>
@@ -55,15 +46,6 @@
                                     <label class="control-label" for="user_location">Location</label>
                                     <div class='col-sm-10'><input class="form-control" id="user_location" name="user[location]" type="text" /></div>
                                     </div>
-                                    <div class='form-group'>
-                                    <label class="control-label" for="user_bio">Bio</label>
-                                    <div class='col-sm-10'>
-                                    <textarea class="form-control" id="user_bio" maxlength="250" name="user[bio]" rows="4">
-                                    </textarea>
-                                    <span class='help-block'>Tell us about yourself in fewer than 250 characters.</span>
-                                    </div>
-                                    </div>
-
                                 </div>
                                 <div class="col-md-5">
                                     <div class="light-well">

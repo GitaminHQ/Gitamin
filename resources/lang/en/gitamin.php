@@ -92,9 +92,9 @@ return [
     ],
 
     'profiles' => [
-        'profiles'      => 'Profile Settings',
-        'account'       => 'Account',
-        'applications'  => 'applications',
+        'profiles'      => 'Profile',
+        'account'       => 'Account settings',
+        'applications'  => 'Applications',
         'emails'        => 'Emails',
         'password'      => 'Password',
         'notifications' => 'Notifications',
