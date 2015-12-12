@@ -177,12 +177,6 @@ return [
         'taken'    => 'Username or email has already been taken.',
     ],
 
-    // Admin Area
-    'admin' => [
-        'admin' => 'Admin',
-        'title' => 'Admin Control Panel',
-    ],
-
     // Other
     'powered_by'      => ':app is powered by <a href="https://gitamin.com" class="links">Gitamin</a>.',
     'about_this_site' => 'About This Site',

@@ -8,12 +8,12 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <li class="fa fa-calendar"></li> {{ trans('dashboard.settings.timezone.timezone') }}
+                    <li class="fa fa-calendar"></li> {{ trans('admin.settings.timezone.timezone') }}
                 </span>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form id="settings-form" name="SettingsForm" class="form-horizontal" role="form" action="/dashboard/settings" method="POST" enctype="multipart/form-data">
+                    <form id="settings-form" name="SettingsForm" class="form-horizontal" role="form" action="/admin/settings" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @include('dashboard.partials.errors')
                         <fieldset>

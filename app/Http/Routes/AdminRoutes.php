@@ -25,16 +25,45 @@ class AdminRoutes
      */
     public function map(Registrar $router)
     {
+        //Dashboard area
         $router->group([
-            'middleware' => ['app.hasSetting'],
-            'setting'    => 'app_name',
+            'middleware' => ['auth', 'admin'],
+            'prefix'     => 'admin',
+            'namespace'  => 'Admin',
             'as'         => 'admin.',
         ], function ($router) {
-            $router->get('admin', [
+            $router->get('/', [
                 'as'   => 'index',
-                'uses' => 'Admin\\DashboardController@index',
+                'uses' => 'DashboardController@indexAction',
             ]);
 
+             // Settings
+            $router->group([
+                'as'     => 'settings.',
+                'prefix' => 'settings',
+            ], function ($router) {
+                $router->get('general', [
+                    'as'   => 'general',
+                    'uses' => 'SettingsController@showGeneralView',
+                ]);
+                $router->get('localization', [
+                    'as'   => 'localization',
+                    'uses' => 'SettingsController@showLocalizationView',
+                ]);
+                $router->get('timezone', [
+                    'as'   => 'timezone',
+                    'uses' => 'SettingsController@showTimezoneView',
+                ]);
+                $router->get('theme', [
+                    'as'   => 'theme',
+                    'uses' => 'SettingsController@showThemeView',
+                ]);
+                $router->get('stylesheet', [
+                    'as'   => 'stylesheet',
+                    'uses' => 'SettingsController@showStylesheetView',
+                ]);
+                $router->post('/', 'SettingsController@postSettings');
+            });
         });
     }
 }

@@ -11,6 +11,7 @@
 
 namespace Gitamin\Providers;
 
+use Gitamin\Composers\AdminComposer;
 use Gitamin\Composers\AppComposer;
 use Gitamin\Composers\CurrentUserComposer;
 use Gitamin\Composers\DashboardComposer;
@@ -32,9 +33,10 @@ class ComposerServiceProvider extends ServiceProvider
         $factory->composer('*', AppComposer::class);
         $factory->composer('*', CurrentUserComposer::class);
         $factory->composer(['index', 'issue', 'subscribe', 'signup'], ExploreComposer::class);
-        $factory->composer(['index', 'issue', 'subscribe', 'signup', 'dashboard.settings.theme'], ThemeComposer::class);
+        $factory->composer(['index', 'issue', 'subscribe', 'signup', 'admin.settings.theme'], ThemeComposer::class);
         $factory->composer('dashboard.*', DashboardComposer::class);
-        $factory->composer(['install', 'dashboard.settings.localization', 'dashboard.settings.timezone'], TimezoneLocaleComposer::class);
+        $factory->composer('admin.*', AdminComposer::class);
+        $factory->composer(['install', 'admin.settings.localization', 'admin.settings.timezone'], TimezoneLocaleComposer::class);
     }
 
     /**
