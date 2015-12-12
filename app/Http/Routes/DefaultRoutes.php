@@ -29,10 +29,9 @@ class DefaultRoutes
         $router->group([
             'middleware' => ['app.hasSetting', 'auth'],
             'setting'    => 'app_name',
-            'as'         => 'dashboard.',
         ], function ($router) {
             $router->get('/', [
-                'as'   => 'index',
+                'as'   => 'home',
                 'uses' => 'DashboardController@indexAction',
             ]);
         });
