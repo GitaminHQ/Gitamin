@@ -42,12 +42,6 @@ class ProfilesController extends Controller
                 'icon'   => 'fa fa-gear',
                 'active' => false,
             ],
-            'applications' => [
-                'title'  => trans('gitamin.profiles.applications'),
-                'url'    => route('profile.index'),
-                'icon'   => 'fa fa-cloud',
-                'active' => false,
-            ],
             'emails' => [
                 'title'  => trans('gitamin.profiles.emails'),
                 'url'    => route('profile.index'),
@@ -70,6 +64,12 @@ class ProfilesController extends Controller
                 'title'  => trans('gitamin.profiles.ssh_keys'),
                 'url'    => route('profile.index'),
                 'icon'   => 'fa fa-key',
+                'active' => false,
+            ],
+            'applications' => [
+                'title'  => trans('gitamin.profiles.applications'),
+                'url'    => route('profile.index'),
+                'icon'   => 'fa fa-cloud',
                 'active' => false,
             ],
             'preferences' => [
