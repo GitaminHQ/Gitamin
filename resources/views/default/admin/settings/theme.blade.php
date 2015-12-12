@@ -1,4 +1,4 @@
-@extends('layout.dashboard')
+@extends('layout.admin')
 
 @section('content')
     <div class="content-panel">
