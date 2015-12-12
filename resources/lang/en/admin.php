@@ -12,6 +12,7 @@
 return [
 
     'admin'    => 'Admin',
+    'title'    => 'Admin Control Panel',
     'overview' => 'Overview',
 
 // Settings

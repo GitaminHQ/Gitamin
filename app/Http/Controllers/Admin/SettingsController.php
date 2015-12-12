@@ -37,12 +37,6 @@ class SettingsController extends Controller
     public function __construct()
     {
         $this->subMenu = [
-            'overview' => [
-                'title'  => 'Overview',
-                'url'    => route('admin.index'),
-                'icon'   => 'fa fa-wrench',
-                'active' => false,
-            ],
             'general' => [
                 'title'  => trans('admin.settings.general.general'),
                 'url'    => route('admin.settings.general'),
