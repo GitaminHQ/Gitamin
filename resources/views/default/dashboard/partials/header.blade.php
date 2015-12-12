@@ -1,5 +1,5 @@
 <div class="nav-header">
-    <div class="nav-logo"><a href="{{ route('dashboard.index') }}"><img src="/img/dashboard-logo.png"></a></div>
+    <div class="nav-logo"><a href="{{ route('home') }}"><img src="/img/dashboard-logo.png"></a></div>
 		<div class="nav-greeting">
             <div class="nav-menu">
                 <ul>

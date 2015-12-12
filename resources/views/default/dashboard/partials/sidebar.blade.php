@@ -2,7 +2,7 @@
     <div class="sidebar-inner">
         <ul>
             <li {!! set_active('dashboard') !!}{!! set_active('/') !!}>
-                <a href="{{ route('dashboard.index') }}">
+                <a href="{{ route('home') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>{{ trans('dashboard.dashboard') }}</span>
                 </a>

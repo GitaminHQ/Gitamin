@@ -200,7 +200,7 @@
                     <h3>
                         {{ trans("install.completed") }}
                     </h3>
-                    <a href="{{ route('dashboard.index') }}" class="btn btn-default">
+                    <a href="{{ route('home') }}" class="btn btn-default">
                         <span>{{ trans("install.finish") }}</span>
                     </a>
                 </div>
