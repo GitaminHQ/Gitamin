@@ -1,11 +1,9 @@
-@extends('layout.dashboard')
+@extends('layout.admin')
 
 @section('content')
 
 <div class="content-panel">
-    @if(isset($sub_menu))
-    @include('dashboard.partials.sub-sidebar')
-    @endif
+    
 <div class="content-wrapper">
     @include('dashboard.partials.errors')
     <div class="header sub-header">
