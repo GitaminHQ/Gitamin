@@ -47,7 +47,7 @@ class AuthController extends Controller
             // We probably want to add support for "Remember me" here.
             Auth::attempt($loginData);
 
-            return Redirect::intended('dashboard.index')
+            return Redirect::intended('/')
                 ->withSuccess(trans('gitamin.signin.success'));
         }
 
