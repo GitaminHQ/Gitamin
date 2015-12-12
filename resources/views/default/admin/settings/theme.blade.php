@@ -8,12 +8,12 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <i class="fa fa-list-alt"></i> {{ trans('dashboard.settings.theme.theme') }}
+                    <i class="fa fa-list-alt"></i> {{ trans('admin.settings.theme.theme') }}
                 </span>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form name="SettingsForm" class="form-vertical" role="form" action="/dashboard/settings" method="POST"  enctype="multipart/form-data">
+                    <form name="SettingsForm" class="form-vertical" role="form" action="/admin/settings" method="POST"  enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @include('dashboard.partials.errors')
                         <div class="row">

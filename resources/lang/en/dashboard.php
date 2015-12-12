@@ -173,32 +173,6 @@ return [
         ],
     ],
 
-    // Settings
-    'settings' => [
-        'settings'  => 'Settings',
-        'general'   => [
-            'general'     => 'General',
-            'images-only' => 'Only images may be uploaded.',
-            'too-big'     => 'The file you uploaded is too big. Upload an image smaller than :size',
-        ],
-        'localization' => [
-            'localization' => 'Localization',
-        ],
-        'timezone' => [
-            'timezone' => 'Timezone',
-        ],
-        'stylesheet' => [
-            'stylesheet' => 'Stylesheet',
-        ],
-        'theme' => [
-            'theme' => 'Theme',
-        ],
-        'edit' => [
-            'success' => 'Settings saved.',
-            'failure' => 'Settings could not be saved.',
-        ],
-    ],
-
     // Login
     'login' => [
         'login'      => 'Login',
