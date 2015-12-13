@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Jenssegers\Date\Date;
 
-if (!function_exists('back_url')) {
+if (! function_exists('back_url')) {
     /**
      * Create a new back url.
      *
@@ -35,7 +35,7 @@ if (!function_exists('back_url')) {
     }
 }
 
-if (!function_exists('set_active')) {
+if (! function_exists('set_active')) {
     /**
      * Set active class if request is in path.
      *
@@ -57,7 +57,7 @@ if (!function_exists('set_active')) {
     }
 }
 
-if (!function_exists('formatted_date')) {
+if (! function_exists('formatted_date')) {
     /**
      * Formats a date with the user timezone and the selected format.
      *
@@ -73,7 +73,7 @@ if (!function_exists('formatted_date')) {
     }
 }
 
-if (!function_exists('subscribers_enabled')) {
+if (! function_exists('subscribers_enabled')) {
     /**
      * Is the subscriber functionality enabled and configured.
      *
@@ -89,7 +89,7 @@ if (!function_exists('subscribers_enabled')) {
     }
 }
 
-if (!function_exists('color_darken')) {
+if (! function_exists('color_darken')) {
     /**
      * Darken a color.
      *
@@ -117,7 +117,7 @@ if (!function_exists('color_darken')) {
     }
 }
 
-if (!function_exists('color_contrast')) {
+if (! function_exists('color_contrast')) {
     /**
      * Calculates colour contrast.
      *

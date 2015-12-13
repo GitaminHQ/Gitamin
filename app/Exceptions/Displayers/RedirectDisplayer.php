@@ -73,7 +73,7 @@ class RedirectDisplayer implements DisplayerInterface
     {
         $redirect = $transformed instanceof HttpExceptionInterface && $transformed->getStatusCode() === 401;
 
-        return $redirect && !$this->request->is('api*');
+        return $redirect && ! $this->request->is('api*');
     }
 
     /**
