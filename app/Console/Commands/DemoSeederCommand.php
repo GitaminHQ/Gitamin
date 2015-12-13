@@ -49,7 +49,7 @@ class DemoSeederCommand extends Command
      */
     public function fire()
     {
-        if (!$this->confirmToProceed()) {
+        if (! $this->confirmToProceed()) {
             return;
         }
 

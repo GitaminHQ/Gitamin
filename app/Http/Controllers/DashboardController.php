@@ -91,7 +91,7 @@ class DashboardController extends Controller
         foreach (range(0, 30) as $i) {
             $date = (new Date($this->startDate))->setTimezone($this->dateTimeZone)->subDays($i);
 
-            if (!isset($allIssues[$date->toDateString()])) {
+            if (! isset($allIssues[$date->toDateString()])) {
                 $allIssues[$date->toDateString()] = [];
             }
         }
@@ -123,7 +123,7 @@ class DashboardController extends Controller
         foreach (range(0, 30) as $i) {
             $date = (new Date($this->startDate))->setTimezone($this->dateTimeZone)->subDays($i);
 
-            if (!isset($allSubscribers[$date->toDateString()])) {
+            if (! isset($allSubscribers[$date->toDateString()])) {
                 $allSubscribers[$date->toDateString()] = [];
             }
         }

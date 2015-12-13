@@ -116,7 +116,7 @@ class ExploreController extends Controller
         foreach ($issueDays as $i) {
             $date = (new Date($startDate))->setTimezone($dateTimeZone)->subDays($i);
 
-            if (!isset($allIssues[$date->toDateString()])) {
+            if (! isset($allIssues[$date->toDateString()])) {
                 $allIssues[$date->toDateString()] = [];
             }
         }
