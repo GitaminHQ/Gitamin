@@ -53,7 +53,7 @@
 
                     <div class="form-actions">
                             <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                            <a class="btn btn-cancel" href="{{ route('projects.issue_index', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}">{{ trans('forms.cancel') }}</a>
+                            <a class="btn btn-cancel" href="{{ back_url('projects.issue_index', ['owner'=>$project->owner_path, 'project'=>$project->path]) }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

@@ -14,6 +14,28 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Jenssegers\Date\Date;
 
+if (!function_exists('back_url')) {
+
+    /**
+     * Create a new previous url.
+     *
+     * @param string $route
+     * @param array  $parameters
+     * @param int    $status
+     * @param array  $headers
+     *
+     * @return string
+     */
+    function back_url($route, $parameters = [], $status = 302, $headers = [])
+    {
+        if ($route !== null && app('url')->previous() == app('url')->full()) {
+            return app('url')->route($name, $params);
+        }
+
+        return app('url')->previous();
+    }
+}
+
 if (!function_exists('set_active')) {
 
     /**

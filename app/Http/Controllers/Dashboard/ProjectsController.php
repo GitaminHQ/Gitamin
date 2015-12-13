@@ -87,8 +87,6 @@ class ProjectsController extends Controller
         $this->subMenu['starred']['active'] = true;
         $projects = Project::orderBy('created_at')->get();
 
-        $this->subMenu['starred']['active'] = true;
-
         return View::make('dashboard.projects.index')
             ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
             ->withProjects($projects)
