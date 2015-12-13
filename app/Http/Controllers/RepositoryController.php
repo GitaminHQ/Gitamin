@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -47,7 +47,7 @@ class RepositoryController extends Controller
     {
         $repository = $this->getRepositoryFromName([Setting::get('git_repositories_path')], $repo);
 
-        if (!$path) {
+        if (! $path) {
             $path = $repository->getHead();
         }
 
@@ -62,7 +62,7 @@ class RepositoryController extends Controller
         $parent = null;
         if (($slash = strrpos($tree, '/')) !== false) {
             $parent = substr($tree, 0, $slash);
-        } elseif (!empty($tree)) {
+        } elseif (! empty($tree)) {
             $parent = '';
         }
 
@@ -174,7 +174,7 @@ class RepositoryController extends Controller
                 continue;
             }
 
-            if (!$file->isReadable()) {
+            if (! $file->isReadable()) {
                 continue;
             }
 
@@ -199,7 +199,7 @@ class RepositoryController extends Controller
                         $description = null;
                     }
 
-                    if (!$topLevel) {
+                    if (! $topLevel) {
                         $repoName = $file->getPathInfo()->getFilename().'/'.$file->getFilename();
                     } else {
                         $repoName = $file->getFilename();

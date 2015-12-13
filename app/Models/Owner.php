@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -24,7 +24,6 @@
 #  avatar      :string(255)
 #  public      :boolean          default(FALSE)
 #
-
 
 namespace Gitamin\Models;
 
@@ -99,7 +98,7 @@ class Owner extends Model
     {
         $owner = static::where('path', $path)->first($columns);
 
-        if (!$owner) {
+        if (! $owner) {
             throw new ModelNotFoundException();
         }
 

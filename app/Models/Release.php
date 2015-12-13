@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -20,7 +20,6 @@
 #  created_at  :timestamp
 #  updated_at  :timestamp
 #
-
 
 namespace Gitamin\Models;
 

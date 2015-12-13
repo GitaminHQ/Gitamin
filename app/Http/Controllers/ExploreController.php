@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -116,7 +116,7 @@ class ExploreController extends Controller
         foreach ($issueDays as $i) {
             $date = (new Date($startDate))->setTimezone($dateTimeZone)->subDays($i);
 
-            if (!isset($allIssues[$date->toDateString()])) {
+            if (! isset($allIssues[$date->toDateString()])) {
                 $allIssues[$date->toDateString()] = [];
             }
         }
