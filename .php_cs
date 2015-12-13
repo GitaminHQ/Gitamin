@@ -12,7 +12,7 @@ EOF;
 Symfony\CS\Fixer\Contrib\HeaderCommentFixer::setHeader($header);
 
 return Symfony\CS\Config\Config::create()
-    // use default SYMFONY_LEVEL and extra fixers:
+    ->level(Symfony\CS\FixerInterface::SYMFONY_LEVEL)
     ->fixers(array(
         'header_comment',
         'alias_functions',
