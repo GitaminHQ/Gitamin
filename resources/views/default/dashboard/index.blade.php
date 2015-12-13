@@ -8,9 +8,7 @@
         <div class="sidebar-toggler visible-xs">
             <i class="fa fa-navicon"></i>
         </div>
-        <span class="uppercase">
-            <i class="fa fa-dashboard"></i> {{ trans('dashboard.dashboard') }}
-        </span>
+        <i class="fa fa-dashboard"></i> {{ trans('dashboard.dashboard') }}
     </div>
     <div class="row">
         <div class="col-md-12">

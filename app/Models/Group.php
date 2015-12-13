@@ -26,4 +26,14 @@ class Group extends Owner
     {
         return $query->where('type', 'Group');
     }
+
+    /**
+     * Returns group route.
+     *
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return route('groups.group_show', ['owner' => $this->path]);
+    }
 }

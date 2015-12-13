@@ -50,7 +50,7 @@
                                 <hr>
                                 <div class="form-actions">
                                 <button type="submit" class="btn btn-success">{{ trans('forms.update') }}</button>
-                                <a class="btn btn-default" href="{{ route('home') }}">{{ trans('forms.cancel') }}</a>
+                                <a class="btn btn-default" href="{{ back_url('home') }}">{{ trans('forms.cancel') }}</a>
                                 </div>
                             </div>
                         </div>

@@ -49,7 +49,7 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
-                        <a class="btn btn-default" href="{{ route('dashboard.groups.index') }}">{{ trans('forms.cancel') }}</a>
+                        <a class="btn btn-default" href="{{ back_url('dashboard.groups.index') }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

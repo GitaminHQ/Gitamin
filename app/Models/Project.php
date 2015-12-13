@@ -208,6 +208,11 @@ class Project extends Model implements HasPresenter
         return trans('gitamin.projects.status.'.$this->visibility_level);
     }
 
+    /**
+     * Returns project route.
+     *
+     * @return string
+     */
     public function getUrlAttribute()
     {
         return route('projects.project_show', ['owner' => $this->owner_path, 'project' => $this->path]);
@@ -216,7 +221,7 @@ class Project extends Model implements HasPresenter
     /**
      * Returns project owner path.
      *
-     * @return bool
+     * @return string
      */
     public function getOwnerPathAttribute()
     {

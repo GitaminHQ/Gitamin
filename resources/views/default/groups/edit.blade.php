@@ -49,7 +49,7 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                        <a class="btn btn-default" href="{{ route('groups.group_show', ['namespace' => $group->path]) }}">{{ trans('forms.cancel') }}</a>
+                        <a class="btn btn-default" href="{{ back_url('groups.group_show', ['owner' => $group->path]) }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

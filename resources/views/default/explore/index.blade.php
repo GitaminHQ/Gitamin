@@ -7,9 +7,7 @@
         @endif
         <div class="content-wrapper">
             <div class="header sub-header">
-                <span class="uppercase">
-                    <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
-                </span>
+                    <i class="fa fa-eye"></i> {{ trans('dashboard.projects.explore') }}
                 <a class="btn btn-success pull-right" href="{{ route('projects.new') }}">
                     <i class="fa fa-plus"></i>
                     {{ trans('gitamin.projects.new.title') }}
