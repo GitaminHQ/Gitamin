@@ -31,47 +31,45 @@ class SettingsController extends Controller
 
     /**
      * Creates a new settings controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->subMenu = [
             'general' => [
-                'title'  => trans('dashboard.settings.general.general'),
-                'url'    => route('dashboard.settings.general'),
-                'icon'   => 'fa fa-gear',
+                'title' => trans('dashboard.settings.general.general'),
+                'url' => route('dashboard.settings.general'),
+                'icon' => 'fa fa-gear',
                 'active' => false,
             ],
             'theme' => [
-                'title'  => trans('dashboard.settings.theme.theme'),
-                'url'    => route('dashboard.settings.theme'),
-                'icon'   => 'fa fa-list-alt',
+                'title' => trans('dashboard.settings.theme.theme'),
+                'url' => route('dashboard.settings.theme'),
+                'icon' => 'fa fa-list-alt',
                 'active' => false,
             ],
             'stylesheet' => [
-                'title'  => trans('dashboard.settings.stylesheet.stylesheet'),
-                'url'    => route('dashboard.settings.stylesheet'),
-                'icon'   => 'fa fa-magic',
+                'title' => trans('dashboard.settings.stylesheet.stylesheet'),
+                'url' => route('dashboard.settings.stylesheet'),
+                'icon' => 'fa fa-magic',
                 'active' => false,
             ],
             'localization' => [
-                'title'  => trans('dashboard.settings.localization.localization'),
-                'url'    => route('dashboard.settings.localization'),
-                'icon'   => 'fa fa-language',
+                'title' => trans('dashboard.settings.localization.localization'),
+                'url' => route('dashboard.settings.localization'),
+                'icon' => 'fa fa-language',
                 'active' => false,
             ],
             'timezone' => [
-                'title'  => trans('dashboard.settings.timezone.timezone'),
-                'url'    => route('dashboard.settings.timezone'),
-                'icon'   => 'fa fa-calendar',
+                'title' => trans('dashboard.settings.timezone.timezone'),
+                'url' => route('dashboard.settings.timezone'),
+                'icon' => 'fa fa-calendar',
                 'active' => false,
             ],
         ];
 
         View::share([
             'sub_title' => trans('dashboard.settings.settings'),
-            'sub_menu'  => $this->subMenu,
+            'sub_menu' => $this->subMenu,
         ]);
     }
 

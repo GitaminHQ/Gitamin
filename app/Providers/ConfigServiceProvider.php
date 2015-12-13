@@ -21,8 +21,6 @@ class ConfigServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -64,8 +62,6 @@ class ConfigServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {

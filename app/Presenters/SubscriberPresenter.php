@@ -25,8 +25,8 @@ class SubscriberPresenter extends AbstractPresenter
     public function toArray()
     {
         return array_merge($this->wrappedObject->toArray(), [
-            'created_at'  => $this->created_at(),
-            'updated_at'  => $this->updated_at(),
+            'created_at' => $this->created_at(),
+            'updated_at' => $this->updated_at(),
             'verified_at' => $this->verified_at(),
         ]);
     }

@@ -24,8 +24,6 @@ class IssueWasUpdatedEvent implements IssueEventInterface
 
     /**
      * Create a new issue has updated event instance.
-     *
-     * @return void
      */
     public function __construct(Issue $issue)
     {

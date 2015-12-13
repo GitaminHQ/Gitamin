@@ -24,8 +24,6 @@ final class ClaimInviteCommand
      * Create a new claim invite command instance.
      *
      * @param \Gitamin\Model\Invite $invite
-     *
-     * @return void
      */
     public function __construct($invite)
     {

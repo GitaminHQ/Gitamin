@@ -26,6 +26,7 @@
 #  visibility_level :integer          default(0), not null
 #
 
+
 namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;

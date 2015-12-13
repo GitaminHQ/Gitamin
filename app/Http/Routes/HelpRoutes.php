@@ -27,11 +27,11 @@ class HelpRoutes
     {
         $router->group([
             'middleware' => ['app.hasSetting'],
-            'setting'    => 'app_name',
-            'as'         => 'help.',
+            'setting' => 'app_name',
+            'as' => 'help.',
         ], function ($router) {
             $router->get('help', [
-                'as'   => 'index',
+                'as' => 'index',
                 'uses' => 'Help\\HelpController@index',
             ]);
 

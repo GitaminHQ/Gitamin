@@ -24,8 +24,6 @@ final class UserWasAddedEvent implements UserEventInterface
 
     /**
      * Create a new user was added event instance.
-     *
-     * @return void
      */
     public function __construct(User $user)
     {

@@ -147,13 +147,13 @@ abstract class AbstractApiController extends Controller
 
         $pagination = [
             'pagination' => [
-                'total'        => (int) $paginator->total(),
-                'count'        => count($paginator->items()),
-                'per_page'     => (int) $paginator->perPage(),
+                'total' => (int) $paginator->total(),
+                'count' => count($paginator->items()),
+                'per_page' => (int) $paginator->perPage(),
                 'current_page' => (int) $paginator->currentPage(),
-                'total_pages'  => (int) $paginator->lastPage(),
-                'links'        => [
-                    'next_page'     => $paginator->nextPageUrl(),
+                'total_pages' => (int) $paginator->lastPage(),
+                'links' => [
+                    'next_page' => $paginator->nextPageUrl(),
                     'previous_page' => $paginator->previousPageUrl(),
                 ],
             ],

@@ -26,8 +26,6 @@ final class RemoveCommentCommand
      * Create a new remove comment command instance.
      *
      * @param \Gitamin\Models\Comment $comment
-     *
-     * @return void
      */
     public function __construct(Comment $comment)
     {

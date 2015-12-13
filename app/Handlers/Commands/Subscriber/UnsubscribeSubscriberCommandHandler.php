@@ -21,8 +21,6 @@ class UnsubscribeSubscriberCommandHandler
      * Handle the subscribe customer command.
      *
      * @param \Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand $command
-     *
-     * @return void
      */
     public function handle(UnsubscribeSubscriberCommand $command)
     {

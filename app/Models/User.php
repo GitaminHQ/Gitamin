@@ -31,12 +31,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var string[]
      */
     protected $casts = [
-        'id'                => 'int',
-        'username'          => 'string',
-        'email'             => 'string',
-        'api_key'           => 'string',
-        'active'            => 'bool',
-        'level'             => 'int',
+        'id' => 'int',
+        'username' => 'string',
+        'email' => 'string',
+        'api_key' => 'string',
+        'active' => 'bool',
+        'level' => 'int',
     ];
 
     /**
@@ -62,7 +62,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public $rules = [
         'username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
-        'email'    => 'required|email',
+        'email' => 'required|email',
         'password' => 'required',
     ];
 

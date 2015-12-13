@@ -49,8 +49,8 @@ final class SignupUserCommand
     public $rules = [
         'username' => 'required|string',
         'password' => 'string',
-        'email'    => 'required|string|email',
-        'level'    => 'int',
+        'email' => 'required|string|email',
+        'level' => 'int',
     ];
 
     /**
@@ -60,8 +60,6 @@ final class SignupUserCommand
      * @param string $password
      * @param string $email
      * @param int    $level
-     *
-     * @return void
      */
     public function __construct($username, $password, $email, $level)
     {

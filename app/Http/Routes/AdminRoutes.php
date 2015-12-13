@@ -27,11 +27,11 @@ class AdminRoutes
     {
         $router->group([
             'middleware' => ['app.hasSetting'],
-            'setting'    => 'app_name',
-            'as'         => 'admin.',
+            'setting' => 'app_name',
+            'as' => 'admin.',
         ], function ($router) {
             $router->get('admin', [
-                'as'   => 'index',
+                'as' => 'index',
                 'uses' => 'Admin\\DashboardController@index',
             ]);
 

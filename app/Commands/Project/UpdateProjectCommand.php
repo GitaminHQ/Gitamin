@@ -70,12 +70,12 @@ final class UpdateProjectCommand
      * @var string[]
      */
     public $rules = [
-        'name'             => 'string',
-        'description'      => 'string',
+        'name' => 'string',
+        'description' => 'string',
         'visibility_level' => 'int|min:1|max:4',
-        'path'             => 'string',
-        'creator_id'       => 'int',
-        'owner_id'         => 'int',
+        'path' => 'string',
+        'creator_id' => 'int',
+        'owner_id' => 'int',
     ];
 
     /**
@@ -88,8 +88,6 @@ final class UpdateProjectCommand
      * @param string                  $path
      * @param int                     $creator_id
      * @param int                     $owner_id
-     *
-     * @return void
      */
     public function __construct(Project $project, $name, $description, $visibility_level, $path, $creator_id, $owner_id)
     {
