@@ -183,7 +183,7 @@ class RepositoryController extends Controller
                 $isRepository = file_exists($file->getPathname().'/.git/HEAD');
 
                 if ($isRepository || $isBare) {
-                    if (in_array($file->getPathname(), $this->getHidden())) {
+                    if (in_array($file->getPathname(), $this->getHidden(), true)) {
                         continue;
                     }
 
@@ -206,8 +206,8 @@ class RepositoryController extends Controller
                     }
 
                     $repositories[$repoName] = [
-                        'name'        => $repoName,
-                        'path'        => $file->getPathname(),
+                        'name' => $repoName,
+                        'path' => $file->getPathname(),
                         'description' => $description,
                     ];
 

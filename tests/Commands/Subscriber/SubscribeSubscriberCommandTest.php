@@ -23,7 +23,7 @@ class SubscribeSubscriberCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'email'    => 'support@gitamin.com',
+            'email' => 'support@gitamin.com',
             'verified' => true,
         ];
         $object = new SubscribeSubscriberCommand(

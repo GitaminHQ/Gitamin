@@ -54,11 +54,11 @@ class CommentTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/comments', [
-            'message'     => 'Lorem ipsum dolor sit amet',
+            'message' => 'Lorem ipsum dolor sit amet',
             'target_type' => 'Issue',
-            'target_id'   => 1,
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'target_id' => 1,
+            'author_id' => 1,
+            'project_id' => 1,
         ]);
         $this->seeJson(['message' => 'Lorem ipsum dolor sit amet']);
         $this->assertResponseOk();

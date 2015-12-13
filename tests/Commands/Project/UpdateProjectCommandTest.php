@@ -24,13 +24,13 @@ class UpdateProjectCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'project'          => new Project(),
-            'name'             => 'Test',
-            'description'      => 'Foo',
+            'project' => new Project(),
+            'name' => 'Test',
+            'description' => 'Foo',
             'visibility_level' => 1,
-            'path'             => 'Baidu',
-            'owner_id'         => 1,
-            'creator_id'       => 1,
+            'path' => 'Baidu',
+            'owner_id' => 1,
+            'creator_id' => 1,
         ];
         $object = new UpdateProjectCommand(
             $params['project'],

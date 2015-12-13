@@ -54,7 +54,7 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'         => 'int',
+        'id' => 'int',
         'deleted_at' => 'date',
     ];
 
@@ -78,9 +78,9 @@ class Issue extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'author_id'   => 'int',
-        'project_id'  => 'int',
-        'title'       => 'required',
+        'author_id' => 'int',
+        'project_id' => 'int',
+        'title' => 'required',
         'description' => 'required',
     ];
 

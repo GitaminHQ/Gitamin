@@ -26,8 +26,6 @@ final class UnsubscribeSubscriberCommand
      * Create a unsubscribe subscriber command instance.
      *
      * @param string $subscriber
-     *
-     * @return void
      */
     public function __construct(Subscriber $subscriber)
     {

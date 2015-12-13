@@ -10,15 +10,15 @@
  */
 
 return [
-    'install'         => 'Install',
-    'title'           => 'Install Gitamin',
+    'install' => 'Install',
+    'title' => 'Install Gitamin',
     'service_details' => 'Service Details',
-    'env'             => '1. Environment Setting',
-    'site'            => '2. Site Setting',
-    'admin_account'   => '3. Administrator Account',
-    'complete'        => '4. Complete Install',
-    'completed'       => 'Gitamin has been installed successfully!',
-    'finish'          => 'Go to dashboard',
-    'next'            => 'Next',
-    'previous'        => 'Previous',
+    'env' => '1. Environment Setting',
+    'site' => '2. Site Setting',
+    'admin_account' => '3. Administrator Account',
+    'complete' => '4. Complete Install',
+    'completed' => 'Gitamin has been installed successfully!',
+    'finish' => 'Go to dashboard',
+    'next' => 'Next',
+    'previous' => 'Previous',
 ];

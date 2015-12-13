@@ -51,7 +51,7 @@ class Moment extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'         => 'int',
+        'id' => 'int',
         'deleted_at' => 'date',
     ];
 
@@ -79,12 +79,12 @@ class Moment extends Model implements HasPresenter
      */
     public $rules = [
         'target_type' => 'string',
-        'target_id'   => 'int',
-        'action'      => 'int',
-        'author_id'   => 'int',
-        'project_id'  => 'int',
-        'title'       => 'string',
-        'data'        => 'string',
+        'target_id' => 'int',
+        'action' => 'int',
+        'author_id' => 'int',
+        'project_id' => 'int',
+        'title' => 'string',
+        'data' => 'string',
     ];
 
     /**

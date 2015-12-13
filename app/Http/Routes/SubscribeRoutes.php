@@ -27,12 +27,12 @@ class SubscribeRoutes
     {
         $router->group([
             'middleware' => ['app.hasSetting', 'localize'],
-            'setting'    => 'app_name',
-            'as'         => 'subscribe.',
+            'setting' => 'app_name',
+            'as' => 'subscribe.',
         ], function ($router) {
             $router->group(['middleware' => 'app.subscribers'], function ($router) {
                 $router->get('subscribe', [
-                    'as'   => 'subscribe',
+                    'as' => 'subscribe',
                     'uses' => 'SubscribeController@showSubscribe',
                 ]);
 
@@ -42,12 +42,12 @@ class SubscribeRoutes
             });
 
             $router->get('subscribe/verify/{code}', [
-                'as'   => 'verify',
+                'as' => 'verify',
                 'uses' => 'SubscribeController@getVerify',
             ]);
 
             $router->get('unsubscribe/{code}', [
-                'as'   => 'unsubscribe',
+                'as' => 'unsubscribe',
                 'uses' => 'SubscribeController@getUnsubscribe',
             ]);
         });

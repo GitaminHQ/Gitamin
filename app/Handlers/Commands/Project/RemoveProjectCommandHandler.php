@@ -20,8 +20,6 @@ class RemoveProjectCommandHandler
      * Handle the remove project command.
      *
      * @param \Gitamin\Commands\Project\RemoveProjectCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveProjectCommand $command)
     {

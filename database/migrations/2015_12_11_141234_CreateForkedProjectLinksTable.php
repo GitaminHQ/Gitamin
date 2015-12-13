@@ -17,8 +17,6 @@ class CreateForkedProjectLinksTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -36,8 +34,6 @@ class CreateForkedProjectLinksTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

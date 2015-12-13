@@ -27,9 +27,9 @@ class UpdateOwnerCommandHandler
     {
         $owner = $command->owner;
         $owner->update([
-            'name'        => $command->name,
-            'path'        => $command->path,
-            'user_id'     => $command->user_id,
+            'name' => $command->name,
+            'path' => $command->path,
+            'user_id' => $command->user_id,
             'description' => $command->description,
         ]);
 

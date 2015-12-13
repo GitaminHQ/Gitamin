@@ -21,8 +21,6 @@ class RemoveUserCommandHandler
      * Handle the remove user command.
      *
      * @param \Gitamin\Commands\User\RemoveUserCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveUserCommand $command)
     {

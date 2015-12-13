@@ -25,8 +25,8 @@ class AddGroupMemberCommandTest extends AbstractCommandTestCase
         $params = [
             'username' => 'Test',
             'password' => 'fooey',
-            'email'    => 'test@test.com',
-            'level'    => 1,
+            'email' => 'test@test.com',
+            'level' => 1,
         ];
         $object = new AddGroupMemberCommand(
             $params['username'],
