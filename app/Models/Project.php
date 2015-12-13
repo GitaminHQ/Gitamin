@@ -165,7 +165,7 @@ class Project extends Model implements HasPresenter
             $join->on('projects.owner_id', '=', 'owners.id');
         })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner_path)->first($columns);
 
-        if (!$project) {
+        if (! $project) {
             throw new ModelNotFoundException();
         }
 

@@ -43,7 +43,7 @@ class SignupController extends Controller
 
         $invite = Invite::where('code', '=', $code)->first();
 
-        if (!$invite || $invite->claimed()) {
+        if (! $invite || $invite->claimed()) {
             //throw new BadRequestHttpException();
         }
 
