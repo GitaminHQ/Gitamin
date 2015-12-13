@@ -22,8 +22,6 @@ class VerifySubscriberCommandHandler
      * Handle the subscribe customer command.
      *
      * @param \Gitamin\Commands\Subscriber\VerifySubscriberCommand $command
-     *
-     * @return void
      */
     public function handle(VerifySubscriberCommand $command)
     {

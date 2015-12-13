@@ -30,8 +30,6 @@ class AddIssueCommandHandler
      * Create a new report issue command handler instance.
      *
      * @param \Gitamin\Dates\DateFactory $dates
-     *
-     * @return void
      */
     public function __construct(DateFactory $dates)
     {
@@ -48,7 +46,7 @@ class AddIssueCommandHandler
     public function handle(AddIssueCommand $command)
     {
         $data = [
-            'title'       => $command->title,
+            'title' => $command->title,
             'description' => $command->description,
         ];
 

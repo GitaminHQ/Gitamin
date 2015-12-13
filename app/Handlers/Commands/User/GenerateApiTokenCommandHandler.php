@@ -20,8 +20,6 @@ class GenerateApiTokenCommandHandler
      * Handle the generate api key command.
      *
      * @param \Gitamin\Commands\User\GenerateApiTokenCommand $command
-     *
-     * @return void
      */
     public function handle(GenerateApiTokenCommand $command)
     {

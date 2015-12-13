@@ -26,8 +26,6 @@ final class RemoveProjectCommand
      * Create a new remove project command instance.
      *
      * @param \Gitamin\Models\Project $project
-     *
-     * @return void
      */
     public function __construct(Project $project)
     {

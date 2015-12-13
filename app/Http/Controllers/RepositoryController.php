@@ -206,8 +206,8 @@ class RepositoryController extends Controller
                     }
 
                     $repositories[$repoName] = [
-                        'name'        => $repoName,
-                        'path'        => $file->getPathname(),
+                        'name' => $repoName,
+                        'path' => $file->getPathname(),
                         'description' => $description,
                     ];
 

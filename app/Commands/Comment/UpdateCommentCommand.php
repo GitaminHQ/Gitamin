@@ -35,15 +35,13 @@ final class UpdateCommentCommand
      * @var string[]
      */
     public $rules = [
-        'message'     => 'required|string',
+        'message' => 'required|string',
     ];
 
     /**
      * Create a new update comment command instance.
      *
      * @param string $message
-     *
-     * @return void
      */
     public function __construct(Comment $comment, $message)
     {

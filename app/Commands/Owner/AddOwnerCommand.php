@@ -54,10 +54,10 @@ final class AddOwnerCommand
      * @var string[]
      */
     public $rules = [
-        'name'     => 'required|string',
-        'path'     => 'required|string',
-        'user_id'  => 'int',
-        'type'     => 'string',
+        'name' => 'required|string',
+        'path' => 'required|string',
+        'user_id' => 'int',
+        'type' => 'string',
     ];
 
     /**
@@ -68,8 +68,6 @@ final class AddOwnerCommand
      * @param int    $user_id
      * @param string $description
      * @param string $type
-     *
-     * @return void
      */
     public function __construct($name, $path, $user_id, $description, $type)
     {

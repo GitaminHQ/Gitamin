@@ -56,9 +56,9 @@ final class UpdateOwnerCommand
      * @var string[]
      */
     public $rules = [
-        'name'        => 'string',
-        'path'        => 'string',
-        'user_id'     => 'int',
+        'name' => 'string',
+        'path' => 'string',
+        'user_id' => 'int',
         'description' => 'string',
     ];
 
@@ -70,8 +70,6 @@ final class UpdateOwnerCommand
      * @param string                           $path
      * @param int                              $user_id
      * @param string                           $description
-     *
-     * @return void
      */
     public function __construct($owner, $name, $path, $user_id, $description)
     {

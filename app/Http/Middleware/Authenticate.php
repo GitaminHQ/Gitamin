@@ -28,8 +28,6 @@ class Authenticate
      * Create a new authenticate middleware instance.
      *
      * @param \Illuminate\Contracts\Auth\Guard $auth
-     *
-     * @return void
      */
     public function __construct(Guard $auth)
     {

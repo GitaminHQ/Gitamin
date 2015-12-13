@@ -34,6 +34,7 @@
 #  merge_error       :string(255)
 #
 
+
 namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;

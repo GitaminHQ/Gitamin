@@ -45,11 +45,11 @@ class UpdateProjectCommandHandler
     protected function filter(UpdateProjectCommand $command)
     {
         $params = [
-            'name'             => $command->name,
-            'description'      => $command->description,
-            'path'             => $command->path,
+            'name' => $command->name,
+            'description' => $command->description,
+            'path' => $command->path,
             'visibility_level' => $command->visibility_level,
-            'owner_id'         => $command->owner_id,
+            'owner_id' => $command->owner_id,
         ];
 
         return array_filter($params, function ($val) {

@@ -21,6 +21,7 @@
 #  updated_at  :timestamp
 #
 
+
 namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;

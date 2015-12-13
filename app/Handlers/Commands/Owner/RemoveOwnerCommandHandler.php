@@ -20,8 +20,6 @@ class RemoveOwnerCommandHandler
      * Handle the remove project team command.
      *
      * @param \Gitamin\Commands\Owner\RemoveOwnerCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveOwnerCommand $command)
     {

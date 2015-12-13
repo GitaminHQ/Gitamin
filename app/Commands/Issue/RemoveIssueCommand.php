@@ -26,8 +26,6 @@ final class RemoveIssueCommand
      * Create a new remove issue command instance.
      *
      * @param \Gitamin\Models\Issue $issue
-     *
-     * @return void
      */
     public function __construct(Issue $issue)
     {
