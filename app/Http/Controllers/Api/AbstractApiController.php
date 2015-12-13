@@ -189,7 +189,7 @@ abstract class AbstractApiController extends Controller
      */
     protected function respond()
     {
-        if (! empty($this->meta)) {
+        if (!empty($this->meta)) {
             $response['meta'] = $this->meta;
         }
 

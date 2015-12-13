@@ -98,7 +98,7 @@ class Owner extends Model
     {
         $owner = static::where('path', $path)->first($columns);
 
-        if (! $owner) {
+        if (!$owner) {
             throw new ModelNotFoundException();
         }
 

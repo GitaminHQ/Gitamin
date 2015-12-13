@@ -29,7 +29,7 @@ class ApiController extends Controller
      */
     public function postUpdateProject(Project $project)
     {
-        if (! $project->update(Binput::except(['_token']))) {
+        if (!$project->update(Binput::except(['_token']))) {
             throw new Exception(trans('dashboard.projects.edit.failure'));
         }
 

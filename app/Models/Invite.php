@@ -39,7 +39,7 @@ class Invite extends Model
         parent::boot();
 
         self::creating(function ($invite) {
-            if (! $invite->code) {
+            if (!$invite->code) {
                 $invite->code = self::generateInviteCode();
             }
         });

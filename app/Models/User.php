@@ -90,7 +90,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         parent::boot();
 
         self::creating(function ($user) {
-            if (! $user->api_key) {
+            if (!$user->api_key) {
                 $user->api_key = self::generateApiKey();
             }
         });
@@ -137,7 +137,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         $user = static::where('api_key', $token)->first($columns);
 
-        if (! $user) {
+        if (!$user) {
             throw new ModelNotFoundException();
         }
 

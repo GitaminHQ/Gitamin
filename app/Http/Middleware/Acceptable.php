@@ -27,7 +27,7 @@ class Acceptable
      */
     public function handle($request, Closure $next, $type)
     {
-        if (! $request->accepts($type)) {
+        if (!$request->accepts($type)) {
             throw new NotAcceptableHttpException();
         }
 

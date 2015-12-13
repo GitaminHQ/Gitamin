@@ -50,12 +50,12 @@ class Repository
     public function get($name, $default = null)
     {
         // if we've not loaded the settings, load them now
-        if (! $this->settings) {
+        if (!$this->settings) {
             $this->settings = $this->model->all()->lists('value', 'name');
         }
 
         // if the setting exists and is not blank, return it
-        if (! empty($this->settings[$name])) {
+        if (!empty($this->settings[$name])) {
             return $this->settings[$name];
         }
 

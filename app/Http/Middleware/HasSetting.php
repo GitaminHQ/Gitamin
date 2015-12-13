@@ -35,7 +35,7 @@ class HasSetting
         $settingName = $this->getSettingName($request);
 
         try {
-            if (! Setting::get($settingName)) {
+            if (!Setting::get($settingName)) {
                 return Redirect::to('install');
             }
         } catch (Exception $e) {

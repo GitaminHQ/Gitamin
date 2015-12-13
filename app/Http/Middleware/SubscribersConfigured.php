@@ -26,7 +26,7 @@ class SubscribersConfigured
      */
     public function handle($request, Closure $next)
     {
-        if (! subscribers_enabled()) {
+        if (!subscribers_enabled()) {
             return Redirect::route('explore');
         }
 

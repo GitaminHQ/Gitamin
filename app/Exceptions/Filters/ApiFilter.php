@@ -47,7 +47,7 @@ class ApiFilter
     {
         if ($this->request->is('api*')) {
             foreach ($displayers as $index => $displayer) {
-                if (! str_contains($displayer->contentType(), 'application/')) {
+                if (!str_contains($displayer->contentType(), 'application/')) {
                     unset($displayers[$index]);
                 }
             }

@@ -56,7 +56,7 @@ class Subscriber extends Model implements HasPresenter
         parent::boot();
 
         self::creating(function ($user) {
-            if (! $user->verify_code) {
+            if (!$user->verify_code) {
                 $user->verify_code = self::generateVerifyCode();
             }
         });

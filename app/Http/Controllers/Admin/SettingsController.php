@@ -178,11 +178,11 @@ class SettingsController extends Controller
                 return Redirect::to($redirectUrl)->withErrors(trans('admin.settings.general.too-big', ['size' => $maxSize]));
             }
 
-            if (! $file->isValid() || $file->getError()) {
+            if (!$file->isValid() || $file->getError()) {
                 return Redirect::to($redirectUrl)->withErrors($file->getErrorMessage());
             }
 
-            if (! starts_with($file->getMimeType(), 'image/')) {
+            if (!starts_with($file->getMimeType(), 'image/')) {
                 return Redirect::to($redirectUrl)->withErrors(trans('admin.settings.general.images-only'));
             }
 
