@@ -44,7 +44,7 @@ class IssuesController extends Controller
             'closed' => [
                 'title'  => trans('dashboard.issues.closed'),
                 'url'    => route('dashboard.issues.index'),
-                'icon'   => 'fa fa-close',
+                'icon'   => 'fa fa-check-circle',
                 'active' => false,
             ],
             'all' => [

@@ -67,7 +67,7 @@ class GroupsController extends Controller
     }
 
     /**
-     * Shows the project teams view.
+     * Shows the project groups view.
      *
      * @return \Illuminate\View\View
      */
@@ -121,17 +121,17 @@ class GroupsController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('groups.new')
                 ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.add.failure')))
                 ->withErrors($e->getMessageBag());
         } catch (QueryException $e) {
             return Redirect::route('groups.new')
                 ->withInput(Binput::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.teams.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.add.failure')))
                 ->withErrors('Path has been used');
         }
 
         return Redirect::route('dashboard.groups.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.teams.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('gitamin.groups.add.success')));
     }
 
     /**
@@ -146,7 +146,7 @@ class GroupsController extends Controller
         $group = Group::findByPath($path);
 
         return View::make('groups.edit')
-            ->withPageTitle(trans('dashboard.teams.edit.title').' - '.trans('dashboard.dashboard'))
+            ->withPageTitle(trans('gitamin.groups.edit.title').' - '.trans('dashboard.dashboard'))
             ->withGroup($group);
     }
 

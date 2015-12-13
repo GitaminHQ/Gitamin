@@ -17,7 +17,7 @@ use Jenssegers\Date\Date;
 if (!function_exists('back_url')) {
 
     /**
-     * Create a new previous url.
+     * Create a new back url.
      *
      * @param string $route
      * @param array  $parameters
