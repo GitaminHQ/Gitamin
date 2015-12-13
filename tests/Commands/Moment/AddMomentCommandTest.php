@@ -23,13 +23,13 @@ class AddMomentCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'title'       => 'Test',
-            'data'        => 'Foo bar baz',
+            'title' => 'Test',
+            'data' => 'Foo bar baz',
             'target_type' => 'Issue',
-            'target_id'   => 1,
-            'action'      => 3,
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'target_id' => 1,
+            'action' => 3,
+            'author_id' => 1,
+            'project_id' => 1,
         ];
         $object = new AddMomentCommand(
             $params['title'],

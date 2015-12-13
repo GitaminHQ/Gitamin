@@ -17,8 +17,6 @@ class CreatePullRequestsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -60,8 +58,6 @@ class CreatePullRequestsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

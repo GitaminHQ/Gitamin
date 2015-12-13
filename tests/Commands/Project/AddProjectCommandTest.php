@@ -23,12 +23,12 @@ class AddProjectCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'             => 'Test',
-            'description'      => 'Foo',
+            'name' => 'Test',
+            'description' => 'Foo',
             'visibility_level' => 1,
-            'path'             => 'Baidu',
-            'creator_id'       => 1,
-            'owner_id'         => 1,
+            'path' => 'Baidu',
+            'creator_id' => 1,
+            'owner_id' => 1,
         ];
         $object = new AddProjectCommand(
             $params['name'],

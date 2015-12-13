@@ -11,17 +11,17 @@
 
 return [
 
-    'admin'    => 'Admin',
-    'title'    => 'Admin Control Panel',
+    'admin' => 'Admin',
+    'title' => 'Admin Control Panel',
     'overview' => 'Overview',
 
 // Settings
     'settings' => [
-        'settings'  => 'Settings',
-        'general'   => [
-            'general'     => 'General',
+        'settings' => 'Settings',
+        'general' => [
+            'general' => 'General',
             'images-only' => 'Only images may be uploaded.',
-            'too-big'     => 'The file you uploaded is too big. Upload an image smaller than :size',
+            'too-big' => 'The file you uploaded is too big. Upload an image smaller than :size',
         ],
         'localization' => [
             'localization' => 'Localization',

@@ -23,11 +23,11 @@ class AddOwnerCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'        => 'Test',
-            'path'        => 'test',
-            'user_id'     => 1,
+            'name' => 'Test',
+            'path' => 'test',
+            'user_id' => 1,
             'description' => 'Foo bar',
-            'type'        => 'Group',
+            'type' => 'Group',
         ];
         $object = new AddOwnerCommand(
             $params['name'],
