@@ -100,11 +100,11 @@ return [
     */
 
     'levels' => [
-        'Illuminate\Session\TokenMismatchException'                     => 'notice',
-        'Illuminate\Database\Eloquent\ModelNotFoundException'           => 'warning',
+        'Illuminate\Session\TokenMismatchException' => 'notice',
+        'Illuminate\Database\Eloquent\ModelNotFoundException' => 'warning',
         'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface' => 'warning',
-        'Symfony\Component\Debug\Exception\FatalErrorException'         => 'critical',
-        'Exception'                                                     => 'error',
+        'Symfony\Component\Debug\Exception\FatalErrorException' => 'critical',
+        'Exception' => 'error',
     ],
 
 ];

@@ -29,8 +29,8 @@ class AddGroupMemberCommandHandler
         $user = User::create([
             'username' => $command->username,
             'password' => $command->password,
-            'email'    => $command->email,
-            'level'    => $command->level,
+            'email' => $command->email,
+            'level' => $command->level,
         ]);
 
         event(new UserWasAddedEvent($user));

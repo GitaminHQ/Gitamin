@@ -27,7 +27,7 @@ if (!function_exists('back_url')) {
      */
     function back_url($route, $parameters = [], $status = 302, $headers = [])
     {
-        if ($route !== null && app('url')->previous() == app('url')->full()) {
+        if ($route !== null && app('url')->previous() === app('url')->full()) {
             return app('url')->route($name, $params);
         }
 
@@ -107,7 +107,7 @@ if (!function_exists('color_darken')) {
             $hex = $hex[0] + $hex[0] + $hex[1] + $hex[1] + $hex[2] + $hex[2];
         }
 
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 3; ++$i) {
             $dec = hexdec(substr($hex, $i * 2, 2));
             $dec = min(max(0, $dec + $dec * $percent), 255);
             $new_hex .= str_pad(dechex($dec), 2, 0, STR_PAD_LEFT);

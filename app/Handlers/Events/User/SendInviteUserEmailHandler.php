@@ -28,8 +28,6 @@ class SendInviteUserEmailHandler
      * Create a new send invite user email handler.
      *
      * @param \Illuminate\Contracts\Mail\Mailer $mailer
-     *
-     * @return void
      */
     public function __construct(MailQueue $mailer)
     {
@@ -40,15 +38,13 @@ class SendInviteUserEmailHandler
      * Handle the event.
      *
      * @param \Gitamin\Events\UserWasInvitedEvent $event
-     *
-     * @return void
      */
     public function handle(UserWasInvitedEvent $event)
     {
         $mail = [
-            'email'    => $event->invite->email,
-            'subject'  => 'You have been invited.',
-            'link'     => route('signup.invite', ['code' => $event->invite->code]),
+            'email' => $event->invite->email,
+            'subject' => 'You have been invited.',
+            'link' => route('signup.invite', ['code' => $event->invite->code]),
         ];
 
         $this->mailer->queue([

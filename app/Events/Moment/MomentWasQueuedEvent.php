@@ -26,8 +26,6 @@ class MomentWasQueuedEvent implements MomentEventInterface
      * Create a new moment was removed event instance.
      *
      * @param \Gitamin\Models\Moment $moment
-     *
-     * @return void
      */
     public function __construct(Moment $moment)
     {

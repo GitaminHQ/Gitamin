@@ -56,41 +56,41 @@ return [
     'connections' => [
 
         'sqlite' => [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => env('DB_HOST', storage_path().'/database.sqlite'),
-            'prefix'   => '',
+            'prefix' => '',
         ],
 
         'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', null),
-            'database'  => env('DB_DATABASE', null),
-            'username'  => env('DB_USERNAME', null),
-            'password'  => env('DB_PASSWORD', null),
-            'charset'   => 'utf8',
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', null),
+            'database' => env('DB_DATABASE', null),
+            'username' => env('DB_USERNAME', null),
+            'password' => env('DB_PASSWORD', null),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
+            'prefix' => '',
+            'strict' => false,
         ],
 
         'pgsql' => [
-            'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', null),
+            'driver' => 'pgsql',
+            'host' => env('DB_HOST', null),
             'database' => env('DB_DATABASE', null),
             'username' => env('DB_USERNAME', null),
             'password' => env('DB_PASSWORD', null),
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
         ],
 
         'sqlsrv' => [
-            'driver'   => 'sqlsrv',
-            'host'     => env('DB_HOST', null),
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST', null),
             'database' => env('DB_DATABASE', null),
             'username' => env('DB_USERNAME', null),
             'password' => env('DB_PASSWORD', null),
-            'prefix'   => '',
+            'prefix' => '',
         ],
 
     ],
@@ -124,8 +124,8 @@ return [
         'cluster' => false,
 
         'default' => [
-            'host'     => env('REDIS_HOST', '127.0.0.1'),
-            'port'     => env('REDIS_PORT', 6379),
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_DATABASE', 0),
         ],
 

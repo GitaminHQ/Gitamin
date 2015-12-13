@@ -26,8 +26,6 @@ final class RemoveUserCommand
      * Create a new remove user command instance.
      *
      * @param \Gitamin\Models\User $user
-     *
-     * @return void
      */
     public function __construct(User $user)
     {

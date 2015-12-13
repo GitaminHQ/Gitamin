@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'failed'   => '登录凭证无效。',
+    'failed' => '登录凭证无效。',
     'throttle' => '登录次数过多，请于 :seconds 秒后重试。',
 
 ];

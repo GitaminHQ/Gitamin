@@ -24,8 +24,6 @@ final class UserWasInvitedEvent implements UserEventInterface
 
     /**
      * Create a new user was invite event instance.
-     *
-     * @return void
      */
     public function __construct(Invite $invite)
     {

@@ -140,20 +140,20 @@ abstract class AbstractApiController extends Controller
     protected function paginator(Paginator $paginator, Request $request)
     {
         foreach ($request->query as $key => $value) {
-            if ($key != 'page') {
+            if ($key !== 'page') {
                 $paginator->addQuery($key, $value);
             }
         }
 
         $pagination = [
             'pagination' => [
-                'total'        => (int) $paginator->total(),
-                'count'        => count($paginator->items()),
-                'per_page'     => (int) $paginator->perPage(),
+                'total' => (int) $paginator->total(),
+                'count' => count($paginator->items()),
+                'per_page' => (int) $paginator->perPage(),
                 'current_page' => (int) $paginator->currentPage(),
-                'total_pages'  => (int) $paginator->lastPage(),
-                'links'        => [
-                    'next_page'     => $paginator->nextPageUrl(),
+                'total_pages' => (int) $paginator->lastPage(),
+                'links' => [
+                    'next_page' => $paginator->nextPageUrl(),
                     'previous_page' => $paginator->previousPageUrl(),
                 ],
             ],
@@ -162,7 +162,7 @@ abstract class AbstractApiController extends Controller
         $items = $paginator->getCollection();
 
         if ($sortBy = $request->get('sort')) {
-            $direction = $request->has('order') && $request->get('order') == 'desc';
+            $direction = $request->has('order') && $request->get('order') === 'desc';
 
             $items = $items->sortBy($sortBy, SORT_REGULAR, $direction);
         }

@@ -23,11 +23,11 @@ class AddCommentCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'message'     => 'Foo bar baz',
+            'message' => 'Foo bar baz',
             'target_type' => 'Issue',
-            'target_id'   => 1,
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'target_id' => 1,
+            'author_id' => 1,
+            'project_id' => 1,
         ];
         $object = new AddCommentCommand(
             $params['message'],

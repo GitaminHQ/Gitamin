@@ -28,10 +28,10 @@ class DefaultRoutes
         //Default - Dashboard
         $router->group([
             'middleware' => ['app.hasSetting', 'auth'],
-            'setting'    => 'app_name',
+            'setting' => 'app_name',
         ], function ($router) {
             $router->get('/', [
-                'as'   => 'home',
+                'as' => 'home',
                 'uses' => 'DashboardController@indexAction',
             ]);
         });
@@ -43,19 +43,19 @@ class DefaultRoutes
         //Signup Area
         $router->group([
             'middleware' => ['app.hasSetting', 'guest'],
-            'setting'    => 'app_name',
-            'as'         => 'signup.',
+            'setting' => 'app_name',
+            'as' => 'signup.',
         ], function ($router) {
             $router->get('signup', [
-                'as'         => 'signup',
-                'uses'       => 'SignupController@getSignup',
+                'as' => 'signup',
+                'uses' => 'SignupController@getSignup',
             ]);
             $router->post('signup', [
                 'uses' => 'SignupController@postSignup',
             ]);
 
             $router->get('signup/invite/{code}', [
-                'as'   => 'invite',
+                'as' => 'invite',
                 'uses' => 'SignupController@getSignup',
             ]);
             $router->post('signup/invite/{code}', [
@@ -66,36 +66,36 @@ class DefaultRoutes
         //Explore Area
         $router->group([
             'middleware' => ['app.hasSetting'],
-            'setting'    => 'app_name',
-            'prefix'     => 'explore',
-            'as'         => 'explore.',
+            'setting' => 'app_name',
+            'prefix' => 'explore',
+            'as' => 'explore.',
         ], function ($router) {
             $router->get('/', [
-                'as'   => 'index',
+                'as' => 'index',
                 'uses' => 'ExploreController@indexAction',
             ]);
             $router->get('groups', [
-                'as'    => 'groups',
-                'uses'  => 'ExploreController@groupsAction',
+                'as' => 'groups',
+                'uses' => 'ExploreController@groupsAction',
             ]);
 
             $router->get('issue/{issue}', [
-                'as'    => 'issue',
-                'uses'  => 'ExploreController@showIssue',
+                'as' => 'issue',
+                'uses' => 'ExploreController@showIssue',
             ]);
         });
 
         // Feed Area
         $router->group([
             'middleware' => 'app.hasSetting',
-            'setting'    => 'app_name',
+            'setting' => 'app_name',
         ], function ($router) {
             $router->get('/atom/{namespace?}', [
-                'as'   => 'feed.atom',
+                'as' => 'feed.atom',
                 'uses' => 'FeedController@atomAction',
             ]);
             $router->get('/rss/{namespace?}', [
-                'as'   => 'feed.rss',
+                'as' => 'feed.rss',
                 'uses' => 'FeedController@rssAction',
             ]);
         });
@@ -103,11 +103,11 @@ class DefaultRoutes
         // Profile Area
         $router->group([
             'middleware' => ['app.hasSetting'],
-            'setting'    => 'app_name',
-            'as'         => 'profile.',
+            'setting' => 'app_name',
+            'as' => 'profile.',
         ], function ($router) {
             $router->get('profile', [
-                'as'   => 'index',
+                'as' => 'index',
                 'uses' => 'ProfilesController@indexAction',
             ]);
         });

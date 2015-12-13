@@ -11,7 +11,7 @@
 
 return [
     // Enabled langs
-    'en'    => 'English',
+    'en' => 'English',
     'zh-CN' => '简体中文',
     'zh-TW' => '繁體中文',
 ];

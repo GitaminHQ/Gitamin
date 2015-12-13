@@ -1,0 +1,11 @@
+preset: symfony
+
+linting: true
+
+enabled:
+
+disabled:
+
+finder:
+  name:
+    - "*.php"

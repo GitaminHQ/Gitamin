@@ -55,7 +55,7 @@ class SubscriberTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/subscribers', [
-            'email'  => 'gitamin@gitamin.com',
+            'email' => 'gitamin@gitamin.com',
             'verify' => true,
         ]);
         $this->assertResponseOk();
