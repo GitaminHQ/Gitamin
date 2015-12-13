@@ -15,11 +15,6 @@ return Symfony\CS\Config\Config::create()
     // use default SYMFONY_LEVEL and extra fixers:
     ->fixers(array(
         'header_comment',
-        'ordered_use',
-        'php_unit_construct',
-        'php_unit_strict',
-        'strict',
-        'strict_param',
     ))
     ->finder(
         Symfony\CS\Finder\DefaultFinder::create()
