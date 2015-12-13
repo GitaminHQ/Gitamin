@@ -26,12 +26,12 @@ return [
      */
     'defaults' => [
         'supportsCredentials' => true,
-        'allowedOrigins'      => ['*'],
-        'allowedHeaders'      => [],
-        'allowedMethods'      => [],
-        'exposedHeaders'      => [],
-        'maxAge'              => 0,
-        'hosts'               => [],
+        'allowedOrigins' => ['*'],
+        'allowedHeaders' => [],
+        'allowedMethods' => [],
+        'exposedHeaders' => [],
+        'maxAge' => 0,
+        'hosts' => [],
     ],
 
     'paths' => [
@@ -39,7 +39,7 @@ return [
             'allowedOrigins' => [],
             'allowedHeaders' => ['X-Gitamin-Token'],
             'allowedMethods' => ['*'],
-            'maxAge'         => 3600,
+            'maxAge' => 3600,
         ],
     ],
 
