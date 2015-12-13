@@ -28,6 +28,7 @@
 #  enable_ssl_verification :boolean          default(TRUE)
 #
 
+
 namespace Gitamin\Models\Hooks;
 
 use Illuminate\Database\Eloquent\Model;

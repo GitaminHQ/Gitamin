@@ -22,7 +22,7 @@ class Tag extends Model
      * @var string[]
      */
     protected $casts = [
-        'id'   => 'int',
+        'id' => 'int',
         'name' => 'string',
     ];
 

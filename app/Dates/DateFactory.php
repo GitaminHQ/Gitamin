@@ -34,8 +34,6 @@ class DateFactory
      *
      * @param string $appTimezone
      * @param string $gitaminTimezone
-     *
-     * @return void
      */
     public function __construct($appTimezone, $gitaminTimezone)
     {

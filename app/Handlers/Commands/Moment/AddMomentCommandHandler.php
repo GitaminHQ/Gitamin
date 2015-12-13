@@ -29,8 +29,6 @@ class AddMomentCommandHandler
      * Create a new report moment command handler instance.
      *
      * @param \Gitamin\Dates\DateFactory $dates
-     *
-     * @return void
      */
     public function __construct(DateFactory $dates)
     {
@@ -47,7 +45,7 @@ class AddMomentCommandHandler
     public function handle(AddMomentCommand $command)
     {
         $data = [
-            'action'    => $command->action,
+            'action' => $command->action,
             'author_id' => $command->author_id,
         ];
 

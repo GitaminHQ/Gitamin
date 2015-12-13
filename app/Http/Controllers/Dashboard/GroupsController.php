@@ -27,28 +27,26 @@ class GroupsController extends Controller
 
     /**
      * Creates a new project controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->subMenu = [
-            'yours'   => [
-                'title'  => trans_choice('gitamin.groups.yours', 2),
-                'url'    => route('dashboard.groups.index'),
-                'icon'   => 'fa fa-folder',
+            'yours' => [
+                'title' => trans_choice('gitamin.groups.yours', 2),
+                'url' => route('dashboard.groups.index'),
+                'icon' => 'fa fa-folder',
                 'active' => false,
             ],
             'explore' => [
-                'title'  => trans('gitamin.groups.explore'),
-                'url'    => route('explore.groups'),
-                'icon'   => 'fa fa-eye',
+                'title' => trans('gitamin.groups.explore'),
+                'url' => route('explore.groups'),
+                'icon' => 'fa fa-eye',
                 'active' => false,
             ],
         ];
 
         View::share([
-            'sub_menu'  => $this->subMenu,
+            'sub_menu' => $this->subMenu,
             'sub_title' => trans_choice('dashboard.groups.groups', 2),
         ]);
     }

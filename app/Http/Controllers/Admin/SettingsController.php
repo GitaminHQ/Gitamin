@@ -31,47 +31,45 @@ class SettingsController extends Controller
 
     /**
      * Creates a new settings controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->subMenu = [
             'general' => [
-                'title'  => trans('admin.settings.general.general'),
-                'url'    => route('admin.settings.general'),
-                'icon'   => 'fa fa-gear',
+                'title' => trans('admin.settings.general.general'),
+                'url' => route('admin.settings.general'),
+                'icon' => 'fa fa-gear',
                 'active' => false,
             ],
             'theme' => [
-                'title'  => trans('admin.settings.theme.theme'),
-                'url'    => route('admin.settings.theme'),
-                'icon'   => 'fa fa-list-alt',
+                'title' => trans('admin.settings.theme.theme'),
+                'url' => route('admin.settings.theme'),
+                'icon' => 'fa fa-list-alt',
                 'active' => false,
             ],
             'stylesheet' => [
-                'title'  => trans('admin.settings.stylesheet.stylesheet'),
-                'url'    => route('admin.settings.stylesheet'),
-                'icon'   => 'fa fa-magic',
+                'title' => trans('admin.settings.stylesheet.stylesheet'),
+                'url' => route('admin.settings.stylesheet'),
+                'icon' => 'fa fa-magic',
                 'active' => false,
             ],
             'localization' => [
-                'title'  => trans('admin.settings.localization.localization'),
-                'url'    => route('admin.settings.localization'),
-                'icon'   => 'fa fa-language',
+                'title' => trans('admin.settings.localization.localization'),
+                'url' => route('admin.settings.localization'),
+                'icon' => 'fa fa-language',
                 'active' => false,
             ],
             'timezone' => [
-                'title'  => trans('admin.settings.timezone.timezone'),
-                'url'    => route('admin.settings.timezone'),
-                'icon'   => 'fa fa-calendar',
+                'title' => trans('admin.settings.timezone.timezone'),
+                'url' => route('admin.settings.timezone'),
+                'icon' => 'fa fa-calendar',
                 'active' => false,
             ],
         ];
 
         View::share([
             'sub_title' => trans('admin.settings.settings'),
-            'sub_menu'  => $this->subMenu,
+            'sub_menu' => $this->subMenu,
         ]);
     }
 

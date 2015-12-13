@@ -29,8 +29,6 @@ class UpdateCommentCommandHandler
      * Create a new update comment command handler instance.
      *
      * @param \Gitamin\Dates\DateFactory $dates
-     *
-     * @return void
      */
     public function __construct(DateFactory $dates)
     {

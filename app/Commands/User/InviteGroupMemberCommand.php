@@ -33,8 +33,6 @@ final class InviteGroupMemberCommand
      * Create a new invite group member command instance.
      *
      * @param array $email
-     *
-     * @return void
      */
     public function __construct($emails)
     {

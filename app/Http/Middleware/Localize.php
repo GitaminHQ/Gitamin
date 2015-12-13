@@ -35,8 +35,6 @@ class Localize
      * Constructs a new localize instance.
      *
      * @param \Illuminate\Config\Repository $config
-     *
-     * @return void
      */
     public function __construct(Repository $config)
     {

@@ -24,8 +24,6 @@ class CommentWasAddedEvent implements CommentEventInterface
 
     /**
      * Create a new comment has reported event instance.
-     *
-     * @return void
      */
     public function __construct(Comment $comment)
     {

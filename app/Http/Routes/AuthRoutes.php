@@ -26,25 +26,25 @@ class AuthRoutes
     public function map(Registrar $router)
     {
         $router->group([
-            'as'         => 'auth.',
+            'as' => 'auth.',
             'middleware' => 'app.hasSetting',
-            'prefix'     => 'auth',
-            'setting'    => 'app_name',
+            'prefix' => 'auth',
+            'setting' => 'app_name',
         ], function ($router) {
             $router->get('login', [
                 'middleware' => 'guest',
-                'as'         => 'login',
-                'uses'       => 'AuthController@showLogin',
+                'as' => 'login',
+                'uses' => 'AuthController@showLogin',
             ]);
 
             $router->post('login', [
                 'middleware' => ['guest', 'csrf', 'throttling:10,10'],
-                'uses'       => 'AuthController@postLogin',
+                'uses' => 'AuthController@postLogin',
             ]);
 
             $router->get('logout', [
-                'as'         => 'logout',
-                'uses'       => 'AuthController@logoutAction',
+                'as' => 'logout',
+                'uses' => 'AuthController@logoutAction',
                 'middleware' => 'auth',
             ]);
         });

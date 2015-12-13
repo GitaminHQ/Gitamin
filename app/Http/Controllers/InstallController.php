@@ -31,18 +31,16 @@ class InstallController extends Controller
      * @var string[]
      */
     protected $cacheDrivers = [
-        'file'      => 'File',
+        'file' => 'File',
         'memcached' => 'Memcached',
-        'redis'     => 'Redis',
-        'apc'       => 'APC(u)',
-        'array'     => 'Array',
-        'database'  => 'Database',
+        'redis' => 'Redis',
+        'apc' => 'APC(u)',
+        'array' => 'Array',
+        'database' => 'Database',
     ];
 
     /**
      * Create a new install controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -90,7 +88,7 @@ class InstallController extends Controller
         $postData = Binput::all();
 
         $v = Validator::make($postData, [
-            'env.cache_driver'   => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
             'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
         ]);
 
@@ -111,12 +109,12 @@ class InstallController extends Controller
         $postData = Binput::all();
 
         $v = Validator::make($postData, [
-            'env.cache_driver'      => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'env.session_driver'    => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'settings.app_name'     => 'required',
-            'settings.app_domain'   => 'required',
+            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'settings.app_name' => 'required',
+            'settings.app_domain' => 'required',
             'settings.app_timezone' => 'required',
-            'settings.app_locale'   => 'required',
+            'settings.app_locale' => 'required',
         ]);
 
         if ($v->passes()) {
@@ -136,15 +134,15 @@ class InstallController extends Controller
         $postData = Binput::all();
 
         $v = Validator::make($postData, [
-            'env.cache_driver'      => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'env.session_driver'    => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'settings.app_name'     => 'required',
-            'settings.app_domain'   => 'required',
+            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'settings.app_name' => 'required',
+            'settings.app_domain' => 'required',
             'settings.app_timezone' => 'required',
-            'settings.app_locale'   => 'required',
-            'user.username'         => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
-            'user.email'            => 'email|required',
-            'user.password'         => 'required',
+            'settings.app_locale' => 'required',
+            'user.username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
+            'user.email' => 'email|required',
+            'user.password' => 'required',
         ]);
 
         if ($v->passes()) {
@@ -153,9 +151,9 @@ class InstallController extends Controller
 
             $user = User::create([
                 'username' => $userDetails['username'],
-                'email'    => $userDetails['email'],
+                'email' => $userDetails['email'],
                 'password' => $userDetails['password'],
-                'level'    => 1,
+                'level' => 1,
             ]);
 
             Auth::login($user);
@@ -164,7 +162,7 @@ class InstallController extends Controller
 
             foreach ($settings as $settingName => $settingValue) {
                 Setting::create([
-                    'name'  => $settingName,
+                    'name' => $settingName,
                     'value' => $settingValue,
                 ]);
             }
@@ -197,8 +195,6 @@ class InstallController extends Controller
      *
      * @param string $key
      * @param mixed  $value
-     *
-     * @return void
      */
     protected function writeEnv($key, $value)
     {
@@ -214,8 +210,6 @@ class InstallController extends Controller
 
     /**
      * Generate the app.key value.
-     *
-     * @return void
      */
     protected function keyGenerate()
     {

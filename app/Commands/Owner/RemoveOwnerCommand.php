@@ -26,8 +26,6 @@ final class RemoveOwnerCommand
      * Create a new remove project owner command instance.
      *
      * @param \Gitamin\Models\Owner $owner
-     *
-     * @return void
      */
     public function __construct(Owner $owner)
     {

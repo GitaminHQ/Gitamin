@@ -24,6 +24,7 @@
 #  iid         :integer
 #
 
+
 namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;

@@ -28,6 +28,7 @@
 #  invite_accepted_at :timestamp
 #
 
+
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
@@ -45,13 +46,13 @@ class Member extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'access_level'       => 'int',
-        'source_id'          => 'int',
-        'source_type'        => 'string',
-        'user_id'            => 'int',
+        'access_level' => 'int',
+        'source_id' => 'int',
+        'source_type' => 'string',
+        'user_id' => 'int',
         'notification_level' => 'int',
-        'type'               => 'string',
-        'created_by_id'      => 'int',
+        'type' => 'string',
+        'created_by_id' => 'int',
     ];
 
     /**
@@ -73,10 +74,10 @@ class Member extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'source_id'     => 'required|string',
-        'source_type'   => 'required|string',
-        'user_id'       => 'int',
-        'type'          => 'string',
+        'source_id' => 'required|string',
+        'source_type' => 'required|string',
+        'user_id' => 'int',
+        'type' => 'string',
         'created_by_id' => 'int',
     ];
 

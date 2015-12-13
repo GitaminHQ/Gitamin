@@ -97,7 +97,7 @@ class MomentPresenter extends AbstractPresenter
     public function toArray()
     {
         return [
-            'summary'        => $this->summary(),
+            'summary' => $this->summary(),
             'created_at_iso' => $this->created_at_iso(),
         ];
     }

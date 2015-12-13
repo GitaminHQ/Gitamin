@@ -29,8 +29,8 @@ class SignupUserCommandHandler
         $user = User::create([
             'username' => $command->username,
             'password' => $command->password,
-            'email'    => $command->email,
-            'level'    => 2,
+            'email' => $command->email,
+            'level' => 2,
         ]);
 
         event(new UserWasAddedEvent($user));

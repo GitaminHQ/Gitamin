@@ -27,8 +27,6 @@ abstract class AbstractPresenter extends BaseLaravelAutoPresenter implements Arr
      * Create a issue presenter instance.
      *
      * @param \Illuminate\Database\Eloquent\Model $resource
-     *
-     * @return void
      */
     public function __construct($resource)
     {

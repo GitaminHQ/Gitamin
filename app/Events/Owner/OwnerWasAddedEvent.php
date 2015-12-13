@@ -24,8 +24,6 @@ class OwnerWasAddedEvent implements OwnerEventInterface
 
     /**
      * Create a new project owner was added event instance.
-     *
-     * @return void
      */
     public function __construct(Owner $owner)
     {

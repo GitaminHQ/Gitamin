@@ -30,6 +30,7 @@
 #  is_award      :boolean
 #
 
+
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
@@ -48,7 +49,7 @@ class Comment extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'         => 'int',
+        'id' => 'int',
         'deleted_at' => 'date',
     ];
 
@@ -73,11 +74,11 @@ class Comment extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'author_id'   => 'int',
-        'project_id'  => 'int',
-        'message'     => 'required',
+        'author_id' => 'int',
+        'project_id' => 'int',
+        'message' => 'required',
         'target_type' => 'string|required',
-        'target_id'   => 'int',
+        'target_id' => 'int',
     ];
 
     /**

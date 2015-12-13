@@ -20,8 +20,6 @@ class RemoveCommentCommandHandler
      * Handle the remove comment command.
      *
      * @param \Gitamin\Commands\Comment\RemoveCommentCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveCommentCommand $command)
     {

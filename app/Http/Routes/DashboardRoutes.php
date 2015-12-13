@@ -28,33 +28,33 @@ class DashboardRoutes
         //Dashboard area
         $router->group([
             'middleware' => 'auth',
-            'prefix'     => 'dashboard',
-            'namespace'  => 'Dashboard',
-            'as'         => 'dashboard.',
+            'prefix' => 'dashboard',
+            'namespace' => 'Dashboard',
+            'as' => 'dashboard.',
         ], function ($router) {
 
             // Projects
             $router->group([
-                'as'     => 'projects.',
+                'as' => 'projects.',
                 'prefix' => 'projects',
             ], function ($router) {
                 $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'ProjectsController@indexAction',
                 ]);
                 $router->get('starred', [
-                    'as'   => 'starred',
+                    'as' => 'starred',
                     'uses' => 'ProjectsController@starredAction',
                 ]);
             });
 
             //Groups
             $router->group([
-                'as'     => 'groups.',
+                'as' => 'groups.',
                 'prefix' => 'groups',
             ], function ($router) {
                 $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'GroupsController@indexAction',
                 ]);
 
@@ -62,70 +62,70 @@ class DashboardRoutes
 
             // Moments
             $router->group([
-                'as'     => 'moments.',
+                'as' => 'moments.',
                 'prefix' => 'moments',
                 ], function ($router) {
                    $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'MomentsController@indexAction',
                 ]);
             });
 
             // Milestones
             $router->group([
-                'as'     => 'milestones.',
+                'as' => 'milestones.',
                 'prefix' => 'milestones',
                 ], function ($router) {
                    $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'MilestonesController@indexAction',
                 ]);
             });
 
             // Pull Requests
             $router->group([
-                'as'     => 'pull_requests.',
+                'as' => 'pull_requests.',
                 'prefix' => 'pull_requests',
                 ], function ($router) {
                    $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'PullRequestsController@indexAction',
                 ]);
             });
 
             // Snippets
             $router->group([
-                'as'     => 'snippets.',
+                'as' => 'snippets.',
                 'prefix' => 'snippets',
                 ], function ($router) {
                    $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'SnippetsController@indexAction',
                 ]);
             });
 
             // Issues
             $router->group([
-                'as'     => 'issues.',
+                'as' => 'issues.',
                 'prefix' => 'issues',
             ], function ($router) {
                 $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'IssuesController@indexAction',
                 ]);
             });
 
             // Subscribers
             $router->group([
-                'as'     => 'subscribers.',
+                'as' => 'subscribers.',
                 'prefix' => 'subscribers',
             ], function ($router) {
                 $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'SubscriberController@indexAction',
                 ]);
                 $router->get('add', [
-                    'as'   => 'add',
+                    'as' => 'add',
                     'uses' => 'SubscriberController@showAddSubscriber',
                 ]);
                 $router->post('add', 'SubscriberController@createSubscriberAction');
@@ -134,21 +134,21 @@ class DashboardRoutes
 
             // Group Members
             $router->group([
-                'as'     => 'group.',
+                'as' => 'group.',
                 'prefix' => 'group',
             ], function ($router) {
                 $router->get('/', [
-                    'as'   => 'index',
+                    'as' => 'index',
                     'uses' => 'GroupController@showGroupView',
                 ]);
 
                 $router->group(['middleware' => 'admin'], function ($router) {
                     $router->get('add', [
-                        'as'   => 'add',
+                        'as' => 'add',
                         'uses' => 'GroupController@showAddGroupMemberView',
                     ]);
                     $router->get('invite', [
-                        'as'   => 'invite',
+                        'as' => 'invite',
                         'uses' => 'GroupController@showInviteGroupMemberView',
                     ]);
                     $router->get('{user}', 'GroupController@showGroupMemberView');
@@ -162,7 +162,7 @@ class DashboardRoutes
             // User Settings
             $router->group(['prefix' => 'user'], function ($router) {
                 $router->get('/', [
-                    'as'   => 'user',
+                    'as' => 'user',
                     'uses' => 'UserController@showUser',
                 ]);
                 $router->post('/', 'UserController@postUser');

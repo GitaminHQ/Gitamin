@@ -24,8 +24,6 @@ final class InviteWasClaimed implements InviteEventInterface
 
     /**
      * Create a new invite was claimed event instance.
-     *
-     * @return void
      */
     public function __construct(Invite $invite)
     {

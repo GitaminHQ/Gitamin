@@ -21,8 +21,6 @@ class InviteGroupMemberCommandHandler
      * Handle the invite group member command.
      *
      * @param \Gitamin\Commands\User\InviteGroupMemberCommand $command
-     *
-     * @return void
      */
     public function handle(InviteGroupMemberCommand $command)
     {
