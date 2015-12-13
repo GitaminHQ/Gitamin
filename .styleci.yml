@@ -3,6 +3,11 @@ preset: symfony
 linting: true
 
 enabled:
+    - ordered_use
+    - php_unit_construct
+    - php_unit_strict
+    - strict
+    - strict_param
 
 disabled:
 
