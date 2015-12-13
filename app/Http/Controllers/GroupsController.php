@@ -26,55 +26,12 @@ use Illuminate\Support\Facades\View;
 class GroupsController extends Controller
 {
     /**
-     * Array of sub-menu items.
-     *
-     * @var array
-     */
-    protected $subMenu = [];
-
-    /**
-     * Creates a new project controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->subMenu = [
-            'projects' => [
-                'title'  => trans('dashboard.projects.projects'),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-sitemap',
-                'active' => false,
-            ],
-            'groups'   => [
-                'title'  => trans_choice('gitamin.groups.groups', 2),
-                'url'    => route('dashboard.groups.index'),
-                'icon'   => 'fa fa-folder',
-                'active' => false,
-            ],
-            'labels' => [
-                'title'  => trans_choice('dashboard.projects.labels.labels', 2),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-tags',
-                'active' => false,
-            ],
-        ];
-
-        View::share([
-            'sub_menu'  => $this->subMenu,
-            'sub_title' => trans_choice('dashboard.projects.projects', 2),
-        ]);
-    }
-
-    /**
      * Shows the project groups view.
      *
      * @return \Illuminate\View\View
      */
     public function indexAction()
     {
-        $this->subMenu['groups']['active'] = true;
-
         return View::make('groups.index')
             ->withPageTitle(trans_choice('gitamin.groups.groups', 2).' - '.trans('dashboard.dashboard'))
             ->withGroups(Group::get())
