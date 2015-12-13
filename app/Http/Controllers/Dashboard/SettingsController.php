@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -178,11 +178,11 @@ class SettingsController extends Controller
                 return Redirect::to($redirectUrl)->withErrors(trans('dashboard.settings.general.too-big', ['size' => $maxSize]));
             }
 
-            if (!$file->isValid() || $file->getError()) {
+            if (! $file->isValid() || $file->getError()) {
                 return Redirect::to($redirectUrl)->withErrors($file->getErrorMessage());
             }
 
-            if (!starts_with($file->getMimeType(), 'image/')) {
+            if (! starts_with($file->getMimeType(), 'image/')) {
                 return Redirect::to($redirectUrl)->withErrors(trans('dashboard.settings.general.images-only'));
             }
 

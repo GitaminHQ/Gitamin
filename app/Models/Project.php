@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -40,7 +40,6 @@
 #  import_source          :string(255)
 #  commit_count           :integer          default(0)
 #
-
 
 namespace Gitamin\Models;
 
@@ -166,7 +165,7 @@ class Project extends Model implements HasPresenter
             $join->on('projects.owner_id', '=', 'owners.id');
         })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner_path)->first($columns);
 
-        if (!$project) {
+        if (! $project) {
             throw new ModelNotFoundException();
         }
 

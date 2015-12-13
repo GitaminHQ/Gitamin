@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -25,7 +25,6 @@
 #  type             :string(255)
 #  visibility_level :integer          default(0), not null
 #
-
 
 namespace Gitamin\Models;
 

@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -47,7 +47,7 @@ class ApiFilter
     {
         if ($this->request->is('api*')) {
             foreach ($displayers as $index => $displayer) {
-                if (!str_contains($displayer->contentType(), 'application/')) {
+                if (! str_contains($displayer->contentType(), 'application/')) {
                     unset($displayers[$index]);
                 }
             }

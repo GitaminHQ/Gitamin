@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -26,7 +26,7 @@ class SubscribersConfigured
      */
     public function handle($request, Closure $next)
     {
-        if (!subscribers_enabled()) {
+        if (! subscribers_enabled()) {
             return Redirect::route('explore');
         }
 

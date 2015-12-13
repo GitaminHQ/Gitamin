@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -29,7 +29,7 @@ class ApiController extends Controller
      */
     public function postUpdateProject(Project $project)
     {
-        if (!$project->update(Binput::except(['_token']))) {
+        if (! $project->update(Binput::except(['_token']))) {
             throw new Exception(trans('dashboard.projects.edit.failure'));
         }
 

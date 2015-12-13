@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -27,7 +27,6 @@
 #  invite_token       :string(255)
 #  invite_accepted_at :timestamp
 #
-
 
 namespace Gitamin\Models;
 
