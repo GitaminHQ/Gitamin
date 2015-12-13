@@ -24,8 +24,6 @@ class ProjectWasRemovedEvent implements ProjectEventInterface
 
     /**
      * Create a new project was removed event instance.
-     *
-     * @return void
      */
     public function __construct(Project $project)
     {

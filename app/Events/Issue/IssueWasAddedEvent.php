@@ -24,8 +24,6 @@ class IssueWasAddedEvent implements IssueEventInterface
 
     /**
      * Create a new issue has reported event instance.
-     *
-     * @return void
      */
     public function __construct(Issue $issue)
     {

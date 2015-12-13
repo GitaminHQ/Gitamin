@@ -26,8 +26,6 @@ final class VerifySubscriberCommand
      * Create a verify subscriber command instance.
      *
      * @param Subscriber $subscriber
-     *
-     * @return void
      */
     public function __construct(Subscriber $subscriber)
     {

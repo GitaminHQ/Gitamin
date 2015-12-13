@@ -20,8 +20,6 @@ class RemoveIssueCommandHandler
      * Handle the remove issue command.
      *
      * @param \Gitamin\Commands\Issue\RemoveIssueCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveIssueCommand $command)
     {

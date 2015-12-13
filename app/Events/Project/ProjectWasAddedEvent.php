@@ -24,8 +24,6 @@ class ProjectWasAddedEvent implements ProjectEventInterface
 
     /**
      * Create a new project was added event instance.
-     *
-     * @return void
      */
     public function __construct(Project $project)
     {

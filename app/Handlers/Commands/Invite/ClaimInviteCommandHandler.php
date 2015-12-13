@@ -21,8 +21,6 @@ class ClaimInviteCommandHandler
      * Handle the claim invite command.
      *
      * @param \Gitamin\Commands\User\ClaimInviteCommand $command
-     *
-     * @return void
      */
     public function handle(ClaimInviteCommand $command)
     {

@@ -24,8 +24,6 @@ class OwnerWasRemovedEvent implements OwnerEventInterface
 
     /**
      * Create a new project owner was removed event instance.
-     *
-     * @return void
      */
     public function __construct(Owner $owner)
     {

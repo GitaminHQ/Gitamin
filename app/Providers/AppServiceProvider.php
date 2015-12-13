@@ -36,8 +36,6 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {
@@ -46,8 +44,6 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Register the date factory.
-     *
-     * @return void
      */
     protected function registerDateFactory()
     {

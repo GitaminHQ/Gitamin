@@ -24,8 +24,6 @@ final class GenerateApiTokenCommand
      * Create a new generate api token command instance.
      *
      * @param \Gitamin\Models\User $user
-     *
-     * @return void
      */
     public function __construct($user)
     {

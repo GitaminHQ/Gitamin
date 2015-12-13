@@ -83,11 +83,11 @@ class SignupController extends Controller
                 2
             ));
             $ownerData = [
-                'name'        => $user->username,
-                'path'        => $user->username,
-                'user_id'     => $user->id,
+                'name' => $user->username,
+                'path' => $user->username,
+                'user_id' => $user->id,
                 'description' => '',
-                'type'        => 'User',
+                'type' => 'User',
             ];
             $this->dispatchFromArray(AddOwnerCommand::class, $ownerData);
         } catch (ValidationException $e) {

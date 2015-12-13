@@ -46,8 +46,6 @@ class DemoSeederCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function fire()
     {
@@ -69,39 +67,37 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the project teams table.
-     *
-     * @return void
      */
     protected function seedOwners()
     {
         $defaultOwners = [
             [
-                'name'        => 'Baidu',
-                'path'        => 'Baidu',
-                'user_id'     => 1,
+                'name' => 'Baidu',
+                'path' => 'Baidu',
+                'user_id' => 1,
                 'description' => 'www.baidu.com',
-                'type'        => 'Group',
+                'type' => 'Group',
             ],
             [
-                'name'        => 'Alibaba',
-                'path'        => 'Alibaba',
-                'user_id'     => 1,
+                'name' => 'Alibaba',
+                'path' => 'Alibaba',
+                'user_id' => 1,
                 'description' => 'www.alibaba.com',
-                'type'        => 'Group',
+                'type' => 'Group',
             ],
             [
-                'name'        => 'Tencent',
-                'path'        => 'Tencent',
-                'user_id'     => 1,
+                'name' => 'Tencent',
+                'path' => 'Tencent',
+                'user_id' => 1,
                 'description' => 'www.qq.com',
-                'type'        => 'Group',
+                'type' => 'Group',
             ],
             [
-                'name'        => 'demo',
-                'path'        => 'demo',
-                'user_id'     => 1,
+                'name' => 'demo',
+                'path' => 'demo',
+                'user_id' => 1,
                 'description' => '',
-                'type'        => 'User',
+                'type' => 'User',
             ],
         ];
 
@@ -114,40 +110,38 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the projects table.
-     *
-     * @return void
      */
     protected function seedProjects()
     {
         $defaultProjects = [
             [
-                'name'             => 'API',
-                'description'      => 'Used by third-parties to connect to us',
+                'name' => 'API',
+                'description' => 'Used by third-parties to connect to us',
                 'visibility_level' => 0,
-                'owner_id'         => 1,
-                'creator_id'       => 1,
-                'path'             => 'api',
+                'owner_id' => 1,
+                'creator_id' => 1,
+                'path' => 'api',
             ], [
-                'name'             => 'Documentation',
-                'description'      => 'Kindly powered by Readme.io',
+                'name' => 'Documentation',
+                'description' => 'Kindly powered by Readme.io',
                 'visibility_level' => 1,
-                'owner_id'         => 2,
-                'creator_id'       => 1,
-                'path'             => 'doc',
+                'owner_id' => 2,
+                'creator_id' => 1,
+                'path' => 'doc',
             ], [
-                'name'             => 'Website',
-                'description'      => 'Tencent Holdings Limited is a Chinese investment holding company',
+                'name' => 'Website',
+                'description' => 'Tencent Holdings Limited is a Chinese investment holding company',
                 'visibility_level' => 1,
-                'owner_id'         => 3,
-                'creator_id'       => 1,
-                'path'             => 'website',
+                'owner_id' => 3,
+                'creator_id' => 1,
+                'path' => 'website',
             ], [
-                'name'             => 'Blog',
-                'description'      => 'The Gitamin Blog.',
+                'name' => 'Blog',
+                'description' => 'The Gitamin Blog.',
                 'visibility_level' => 1,
-                'owner_id'         => 4,
-                'creator_id'       => 1,
-                'path'             => 'blog',
+                'owner_id' => 4,
+                'creator_id' => 1,
+                'path' => 'blog',
             ],
         ];
 
@@ -160,41 +154,39 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the issues table.
-     *
-     * @return void
      */
     protected function seedIssues()
     {
         $defaultIssues = [
             [
-                'title'       => 'Awesome',
+                'title' => 'Awesome',
                 'description' => ':+1: We totally nailed the fix.',
-                'author_id'   => 1,
-                'project_id'  => 1,
+                'author_id' => 1,
+                'project_id' => 1,
             ],
             [
-                'title'       => 'Monitoring the fix',
+                'title' => 'Monitoring the fix',
                 'description' => ":ship: We've deployed a fix.",
-                'author_id'   => 3,
-                'project_id'  => 2,
+                'author_id' => 3,
+                'project_id' => 2,
             ],
             [
-                'title'       => 'Update',
+                'title' => 'Update',
                 'description' => "We've identified the problem. Our engineers are currently looking at it.",
-                'author_id'   => 2,
-                'project_id'  => 1,
+                'author_id' => 2,
+                'project_id' => 1,
             ],
             [
-                'title'       => 'Test Issue',
+                'title' => 'Test Issue',
                 'description' => 'Something went wrong, with something or another.',
-                'author_id'   => 1,
-                'project_id'  => 2,
+                'author_id' => 1,
+                'project_id' => 2,
             ],
             [
-                'title'       => 'Investigating the API',
+                'title' => 'Investigating the API',
                 'description' => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
-                'author_id'   => 1,
-                'project_id'  => 3,
+                'author_id' => 1,
+                'project_id' => 3,
             ],
         ];
 
@@ -207,46 +199,44 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the comments table.
-     *
-     * @return void
      */
     protected function seedComments()
     {
         $defaultComments = [
             [
-                'message'     => ':+1: We totally nailed the fix.',
+                'message' => ':+1: We totally nailed the fix.',
                 'target_type' => 'Issue',
-                'target_id'   => 3,
-                'author_id'   => 1,
-                'project_id'  => 1,
+                'target_id' => 3,
+                'author_id' => 1,
+                'project_id' => 1,
             ],
             [
-                'message'     => ":ship: We've deployed a fix.",
+                'message' => ":ship: We've deployed a fix.",
                 'target_type' => 'MergeRequest',
-                'target_id'   => 1,
-                'author_id'   => 3,
-                'project_id'  => 2,
+                'target_id' => 1,
+                'author_id' => 3,
+                'project_id' => 2,
             ],
             [
-                'message'     => "We've identified the problem. Our engineers are currently looking at it.",
+                'message' => "We've identified the problem. Our engineers are currently looking at it.",
                 'target_type' => 'Issue',
-                'target_id'   => 1,
-                'author_id'   => 2,
-                'project_id'  => 1,
+                'target_id' => 1,
+                'author_id' => 2,
+                'project_id' => 1,
             ],
             [
-                'message'     => 'Something went wrong, with something or another.',
+                'message' => 'Something went wrong, with something or another.',
                 'target_type' => 'Issue',
-                'target_id'   => 1,
-                'author_id'   => 1,
-                'project_id'  => 2,
+                'target_id' => 1,
+                'author_id' => 1,
+                'project_id' => 2,
             ],
             [
-                'message'     => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
+                'message' => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
                 'target_type' => 'MergeRequest',
-                'target_id'   => 1,
-                'author_id'   => 1,
-                'project_id'  => 3,
+                'target_id' => 1,
+                'author_id' => 1,
+                'project_id' => 3,
             ],
         ];
 
@@ -259,27 +249,25 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the comments table.
-     *
-     * @return void
      */
     protected function seedMoments()
     {
         $defaultMoments = [
             [
-                'message'     => ':+1: We totally nailed the fix.',
+                'message' => ':+1: We totally nailed the fix.',
                 'target_type' => 'Issue',
-                'target_id'   => 3,
-                'action'      => Moment::COMMENTED,
-                'author_id'   => 1,
-                'project_id'  => 1,
+                'target_id' => 3,
+                'action' => Moment::COMMENTED,
+                'author_id' => 1,
+                'project_id' => 1,
             ],
             [
-                'message'     => ":ship: We've deployed a fix.",
+                'message' => ":ship: We've deployed a fix.",
                 'target_type' => 'Issue',
-                'target_id'   => 2,
-                'action'      => Moment::CREATED,
-                'author_id'   => 1,
-                'project_id'  => 2,
+                'target_id' => 2,
+                'action' => Moment::CREATED,
+                'author_id' => 1,
+                'project_id' => 2,
             ],
         ];
 
@@ -292,30 +280,28 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the settings table.
-     *
-     * @return void
      */
     protected function seedSettings()
     {
         $defaultSettings = [
             [
-                'name'  => 'app_name',
+                'name' => 'app_name',
                 'value' => 'Gitamin Demo',
             ],
             [
-                'name'  => 'app_domain',
+                'name' => 'app_domain',
                 'value' => 'https://demo.gitamin.com',
             ],
             [
-                'name'  => 'app_locale',
+                'name' => 'app_locale',
                 'value' => 'en',
             ],
             [
-                'name'  => 'app_timezone',
+                'name' => 'app_timezone',
                 'value' => 'Asia/Shanghai',
             ],
             [
-                'name'  => 'app_issue_days',
+                'name' => 'app_issue_days',
                 'value' => '7',
             ],
         ];
@@ -329,8 +315,6 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the subscribers.
-     *
-     * @return void
      */
     protected function seedSubscribers()
     {
@@ -339,8 +323,6 @@ class DemoSeederCommand extends Command
 
     /**
      * Seed the users table.
-     *
-     * @return void
      */
     protected function seedUsers()
     {
@@ -348,9 +330,9 @@ class DemoSeederCommand extends Command
             [
                 'username' => 'demo',
                 'password' => 'demo',
-                'email'    => 'demo@gitamin.com',
-                'level'    => 1,
-                'api_key'  => '9yMHsdioQosnyVK4iCVR',
+                'email' => 'demo@gitamin.com',
+                'level' => 1,
+                'api_key' => '9yMHsdioQosnyVK4iCVR',
             ],
         ];
 

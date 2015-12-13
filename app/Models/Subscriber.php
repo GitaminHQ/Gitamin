@@ -26,8 +26,8 @@ class Subscriber extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'          => 'int',
-        'email'       => 'string',
+        'id' => 'int',
+        'email' => 'string',
         'verify_code' => 'string',
         'verified_at' => 'date',
     ];

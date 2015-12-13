@@ -47,9 +47,9 @@ final class AddGroupMemberCommand
      * @var string[]
      */
     public $rules = [
-        'name'     => 'required|string',
+        'name' => 'required|string',
         'password' => 'string',
-        'level'    => 'int',
+        'level' => 'int',
     ];
 
     /**
@@ -59,8 +59,6 @@ final class AddGroupMemberCommand
      * @param string $password
      * @param string $email
      * @param int    $level
-     *
-     * @return void
      */
     public function __construct($username, $password, $email, $level)
     {

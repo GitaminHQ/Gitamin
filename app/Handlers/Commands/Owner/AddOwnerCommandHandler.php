@@ -27,11 +27,11 @@ class AddOwnerCommandHandler
     public function handle(AddOwnerCommand $command)
     {
         $group = Owner::create([
-            'name'        => $command->name,
-            'path'        => $command->path,
-            'user_id'     => $command->user_id,
+            'name' => $command->name,
+            'path' => $command->path,
+            'user_id' => $command->user_id,
             'description' => $command->description,
-            'type'        => $command->type,
+            'type' => $command->type,
         ]);
 
         event(new OwnerWasAddedEvent($group));

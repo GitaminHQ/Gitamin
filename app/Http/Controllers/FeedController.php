@@ -29,8 +29,6 @@ class FeedController extends Controller
 
     /**
      * Create a new feed controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
