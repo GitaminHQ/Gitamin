@@ -52,7 +52,7 @@ class SendIssueEmailNotificationHandler
      */
     public function handle(IssueWasAddedEvent $event)
     {
-        if (!$event->issue->notify) {
+        if (! $event->issue->notify) {
             //return false;
         }
 
