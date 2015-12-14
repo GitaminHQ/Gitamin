@@ -25,8 +25,8 @@ class CreateMembersTable extends Migration
 
             $t->increments('id');
             $t->integer('access_level');
-            $t->integer('source_id');
-            $t->string('source_type');
+            $t->integer('target_id');
+            $t->string('target_type');
             $t->integer('user_id');
             $t->integer('notification_level');
             $t->string('type');
@@ -38,7 +38,7 @@ class CreateMembersTable extends Migration
 
             $t->index('access_level');
             $t->index('created_at');
-            $t->index(['source_id', 'source_type']);
+            $t->index(['target_id', 'target_type']);
             $t->index('type');
             $t->index('user_id');
         });

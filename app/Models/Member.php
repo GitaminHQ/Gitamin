@@ -15,8 +15,8 @@
 #
 #  id                 :integer          not null, primary key
 #  access_level       :integer          not null
-#  source_id          :integer          not null
-#  source_type        :string(255)      not null
+#  target_id          :integer          not null
+#  target_type        :string(255)      not null
 #  user_id            :integer
 #  notification_level :integer          not null
 #  type               :string(255)
@@ -46,8 +46,8 @@ class Member extends Model implements HasPresenter
      */
     protected $casts = [
         'access_level' => 'int',
-        'source_id' => 'int',
-        'source_type' => 'string',
+        'target_id' => 'int',
+        'target_type' => 'string',
         'user_id' => 'int',
         'notification_level' => 'int',
         'type' => 'string',
@@ -61,8 +61,8 @@ class Member extends Model implements HasPresenter
      */
     protected $fillable = [
         'access_level',
-        'source_id',
-        'source_type',
+        'target_id',
+        'target_type',
         'notification_level',
         'type',
     ];
@@ -73,8 +73,8 @@ class Member extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'source_id' => 'required|string',
-        'source_type' => 'required|string',
+        'target_id' => 'required|string',
+        'target_type' => 'required|string',
         'user_id' => 'int',
         'type' => 'string',
         'created_by_id' => 'int',
