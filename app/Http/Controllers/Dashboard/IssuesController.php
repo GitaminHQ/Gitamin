@@ -16,6 +16,7 @@ use Gitamin\Models\Project;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
+use GrahamCampbell\Binput\Facades\Binput;
 
 class IssuesController extends Controller
 {
@@ -38,19 +39,19 @@ class IssuesController extends Controller
         $this->subMenu = [
             'open' => [
                 'title' => trans('dashboard.issues.open'),
-                'url' => route('dashboard.issues.index'),
+                'url' => route('dashboard.issues.index', ['state' => 'opened']),
                 'icon' => 'fa fa-eye',
                 'active' => true,
             ],
             'closed' => [
                 'title' => trans('dashboard.issues.closed'),
-                'url' => route('dashboard.issues.index'),
+                'url' => route('dashboard.issues.index', ['state' => 'closed']),
                 'icon' => 'fa fa-check-circle',
                 'active' => false,
             ],
             'all' => [
                 'title' => trans('dashboard.issues.all'),
-                'url' => route('dashboard.issues.index'),
+                'url' => route('dashboard.issues.index', ['state' => 'all']),
                 'icon' => 'fa fa-exclamation-circle',
                 'active' => false,
             ],
@@ -67,8 +68,9 @@ class IssuesController extends Controller
      */
     public function indexAction()
     {
+        $state = Binput::get('state');
         // Issue & Issue Project list.
-        $usedIssueProjects = Issue::where('project_id', '>', 0)->groupBy('project_id')->lists('project_id');
+        $usedIssueProjects = Issue::where('project_id', '>', 0)->where('state', '=', $state)->groupBy('project_id')->lists('project_id');
         $issueProjects = Project::whereIn('id', $usedIssueProjects)->get();
 
         return View::make('dashboard.issues.index')
