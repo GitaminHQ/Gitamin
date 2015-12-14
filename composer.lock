@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "85ab42f019d6cec2d66bf039aeb6b1b7",
-    "content-hash": "7e1942d0b5cf3283506a83915e90dae2",
+    "hash": "0a769c4496a84e265fc7d444437ae550",
+    "content-hash": "f4192dd0a200704a352658ff41df74a2",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -1570,22 +1570,22 @@
         },
         {
             "name": "jenssegers/date",
-            "version": "v3.0.13",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/date.git",
-                "reference": "e285f567af6d6cd0061efca109b38da3bcfc21c9"
+                "reference": "0fac566c8bc34a095b5bf418db888fdf11632a96"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/jenssegers/date/e285f567af6d6cd0061efca109b38da3bcfc21c9.zip",
-                "reference": "e285f567af6d6cd0061efca109b38da3bcfc21c9",
+                "url": "http://packagist.phpcomposer.com/files/jenssegers/date/0fac566c8bc34a095b5bf418db888fdf11632a96.zip",
+                "reference": "0fac566c8bc34a095b5bf418db888fdf11632a96",
                 "shasum": ""
             },
             "require": {
                 "nesbot/carbon": "^1.0",
                 "php": ">=5.3.3",
-                "symfony/translation": "^2.0"
+                "symfony/translation": "^2.0|^3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.0|^5.0",
@@ -1623,7 +1623,7 @@
                 "time",
                 "translation"
             ],
-            "time": "2015-12-01 08:34:42"
+            "time": "2015-12-11 22:19:37"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -2501,16 +2501,16 @@
         },
         {
             "name": "roumen/feed",
-            "version": "v2.9.7",
+            "version": "v2.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-feed.git",
-                "reference": "4611e281e28934b17c564be8f709ac99176cf5f9"
+                "reference": "dce91e2d7a912b7b4d6448cc3e7faef725b4c752"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-feed/zipball/4611e281e28934b17c564be8f709ac99176cf5f9",
-                "reference": "4611e281e28934b17c564be8f709ac99176cf5f9",
+                "url": "http://packagist.phpcomposer.com/files/RoumenDamianoff/laravel-feed/dce91e2d7a912b7b4d6448cc3e7faef725b4c752.zip",
+                "reference": "dce91e2d7a912b7b4d6448cc3e7faef725b4c752",
                 "shasum": ""
             },
             "require": {
@@ -2548,7 +2548,7 @@
                 "laravel",
                 "rss"
             ],
-            "time": "2015-11-02 19:03:05"
+            "time": "2015-12-11 18:20:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4167,16 +4167,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.20",
+            "version": "4.8.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7438c43bc2bbb2febe1723eb595b1c49283a26ad"
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/7438c43bc2bbb2febe1723eb595b1c49283a26ad.zip",
-                "reference": "7438c43bc2bbb2febe1723eb595b1c49283a26ad",
+                "url": "http://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/ea76b17bced0500a28098626b84eda12dbcf119c.zip",
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
                 "shasum": ""
             },
             "require": {
@@ -4185,7 +4185,7 @@
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
-                "php": "~5.3.3|~5.4|~5.5|~5.6",
+                "php": ">=5.3.3",
                 "phpspec/prophecy": "^1.3.1",
                 "phpunit/php-code-coverage": "~2.1",
                 "phpunit/php-file-iterator": "~1.4",
@@ -4235,7 +4235,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-12-10 07:48:52"
+            "time": "2015-12-12 07:45:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
