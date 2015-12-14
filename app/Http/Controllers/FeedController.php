@@ -101,7 +101,7 @@ class FeedController extends Controller
         $this->feed->add(
             $issue->name,
             Setting::get('app_name'),
-            Str::canonicalize(route('issue', ['id' => $issue->id])),
+            Str::canonicalize($issue->url),
             $isRss ? $issue->created_at->toRssString() : $issue->created_at->toAtomString(),
             $isRss ? $issue->message : Markdown::convertToHtml($issue->message)
         );

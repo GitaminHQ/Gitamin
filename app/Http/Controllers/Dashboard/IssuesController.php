@@ -12,6 +12,7 @@
 namespace Gitamin\Http\Controllers\Dashboard;
 
 use Gitamin\Models\Issue;
+use Gitamin\Models\Project;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
@@ -66,10 +67,12 @@ class IssuesController extends Controller
      */
     public function indexAction()
     {
-        $issues = Issue::orderBy('created_at', 'desc')->get();
+        // Issue & Issue Project list.
+        $usedIssueProjects = Issue::where('project_id', '>', 0)->groupBy('project_id')->lists('project_id');
+        $issueProjects = Project::whereIn('id', $usedIssueProjects)->get();
 
         return View::make('dashboard.issues.index')
-            ->withPageTitle(trans('dashboard.issues.issues').' - '.trans('dashboard.dashboard'))
-            ->withIssues($issues);
+            ->withIssueProjects($issueProjects)
+            ->withPageTitle(trans('dashboard.issues.issues').' - '.trans('dashboard.dashboard'));
     }
 }

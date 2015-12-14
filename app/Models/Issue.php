@@ -93,7 +93,7 @@ class Issue extends Model implements HasPresenter
      */
     public function scopeVisible($query)
     {
-        return $query->where('state', 1);
+        return $query->where('state', null);
     }
 
     /**
