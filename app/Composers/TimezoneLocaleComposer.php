@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -22,8 +22,6 @@ class TimezoneLocaleComposer
      * Timezones and Locales composer.
      *
      * @param \Illuminate\Contracts\View\View $view
-     *
-     * @return void
      */
     public function compose(View $view)
     {
@@ -38,16 +36,16 @@ class TimezoneLocaleComposer
         $langs = call_user_func_array('array_merge', $langs);
 
         $regions = [
-            'Africa'     => DateTimeZone::AFRICA,
-            'America'    => DateTimeZone::AMERICA,
+            'Africa' => DateTimeZone::AFRICA,
+            'America' => DateTimeZone::AMERICA,
             'Antarctica' => DateTimeZone::ANTARCTICA,
-            'Asia'       => DateTimeZone::ASIA,
-            'Atlantic'   => DateTimeZone::ATLANTIC,
-            'Australia'  => DateTimeZone::AUSTRALIA,
-            'Europe'     => DateTimeZone::EUROPE,
-            'Indian'     => DateTimeZone::INDIAN,
-            'Pacific'    => DateTimeZone::PACIFIC,
-            'UTC'        => DateTimeZone::UTC,
+            'Asia' => DateTimeZone::ASIA,
+            'Atlantic' => DateTimeZone::ATLANTIC,
+            'Australia' => DateTimeZone::AUSTRALIA,
+            'Europe' => DateTimeZone::EUROPE,
+            'Indian' => DateTimeZone::INDIAN,
+            'Pacific' => DateTimeZone::PACIFIC,
+            'UTC' => DateTimeZone::UTC,
         ];
 
         $timezones = [];

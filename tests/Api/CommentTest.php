@@ -2,16 +2,16 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Api;
+namespace Gitamin\Test\Api;
 
-use Gitamin\Tests\AbstractTestCase;
+use Gitamin\Test\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class CommentTest extends AbstractTestCase
@@ -54,11 +54,11 @@ class CommentTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/comments', [
-            'message'     => 'Lorem ipsum dolor sit amet',
+            'message' => 'Lorem ipsum dolor sit amet',
             'target_type' => 'Issue',
-            'target_id'   => 1,
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'target_id' => 1,
+            'author_id' => 1,
+            'project_id' => 1,
         ]);
         $this->seeJson(['message' => 'Lorem ipsum dolor sit amet']);
         $this->assertResponseOk();

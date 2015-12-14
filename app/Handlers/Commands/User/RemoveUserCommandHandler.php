@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -21,8 +21,6 @@ class RemoveUserCommandHandler
      * Handle the remove user command.
      *
      * @param \Gitamin\Commands\User\RemoveUserCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveUserCommand $command)
     {

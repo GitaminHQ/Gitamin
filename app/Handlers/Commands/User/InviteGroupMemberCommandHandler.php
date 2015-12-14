@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -21,8 +21,6 @@ class InviteGroupMemberCommandHandler
      * Handle the invite group member command.
      *
      * @param \Gitamin\Commands\User\InviteGroupMemberCommand $command
-     *
-     * @return void
      */
     public function handle(InviteGroupMemberCommand $command)
     {

@@ -2,16 +2,16 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Api;
+namespace Gitamin\Test\Api;
 
-use Gitamin\Tests\AbstractTestCase;
+use Gitamin\Test\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class OwnerTest extends AbstractTestCase
@@ -55,11 +55,11 @@ class OwnerTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/owners', [
-            'name'        => 'Foo',
-            'path'        => 'foo',
-            'user_id'     => 1,
+            'name' => 'Foo',
+            'path' => 'foo',
+            'user_id' => 1,
             'description' => 'Bar',
-            'type'        => 'Group',
+            'type' => 'Group',
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -80,11 +80,11 @@ class OwnerTest extends AbstractTestCase
         $team = factory('Gitamin\Models\Owner')->create();
 
         $this->put('/api/v1/owners/1', [
-            'name'        => 'Lorem Ipsum Groupous',
-            'path'        => 'lig',
-            'user_id'     => 1,
+            'name' => 'Lorem Ipsum Groupous',
+            'path' => 'lig',
+            'user_id' => 1,
             'description' => 'Bar',
-            'type'        => 'Group',
+            'type' => 'Group',
         ]);
         $this->seeJson(['name' => 'Lorem Ipsum Groupous']);
         $this->assertResponseOk();

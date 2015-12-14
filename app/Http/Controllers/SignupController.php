@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -43,7 +43,7 @@ class SignupController extends Controller
 
         $invite = Invite::where('code', '=', $code)->first();
 
-        if (!$invite || $invite->claimed()) {
+        if (! $invite || $invite->claimed()) {
             //throw new BadRequestHttpException();
         }
 
@@ -83,11 +83,11 @@ class SignupController extends Controller
                 2
             ));
             $ownerData = [
-                'name'        => $user->username,
-                'path'        => $user->username,
-                'user_id'     => $user->id,
+                'name' => $user->username,
+                'path' => $user->username,
+                'user_id' => $user->id,
                 'description' => '',
-                'type'        => 'User',
+                'type' => 'User',
             ];
             $this->dispatchFromArray(AddOwnerCommand::class, $ownerData);
         } catch (ValidationException $e) {

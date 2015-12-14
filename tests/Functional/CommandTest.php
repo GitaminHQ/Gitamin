@@ -2,16 +2,16 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Functional;
+namespace Gitamin\Test\Functional;
 
-use Gitamin\Tests\AbstractTestCase;
+use Gitamin\Test\AbstractTestCase;
 use Illuminate\Contracts\Console\Kernel;
 
 class CommandTest extends AbstractTestCase

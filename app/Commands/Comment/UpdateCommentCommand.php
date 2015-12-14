@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -35,15 +35,13 @@ final class UpdateCommentCommand
      * @var string[]
      */
     public $rules = [
-        'message'     => 'required|string',
+        'message' => 'required|string',
     ];
 
     /**
      * Create a new update comment command instance.
      *
      * @param string $message
-     *
-     * @return void
      */
     public function __construct(Comment $comment, $message)
     {

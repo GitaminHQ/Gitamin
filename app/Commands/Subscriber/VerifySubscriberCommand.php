@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -26,8 +26,6 @@ final class VerifySubscriberCommand
      * Create a verify subscriber command instance.
      *
      * @param Subscriber $subscriber
-     *
-     * @return void
      */
     public function __construct(Subscriber $subscriber)
     {

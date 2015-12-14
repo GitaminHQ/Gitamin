@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -29,8 +29,8 @@ class SignupUserCommandHandler
         $user = User::create([
             'username' => $command->username,
             'password' => $command->password,
-            'email'    => $command->email,
-            'level'    => 2,
+            'email' => $command->email,
+            'level' => 2,
         ]);
 
         event(new UserWasAddedEvent($user));

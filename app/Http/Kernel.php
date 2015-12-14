@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -35,22 +35,22 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth.basic'        => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-        'csrf'              => 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
-        'throttling'        => 'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware',
-        'role'              => 'Zizaco\Entrust\Middleware\EntrustRole',
-        'permission'        => 'Zizaco\Entrust\Middleware\EntrustPermission',
-        'ability'           => 'Zizaco\Entrust\Middleware\EntrustAbility',
-        'accept'            => 'Gitamin\Http\Middleware\Acceptable',
-        'admin'             => 'Gitamin\Http\Middleware\Admin',
-        'app.hasSetting'    => 'Gitamin\Http\Middleware\HasSetting',
-        'app.isInstalled'   => 'Gitamin\Http\Middleware\AppIsInstalled',
-        'app.subscribers'   => 'Gitamin\Http\Middleware\SubscribersConfigured',
-        'auth'              => 'Gitamin\Http\Middleware\Authenticate',
-        'auth.api'          => 'Gitamin\Http\Middleware\ApiAuthenticate',
+        'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+        'csrf' => 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
+        'throttling' => 'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware',
+        'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
+        'permission' => 'Zizaco\Entrust\Middleware\EntrustPermission',
+        'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',
+        'accept' => 'Gitamin\Http\Middleware\Acceptable',
+        'admin' => 'Gitamin\Http\Middleware\Admin',
+        'app.hasSetting' => 'Gitamin\Http\Middleware\HasSetting',
+        'app.isInstalled' => 'Gitamin\Http\Middleware\AppIsInstalled',
+        'app.subscribers' => 'Gitamin\Http\Middleware\SubscribersConfigured',
+        'auth' => 'Gitamin\Http\Middleware\Authenticate',
+        'auth.api' => 'Gitamin\Http\Middleware\ApiAuthenticate',
         'auth.api.optional' => 'Gitamin\Http\Middleware\ApiOptionalAuthenticate',
-        'guest'             => 'Gitamin\Http\Middleware\RedirectIfAuthenticated',
-        'localize'          => 'Gitamin\Http\Middleware\Localize',
-        'timezone'          => 'Gitamin\Http\Middleware\Timezone',
+        'guest' => 'Gitamin\Http\Middleware\RedirectIfAuthenticated',
+        'localize' => 'Gitamin\Http\Middleware\Localize',
+        'timezone' => 'Gitamin\Http\Middleware\Timezone',
     ];
 }

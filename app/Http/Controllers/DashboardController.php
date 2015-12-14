@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -36,8 +36,6 @@ class DashboardController extends Controller
 
     /**
      * Creates a new dashboard controller.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -93,7 +91,7 @@ class DashboardController extends Controller
         foreach (range(0, 30) as $i) {
             $date = (new Date($this->startDate))->setTimezone($this->dateTimeZone)->subDays($i);
 
-            if (!isset($allIssues[$date->toDateString()])) {
+            if (! isset($allIssues[$date->toDateString()])) {
                 $allIssues[$date->toDateString()] = [];
             }
         }
@@ -125,7 +123,7 @@ class DashboardController extends Controller
         foreach (range(0, 30) as $i) {
             $date = (new Date($this->startDate))->setTimezone($this->dateTimeZone)->subDays($i);
 
-            if (!isset($allSubscribers[$date->toDateString()])) {
+            if (! isset($allSubscribers[$date->toDateString()])) {
                 $allSubscribers[$date->toDateString()] = [];
             }
         }

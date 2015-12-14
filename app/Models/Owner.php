@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -41,11 +41,11 @@ class Owner extends Model
      * @var string[]
      */
     protected $casts = [
-        'id'      => 'int',
-        'name'    => 'string',
-        'path'    => 'string',
+        'id' => 'int',
+        'name' => 'string',
+        'path' => 'string',
         'user_id' => 'int',
-        'type'    => 'string',
+        'type' => 'string',
     ];
 
     /**
@@ -67,10 +67,10 @@ class Owner extends Model
      * @var string[]
      */
     public $rules = [
-        'name'        => 'required|string',
-        'path'        => 'required|string|max:15',
-        'user_id'     => 'int',
-        'type'        => 'string',
+        'name' => 'required|string',
+        'path' => 'required|string|max:15',
+        'user_id' => 'int',
+        'type' => 'string',
         'description' => 'string',
     ];
 
@@ -98,7 +98,7 @@ class Owner extends Model
     {
         $owner = static::where('path', $path)->first($columns);
 
-        if (!$owner) {
+        if (! $owner) {
             throw new ModelNotFoundException();
         }
 

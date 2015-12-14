@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -47,9 +47,9 @@ final class AddGroupMemberCommand
      * @var string[]
      */
     public $rules = [
-        'name'     => 'required|string',
+        'name' => 'required|string',
         'password' => 'string',
-        'level'    => 'int',
+        'level' => 'int',
     ];
 
     /**
@@ -59,8 +59,6 @@ final class AddGroupMemberCommand
      * @param string $password
      * @param string $email
      * @param int    $level
-     *
-     * @return void
      */
     public function __construct($username, $password, $email, $level)
     {

@@ -2,18 +2,18 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Commands\Moment;
+namespace Gitamin\Test\Commands\Moment;
 
 use Gitamin\Commands\Moment\AddMomentCommand;
 use Gitamin\Handlers\Commands\Moment\AddMomentCommandHandler;
-use Gitamin\Tests\Commands\AbstractCommandTestCase;
+use Gitamin\Test\Commands\AbstractCommandTestCase;
 
 /**
  * This is the add moment command test class.
@@ -23,13 +23,13 @@ class AddMomentCommandTest extends AbstractCommandTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'title'       => 'Test',
-            'data'        => 'Foo bar baz',
+            'title' => 'Test',
+            'data' => 'Foo bar baz',
             'target_type' => 'Issue',
-            'target_id'   => 1,
-            'action'      => 3,
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'target_id' => 1,
+            'action' => 3,
+            'author_id' => 1,
+            'project_id' => 1,
         ];
         $object = new AddMomentCommand(
             $params['title'],

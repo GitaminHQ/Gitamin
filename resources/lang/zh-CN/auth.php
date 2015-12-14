@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'failed'   => '登录凭证无效。',
+    'failed' => '登录凭证无效。',
     'throttle' => '登录次数过多，请于 :seconds 秒后重试。',
 
 ];

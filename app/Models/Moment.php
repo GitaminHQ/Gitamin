@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -51,7 +51,7 @@ class Moment extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'         => 'int',
+        'id' => 'int',
         'deleted_at' => 'date',
     ];
 
@@ -79,12 +79,12 @@ class Moment extends Model implements HasPresenter
      */
     public $rules = [
         'target_type' => 'string',
-        'target_id'   => 'int',
-        'action'      => 'int',
-        'author_id'   => 'int',
-        'project_id'  => 'int',
-        'title'       => 'string',
-        'data'        => 'string',
+        'target_id' => 'int',
+        'action' => 'int',
+        'author_id' => 'int',
+        'project_id' => 'int',
+        'title' => 'string',
+        'data' => 'string',
     ];
 
     /**

@@ -2,16 +2,16 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Api;
+namespace Gitamin\Test\Api;
 
-use Gitamin\Tests\AbstractTestCase;
+use Gitamin\Test\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class IssueTest extends AbstractTestCase
@@ -54,10 +54,10 @@ class IssueTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/issues', [
-            'title'       => 'Foo',
+            'title' => 'Foo',
             'description' => 'Lorem ipsum dolor sit amet',
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'author_id' => 1,
+            'project_id' => 1,
             'assignee_id' => 0,
         ]);
         $this->seeJson(['title' => 'Foo']);
@@ -79,10 +79,10 @@ class IssueTest extends AbstractTestCase
         $issue = factory('Gitamin\Models\Issue')->create();
 
         $this->put('/api/v1/issues/1', [
-            'title'       => 'Foo',
+            'title' => 'Foo',
             'description' => 'Lorem ipsum dolor sit amet',
-            'author_id'   => 1,
-            'project_id'  => 1,
+            'author_id' => 1,
+            'project_id' => 1,
             'assignee_id' => 0,
         ]);
         $this->seeJson(['title' => 'Foo']);

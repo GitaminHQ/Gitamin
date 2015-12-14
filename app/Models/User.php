@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -47,12 +47,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var string[]
      */
     protected $casts = [
-        'id'                => 'int',
-        'username'          => 'string',
-        'email'             => 'string',
-        'api_key'           => 'string',
-        'active'            => 'bool',
-        'level'             => 'int',
+        'id' => 'int',
+        'username' => 'string',
+        'email' => 'string',
+        'api_key' => 'string',
+        'active' => 'bool',
+        'level' => 'int',
     ];
 
     /**
@@ -78,7 +78,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public $rules = [
         'username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
-        'email'    => 'required|email',
+        'email' => 'required|email',
         'password' => 'required',
     ];
 
@@ -90,7 +90,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         parent::boot();
 
         self::creating(function ($user) {
-            if (!$user->api_key) {
+            if (! $user->api_key) {
                 $user->api_key = self::generateApiKey();
             }
         });
@@ -137,7 +137,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         $user = static::where('api_key', $token)->first($columns);
 
-        if (!$user) {
+        if (! $user) {
             throw new ModelNotFoundException();
         }
 
@@ -161,7 +161,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function getIsAdminAttribute()
     {
-        return $this->level == 1;
+        return $this->level === 1;
     }
 
     /**

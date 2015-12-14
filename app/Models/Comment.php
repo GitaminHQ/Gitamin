@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -48,7 +48,7 @@ class Comment extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'         => 'int',
+        'id' => 'int',
         'deleted_at' => 'date',
     ];
 
@@ -73,11 +73,11 @@ class Comment extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'author_id'   => 'int',
-        'project_id'  => 'int',
-        'message'     => 'required',
+        'author_id' => 'int',
+        'project_id' => 'int',
+        'message' => 'required',
         'target_type' => 'string|required',
-        'target_id'   => 'int',
+        'target_id' => 'int',
     ];
 
     /**

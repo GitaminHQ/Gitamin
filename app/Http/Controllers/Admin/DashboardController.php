@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -20,53 +20,51 @@ class DashboardController extends Controller
 {
     /**
      * Creates a new settings controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->subMenu = [
             'overview' => [
-                'title'  => 'Overview',
-                'url'    => route('admin.index'),
-                'icon'   => 'fa fa-wrench',
+                'title' => 'Overview',
+                'url' => route('admin.index'),
+                'icon' => 'fa fa-wrench',
                 'active' => false,
             ],
             'general' => [
-                'title'  => trans('admin.settings.general.general'),
-                'url'    => route('admin.settings.general'),
-                'icon'   => 'fa fa-gear',
+                'title' => trans('admin.settings.general.general'),
+                'url' => route('admin.settings.general'),
+                'icon' => 'fa fa-gear',
                 'active' => false,
             ],
             'theme' => [
-                'title'  => trans('admin.settings.theme.theme'),
-                'url'    => route('admin.settings.theme'),
-                'icon'   => 'fa fa-list-alt',
+                'title' => trans('admin.settings.theme.theme'),
+                'url' => route('admin.settings.theme'),
+                'icon' => 'fa fa-list-alt',
                 'active' => false,
             ],
             'stylesheet' => [
-                'title'  => trans('admin.settings.stylesheet.stylesheet'),
-                'url'    => route('admin.settings.stylesheet'),
-                'icon'   => 'fa fa-magic',
+                'title' => trans('admin.settings.stylesheet.stylesheet'),
+                'url' => route('admin.settings.stylesheet'),
+                'icon' => 'fa fa-magic',
                 'active' => false,
             ],
             'localization' => [
-                'title'  => trans('admin.settings.localization.localization'),
-                'url'    => route('admin.settings.localization'),
-                'icon'   => 'fa fa-language',
+                'title' => trans('admin.settings.localization.localization'),
+                'url' => route('admin.settings.localization'),
+                'icon' => 'fa fa-language',
                 'active' => false,
             ],
             'timezone' => [
-                'title'  => trans('admin.settings.timezone.timezone'),
-                'url'    => route('admin.settings.timezone'),
-                'icon'   => 'fa fa-calendar',
+                'title' => trans('admin.settings.timezone.timezone'),
+                'url' => route('admin.settings.timezone'),
+                'icon' => 'fa fa-calendar',
                 'active' => false,
             ],
         ];
 
         View::share([
             'sub_title' => trans('admin.admin'),
-            'sub_menu'  => $this->subMenu,
+            'sub_menu' => $this->subMenu,
         ]);
     }
 

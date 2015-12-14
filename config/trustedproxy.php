@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -63,10 +63,10 @@ return [
     */
 
     'headers' => [
-        Request::HEADER_CLIENT_IP    => 'X_FORWARDED_FOR',
-        Request::HEADER_CLIENT_HOST  => 'X_FORWARDED_HOST',
+        Request::HEADER_CLIENT_IP => 'X_FORWARDED_FOR',
+        Request::HEADER_CLIENT_HOST => 'X_FORWARDED_HOST',
         Request::HEADER_CLIENT_PROTO => 'X_FORWARDED_PROTO',
-        Request::HEADER_CLIENT_PORT  => 'X_FORWARDED_PORT',
+        Request::HEADER_CLIENT_PORT => 'X_FORWARDED_PORT',
     ],
 
 ];

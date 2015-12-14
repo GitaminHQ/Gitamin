@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -30,8 +30,6 @@ class AddCommentCommandHandler
      * Create a new report issue command handler instance.
      *
      * @param \Gitamin\Dates\DateFactory $dates
-     *
-     * @return void
      */
     public function __construct(DateFactory $dates)
     {
@@ -48,9 +46,9 @@ class AddCommentCommandHandler
     public function handle(AddCommentCommand $command)
     {
         $data = [
-            'message'     => $command->message,
+            'message' => $command->message,
             'target_type' => $command->target_type,
-            'target_id'   => $command->target_id,
+            'target_id' => $command->target_id,
         ];
 
         // Link with the user.

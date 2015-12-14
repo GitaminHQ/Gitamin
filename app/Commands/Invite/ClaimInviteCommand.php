@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -24,8 +24,6 @@ final class ClaimInviteCommand
      * Create a new claim invite command instance.
      *
      * @param \Gitamin\Model\Invite $invite
-     *
-     * @return void
      */
     public function __construct($invite)
     {

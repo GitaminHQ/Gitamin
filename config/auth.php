@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -68,8 +68,8 @@ return [
     */
 
     'password' => [
-        'email'  => 'emails.password',
-        'table'  => 'password_resets',
+        'email' => 'emails.password',
+        'table' => 'password_resets',
         'expire' => 60,
     ],
 

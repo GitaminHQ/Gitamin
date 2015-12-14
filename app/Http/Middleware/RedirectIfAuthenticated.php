@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -28,8 +28,6 @@ class RedirectIfAuthenticated
      * Create a new redirect if authenticated middleware instance.
      *
      * @param \Illuminate\Contracts\Auth\Guard $auth
-     *
-     * @return void
      */
     public function __construct(Guard $auth)
     {

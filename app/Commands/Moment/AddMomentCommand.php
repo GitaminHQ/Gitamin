@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -69,10 +69,10 @@ final class AddMomentCommand
      */
     public $rules = [
         'target_type' => 'string',
-        'target_id'   => 'int',
-        'action'      => 'required|int',
-        'author_id'   => 'required|int',
-        'project_id'  => 'int',
+        'target_id' => 'int',
+        'action' => 'required|int',
+        'author_id' => 'required|int',
+        'project_id' => 'int',
     ];
 
     /**
@@ -85,8 +85,6 @@ final class AddMomentCommand
      * @param int    $action
      * @param int    $author_id
      * @param int    $project_id
-     *
-     * @return void
      */
     public function __construct($title, $data, $target_type, $target_id, $action, $author_id, $project_id)
     {

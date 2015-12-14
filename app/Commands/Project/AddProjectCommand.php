@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -61,12 +61,12 @@ final class AddProjectCommand
      * @var string[]
      */
     public $rules = [
-        'name'             => 'required|string',
-        'description'      => 'string',
+        'name' => 'required|string',
+        'description' => 'string',
         'visibility_level' => 'int|min:1|max:4',
-        'path'             => 'required|string',
-        'creator_id'       => 'int',
-        'owner_id'         => 'int',
+        'path' => 'required|string',
+        'creator_id' => 'int',
+        'owner_id' => 'int',
     ];
 
     /**
@@ -79,8 +79,6 @@ final class AddProjectCommand
      * @param int    $creator_id
      * @param int    $owner_id
      * @param bool   $issues_enabled
-     *
-     * @return void
      */
     public function __construct($name, $description, $visibility_level, $path, $creator_id, $owner_id)
     {

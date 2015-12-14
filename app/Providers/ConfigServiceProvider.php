@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -21,8 +21,6 @@ class ConfigServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -64,8 +62,6 @@ class ConfigServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {

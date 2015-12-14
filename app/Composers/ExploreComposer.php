@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -22,16 +22,14 @@ class ExploreComposer
      * Index page view composer.
      *
      * @param \Illuminate\Contracts\View\View $view
-     *
-     * @return void
      */
     public function compose(View $view)
     {
         // Default data
         $withData = [
-            'systemStatus'  => 'info',
+            'systemStatus' => 'info',
             'systemMessage' => trans('gitamin.service.bad'),
-            'favicon'       => 'favicon-high-alert',
+            'favicon' => 'favicon-high-alert',
         ];
 
         if (Project::notVisibilityLevel(1)->count() === 0) {
@@ -41,9 +39,9 @@ class ExploreComposer
 
             if ($issueCount === 0 || ($issueCount >= 1 && (int) $issues->first()->visibility_level === 4)) {
                 $withData = [
-                    'systemStatus'  => 'success',
+                    'systemStatus' => 'success',
                     'systemMessage' => trans('gitamin.service.good'),
-                    'favicon'       => 'favicon',
+                    'favicon' => 'favicon',
                 ];
             }
         } else {

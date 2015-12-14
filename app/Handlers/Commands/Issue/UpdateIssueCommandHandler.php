@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -29,8 +29,6 @@ class UpdateIssueCommandHandler
      * Create a new update issue command handler instance.
      *
      * @param \Gitamin\Dates\DateFactory $dates
-     *
-     * @return void
      */
     public function __construct(DateFactory $dates)
     {
@@ -76,10 +74,10 @@ class UpdateIssueCommandHandler
     protected function filter(UpdateIssueCommand $command)
     {
         $params = [
-            'title'       => $command->title,
+            'title' => $command->title,
             'description' => $command->description,
-            'author_id'   => $command->author_id,
-            'project_id'  => $command->project_id,
+            'author_id' => $command->author_id,
+            'project_id' => $command->project_id,
         ];
 
         return array_filter($params, function ($val) {

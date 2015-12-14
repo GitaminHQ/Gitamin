@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -36,21 +36,21 @@ class IssuesController extends Controller
     {
         $this->subMenu = [
             'open' => [
-                'title'  => trans('dashboard.issues.open'),
-                'url'    => route('dashboard.issues.index'),
-                'icon'   => 'fa fa-eye',
+                'title' => trans('dashboard.issues.open'),
+                'url' => route('dashboard.issues.index'),
+                'icon' => 'fa fa-eye',
                 'active' => true,
             ],
             'closed' => [
-                'title'  => trans('dashboard.issues.closed'),
-                'url'    => route('dashboard.issues.index'),
-                'icon'   => 'fa fa-check-circle',
+                'title' => trans('dashboard.issues.closed'),
+                'url' => route('dashboard.issues.index'),
+                'icon' => 'fa fa-check-circle',
                 'active' => false,
             ],
             'all' => [
-                'title'  => trans('dashboard.issues.all'),
-                'url'    => route('dashboard.issues.index'),
-                'icon'   => 'fa fa-exclamation-circle',
+                'title' => trans('dashboard.issues.all'),
+                'url' => route('dashboard.issues.index'),
+                'icon' => 'fa fa-exclamation-circle',
                 'active' => false,
             ],
         ];

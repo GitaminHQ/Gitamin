@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -27,8 +27,6 @@ abstract class AbstractPresenter extends BaseLaravelAutoPresenter implements Arr
      * Create a issue presenter instance.
      *
      * @param \Illuminate\Database\Eloquent\Model $resource
-     *
-     * @return void
      */
     public function __construct($resource)
     {

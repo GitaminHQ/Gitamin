@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -28,38 +28,38 @@ class AdminRoutes
         //Dashboard area
         $router->group([
             'middleware' => ['auth', 'admin'],
-            'prefix'     => 'admin',
-            'namespace'  => 'Admin',
-            'as'         => 'admin.',
+            'prefix' => 'admin',
+            'namespace' => 'Admin',
+            'as' => 'admin.',
         ], function ($router) {
             $router->get('/', [
-                'as'   => 'index',
+                'as' => 'index',
                 'uses' => 'DashboardController@indexAction',
             ]);
 
              // Settings
             $router->group([
-                'as'     => 'settings.',
+                'as' => 'settings.',
                 'prefix' => 'settings',
             ], function ($router) {
                 $router->get('general', [
-                    'as'   => 'general',
+                    'as' => 'general',
                     'uses' => 'SettingsController@showGeneralView',
                 ]);
                 $router->get('localization', [
-                    'as'   => 'localization',
+                    'as' => 'localization',
                     'uses' => 'SettingsController@showLocalizationView',
                 ]);
                 $router->get('timezone', [
-                    'as'   => 'timezone',
+                    'as' => 'timezone',
                     'uses' => 'SettingsController@showTimezoneView',
                 ]);
                 $router->get('theme', [
-                    'as'   => 'theme',
+                    'as' => 'theme',
                     'uses' => 'SettingsController@showThemeView',
                 ]);
                 $router->get('stylesheet', [
-                    'as'   => 'stylesheet',
+                    'as' => 'stylesheet',
                     'uses' => 'SettingsController@showStylesheetView',
                 ]);
                 $router->post('/', 'SettingsController@postSettings');

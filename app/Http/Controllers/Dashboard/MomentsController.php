@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -32,28 +32,26 @@ class MomentsController extends Controller
 
     /**
      * Creates a new moment controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->subMenu = [
             'moments' => [
-                'title'  => trans('dashboard.projects.yours'),
-                'url'    => route('dashboard.moments.index'),
-                'icon'   => 'fa fa-sliders',
+                'title' => trans('dashboard.projects.yours'),
+                'url' => route('dashboard.moments.index'),
+                'icon' => 'fa fa-sliders',
                 'active' => false,
             ],
             'project_update' => [
-                'title'  => trans('dashboard.projects.starred'),
-                'url'    => route('dashboard.moments.index'),
-                'icon'   => 'fa fa-edit',
+                'title' => trans('dashboard.projects.starred'),
+                'url' => route('dashboard.moments.index'),
+                'icon' => 'fa fa-edit',
                 'active' => false,
             ],
         ];
 
         View::share([
-            'sub_menu'  => $this->subMenu,
+            'sub_menu' => $this->subMenu,
             'sub_title' => trans_choice('dashboard.moments.moments', 2),
         ]);
     }

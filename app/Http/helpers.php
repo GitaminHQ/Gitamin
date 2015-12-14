@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -14,36 +14,36 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Jenssegers\Date\Date;
 
-if (!function_exists('back_url')) {
-
+if (! function_exists('back_url')) {
     /**
      * Create a new back url.
      *
-     * @param string $route
+     * @param string|null  $route
      * @param array  $parameters
-     * @param int    $status
+     * @param int  $status
      * @param array  $headers
      *
      * @return string
      */
-    function back_url($route, $parameters = [], $status = 302, $headers = [])
+    function back_url($route = null, $parameters = [], $status = 302, $headers = [])
     {
-        if ($route !== null && app('url')->previous() == app('url')->full()) {
-            return app('url')->route($name, $params);
+        $url = app('url');
+
+        if (! is_null($route) && $url->previous() === $url->full()) {
+            return $url->route($name, $params, $status, $headers);
         }
 
-        return app('url')->previous();
+        return $url->previous();
     }
 }
 
-if (!function_exists('set_active')) {
-
+if (! function_exists('set_active')) {
     /**
      * Set active class if request is in path.
      *
-     * @param string $path
+     * @param string  $path
      * @param array  $classes
-     * @param string $active
+     * @param string  $active
      *
      * @return string
      */
@@ -59,11 +59,11 @@ if (!function_exists('set_active')) {
     }
 }
 
-if (!function_exists('formatted_date')) {
+if (! function_exists('formatted_date')) {
     /**
      * Formats a date with the user timezone and the selected format.
      *
-     * @param string $date
+     * @param string  $date
      *
      * @return \Jenssegers\Date\Date
      */
@@ -75,7 +75,7 @@ if (!function_exists('formatted_date')) {
     }
 }
 
-if (!function_exists('subscribers_enabled')) {
+if (! function_exists('subscribers_enabled')) {
     /**
      * Is the subscriber functionality enabled and configured.
      *
@@ -91,12 +91,12 @@ if (!function_exists('subscribers_enabled')) {
     }
 }
 
-if (!function_exists('color_darken')) {
+if (! function_exists('color_darken')) {
     /**
      * Darken a color.
      *
-     * @param string $hex
-     * @param int    $percent
+     * @param string  $hex
+     * @param int  $percent
      *
      * @return string
      */
@@ -109,7 +109,7 @@ if (!function_exists('color_darken')) {
             $hex = $hex[0] + $hex[0] + $hex[1] + $hex[1] + $hex[2] + $hex[2];
         }
 
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 3; ++$i) {
             $dec = hexdec(substr($hex, $i * 2, 2));
             $dec = min(max(0, $dec + $dec * $percent), 255);
             $new_hex .= str_pad(dechex($dec), 2, 0, STR_PAD_LEFT);
@@ -119,13 +119,13 @@ if (!function_exists('color_darken')) {
     }
 }
 
-if (!function_exists('color_contrast')) {
+if (! function_exists('color_contrast')) {
     /**
      * Calculates colour contrast.
      *
      * https://24ways.org/2010/calculating-color-contrast/
      *
-     * @param string $hexcolor
+     * @param string  $hexcolor
      *
      * @return string
      */

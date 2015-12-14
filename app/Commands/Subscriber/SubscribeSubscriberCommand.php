@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -41,8 +41,6 @@ final class SubscribeSubscriberCommand
      *
      * @param string $email
      * @param bool   $verified
-     *
-     * @return void
      */
     public function __construct($email, $verified = false)
     {

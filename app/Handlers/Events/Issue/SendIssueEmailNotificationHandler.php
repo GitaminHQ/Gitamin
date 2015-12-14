@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -38,8 +38,6 @@ class SendIssueEmailNotificationHandler
      *
      * @param \Illuminate\Contracts\Mail\Mailer $mailer
      * @param \Gitamin\Models\Subscriber        $subscriber
-     *
-     * @return void
      */
     public function __construct(MailQueue $mailer, Subscriber $subscriber)
     {
@@ -51,12 +49,10 @@ class SendIssueEmailNotificationHandler
      * Handle the event.
      *
      * @param \Gitamin\Events\Issue\IssueHasAddedEvent $event
-     *
-     * @return void
      */
     public function handle(IssueWasAddedEvent $event)
     {
-        if (!$event->issue->notify) {
+        if (! $event->issue->notify) {
             //return false;
         }
 
@@ -67,14 +63,14 @@ class SendIssueEmailNotificationHandler
         if (1 === 1) {
             foreach ($this->subscriber->all() as $subscriber) {
                 $mail = [
-                    'email'            => $subscriber->email,
-                    'subject'          => 'New issue reported.',
-                    'has_project'      => ($event->issue->project) ? true : false,
-                    'project_name'     => $project ? $project->name : null,
-                    'status'           => $issue->humanStatus,
-                    'html_content'     => $issue->formattedMessage,
-                    'text_content'     => $issue->message,
-                    'token'            => $subscriber->token,
+                    'email' => $subscriber->email,
+                    'subject' => 'New issue reported.',
+                    'has_project' => ($event->issue->project) ? true : false,
+                    'project_name' => $project ? $project->name : null,
+                    'status' => $issue->humanStatus,
+                    'html_content' => $issue->formattedMessage,
+                    'text_content' => $issue->message,
+                    'token' => $subscriber->token,
                     'unsubscribe_link' => route('subscribe.unsubscribe', ['code' => $subscriber->verify_code]),
                 ];
                 error_log(var_export($mail, true), 3, '/tmp/mail.log');

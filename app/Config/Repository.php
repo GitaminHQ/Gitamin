@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -33,8 +33,6 @@ class Repository
      * Create a new settings service instance.
      *
      * @param \Gitamin\Models\Setting $model
-     *
-     * @return void
      */
     public function __construct(Setting $model)
     {
@@ -52,12 +50,12 @@ class Repository
     public function get($name, $default = null)
     {
         // if we've not loaded the settings, load them now
-        if (!$this->settings) {
+        if (! $this->settings) {
             $this->settings = $this->model->all()->lists('value', 'name');
         }
 
         // if the setting exists and is not blank, return it
-        if (!empty($this->settings[$name])) {
+        if (! empty($this->settings[$name])) {
             return $this->settings[$name];
         }
 
@@ -69,8 +67,6 @@ class Repository
      *
      * @param string $name
      * @param string $value
-     *
-     * @return void
      */
     public function set($name, $value)
     {

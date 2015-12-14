@@ -1,0 +1,15 @@
+preset: laravel
+
+linting: true
+
+enabled:
+
+disabled:
+
+finder:
+  exclude:
+    - "bootstrap/cache"
+    - "storage"
+    - "vendor"
+  name:
+    - "*.php"

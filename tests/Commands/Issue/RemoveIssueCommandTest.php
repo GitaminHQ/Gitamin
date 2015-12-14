@@ -2,19 +2,19 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Commands\Issue;
+namespace Gitamin\Test\Commands\Issue;
 
 use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Handlers\Commands\Issue\RemoveIssueCommandHandler;
 use Gitamin\Models\Issue;
-use Gitamin\Tests\Commands\AbstractCommandTestCase;
+use Gitamin\Test\Commands\AbstractCommandTestCase;
 
 /**
  * This is the remove issue command test class.

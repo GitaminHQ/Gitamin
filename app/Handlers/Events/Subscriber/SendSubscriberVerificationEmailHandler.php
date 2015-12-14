@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -28,8 +28,6 @@ class SendSubscriberVerificationEmailHandler
      * Create a new send subscriber verification email handler.
      *
      * @param \Illuminate\Contracts\Mail\Mailer $mailer
-     *
-     * @return void
      */
     public function __construct(MailQueue $mailer)
     {
@@ -40,15 +38,13 @@ class SendSubscriberVerificationEmailHandler
      * Handle the event.
      *
      * @param \Gitamin\Events\SubscriberHasSubscribedEvent $event
-     *
-     * @return void
      */
     public function handle(SubscriberHasSubscribedEvent $event)
     {
         $mail = [
-            'email'    => $event->subscriber->email,
-            'subject'  => 'Confirm your subscription.',
-            'link'     => route('subscribe.verify', ['code' => $event->subscriber->verify_code]),
+            'email' => $event->subscriber->email,
+            'subject' => 'Confirm your subscription.',
+            'link' => route('subscribe.verify', ['code' => $event->subscriber->verify_code]),
         ];
 
         $this->mailer->queue([

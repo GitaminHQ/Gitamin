@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -26,8 +26,8 @@ class ApiRoutes
     public function map(Registrar $router)
     {
         $router->group([
-            'namespace'  => 'Api',
-            'prefix'     => 'api/v1',
+            'namespace' => 'Api',
+            'prefix' => 'api/v1',
             'middleware' => ['accept:application/json', 'timezone', 'auth.api.optional'],
         ], function ($router) {
             // General

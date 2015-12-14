@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -100,11 +100,11 @@ return [
     */
 
     'levels' => [
-        'Illuminate\Session\TokenMismatchException'                     => 'notice',
-        'Illuminate\Database\Eloquent\ModelNotFoundException'           => 'warning',
+        'Illuminate\Session\TokenMismatchException' => 'notice',
+        'Illuminate\Database\Eloquent\ModelNotFoundException' => 'warning',
         'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface' => 'warning',
-        'Symfony\Component\Debug\Exception\FatalErrorException'         => 'critical',
-        'Exception'                                                     => 'error',
+        'Symfony\Component\Debug\Exception\FatalErrorException' => 'critical',
+        'Exception' => 'error',
     ],
 
 ];

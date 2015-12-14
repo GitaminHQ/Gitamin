@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -25,8 +25,8 @@ class SubscriberPresenter extends AbstractPresenter
     public function toArray()
     {
         return array_merge($this->wrappedObject->toArray(), [
-            'created_at'  => $this->created_at(),
-            'updated_at'  => $this->updated_at(),
+            'created_at' => $this->created_at(),
+            'updated_at' => $this->updated_at(),
             'verified_at' => $this->verified_at(),
         ]);
     }

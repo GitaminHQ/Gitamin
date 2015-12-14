@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -44,7 +44,7 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (!$this->auth->check() || ($this->auth->check() && !$this->auth->user()->isAdmin)) {
+        if (! $this->auth->check() || ($this->auth->check() && ! $this->auth->user()->isAdmin)) {
             throw new HttpException(401);
         }
 

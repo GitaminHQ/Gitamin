@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -48,10 +48,10 @@ class SendProjectMomentHandler
     {
         $data = [
             'target_type' => 'Project',
-            'target_id'   => $project->id,
-            'action'      => $action,
-            'author_id'   => $project->creator_id,
-            'project_id'  => $project->id,
+            'target_id' => $project->id,
+            'action' => $action,
+            'author_id' => $project->creator_id,
+            'project_id' => $project->id,
         ];
         $moment = Moment::create($data);
     }

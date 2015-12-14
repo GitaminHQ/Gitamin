@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -30,8 +30,6 @@ class AddIssueCommandHandler
      * Create a new report issue command handler instance.
      *
      * @param \Gitamin\Dates\DateFactory $dates
-     *
-     * @return void
      */
     public function __construct(DateFactory $dates)
     {
@@ -48,7 +46,7 @@ class AddIssueCommandHandler
     public function handle(AddIssueCommand $command)
     {
         $data = [
-            'title'       => $command->title,
+            'title' => $command->title,
             'description' => $command->description,
         ];
 

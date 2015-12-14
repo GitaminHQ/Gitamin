@@ -49,7 +49,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Gitamin\\Tests\\": "tests/"
+            "Gitamin\\Test\\": "tests/"
         }
     },
     "scripts": {

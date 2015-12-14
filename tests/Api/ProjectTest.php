@@ -2,16 +2,16 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Api;
+namespace Gitamin\Test\Api;
 
-use Gitamin\Tests\AbstractTestCase;
+use Gitamin\Test\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ProjectTest extends AbstractTestCase
@@ -55,12 +55,12 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'             => 'Foo',
-            'description'      => 'Bar',
+            'name' => 'Foo',
+            'description' => 'Bar',
             'visibility_level' => 1,
-            'path'             => 'Baidu',
-            'creator_id'       => 1,
-            'owner_id'         => 1,
+            'path' => 'Baidu',
+            'creator_id' => 1,
+            'owner_id' => 1,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();
@@ -71,12 +71,12 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'             => 'Foo',
-            'description'      => 'Bar',
+            'name' => 'Foo',
+            'description' => 'Bar',
             'visibility_level' => 1,
-            'path'             => 'Alibaba',
-            'creator_id'       => 1,
-            'owner_id'         => 1,
+            'path' => 'Alibaba',
+            'creator_id' => 1,
+            'owner_id' => 1,
         ]);
         //$this->seeJson(['name' => 'Foo', 'issues_enabled' => true]);
         $this->seeJson(['name' => 'Foo']);
@@ -88,12 +88,12 @@ class ProjectTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/projects', [
-            'name'             => 'Foo',
-            'description'      => 'Bar',
+            'name' => 'Foo',
+            'description' => 'Bar',
             'visibility_level' => 1,
-            'path'             => 'Tencent',
-            'creator_id'       => 1,
-            'owner_id'         => 1,
+            'path' => 'Tencent',
+            'creator_id' => 1,
+            'owner_id' => 1,
         ]);
         //$this->seeJson(['name' => 'Foo', 'issues_enabled' => false]);
         $this->seeJson(['name' => 'Foo']);
@@ -115,12 +115,12 @@ class ProjectTest extends AbstractTestCase
         $project = factory('Gitamin\Models\Project')->create();
 
         $this->put('/api/v1/projects/1', [
-            'name'             => 'Foo',
-            'description'      => 'Bar',
+            'name' => 'Foo',
+            'description' => 'Bar',
             'visibility_level' => 1,
-            'path'             => 'Baz',
-            'creator_id'       => 1,
-            'owner_id'         => 1,
+            'path' => 'Baz',
+            'creator_id' => 1,
+            'owner_id' => 1,
         ]);
         $this->seeJson(['name' => 'Foo']);
         $this->assertResponseOk();

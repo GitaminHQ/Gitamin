@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -24,8 +24,6 @@ final class UserWasInvitedEvent implements UserEventInterface
 
     /**
      * Create a new user was invite event instance.
-     *
-     * @return void
      */
     public function __construct(Invite $invite)
     {

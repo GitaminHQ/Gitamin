@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -26,12 +26,12 @@ return [
      */
     'defaults' => [
         'supportsCredentials' => true,
-        'allowedOrigins'      => ['*'],
-        'allowedHeaders'      => [],
-        'allowedMethods'      => [],
-        'exposedHeaders'      => [],
-        'maxAge'              => 0,
-        'hosts'               => [],
+        'allowedOrigins' => ['*'],
+        'allowedHeaders' => [],
+        'allowedMethods' => [],
+        'exposedHeaders' => [],
+        'maxAge' => 0,
+        'hosts' => [],
     ],
 
     'paths' => [
@@ -39,7 +39,7 @@ return [
             'allowedOrigins' => [],
             'allowedHeaders' => ['X-Gitamin-Token'],
             'allowedMethods' => ['*'],
-            'maxAge'         => 3600,
+            'maxAge' => 3600,
         ],
     ],
 

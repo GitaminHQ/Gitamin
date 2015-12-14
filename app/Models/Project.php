@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -60,10 +60,10 @@ class Project extends Model implements HasPresenter
      * @var mixed[]
      */
     protected $attributes = [
-        'owner_id'    => 0,
+        'owner_id' => 0,
         'description' => '',
-        'path'        => '',
-        'creator_id'  => 0,
+        'path' => '',
+        'creator_id' => 0,
     ];
 
     /**
@@ -72,13 +72,13 @@ class Project extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'id'             => 'int',
-        'owner_id'       => 'int',
-        'description'    => 'string',
-        'path'           => 'string',
+        'id' => 'int',
+        'owner_id' => 'int',
+        'description' => 'string',
+        'path' => 'string',
         'issues_enabled' => 'boolean',
-        'creator_id'     => 'int',
-        'deleted_at'     => 'date',
+        'creator_id' => 'int',
+        'deleted_at' => 'date',
     ];
 
     /**
@@ -103,9 +103,9 @@ class Project extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'             => 'required|string',
+        'name' => 'required|string',
         'visibility_level' => 'int|required',
-        'path'             => 'required|string|max:15',
+        'path' => 'required|string|max:15',
     ];
 
     /**
@@ -165,7 +165,7 @@ class Project extends Model implements HasPresenter
             $join->on('projects.owner_id', '=', 'owners.id');
         })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner_path)->first($columns);
 
-        if (!$project) {
+        if (! $project) {
             throw new ModelNotFoundException();
         }
 

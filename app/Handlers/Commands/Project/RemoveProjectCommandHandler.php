@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -20,8 +20,6 @@ class RemoveProjectCommandHandler
      * Handle the remove project command.
      *
      * @param \Gitamin\Commands\Project\RemoveProjectCommand $command
-     *
-     * @return void
      */
     public function handle(RemoveProjectCommand $command)
     {

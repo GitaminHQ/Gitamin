@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -30,34 +30,32 @@ class ExploreController extends Controller
 
     /**
      * Creates a new project controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->subMenu = [
             'yours' => [
-                'title'  => trans('dashboard.projects.yours'),
-                'url'    => route('dashboard.projects.index'),
-                'icon'   => 'fa fa-edit',
+                'title' => trans('dashboard.projects.yours'),
+                'url' => route('dashboard.projects.index'),
+                'icon' => 'fa fa-edit',
                 'active' => false,
             ],
             'starred' => [
-                'title'  => trans('dashboard.projects.starred'),
-                'url'    => route('dashboard.projects.starred'),
-                'icon'   => 'fa fa-umbrella',
+                'title' => trans('dashboard.projects.starred'),
+                'url' => route('dashboard.projects.starred'),
+                'icon' => 'fa fa-umbrella',
                 'active' => false,
             ],
             'explore' => [
-                'title'  => trans('dashboard.projects.explore'),
-                'url'    => route('explore.index'),
-                'icon'   => 'fa fa-eye',
+                'title' => trans('dashboard.projects.explore'),
+                'url' => route('explore.index'),
+                'icon' => 'fa fa-eye',
                 'active' => false,
             ],
         ];
 
         View::share([
-            'sub_menu'  => $this->subMenu,
+            'sub_menu' => $this->subMenu,
             'sub_title' => trans_choice('dashboard.projects.projects', 2),
         ]);
     }
@@ -118,7 +116,7 @@ class ExploreController extends Controller
         foreach ($issueDays as $i) {
             $date = (new Date($startDate))->setTimezone($dateTimeZone)->subDays($i);
 
-            if (!isset($allIssues[$date->toDateString()])) {
+            if (! isset($allIssues[$date->toDateString()])) {
                 $allIssues[$date->toDateString()] = [];
             }
         }
@@ -144,15 +142,15 @@ class ExploreController extends Controller
     {
         $this->subMenu = [
             'yours' => [
-                'title'  => trans('gitamin.groups.yours'),
-                'url'    => route('dashboard.groups.index'),
-                'icon'   => 'fa fa-edit',
+                'title' => trans('gitamin.groups.yours'),
+                'url' => route('dashboard.groups.index'),
+                'icon' => 'fa fa-edit',
                 'active' => false,
             ],
             'explore' => [
-                'title'  => trans('gitamin.groups.explore'),
-                'url'    => route('explore.groups'),
-                'icon'   => 'fa fa-eye',
+                'title' => trans('gitamin.groups.explore'),
+                'url' => route('explore.groups'),
+                'icon' => 'fa fa-eye',
                 'active' => false,
             ],
         ];

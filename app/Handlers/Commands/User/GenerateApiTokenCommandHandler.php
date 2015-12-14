@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -20,8 +20,6 @@ class GenerateApiTokenCommandHandler
      * Handle the generate api key command.
      *
      * @param \Gitamin\Commands\User\GenerateApiTokenCommand $command
-     *
-     * @return void
      */
     public function handle(GenerateApiTokenCommand $command)
     {

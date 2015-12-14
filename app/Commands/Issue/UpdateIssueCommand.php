@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -56,10 +56,10 @@ final class UpdateIssueCommand
      * @var string[]
      */
     public $rules = [
-        'title'       => 'string',
+        'title' => 'string',
         'description' => 'string',
-        'author_id'   => 'int',
-        'project_id'  => 'int',
+        'author_id' => 'int',
+        'project_id' => 'int',
     ];
 
     /**
@@ -70,8 +70,6 @@ final class UpdateIssueCommand
      * @param string                $description
      * @param int                   $author_id
      * @param int                   $project_id
-     *
-     * @return void
      */
     public function __construct(Issue $issue, $title, $description, $author_id, $project_id)
     {

@@ -2,16 +2,16 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Tests\Api;
+namespace Gitamin\Test\Api;
 
-use Gitamin\Tests\AbstractTestCase;
+use Gitamin\Test\AbstractTestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class SubscriberTest extends AbstractTestCase
@@ -55,7 +55,7 @@ class SubscriberTest extends AbstractTestCase
         $this->beUser();
 
         $this->post('/api/v1/subscribers', [
-            'email'  => 'gitamin@gitamin.com',
+            'email' => 'gitamin@gitamin.com',
             'verify' => true,
         ]);
         $this->assertResponseOk();

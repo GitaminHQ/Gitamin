@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -27,9 +27,9 @@ class UpdateOwnerCommandHandler
     {
         $owner = $command->owner;
         $owner->update([
-            'name'        => $command->name,
-            'path'        => $command->path,
-            'user_id'     => $command->user_id,
+            'name' => $command->name,
+            'path' => $command->path,
+            'user_id' => $command->user_id,
             'description' => $command->description,
         ]);
 

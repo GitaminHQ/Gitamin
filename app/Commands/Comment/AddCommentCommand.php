@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -54,11 +54,11 @@ final class AddCommentCommand
      * @var string[]
      */
     public $rules = [
-        'message'     => 'required|string',
+        'message' => 'required|string',
         'target_type' => 'required|string',
-        'target_id'   => 'required|int',
-        'author_id'   => 'int',
-        'project_id'  => 'int',
+        'target_id' => 'required|int',
+        'author_id' => 'int',
+        'project_id' => 'int',
     ];
 
     /**
@@ -69,8 +69,6 @@ final class AddCommentCommand
      * @param int    $target_id
      * @param int    $author_id
      * @param int    $project_id
-     *
-     * @return void
      */
     public function __construct($message, $target_type, $target_id, $author_id, $project_id)
     {

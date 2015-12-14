@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Gitamin.
- * 
+ *
  * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
@@ -46,40 +46,40 @@ return [
 
         'database' => [
             'driver' => 'database',
-            'table'  => 'jobs',
-            'queue'  => 'default',
+            'table' => 'jobs',
+            'queue' => 'default',
             'expire' => 60,
         ],
 
         'beanstalkd' => [
             'driver' => 'beanstalkd',
-            'host'   => 'localhost',
-            'queue'  => 'default',
-            'ttr'    => 60,
+            'host' => 'localhost',
+            'queue' => 'default',
+            'ttr' => 60,
         ],
 
         'sqs' => [
             'driver' => 'sqs',
-            'key'    => 'your-public-key',
+            'key' => 'your-public-key',
             'secret' => 'your-secret-key',
-            'queue'  => 'your-queue-url',
+            'queue' => 'your-queue-url',
             'region' => 'us-east-1',
         ],
 
         'iron' => [
-            'driver'  => 'iron',
-            'host'    => 'mq-aws-us-east-1.iron.io',
-            'token'   => 'your-token',
+            'driver' => 'iron',
+            'host' => 'mq-aws-us-east-1.iron.io',
+            'token' => 'your-token',
             'project' => 'your-project-id',
-            'queue'   => 'your-queue-name',
+            'queue' => 'your-queue-name',
             'encrypt' => true,
         ],
 
         'redis' => [
-            'driver'     => 'redis',
+            'driver' => 'redis',
             'connection' => 'default',
-            'queue'      => 'default',
-            'expire'     => 86400,
+            'queue' => 'default',
+            'expire' => 86400,
         ],
 
     ],
@@ -97,7 +97,7 @@ return [
 
     'failed' => [
         'database' => env('DB_DRIVER', 'sqlite'),
-        'table'    => 'failed_jobs',
+        'table' => 'failed_jobs',
     ],
 
 ];
