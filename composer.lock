@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "560eb4c4eac95d3088b7c2eacfd530ab",
-    "content-hash": "009f586fd6001d99e9afee0d515c6c51",
+    "hash": "7dd6e71016d8ebe5f207c8e76c3fdf7e",
+    "content-hash": "78d30216d84a81f44516831e9e049244",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -943,69 +943,6 @@
             "time": "2015-06-29 05:42:04"
         },
         {
-            "name": "graham-campbell/binput",
-            "version": "v3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Binput.git",
-                "reference": "a2610fb332a9e2440262b6df5056a518fe0a57f3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Binput/zipball/a2610fb332a9e2440262b6df5056a518fe0a57f3",
-                "reference": "a2610fb332a9e2440262b6df5056a518fe0a57f3",
-                "shasum": ""
-            },
-            "require": {
-                "graham-campbell/security": "^3.5",
-                "illuminate/contracts": "5.1.*|5.2.*",
-                "illuminate/http": "5.1.*|5.2.*",
-                "illuminate/support": "5.1.*|5.2.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "^3.1",
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Binput\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Binput Is An Input Protector For Laravel 5",
-            "keywords": [
-                "Binput",
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Binput",
-                "Laravel-Binput",
-                "better",
-                "better input",
-                "framework",
-                "input",
-                "laravel",
-                "security"
-            ],
-            "time": "2015-11-14 11:49:49"
-        },
-        {
             "name": "graham-campbell/core",
             "version": "v4.2.0",
             "source": {
@@ -1191,63 +1128,6 @@
                 "markdown"
             ],
             "time": "2015-11-14 11:57:14"
-        },
-        {
-            "name": "graham-campbell/security",
-            "version": "v3.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Security.git",
-                "reference": "bb4e8ec9cfc27403232df7fc2714217f976d875f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Security/zipball/bb4e8ec9cfc27403232df7fc2714217f976d875f",
-                "reference": "bb4e8ec9cfc27403232df7fc2714217f976d875f",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.1.*|5.2.*",
-                "illuminate/support": "5.1.*|5.2.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "^3.1",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Security\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Security Is A Port Of The Security Class From Codeigniter 3 For Laravel 5",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Security",
-                "Laravel-Security",
-                "codeigniter",
-                "framework",
-                "laravel",
-                "security"
-            ],
-            "time": "2015-11-14 11:44:07"
         },
         {
             "name": "graham-campbell/throttle",
@@ -2404,16 +2284,16 @@
         },
         {
             "name": "phecho/uploader",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phecho/Uploader.git",
-                "reference": "67a072f6960121e0c6d6f3e81c4ac6c2a30f4510"
+                "reference": "7e779a0f83489fe37cbdbc04f3d984fb876d3d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/phecho/Uploader/67a072f6960121e0c6d6f3e81c4ac6c2a30f4510.zip",
-                "reference": "67a072f6960121e0c6d6f3e81c4ac6c2a30f4510",
+                "url": "http://packagist.phpcomposer.com/files/phecho/Uploader/7e779a0f83489fe37cbdbc04f3d984fb876d3d15.zip",
+                "reference": "7e779a0f83489fe37cbdbc04f3d984fb876d3d15",
                 "shasum": ""
             },
             "require": {
@@ -2424,7 +2304,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1.0-dev"
+                    "dev-master": "0.1.1-dev"
                 }
             },
             "autoload": {
@@ -2451,7 +2331,7 @@
                 "laravel",
                 "upload"
             ],
-            "time": "2015-12-15 08:35:26"
+            "time": "2015-12-15 14:22:28"
         },
         {
             "name": "psr/http-message",

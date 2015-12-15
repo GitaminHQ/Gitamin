@@ -16,9 +16,9 @@ use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 
 class IssuesController extends Controller
@@ -70,7 +70,7 @@ class IssuesController extends Controller
     public function createAction($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
-        $issueData = Binput::get('issue');
+        $issueData = Request::get('issue');
 
         try {
             $issueData['author_id'] = Auth::user()->id;
@@ -78,7 +78,7 @@ class IssuesController extends Controller
             $issue = $this->dispatchFromArray(AddIssueCommand::class, $issueData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.issue_new')
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.new.failure')))
                 ->withErrors($e->getMessageBag());
         }
@@ -101,7 +101,7 @@ class IssuesController extends Controller
     public function updateAction($owner_path, $project_path, Issue $issue)
     {
         $project = Project::findByPath($owner_path, $project_path);
-        $issueData = Binput::get('issue');
+        $issueData = Request::get('issue');
 
         try {
             $issueData['author_id'] = Auth::user()->id;
@@ -110,7 +110,7 @@ class IssuesController extends Controller
             $issue = $this->dispatchFromArray(UpdateIssueCommand::class, $issueData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.issue_edit', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $issue->id])
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
@@ -118,7 +118,7 @@ class IssuesController extends Controller
         //Do nothing
         /*
         if ($issue->project) {
-            $issue->project->update(['status' => Binput::get('project_status')]);
+            $issue->project->update(['status' => Request::get('project_status')]);
         }
         */
 

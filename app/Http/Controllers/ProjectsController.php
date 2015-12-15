@@ -18,8 +18,8 @@ use Gitamin\Models\Group;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
@@ -57,7 +57,7 @@ class ProjectsController extends Controller
     public function createAction()
     {
         //
-        $projectData = Binput::get('project');
+        $projectData = Request::get('project');
         $tags = array_pull($projectData, 'tags');
 
         try {
@@ -65,7 +65,7 @@ class ProjectsController extends Controller
             $project = $this->dispatchFromArray(AddProjectCommand::class, $projectData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.new')
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.new.failure')))
                 ->withErrors($e->getMessageBag());
         }
@@ -138,7 +138,7 @@ class ProjectsController extends Controller
      */
     public function updateAction($owner_path, $project_path)
     {
-        $projectData = Binput::get('project');
+        $projectData = Request::get('project');
         $tags = array_pull($projectData, 'tags');
         $project = Project::find($projectData['id']);
         $projectData['namespace_id'] = $project->namespace_id;
@@ -150,7 +150,7 @@ class ProjectsController extends Controller
             $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
         } catch (ValidationException $e) {
             return Redirect::route('projects.project_edit', ['owner' => $project->owner_path, 'project' => $project->path])
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.projects.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }

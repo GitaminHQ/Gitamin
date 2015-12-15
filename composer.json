@@ -21,7 +21,6 @@
         "barryvdh/laravel-cors": "^0.7",
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "^3.0",
-        "graham-campbell/binput": "^3.3",
         "graham-campbell/core": "^4.2",
         "graham-campbell/markdown": "^5.3",
         "graham-campbell/throttle": "^5.1",

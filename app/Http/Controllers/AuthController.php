@@ -11,7 +11,6 @@
 
 namespace Gitamin\Http\Controllers;
 
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -38,7 +37,7 @@ class AuthController extends Controller
      */
     public function postLogin()
     {
-        $loginData = Binput::only(['email', 'password']);
+        $loginData = Request::only(['email', 'password']);
         // Validate login credentials.
         if (Auth::validate($loginData)) {
             // Log the user in for one request.
@@ -53,7 +52,7 @@ class AuthController extends Controller
         }
 
         return Redirect::route('auth.login')
-            ->withInput(Binput::except('password'))
+            ->withInput(Request::except('password'))
             ->withError(trans('gitamin.signin.invalid'));
     }
 

@@ -13,7 +13,6 @@ namespace Gitamin\Http\Controllers;
 
 use Gitamin\Models\Setting;
 use Gitamin\Models\User;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
@@ -85,7 +84,7 @@ class InstallController extends Controller
      */
     public function postStep1()
     {
-        $postData = Binput::all();
+        $postData = Request::all();
 
         $v = Validator::make($postData, [
             'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
@@ -106,7 +105,7 @@ class InstallController extends Controller
      */
     public function postStep2()
     {
-        $postData = Binput::all();
+        $postData = Request::all();
 
         $v = Validator::make($postData, [
             'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
@@ -131,7 +130,7 @@ class InstallController extends Controller
      */
     public function postStep3()
     {
-        $postData = Binput::all();
+        $postData = Request::all();
 
         $v = Validator::make($postData, [
             'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),

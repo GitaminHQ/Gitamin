@@ -13,7 +13,7 @@ namespace Gitamin\Http\Controllers\Dashboard;
 
 use Exception;
 use Gitamin\Models\Project;
-use GrahamCampbell\Binput\Facades\Binput;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Controller;
 
 class ApiController extends Controller
@@ -29,7 +29,7 @@ class ApiController extends Controller
      */
     public function postUpdateProject(Project $project)
     {
-        if (! $project->update(Binput::except(['_token']))) {
+        if (! $project->update(Request::except(['_token']))) {
             throw new Exception(trans('dashboard.projects.edit.failure'));
         }
 
@@ -43,7 +43,7 @@ class ApiController extends Controller
      */
     public function postUpdateProjectOrder()
     {
-        $projectData = Binput::get('ids');
+        $projectData = Request::get('ids');
 
         foreach ($projectData as $order => $projectId) {
             // Ordering should be 1-based, data comes in 0-based

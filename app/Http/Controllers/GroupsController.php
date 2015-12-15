@@ -17,10 +17,10 @@ use Gitamin\Commands\Owner\UpdateOwnerCommand;
 use Gitamin\Models\Group;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 
 class GroupsController extends Controller
@@ -70,19 +70,19 @@ class GroupsController extends Controller
      */
     public function createAction()
     {
-        $groupData = Binput::get('group');
+        $groupData = Request::get('group');
         $groupData['type'] = 'group';
         $groupData['user_id'] = Auth::user()->id;
         try {
             $group = $this->dispatchFromArray(AddOwnerCommand::class, $groupData);
         } catch (ValidationException $e) {
             return Redirect::route('groups.new')
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.add.failure')))
                 ->withErrors($e->getMessageBag());
         } catch (QueryException $e) {
             return Redirect::route('groups.new')
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.add.failure')))
                 ->withErrors('Path has been used');
         }
@@ -116,7 +116,7 @@ class GroupsController extends Controller
      */
     public function updateAction($path)
     {
-        $groupData = Binput::get('group');
+        $groupData = Request::get('group');
         $group = Owner::where('path', '=', $path)->first();
         try {
             $groupData['owner'] = $group;
@@ -124,7 +124,7 @@ class GroupsController extends Controller
             $group = $this->dispatchFromArray(UpdateOwnerCommand::class, $groupData);
         } catch (ValidationException $e) {
             return Redirect::route('groups.group_edit', ['owner' => $group->path])
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.groups.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }

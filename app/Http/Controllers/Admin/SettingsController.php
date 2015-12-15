@@ -13,10 +13,10 @@ namespace Gitamin\Http\Controllers\Admin;
 
 use Exception;
 use Gitamin\Models\Setting;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
@@ -162,13 +162,13 @@ class SettingsController extends Controller
     {
         $redirectUrl = Session::get('redirect_to', route('admin.settings.general'));
 
-        if (Binput::get('remove_banner') === '1') {
+        if (Request::get('remove_banner') === '1') {
             $setting = Setting::where('name', 'app_banner');
             $setting->delete();
         }
 
-        if (Binput::hasFile('app_banner')) {
-            $file = Binput::file('app_banner');
+        if (Request::hasFile('app_banner')) {
+            $file = Request::file('app_banner');
 
             // Image Validation.
             // Image size in bytes.
@@ -194,15 +194,15 @@ class SettingsController extends Controller
         }
 
         try {
-            foreach (Binput::except(['app_banner', 'remove_banner']) as $settingName => $settingValue) {
+            foreach (Request::except(['app_banner', 'remove_banner']) as $settingName => $settingValue) {
                 Setting::firstOrCreate(['name' => $settingName])->update(['value' => $settingValue]);
             }
         } catch (Exception $e) {
             return Redirect::to($redirectUrl)->withErrors(trans('admin.settings.edit.failure'));
         }
 
-        if (Binput::has('app_locale')) {
-            Lang::setLocale(Binput::get('app_locale'));
+        if (Request::has('app_locale')) {
+            Lang::setLocale(Request::get('app_locale'));
         }
 
         return Redirect::to($redirectUrl)->withSuccess(trans('admin.settings.edit.success'));

@@ -15,7 +15,7 @@
                 {{ $group->name }}
                 </h3>
                 <div class="username">
-                @ {{ $group->path }}
+                {!! '@' !!}{{ $group->path }}
                 </div>
                 <div class="description">
                 <p>{{ $group->description }}</p>
