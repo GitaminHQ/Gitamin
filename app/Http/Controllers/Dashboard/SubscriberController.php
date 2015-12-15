@@ -15,10 +15,10 @@ use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Models\Subscriber;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 
 class SubscriberController extends Controller
@@ -56,10 +56,10 @@ class SubscriberController extends Controller
     public function createSubscriberAction()
     {
         try {
-            $this->dispatch(new SubscribeSubscriberCommand(Binput::get('email')));
+            $this->dispatch(new SubscribeSubscriberCommand(Request::get('email')));
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.subscribers.add')
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.subscribers.add.failure')))
                 ->withErrors($e->getMessageBag());
         }

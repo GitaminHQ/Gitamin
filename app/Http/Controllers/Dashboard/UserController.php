@@ -13,10 +13,10 @@ namespace Gitamin\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
 use Gitamin\Models\User;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function postUser()
     {
-        $userData = array_filter(Binput::only(['username', 'email', 'password']));
+        $userData = array_filter(Request::only(['username', 'email', 'password']));
 
         try {
             Auth::user()->update($userData);

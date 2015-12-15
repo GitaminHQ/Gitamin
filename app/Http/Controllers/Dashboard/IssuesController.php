@@ -15,8 +15,8 @@ use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
-use GrahamCampbell\Binput\Facades\Binput;
 
 class IssuesController extends Controller
 {
@@ -68,7 +68,7 @@ class IssuesController extends Controller
      */
     public function indexAction()
     {
-        $state = Binput::get('state');
+        $state = Request::get('state');
         // Issue & Issue Project list.
         $usedIssueProjects = Issue::where('project_id', '>', 0)->where('state', '=', $state)->groupBy('project_id')->lists('project_id');
         $issueProjects = Project::whereIn('id', $usedIssueProjects)->get();

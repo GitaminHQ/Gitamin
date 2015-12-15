@@ -17,7 +17,6 @@ use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\VerifySubscriberCommand;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Subscriber;
-use GrahamCampbell\Binput\Facades\Binput;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Redirect;
@@ -48,10 +47,10 @@ class SubscribeController extends Controller
     public function postSubscribe()
     {
         try {
-            $this->dispatch(new SubscribeSubscriberCommand(Binput::get('email')));
+            $this->dispatch(new SubscribeSubscriberCommand(Request::get('email')));
         } catch (ValidationException $e) {
             return Redirect::route('subscribe.subscribe')
-                ->withInput(Binput::all())
+                ->withInput(Request::all())
                 ->withTitle(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.whoops'), trans('gitamin.subscriber.email.failure')))
                 ->withErrors($e->getMessageBag());
         }

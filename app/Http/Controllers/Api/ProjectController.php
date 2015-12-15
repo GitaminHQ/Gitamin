@@ -16,7 +16,6 @@ use Gitamin\Commands\Project\RemoveProjectCommand;
 use Gitamin\Commands\Project\UpdateProjectCommand;
 use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -43,7 +42,7 @@ class ProjectController extends AbstractApiController
             $projects = Project::whereRaw('1 = 1');
         }
 
-        return $this->paginator($projects->paginate(Binput::get('per_page', 20)), $request);
+        return $this->paginator($projects->paginate($request->get('per_page', 20)), $request);
     }
 
     /**
@@ -63,24 +62,24 @@ class ProjectController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postProjects()
+    public function postProjects(Request $request)
     {
         try {
             $project = $this->dispatch(new AddProjectCommand(
-                Binput::get('name'),
-                Binput::get('description'),
-                Binput::get('visibility_level'),
-                Binput::get('path'),
-                Binput::get('creator_id'),
-                Binput::get('owner_id')
+                $request->get('name'),
+                $request->get('description'),
+                $request->get('visibility_level'),
+                $request->get('path'),
+                $request->get('creator_id'),
+                $request->get('owner_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
         }
 
-        if (Binput::has('tags')) {
+        if ($request->has('tags')) {
             // The project was added successfully, so now let's deal with the tags.
-            $tags = preg_split('/ ?, ?/', Binput::get('tags'));
+            $tags = preg_split('/ ?, ?/', $request->get('tags'));
 
             // For every tag, do we need to create it?
             $projectTags = array_map(function ($taggable) use ($project) {
@@ -102,24 +101,24 @@ class ProjectController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function putProject(Project $project)
+    public function putProject(Request $request, Project $project)
     {
         try {
             $this->dispatch(new UpdateProjectCommand(
                 $project,
-                Binput::get('name'),
-                Binput::get('description'),
-                Binput::get('visibility_level'),
-                Binput::get('path'),
-                Binput::get('creator_id'),
-                Binput::get('owner_id')
+                $request->get('name'),
+                $request->get('description'),
+                $request->get('visibility_level'),
+                $request->get('path'),
+                $request->get('creator_id'),
+                $request->get('owner_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
         }
 
-        if (Binput::has('tags')) {
-            $tags = preg_split('/ ?, ?/', Binput::get('tags'));
+        if ($request->has('tags')) {
+            $tags = preg_split('/ ?, ?/', $request->get('tags'));
 
             // For every tag, do we need to create it?
             $projectTags = array_map(function ($taggable) use ($project) {

@@ -14,8 +14,8 @@ namespace Gitamin\Http\Controllers;
 use Exception;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Date\Date;
 
@@ -73,10 +73,10 @@ class ExploreController extends Controller
         $startDate = Date::now();
 
         // Check if we have another starting date
-        if (Binput::has('start_date')) {
+        if (Request::has('start_date')) {
             try {
                 // If date provided is valid
-                $oldDate = Date::createFromFormat('Y-m-d', Binput::get('start_date'));
+                $oldDate = Date::createFromFormat('Y-m-d', Request::get('start_date'));
 
                 // If trying to get a future date fallback to today
                 if ($today->gt($oldDate)) {

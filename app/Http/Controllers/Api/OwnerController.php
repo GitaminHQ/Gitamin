@@ -15,7 +15,6 @@ use Gitamin\Commands\Owner\AddOwnerCommand;
 use Gitamin\Commands\Owner\RemoveOwnerCommand;
 use Gitamin\Commands\Owner\UpdateOwnerCommand;
 use Gitamin\Models\Owner;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
@@ -34,7 +33,7 @@ class OwnerController extends AbstractApiController
      */
     public function getOwners(Request $request)
     {
-        $owners = Owner::paginate(Binput::get('per_page', 20));
+        $owners = Owner::paginate($request->get('per_page', 20));
 
         return $this->paginator($owners, $request);
     }
@@ -56,15 +55,15 @@ class OwnerController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postOwners()
+    public function postOwners(Request $request)
     {
         try {
             $owner = $this->dispatch(new AddOwnerCommand(
-                Binput::get('name'),
-                Binput::get('path'),
-                Binput::get('user_id'),
-                Binput::get('description'),
-                Binput::get('type')
+                $request->get('name'),
+                $request->get('path'),
+                $request->get('user_id'),
+                $request->get('description'),
+                $request->get('type')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -80,16 +79,16 @@ class OwnerController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function putOwner(Owner $owner)
+    public function putOwner(Request $request, Owner $owner)
     {
         try {
             $owner = $this->dispatch(new UpdateOwnerCommand(
                 $owner,
-                Binput::get('name'),
-                Binput::get('path'),
-                Binput::get('user_id'),
-                Binput::get('description'),
-                Binput::get('type')
+                $request->get('name'),
+                $request->get('path'),
+                $request->get('user_id'),
+                $request->get('description'),
+                $request->get('type')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

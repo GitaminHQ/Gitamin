@@ -22,6 +22,15 @@ return [
 
     'dir' => 'uploads',
 
+    /*
+     |--------------------------------------------------------------------------
+     | Uploader File Field
+     |--------------------------------------------------------------------------
+     |
+     | Set the directory where your uploaded files will be placed.
+     |
+     */
+
     'file_field' => 'file',
 
     /*

@@ -15,7 +15,6 @@ use Gitamin\Commands\Issue\AddIssueCommand;
 use Gitamin\Commands\Issue\RemoveIssueCommand;
 use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Models\Issue;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -39,7 +38,7 @@ class IssueController extends AbstractApiController
         //$issuePosition = $auth->check() ? 0 : 1;
         $issuePosition = $auth->check() ? 0 : -1;
 
-        $issues = Issue::where('position', '>=', $issuePosition)->paginate(Binput::get('per_page', 20));
+        $issues = Issue::where('position', '>=', $issuePosition)->paginate($request->get('per_page', 20));
 
         return $this->paginator($issues, $request);
     }
@@ -63,14 +62,14 @@ class IssueController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postIssues(Guard $auth)
+    public function postIssues(Request $request, Guard $auth)
     {
         try {
             $issue = $this->dispatch(new AddIssueCommand(
-                Binput::get('title'),
-                Binput::get('description'),
-                Binput::get('author_id'),
-                Binput::get('project_id')
+                $request->get('title'),
+                $request->get('description'),
+                $request->get('author_id'),
+                $request->get('project_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -86,15 +85,15 @@ class IssueController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function putIssue(Issue $issue)
+    public function putIssue(Request $request, Issue $issue)
     {
         try {
             $issue = $this->dispatch(new UpdateIssueCommand(
                 $issue,
-                Binput::get('title'),
-                Binput::get('description'),
-                Binput::get('author_id'),
-                Binput::get('project_id')
+                $request->get('title'),
+                $request->get('description'),
+                $request->get('author_id'),
+                $request->get('project_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

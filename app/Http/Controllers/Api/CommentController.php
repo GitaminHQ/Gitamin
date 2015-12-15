@@ -15,7 +15,6 @@ use Gitamin\Commands\Comment\AddCommentCommand;
 use Gitamin\Commands\Comment\RemoveCommentCommand;
 use Gitamin\Commands\Comment\UpdateCommentCommand;
 use Gitamin\Models\Comment;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -36,7 +35,7 @@ class CommentController extends AbstractApiController
      */
     public function getComments(Request $request, Guard $auth)
     {
-        $comments = Comment::paginate(Binput::get('per_page', 20));
+        $comments = Comment::paginate($request->get('per_page', 20));
 
         return $this->paginator($comments, $request);
     }
@@ -60,15 +59,15 @@ class CommentController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postComments(Guard $auth)
+    public function postComments(Request $request, Guard $auth)
     {
         try {
             $comment = $this->dispatch(new AddCommentCommand(
-                Binput::get('message'),
-                Binput::get('target_type'),
-                Binput::get('target_id'),
-                Binput::get('author_id'),
-                Binput::get('project_id')
+                $request->get('message'),
+                $request->get('target_type'),
+                $request->get('target_id'),
+                $request->get('author_id'),
+                $request->get('project_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -84,12 +83,12 @@ class CommentController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function putComment(Comment $comment)
+    public function putComment(Request $request, Comment $comment)
     {
         try {
             $comment = $this->dispatch(new UpdateCommentCommand(
                 $comment,
-                Binput::get('message')
+                $request->get('message')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

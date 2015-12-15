@@ -14,7 +14,6 @@ namespace Gitamin\Http\Controllers\Api;
 use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Models\Subscriber;
-use GrahamCampbell\Binput\Facades\Binput;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
@@ -33,7 +32,7 @@ class SubscriberController extends AbstractApiController
      */
     public function getSubscribers(Request $request)
     {
-        $subscribers = Subscriber::paginate(Binput::get('per_page', 20));
+        $subscribers = Subscriber::paginate($request->get('per_page', 20));
 
         return $this->paginator($subscribers, $request);
     }
@@ -43,10 +42,10 @@ class SubscriberController extends AbstractApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postSubscribers()
+    public function postSubscribers(Request $request)
     {
         try {
-            $subscriber = $this->dispatch(new SubscribeSubscriberCommand(Binput::get('email'), Binput::get('verify', false)));
+            $subscriber = $this->dispatch(new SubscribeSubscriberCommand($request->get('email'), $request->get('verify', false)));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
         }
