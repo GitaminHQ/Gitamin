@@ -29,7 +29,7 @@ if (! function_exists('back_url')) {
     {
         $url = app('url');
 
-        if (! is_null($route) && $url->previous() === $url->full()) {
+        if ($route !== null && $url->previous() === $url->full()) {
             return $url->route($route, $parameters, $status, $headers);
         }
 

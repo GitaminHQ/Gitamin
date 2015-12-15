@@ -52,4 +52,13 @@ class ApiController extends Controller
 
         return $projectData;
     }
+
+    public function postUploadAvatar()
+    {
+        $data = [
+            'path' => '/img/no_group_avatar.png',
+        ];
+
+        return $data;
+    }
 }

@@ -162,6 +162,7 @@ return [
         'McCool\LaravelAutoPresenter\AutoPresenterServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Phecho\Uploader\UploaderServiceProvider',
 
         /*
          * Application Service Providers...

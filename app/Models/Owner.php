@@ -85,6 +85,27 @@ class Owner extends Model
     }
 
     /**
+     * Find project under this owner by path, or throw an exception.
+     *
+     * @param string   $path
+     * @param string[] $columns
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     *
+     * @return \Gitamin\Models\User
+     */
+    public function project($path, $columns = ['*'])
+    {
+        $project = Project::where('owner_id', '=', $this->id)->where('path', '=', $path)->first($columns);
+
+        if (! $project) {
+            throw new ModelNotFoundException();
+        }
+
+        return $project;
+    }
+
+    /**
      * Find by path, or throw an exception.
      *
      * @param string   $path

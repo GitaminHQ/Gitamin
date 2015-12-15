@@ -198,6 +198,24 @@ $(function() {
         });
     });
 
+    //Upload avatar
+    $(".dropzone").dropzone({
+        url: "/dashboard/api/upload/avatar",
+        addRemoveLinks: true,
+        //dictRemoveLinks: "x",
+        //dictCancelUpload: "x",
+        maxFiles: 1,
+        maxFilesize: 5,
+        acceptedFiles: "image/*",
+        init: function() {
+            this.on("success", function(file) {
+                console.log("File " + file.name + "uploaded");
+            });
+            this.on("removedfile", function(file) {
+                console.log("File " + file.name + "removed");
+            });
+        }
+    });
     // Banner removal JS
     $('#remove-banner').click(function(){
         $('#banner-view').remove();

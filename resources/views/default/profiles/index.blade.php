@@ -20,7 +20,7 @@
                         This information will appear on your profile.
                         </div>
                         <div class="prepend-top-default"></div>
-                        <form class="edit_user form-horizontal" method="POST">
+                        <form class="edit_user form-horizontal" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="form-group">
@@ -48,26 +48,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="light-well">
-                                        <img alt="" class="avatar s160" src="http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=160&amp;d=identicon">
-                                        <div class="clearfix">
-                                            <div class="profile-avatar-form-option">
-                                            <p class="light">
-                                            You can upload an avatar here
-                                            <br>
-                                            or change it at <a href="http://gravatar.com">gravatar.com</a>
-                                            </p>
-                                            <hr>
-                                            <a class="choose-btn btn btn-sm js-choose-user-avatar-button">
-                                            <i class="fa fa-paperclip"></i>
-                                            <span>Choose File ...</span>
-                                            </a>
-                                            &nbsp;
-                                            <span class="file_name js-avatar-filename">File name...</span>
-                                            <input class="js-user-avatar-input hidden" id="user_avatar" name="user[avatar]" type="file">
-                                            <div class="light">The maximum file size allowed is 200KB.</div>
-                                            </div>
-                                        </div>
+                                    <div id="dropzone" class="dropzone">
+                                        <div class="well well-drop-zone">Drag and drop files to upload.</div>
                                     </div>
                                 </div>
                             </div>
