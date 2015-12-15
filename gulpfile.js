@@ -10,6 +10,7 @@ elixir(function (mix) {
             'vendor/bower_components/jquery-minicolors/jquery.minicolors.css',
             'vendor/bower_components/sweetalert/dist/sweetalert.css',
             'vendor/bower_components/select2/dist/css/select2.css',
+            'vendor/bower_components/dropzone/dist/min/dropzone.min.css',
             'public/dist/css/app.css'
         ], 'public/dist/css/gitamin.css', './')
         .scripts([
@@ -28,6 +29,7 @@ elixir(function (mix) {
             'vendor/bower_components/chartjs/Chart.js',
             'vendor/bower_components/jquery-sparkline/dist/jquery.sparkline.js',
             'vendor/bower_components/sweetalert/dist/sweetalert.min.js',
+            'vendor/bower_components/dropzone/dist/min/dropzone.min.js',
             'resources/assets/js/app.js',
             'resources/assets/js/**/*.js'
         ], 'public/dist/js/gitamin.js', './')

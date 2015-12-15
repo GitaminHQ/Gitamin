@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a769c4496a84e265fc7d444437ae550",
-    "content-hash": "f4192dd0a200704a352658ff41df74a2",
+    "hash": "560eb4c4eac95d3088b7c2eacfd530ab",
+    "content-hash": "009f586fd6001d99e9afee0d515c6c51",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -1482,6 +1482,68 @@
             "time": "2015-11-03 01:34:55"
         },
         {
+            "name": "intervention/image",
+            "version": "2.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/Intervention/image/a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3.zip",
+                "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2015-11-30 17:03:21"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -2339,6 +2401,57 @@
                 "random"
             ],
             "time": "2015-12-10 14:48:13"
+        },
+        {
+            "name": "phecho/uploader",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phecho/Uploader.git",
+                "reference": "67a072f6960121e0c6d6f3e81c4ac6c2a30f4510"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/phecho/Uploader/67a072f6960121e0c6d6f3e81c4ac6c2a30f4510.zip",
+                "reference": "67a072f6960121e0c6d6f3e81c4ac6c2a30f4510",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.*|5.2.*",
+                "intervention/image": "~2.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phecho\\Uploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "The Gitamin Team",
+                    "email": "support@gitamin.com"
+                }
+            ],
+            "description": "Uploader for Laravel",
+            "keywords": [
+                "ajax",
+                "file",
+                "gitamin",
+                "image",
+                "laravel",
+                "upload"
+            ],
+            "time": "2015-12-15 08:35:26"
         },
         {
             "name": "psr/http-message",

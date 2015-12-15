@@ -149,7 +149,7 @@ class Project extends Model implements HasPresenter
     }
 
     /**
-     * Find by path, or throw an exception.
+     * Find by owner_path & project_path, or throw an exception.
      *
      * @param string   $owner_path
      * @param string   $project_path
@@ -159,12 +159,14 @@ class Project extends Model implements HasPresenter
      *
      * @return \Gitamin\Models\User
      */
-    public static function findByPath($owner_path, $project_path, $columns = ['projects.*'])
+    public static function findByPath($owner_path, $project_path, $columns = ['*'])
     {
+        $project = Owner::findByPath($owner_path)->project($project_path, $columns);
+        /* Another way
         $project = static::leftJoin('owners', function ($join) {
             $join->on('projects.owner_id', '=', 'owners.id');
         })->where('projects.path', '=', $project_path)->where('owners.path', '=', $owner_path)->first($columns);
-
+        */
         if (! $project) {
             throw new ModelNotFoundException();
         }
