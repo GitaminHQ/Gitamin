@@ -13,8 +13,8 @@ namespace Gitamin\Http\Controllers\Dashboard;
 
 use Exception;
 use Gitamin\Models\Project;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Request;
 
 class ApiController extends Controller
 {

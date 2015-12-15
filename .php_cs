@@ -47,6 +47,7 @@ $fixers = [
     'no_empty_lines_after_phpdocs',
     'object_operator',
     'operators_spaces',
+    'ordered_use',
     'parenthesis',
     'phpdoc_indent',
     'phpdoc_inline_tag',
