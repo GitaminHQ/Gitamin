@@ -30,8 +30,8 @@
                 <input class="form-control" type="password" name="password">
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-success">{{ trans('gitamin.signup.signup') }}</button>
-                <a class="btn btn-default pull-right" href="{{ route('auth.login') }}">{{ trans('gitamin.signin.title') }}</a>
+                <button type="submit" class="btn btn-success">{{ trans('gitamin.signup.title') }}</button>
+                <a class="btn btn-default pull-right" href="{{ route('auth.login') }}">{{ trans('gitamin.signin.signin') }}</a>
             </div>
         </form>
     </div>

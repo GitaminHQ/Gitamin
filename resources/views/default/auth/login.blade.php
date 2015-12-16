@@ -10,7 +10,7 @@
         </div>
     <div class="form-bg">
         <div class="login-title">
-            {{ trans('gitamin.signin.title') }}
+            <strong>{{ trans('gitamin.signin.title') }}</strong>
         </div>
         @include('dashboard.partials.errors')
         <form method="POST" action="{{ route('auth.login', [], false) }}" accept-charset="UTF-8" autocomplete="off" name="{{ str_random(10) }}">
@@ -27,7 +27,7 @@
                 <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.password') }}" required="required" name="password" type="password" value="">
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-info btn-lg">{{ trans('dashboard.login.login') }}</button>
+                <button type="submit" class="btn btn-info btn-lg">{{ trans('gitamin.signin.title') }}</button>
                 <a class="btn btn-default pull-right" href="{{ route('signup.invite','gitamin') }}">{{ trans('gitamin.signup.signup') }}</a>
             </div>
         </form>
