@@ -31,11 +31,10 @@ final class VisibilityScope implements ScopeInterface
 {
     // The item is visible to anyone
     const VISIBILITY_PUBLIC = 0;
-    // The item is only visible to its owner
-    const VISIBILITY_PRIVATE = 1;
     // The item is only visible to its owner and other logged in users
-    const VISIBILITY_LOGGED_IN = 2;
-
+    const VISIBILITY_LOGGED_IN = 1;
+    // The item is only visible to its owner
+    const VISIBILITY_PRIVATE = 2;
     private $tableName;
 
     /**

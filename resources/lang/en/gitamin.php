@@ -37,9 +37,9 @@ return [
             'failure' => 'The Project could not be deleted. Please try again.',
         ],
         'status' => [
-            1 => 'Public',
-            2 => 'Internal',
-            3 => 'Private',
+            0 => 'Public',
+            1 => 'Internal',
+            2 => 'Private',
         ],
     ],
 
