@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -37,7 +38,12 @@ class AuthController extends Controller
      */
     public function postLogin()
     {
-        $loginData = Request::only(['email', 'password']);
+        $loginData = Request::only(['login', 'password']);
+
+        $loginKey = Str::contains($loginData['login'], '@') ? 'email' : 'username';
+
+        $loginData[$loginKey] = array_pull($loginData, 'login');
+
         // Validate login credentials.
         if (Auth::validate($loginData)) {
             // Log the user in for one request.

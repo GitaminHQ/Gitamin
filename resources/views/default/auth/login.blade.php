@@ -16,11 +16,11 @@
         <form method="POST" action="{{ route('auth.login', [], false) }}" accept-charset="UTF-8" autocomplete="off" name="{{ str_random(10) }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @if(Session::has('error'))
-            <p>{{ Session::get('error') }}</p>
+            <p class="alert alert-danger">{{ Session::get('error') }}</p>
             @endif
             <div class="form-group">
-                <label class="control-label">{{ trans('gitamin.signin.email') }}</label>
-                <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.email') }}" required="required" name="email" type="email" autofocus>
+                <label class="control-label">{{ trans('gitamin.signin.login') }}</label>
+                <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.login') }}" required="required" name="login" type="text" autofocus>
             </div>
             <div class="form-group">
                 <label class="control-label">{{ trans('gitamin.signin.password') }}</label>
