@@ -155,6 +155,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Returns whether a user is approved.
+     *
+     * @return bool
+     */
+    public function isApproved()
+    {
+        return $this->active == 1;
+    }
+
+    /**
      * Returns whether a user is at admin level.
      *
      * @return bool

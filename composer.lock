@@ -2284,16 +2284,16 @@
         },
         {
             "name": "phecho/uploader",
-            "version": "v0.1.1",
+            "version": "v0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phecho/Uploader.git",
-                "reference": "7e779a0f83489fe37cbdbc04f3d984fb876d3d15"
+                "reference": "67bdfb916433a467d49587acd92c727b9b6b3a03"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/phecho/Uploader/7e779a0f83489fe37cbdbc04f3d984fb876d3d15.zip",
-                "reference": "7e779a0f83489fe37cbdbc04f3d984fb876d3d15",
+                "url": "http://packagist.phpcomposer.com/files/phecho/Uploader/67bdfb916433a467d49587acd92c727b9b6b3a03.zip",
+                "reference": "67bdfb916433a467d49587acd92c727b9b6b3a03",
                 "shasum": ""
             },
             "require": {
@@ -2304,7 +2304,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1.1-dev"
+                    "dev-master": "0.1.2-dev"
                 }
             },
             "autoload": {
@@ -2331,7 +2331,7 @@
                 "laravel",
                 "upload"
             ],
-            "time": "2015-12-15 14:22:28"
+            "time": "2015-12-16 01:10:15"
         },
         {
             "name": "psr/http-message",

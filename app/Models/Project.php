@@ -45,6 +45,7 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Presenters\ProjectPresenter;
+use Gitamin\Presenters\Traits\HasVisibilities;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -52,7 +53,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Project extends Model implements HasPresenter
 {
-    use SoftDeletes, ValidatingTrait;
+    use SoftDeletes, ValidatingTrait, HasVisibilities;
 
     /**
      * List of attributes that have default values.
