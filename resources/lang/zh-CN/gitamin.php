@@ -87,6 +87,19 @@ return [
         ],
     ],
 
+    // Signin fields
+    'signin' => [
+        'signin' => '登陆',
+        'title' => '登陆',
+        'email' => '邮箱',
+        'password' => '密码',
+        '2fauth' => '验证码',
+        'invalid' => '邮箱或密码错误',
+        'invalid-token' => 'Token无效',
+        'cookies' => '您必须启用Cookie功能来登陆。',
+        'success' => '登陆成功。',
+    ],
+
     'signup' => [
         'title' => '注册',
         'username' => '用户名',

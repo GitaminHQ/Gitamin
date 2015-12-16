@@ -155,8 +155,8 @@ return [
 
     // Signin fields
     'signin' => [
-        'signin' => 'Sign in',
-        'title' => 'Existing user? Sign in',
+        'signin' => 'Existing user? Sign in',
+        'title' => 'Sign in',
         'email' => 'Email',
         'password' => 'Password',
         '2fauth' => 'Authentication Code',
@@ -167,7 +167,7 @@ return [
     ],
 
     'signup' => [
-        'signup' => 'Sign up',
+        'signup' => 'Dont\'t have user? Sign up',
         'title' => 'Sign Up',
         'username' => 'Username',
         'email' => 'Email',
