@@ -57,7 +57,7 @@ class ProjectTest extends AbstractTestCase
         $this->post('/api/v1/projects', [
             'name' => 'Foo',
             'description' => 'Bar',
-            'visibility_level' => 1,
+            'visibility_level' => 0,
             'path' => 'Baidu',
             'creator_id' => 1,
             'owner_id' => 1,
@@ -73,7 +73,7 @@ class ProjectTest extends AbstractTestCase
         $this->post('/api/v1/projects', [
             'name' => 'Foo',
             'description' => 'Bar',
-            'visibility_level' => 1,
+            'visibility_level' => 0,
             'path' => 'Alibaba',
             'creator_id' => 1,
             'owner_id' => 1,
@@ -90,7 +90,7 @@ class ProjectTest extends AbstractTestCase
         $this->post('/api/v1/projects', [
             'name' => 'Foo',
             'description' => 'Bar',
-            'visibility_level' => 1,
+            'visibility_level' => 0,
             'path' => 'Tencent',
             'creator_id' => 1,
             'owner_id' => 1,
@@ -117,7 +117,7 @@ class ProjectTest extends AbstractTestCase
         $this->put('/api/v1/projects/1', [
             'name' => 'Foo',
             'description' => 'Bar',
-            'visibility_level' => 1,
+            'visibility_level' => 0,
             'path' => 'Baz',
             'creator_id' => 1,
             'owner_id' => 1,

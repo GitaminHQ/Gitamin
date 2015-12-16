@@ -35,7 +35,7 @@ $factory->define(Project::class, function ($faker) {
         'path' => $faker->word(),
         'owner_id' => 1,
         'creator_id' => 1,
-        'visibility_level' => 1,
+        'visibility_level' => 0,
     ];
 });
 
