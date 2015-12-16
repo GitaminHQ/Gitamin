@@ -1,17 +1,15 @@
 @extends('layout.dashboard')
 
 @section('content')
-<div class="header">
+
+<div class="content-wrapper">
+    <div class="header sub-header">
     <div class="sidebar-toggler visible-xs">
         <i class="fa fa-navicon"></i>
     </div>
-    <span class="uppercase">
-        <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
-    </span>
+    <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
     &gt; <small>{{ $project->name }}</small>&gt; <small>{{ trans('dashboard.issues.issues') }}</small>
-</div>
-
-<div class="content-wrapper">
+    </div>
     @include('projects.partials.sub-navbar')
     <div class="row">
         <div class="col-sm-12">

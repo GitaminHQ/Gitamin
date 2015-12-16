@@ -2,15 +2,12 @@
 
 @section('content')
 
-
 <div class="content-wrapper">
     <div class="header sub-header">
         <div class="sidebar-toggler visible-xs">
             <i class="fa fa-navicon"></i>
         </div>
-        <span class="uppercase">
-            <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
-        </span>
+        <i class="fa fa-cubes"></i> {{ trans('dashboard.projects.projects') }}
         &gt; <small>{{ $project->name }}</small>
     </div>
 

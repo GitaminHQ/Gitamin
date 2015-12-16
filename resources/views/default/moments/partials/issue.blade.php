@@ -8,7 +8,7 @@
 <span class="event_label opened">
 {{ $moment->actionName }} issue
 </span>
-<strong><a href="/baidu/good/milestones/1">#{{ $moment->target_id }}</a></strong>
+<strong><a href="{{ $moment->target->url }}">#{{ $moment->target_id }}</a></strong>
 at
 <a href="/baidu/good"><span class="namespace-name">{{ $moment->target->project->owner_path }} / </span><span class="project-name">{{ $moment->target->project->name }}</span></a>
 </div>
