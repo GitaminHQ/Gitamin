@@ -157,6 +157,7 @@ return [
     'signin' => [
         'signin' => 'Existing user? Sign in',
         'title' => 'Sign in',
+        'login' => 'Username or Email',
         'email' => 'Email',
         'password' => 'Password',
         '2fauth' => 'Authentication Code',
