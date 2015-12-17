@@ -28,6 +28,7 @@
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Gitamin\Exceptions\UserAlreadyBeenTakenException;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -92,7 +93,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         self::creating(function ($user) {
             $ownerExists = Owner::where('path', '=', $user->username)->exists();
             if ($ownerExists) {
-                return false;
+                throw new UserAlreadyBeenTakenException(trans('gitamin.signup.taken'));
             }
             if (! $user->api_key) {
                 $user->api_key = self::generateApiKey();
