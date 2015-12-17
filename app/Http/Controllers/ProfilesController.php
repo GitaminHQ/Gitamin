@@ -11,6 +11,7 @@
 
 namespace Gitamin\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 class ProfilesController extends Controller
@@ -103,5 +104,18 @@ class ProfilesController extends Controller
         return View::make('profiles.index')
             ->withSubMenu($this->subMenu)
             ->withPageTitle(trans('gitamin.profiles.profiles').' - '.trans('dashboard.dashboard'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateAction()
+    {
+        // Do something
+
+        return Redirect::route('profile.index')
+            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('gitamin.profiles.edit.success')));
     }
 }

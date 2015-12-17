@@ -91,6 +91,16 @@ class Comment extends Model implements HasPresenter
     }
 
     /**
+     * Moments can belong to a target.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function target()
+    {
+        return $this->belongsTo('Gitamin\\Models\\'.$this->target_type, 'target_id', 'id');
+    }
+
+    /**
      * Get the presenter class.
      *
      * @return string

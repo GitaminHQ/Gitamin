@@ -102,12 +102,6 @@ class ExploreController extends Controller
             $startDate->copy()->subDays($daysToShow)->format('Y-m-d').' 00:00:00',
             $startDate->format('Y-m-d').' 23:59:59',
         ])->orderBy('created_at', 'desc')->get()->groupBy(function (Issue $issue) use ($dateTimeZone) {
-            // If it's scheduled, get the scheduled at date.
-            if ($issue->is_scheduled) {
-                return (new Date($issue->scheduled_at))
-                    ->setTimezone($dateTimeZone)->toDateString();
-            }
-
             return (new Date($issue->created_at))
                 ->setTimezone($dateTimeZone)->toDateString();
         });

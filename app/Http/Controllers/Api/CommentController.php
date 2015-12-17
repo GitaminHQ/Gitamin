@@ -35,7 +35,7 @@ class CommentController extends AbstractApiController
      */
     public function getComments(Request $request, Guard $auth)
     {
-        $comments = Comment::paginate($request->get('per_page', 20));
+        $comments = Comment::paginate($request->input('per_page', 20));
 
         return $this->paginator($comments, $request);
     }
@@ -63,11 +63,11 @@ class CommentController extends AbstractApiController
     {
         try {
             $comment = $this->dispatch(new AddCommentCommand(
-                $request->get('message'),
-                $request->get('target_type'),
-                $request->get('target_id'),
-                $request->get('author_id'),
-                $request->get('project_id')
+                $request->input('message'),
+                $request->input('target_type'),
+                $request->input('target_id'),
+                $request->input('author_id'),
+                $request->input('project_id')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
@@ -88,7 +88,7 @@ class CommentController extends AbstractApiController
         try {
             $comment = $this->dispatch(new UpdateCommentCommand(
                 $comment,
-                $request->get('message')
+                $request->input('message')
             ));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();

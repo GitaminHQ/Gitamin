@@ -1,6 +1,6 @@
 <div class="moment-block moment-item">
 <div class="moment-item-timestamp">
-<time class="time_ago js-timeago" data-container="body" data-placement="top" data-toggle="tooltip" datetime="2015-12-10T02:05:56Z" title="Dec 10, 2015 2:05am">{{ $moment->created_at }}</time>
+<time class="time_ago js-timeago" data-container="body" data-placement="top" data-toggle="tooltip" datetime="{{ $moment->created_at_iso }}" title="{{ $moment->created_at_formatted }}">{{ $moment->created_at_diff }}</time>
 </div>
 <img alt="" class="avatar s46" src="{{ $moment->target->creator->gravatar }}">
 <div class="moment-title">

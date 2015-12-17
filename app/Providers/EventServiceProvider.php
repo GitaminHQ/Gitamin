@@ -21,6 +21,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        // Comment related moments
+        'Gitamin\Events\Comment\CommentWasAddedEvent' => [
+            'Gitamin\Handlers\Events\Comment\SendCommentMomentHandler',
+        ],
+         // Issue email notifications
         'Gitamin\Events\Issue\IssueWasAddedEvent' => [
             'Gitamin\Handlers\Events\Issue\SendIssueEmailNotificationHandler',
         ],

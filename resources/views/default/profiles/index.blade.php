@@ -16,10 +16,12 @@
             <div class="container-fluid container-limited">
                <div class="content">
                     <div class="clearfix">
+                    <!--
                         <div class="gray-content-block top-block">
                         This information will appear on your profile.
                         </div>
                         <div class="prepend-top-default"></div>
+                        -->
                         <form class="edit_user form-horizontal" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-7">
