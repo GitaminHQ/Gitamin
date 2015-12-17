@@ -72,6 +72,7 @@ $fixers = [
     'single_blank_line_before_namespace',
     'single_line_after_imports',
     'single_quote',
+    'spaces_after_semicolon',
     'spaces_before_semicolon',
     'spaces_cast',
     'standardize_not_equal',

@@ -101,6 +101,11 @@ return [
         'ssh_keys' => 'SSH Keys',
         'preferences' => 'Preferences',
         'audit_log' => 'Audit Log',
+        'edit' => [
+            'title' => 'Profile',
+            'success' => 'Profile updated.',
+            'failure' => 'Something went wrong with the profile.',
+        ],
     ],
 
     // Service Status

@@ -110,6 +110,10 @@ class DefaultRoutes
                 'as' => 'index',
                 'uses' => 'ProfilesController@indexAction',
             ]);
+            $router->post('profile', [
+                'as' => 'update',
+                'uses' => 'ProfilesController@updateAction',
+            ]);
         });
     }
 }

@@ -80,6 +80,30 @@ class MomentPresenter extends AbstractPresenter
     }
 
     /**
+     * Present diff for humans date time.
+     *
+     * @return string
+     */
+    public function created_at_diff()
+    {
+        return (new Date($this->wrappedObject->created_at))
+            ->setTimezone($this->setting->get('app_timezone'))
+            ->diffForHumans();
+    }
+
+    /**
+     * Present formatted date time.
+     *
+     * @return string
+     */
+    public function created_at_formatted()
+    {
+        return ucfirst((new Date($this->wrappedObject->created_at))
+            ->setTimezone($this->setting->get('app_timezone'))
+            ->format($this->setting->get('issue_date_format', 'l jS F Y H:i:s')));
+    }
+
+    /**
      * Present formatted date time.
      *
      * @return string
