@@ -23,6 +23,7 @@
                         <div class="prepend-top-default"></div>
                         -->
                         <form class="edit_user form-horizontal" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="form-group">

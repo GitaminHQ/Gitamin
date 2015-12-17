@@ -19,6 +19,7 @@
                     @forelse($projects as $project)
                     <div class="list-group-item">
                         <form class='project-inline form-vertical' data-messenger="{{trans('dashboard.projects.edit.success')}}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row striped-list-item">
                                 <div class="col-lg-4 col-md-3 col-sm-12">
                                     <h4>{{ $project->name }}</h4>

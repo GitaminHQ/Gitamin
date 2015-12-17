@@ -14,6 +14,7 @@
             <div class="col-sm-12">
                 @include('dashboard.partials.errors')
                 <form name="UserForm" class="form-horizontal" role="form" action="/dashboard/user" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <div class="row">
                             <div class="col-sm-1">

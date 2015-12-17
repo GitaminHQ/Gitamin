@@ -40,8 +40,8 @@ class AuthController extends Controller
     {
         $loginData = Request::only(['login', 'password']);
 
+        // Login with username or email.
         $loginKey = Str::contains($loginData['login'], '@') ? 'email' : 'username';
-
         $loginData[$loginKey] = array_pull($loginData, 'login');
 
         // Validate login credentials.
