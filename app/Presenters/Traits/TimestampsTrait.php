@@ -27,14 +27,37 @@ trait TimestampsTrait
     }
 
     /**
+     * Present diff for humans date time.
+     *
+     * @return string
+     */
+    public function created_at_diff()
+    {
+        return (new Date($this->wrappedObject->created_at))
+            ->setTimezone($this->setting->get('app_timezone'))
+            ->diffForHumans();
+    }
+
+    /**
      * Present formatted date time.
      *
      * @return string
      */
-    public function scheduled_at()
+    public function created_at_formatted()
     {
-        return (new Date($this->wrappedObject->scheduled_at))
-            ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
+        return ucfirst((new Date($this->wrappedObject->created_at))
+            ->setTimezone($this->setting->get('app_timezone'))
+            ->format($this->setting->get('issue_date_format', 'l jS F Y H:i:s')));
+    }
+
+    /**
+     * Present formatted date time.
+     *
+     * @return string
+     */
+    public function created_at_iso()
+    {
+        return $this->wrappedObject->created_at->setTimezone($this->setting->get('app_timezone'))->toISO8601String();
     }
 
     /**

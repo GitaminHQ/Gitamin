@@ -11,14 +11,12 @@
 
 namespace Gitamin\Presenters;
 
-use Gitamin\Facades\Setting;
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Project;
 use Gitamin\Presenters\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
-use Jenssegers\Date\Date;
 
 class MomentPresenter extends AbstractPresenter
 {
@@ -77,40 +75,6 @@ class MomentPresenter extends AbstractPresenter
         } else {
             return 'fa fa-code-fork';
         }
-    }
-
-    /**
-     * Present diff for humans date time.
-     *
-     * @return string
-     */
-    public function created_at_diff()
-    {
-        return (new Date($this->wrappedObject->created_at))
-            ->setTimezone($this->setting->get('app_timezone'))
-            ->diffForHumans();
-    }
-
-    /**
-     * Present formatted date time.
-     *
-     * @return string
-     */
-    public function created_at_formatted()
-    {
-        return ucfirst((new Date($this->wrappedObject->created_at))
-            ->setTimezone($this->setting->get('app_timezone'))
-            ->format($this->setting->get('issue_date_format', 'l jS F Y H:i:s')));
-    }
-
-    /**
-     * Present formatted date time.
-     *
-     * @return string
-     */
-    public function created_at_iso()
-    {
-        return $this->wrappedObject->created_at->setTimezone($this->setting->get('app_timezone'))->toISO8601String();
     }
 
     /**
