@@ -90,6 +90,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         parent::boot();
 
         self::creating(function ($user) {
+            $ownerExists = Owner::where('path', '=', $user->username)->exists();
+            if ($ownerExists) {
+                return false;
+            }
             if (! $user->api_key) {
                 $user->api_key = self::generateApiKey();
             }

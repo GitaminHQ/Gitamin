@@ -29,6 +29,10 @@ class EventServiceProvider extends ServiceProvider
         'Gitamin\Events\Issue\IssueWasAddedEvent' => [
             'Gitamin\Handlers\Events\Issue\SendIssueEmailNotificationHandler',
         ],
+        // Owner related moments
+        'Gitamin\Events\Owner\OwnerWasAddedEvent' => [
+            'Gitamin\Handlers\Events\Owner\SendOwnerMomentHandler',
+        ],
         // Project related moments
         'Gitamin\Events\Project\ProjectWasAddedEvent' => [
             'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
@@ -44,7 +48,7 @@ class EventServiceProvider extends ServiceProvider
             'Gitamin\Handlers\Events\Subscriber\SendSubscriberVerificationEmailHandler',
         ],
         'Gitamin\Events\User\UserWasAddedEvent' => [
-            //
+            'Gitamin\Handlers\Events\Owner\AddOwnerAfterUserAddedHandler',
         ],
         'Gitamin\Events\User\UserWasInvitedEvent' => [
             'Gitamin\Handlers\Events\User\SendInviteUserEmailHandler',

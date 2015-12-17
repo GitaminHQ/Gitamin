@@ -19,11 +19,11 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="username">{{ trans('gitamin.signup.username') }}</label>
-                <input class="form-control" type="text" name="username" value="{{ $username }}">
+                <input class="form-control" type="text" name="username" value="{{ Input::old('username',$username) }}">
             </div>
             <div class="form-group">
                 <label for="email">{{ trans('gitamin.signup.email') }}</label>
-                <input class="form-control" type="email" name="email" value="{{ $email }}">
+                <input class="form-control" type="email" name="email" value="{{ Input::old('email',$email) }}">
             </div>
             <div class="form-group">
                 <label for="password">{{ trans('gitamin.signup.password') }}</label>

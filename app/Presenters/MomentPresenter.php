@@ -14,6 +14,7 @@ namespace Gitamin\Presenters;
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Moment;
+use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
 use Gitamin\Presenters\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
@@ -72,6 +73,8 @@ class MomentPresenter extends AbstractPresenter
             return 'fa fa-comments-o';
         } elseif ($this->wrappedObject->target instanceof Issue) {
             return 'fa fa-exclamation-circle';
+        } elseif ($this->wrappedObject->target instanceof Owner) {
+            return 'fa fa-user';
         } else {
             return 'fa fa-code-fork';
         }
