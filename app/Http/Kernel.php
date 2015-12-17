@@ -37,7 +37,6 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         'csrf' => 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
-        'throttling' => 'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware',
         'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
         'permission' => 'Zizaco\Entrust\Middleware\EntrustPermission',
         'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',

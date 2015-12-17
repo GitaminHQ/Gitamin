@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7dd6e71016d8ebe5f207c8e76c3fdf7e",
-    "content-hash": "78d30216d84a81f44516831e9e049244",
+    "hash": "903bd3d6b9813ac5891cc36fd6b0676f",
+    "content-hash": "1a87abec64f86c25ab1a760cecbd450e",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -943,66 +943,6 @@
             "time": "2015-06-29 05:42:04"
         },
         {
-            "name": "graham-campbell/core",
-            "version": "v4.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Core.git",
-                "reference": "81b6f833ee988c9d4a690e66111ef17378e1ffaa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Core/zipball/81b6f833ee988c9d4a690e66111ef17378e1ffaa",
-                "reference": "81b6f833ee988c9d4a690e66111ef17378e1ffaa",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "5.1.*|5.2.*",
-                "illuminate/contracts": "5.1.*|5.2.*",
-                "illuminate/support": "5.1.*|5.2.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "^3.1",
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Core\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Core Provides Some Extra Functionality For Laravel 5",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Core",
-                "Laravel-Core",
-                "base",
-                "core",
-                "framework",
-                "laravel",
-                "starter"
-            ],
-            "time": "2015-11-14 11:39:14"
-        },
-        {
             "name": "graham-campbell/exceptions",
             "version": "v5.1.0",
             "source": {
@@ -1128,67 +1068,6 @@
                 "markdown"
             ],
             "time": "2015-11-14 11:57:14"
-        },
-        {
-            "name": "graham-campbell/throttle",
-            "version": "v5.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Throttle.git",
-                "reference": "67e4fe1c2943b46006c9d4bc7ad47405961a4de3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Throttle/zipball/67e4fe1c2943b46006c9d4bc7ad47405961a4de3",
-                "reference": "67e4fe1c2943b46006c9d4bc7ad47405961a4de3",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/cache": "5.1.*|5.2.*",
-                "illuminate/contracts": "5.1.*|5.2.*",
-                "illuminate/http": "5.1.*|5.2.*",
-                "illuminate/support": "5.1.*|5.2.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "^3.1",
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Throttle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Throttle Is A Rate Limiter For Laravel 5",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Throttle",
-                "Laravel-Throttle",
-                "framework",
-                "laravel",
-                "rate limit",
-                "throttle",
-                "throttling"
-            ],
-            "time": "2015-11-14 11:58:42"
         },
         {
             "name": "guzzlehttp/guzzle",
