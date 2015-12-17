@@ -57,7 +57,7 @@ class CommentTest extends AbstractTestCase
             'message' => 'Lorem ipsum dolor sit amet',
             'target_type' => 'Issue',
             'target_id' => 1,
-            'author_id' => 1,
+            'author_id' => $this->user->id,
             'project_id' => 1,
         ]);
         $this->seeJson(['message' => 'Lorem ipsum dolor sit amet']);

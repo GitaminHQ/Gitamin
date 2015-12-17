@@ -56,7 +56,7 @@ class IssueTest extends AbstractTestCase
         $this->post('/api/v1/issues', [
             'title' => 'Foo',
             'description' => 'Lorem ipsum dolor sit amet',
-            'author_id' => 1,
+            'author_id' => $this->user->id,
             'project_id' => 1,
             'assignee_id' => 0,
         ]);
@@ -81,7 +81,7 @@ class IssueTest extends AbstractTestCase
         $this->put('/api/v1/issues/1', [
             'title' => 'Foo',
             'description' => 'Lorem ipsum dolor sit amet',
-            'author_id' => 1,
+            'author_id' => $this->user->id,
             'project_id' => 1,
             'assignee_id' => 0,
         ]);

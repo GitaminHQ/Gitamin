@@ -48,7 +48,7 @@ class SendCommentMomentHandler
             'target_id' => $comment->id,
             'action' => $action,
             'author_id' => $comment->author_id,
-            'project_id' => $comment->project->id,
+            'project_id' => $comment->project_id,
         ];
         $moment = Moment::create($data);
     }

@@ -57,7 +57,7 @@ class OwnerTest extends AbstractTestCase
         $this->post('/api/v1/owners', [
             'name' => 'Foo',
             'path' => 'foo',
-            'user_id' => 1,
+            'user_id' => $this->user->id,
             'description' => 'Bar',
             'type' => 'Group',
         ]);
@@ -82,7 +82,7 @@ class OwnerTest extends AbstractTestCase
         $this->put('/api/v1/owners/1', [
             'name' => 'Lorem Ipsum Groupous',
             'path' => 'lig',
-            'user_id' => 1,
+            'user_id' => $this->user->id,
             'description' => 'Bar',
             'type' => 'Group',
         ]);
