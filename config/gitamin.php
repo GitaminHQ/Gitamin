@@ -22,6 +22,14 @@ return [
 
     'timezone' => 'UTC',
 
-    'google_fonts_url' => 'http://fonts.useso.com/css?family=Open+Sans:300,400,700',
+    /*
+    |--------------------------------------------------------------------------
+    | Google fonts url
+    |--------------------------------------------------------------------------
+    |
+    | The timezone Gitamin uses for converting timezones on saving.
+    |
+    */
+    'google_fonts_url' => null,
 
 ];
