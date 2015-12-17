@@ -51,17 +51,11 @@
         }
     },
     "scripts": {
-        "pre-install-cmd": [
-            "rm -f compiled.php config.php routes.php services.json"
-        ],
         "post-install-cmd": [
             "php artisan optimize --force",
             "php artisan config:cache",
             "php artisan route:cache",
             "chmod -R 755 storage"
-        ],
-        "pre-update-cmd": [
-            "rm -f compiled.php config.php routes.php services.json"
         ],
         "post-update-cmd": [
             "php artisan optimize --force",
