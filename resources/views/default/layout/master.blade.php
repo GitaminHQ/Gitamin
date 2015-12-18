@@ -28,8 +28,7 @@
     @endif
 
     <title>{{ $app_name.' | Gitamin' . $page_title }} {{ $page_title }}</title>
-
-    <link href="{{ $google_fonts_url }}" rel="stylesheet" type="text/css">
+    <link href="{{ $google_fonts_url or 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ elixir('dist/css/gitamin.css') }}">
 
     @include('partials.stylesheet')
