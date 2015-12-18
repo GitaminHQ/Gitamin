@@ -2,9 +2,9 @@
 <div class="moment-item-timestamp">
 <time class="time_ago js-timeago" data-container="body" data-placement="top" data-toggle="tooltip" datetime="{{ $moment->created_at_iso }}" title="{{ $moment->created_at_formatted }}">{{ $moment->created_at_diff }}</time>
 </div>
-<img alt="" class="avatar s46" src="https://avatars0.githubusercontent.com/u/83008?v=3&amp;s=60">
+<i class="{{ $moment->icon }} icon s32"></i>
 <div class="moment-title">
-<i class="{{ $moment->icon }}"></i> <span class="author_name"><a href="/u/root">{{ $moment->author->username }}</a></span>
+<span class="author_name"><a href="/u/root">{{ $moment->author->username }}</a></span>
 <span class="event_label opened">
 {{ $moment->actionName }}
 </span>
@@ -13,6 +13,7 @@ at
 <a href="{{ $moment->target->project->url }}"><span class="namespace-name">{{ $moment->target->project->owner_path }} / </span><span class="project-name">{{ $moment->target->project->name }}</span></a>
 </div>
 <div class="moment-body">
+<i class="{{ $moment->icon }} avatar s32"></i>
 <div class="moment-comment">
 {{ $moment->target->message }} 
 </div>

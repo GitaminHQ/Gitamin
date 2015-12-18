@@ -27,12 +27,18 @@
   }
 
   .avatar {
-    margin-left: -($gl-avatar-size + 15px);
+    float: left;
   }
   
-  .s46 {
-    width: 46px;
-    height: 46px;
+  .icon {
+     margin-left: -60px;
+  }
+  .s32 {
+    font-size: 32px;
+    text-align: center;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
     margin-right: 15px;
   }
 
