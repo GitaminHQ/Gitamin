@@ -36,7 +36,7 @@ final class OfTypeScope implements ScopeInterface
         if ($model instanceof Group) {
             $this->applyGroupScope($builder);
         } else {
-            // TODO: 
+            // TODO:
         }
     }
 
@@ -63,6 +63,7 @@ final class OfTypeScope implements ScopeInterface
     {
         return $query->where('type', '=', 'User');
     }
+
     /**
      * Remove the scopes for model.
      *
