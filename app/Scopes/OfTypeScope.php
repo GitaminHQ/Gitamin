@@ -36,7 +36,7 @@ final class OfTypeScope implements ScopeInterface
         if ($model instanceof Group) {
             $this->applyGroupScope($builder);
         } else {
-            // TODO:
+            // TODO: defaut fetch all now.
         }
     }
 
