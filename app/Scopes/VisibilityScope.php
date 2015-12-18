@@ -35,6 +35,7 @@ final class VisibilityScope implements ScopeInterface
     const VISIBILITY_LOGGED_IN = 1;
     // The item is only visible to its owner
     const VISIBILITY_PRIVATE = 2;
+    // Table name
     private $tableName;
 
     /**

@@ -116,7 +116,7 @@ class Project extends Model implements HasPresenter
      */
     public function owner()
     {
-        return $this->belongsTo(Group::class, 'owner_id', 'id');
+        return $this->belongsTo(Owner::class, 'owner_id', 'id');
     }
 
     /**
