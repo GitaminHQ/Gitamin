@@ -28,7 +28,7 @@ class DashboardComposer
     {
         $view->withIssueCount(Issue::all()->count());
         $view->withProjectCount(Project::all()->count());
-        $view->withGroupCount(Group::IsGroup()->Mine()->count());
+        $view->withGroupCount(Group::count());
         $view->withMomentCount(Moment::all()->count());
     }
 }
