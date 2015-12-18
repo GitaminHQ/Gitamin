@@ -129,6 +129,32 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Returns a Gravatar URL for the users email address.
+     *
+     * @param int $size
+     *
+     * @return string
+     */
+    public function getAvatarAttribute($size = 200)
+    {
+        return '/img/no_user_avatar.png';
+        //return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5($this->email), $size);
+    }
+
+    /**
+     * Returns a user profile URL.
+     *
+     * @param int $size
+     *
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return route('profile.show', ['username' => $this->username]);
+        //return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5($this->email), $size);
+    }
+
+    /**
      * Find by api_key, or throw an exception.
      *
      * @param string   $token

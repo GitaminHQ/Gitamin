@@ -4,18 +4,10 @@
 </div>
 <i class="{{ $moment->icon }} icon s32"></i>
 <div class="moment-title">
-<span class="author_name"><a href="/u/root">{{ $moment->author->username }}</a></span>
+<span class="author_name"><a href="{{ $moment->author->url }}">{{ $moment->author->username }}</a></span>
 <span class="event_label opened">
 {{ $moment->actionName }} account
 </span>
-<strong><a href="/baidu/good/milestones/1">{{ $moment->target->name }}</a></strong>
-at
-<a href="/baidu/good"><span class="namespace-name">xxx/ </span><span class="project-name">{{ $moment->target->id }}</span></a>
+<strong><a href="{{ $moment->author->url }}">{{ $moment->target->name }}</a></strong>
 </div>
-<div class="moment-body">
-<div class="moment-comment">
-Welcome.
-</div>
-</div>
-
 </div>

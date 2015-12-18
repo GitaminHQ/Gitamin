@@ -118,4 +118,11 @@ class ProfilesController extends Controller
         return Redirect::route('profile.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('gitamin.profiles.edit.success')));
     }
+
+    public function showAction()
+    {
+        return View::make('profiles.index')
+            ->withSubMenu($this->subMenu)
+            ->withPageTitle(trans('gitamin.profiles.profiles').' - '.trans('dashboard.dashboard'));
+    }
 }
