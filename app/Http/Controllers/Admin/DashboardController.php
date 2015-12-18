@@ -11,6 +11,7 @@
 
 namespace Gitamin\Http\Controllers\Admin;
 
+use Gitamin\Http\Requests\AdminRequest;
 use Gitamin\Models\Project;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
@@ -69,11 +70,11 @@ class DashboardController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the default view of dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexAction()
+    public function indexAction(AdminRequest $request)
     {
         $this->subMenu['overview']['active'] = true;
 

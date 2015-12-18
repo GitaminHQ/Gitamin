@@ -12,7 +12,7 @@
 namespace Gitamin\Presenters;
 
 use Gitamin\Facades\Setting;
-use Gitamin\Presenters\Traits\TimestampsTrait;
+use Gitamin\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
 
 class CommentPresenter extends AbstractPresenter

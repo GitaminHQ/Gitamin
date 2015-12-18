@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Presenters\Traits;
+namespace Gitamin\Traits;
 
 use Jenssegers\Date\Date;
 

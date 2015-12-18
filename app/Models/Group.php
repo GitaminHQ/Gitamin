@@ -11,7 +11,7 @@
 
 namespace Gitamin\Models;
 
-use Gitamin\Presenters\Traits\OfTypeTrait;
+use Gitamin\Traits\OfTypeTrait;
 
 class Group extends Owner
 {

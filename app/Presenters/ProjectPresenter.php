@@ -11,7 +11,7 @@
 
 namespace Gitamin\Presenters;
 
-use Gitamin\Presenters\Traits\TimestampsTrait;
+use Gitamin\Traits\TimestampsTrait;
 
 class ProjectPresenter extends AbstractPresenter
 {

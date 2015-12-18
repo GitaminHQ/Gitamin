@@ -9,14 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Presenters\Traits;
+namespace Gitamin\Http\Requests;
 
-use Gitamin\Scopes\OfTypeScope;
+use Illuminate\Foundation\Http\FormRequest;
 
-trait OfTypeTrait
+abstract class Request extends FormRequest
 {
-    public static function bootOfTypeTrait()
-    {
-        static::addGlobalScope(new OfTypeScope);
-    }
+    // Do something
 }

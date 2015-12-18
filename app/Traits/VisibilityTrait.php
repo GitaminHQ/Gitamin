@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Presenters\Traits;
+namespace Gitamin\Traits;
 
 use Gitamin\Scopes\VisibilityScope;
 
-trait HasVisibilities
+trait VisibilityTrait
 {
-    public static function bootHasVisibilities()
+    public static function bootVisibilityTrait()
     {
         static::addGlobalScope(new VisibilityScope);
     }
