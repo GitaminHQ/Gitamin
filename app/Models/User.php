@@ -23,6 +23,9 @@
 #  level          :integer          default(2)
 #  created_at     :timestamp
 #  updated_at     :timestamp
+#  location       :string(255)      default('')
+#  public_email   :string(255)      default('')
+#  website_url    :string(255)      default('')
 #
 
 namespace Gitamin\Models;
