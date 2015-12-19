@@ -16,7 +16,7 @@ use Exception;
 /**
  * This is the user already been taken exception class.
  */
-class UserAlreadyBeenTakenException extends Exception implements ExceptionInterface
+class UserAlreadyTakenException extends Exception implements ExceptionInterface
 {
     //
 }

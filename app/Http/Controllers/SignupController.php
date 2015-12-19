@@ -14,7 +14,7 @@ namespace Gitamin\Http\Controllers;
 use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Invite\ClaimInviteCommand;
 use Gitamin\Commands\User\SignupUserCommand;
-use Gitamin\Exceptions\UserAlreadyBeenTakenException;
+use Gitamin\Exceptions\UserAlreadyTakenException;
 use Gitamin\Models\Invite;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Redirect;
@@ -86,11 +86,11 @@ class SignupController extends Controller
                 ->withInput(Request::except('password'))
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
                 ->withErrors($e->getMessageBag());
-        } catch (UserAlreadyBeenTakenException $e) {
+        } catch (UserAlreadyTakenException $e) {
             return Redirect::route('signup.signup', ['code' => $code])
                 ->withInput(Request::except('password'))
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
-                ->withErrors($e->getMessage());
+                ->withErrors(trans('gitamin.signup.taken'));
         }
 
         //$this->dispatch(new ClaimInviteCommand($invite));
