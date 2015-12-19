@@ -52,10 +52,6 @@ class GroupsRoutes
             'setting' => 'app_name',
             'as' => 'groups.',
         ], function ($router) {
-           $router->get('{owner_path}', [
-                'as' => 'group_show',
-                'uses' => 'GroupsController@showAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+');
 
            $router->get('{owner_path}/edit', [
                 'as' => 'group_edit',
