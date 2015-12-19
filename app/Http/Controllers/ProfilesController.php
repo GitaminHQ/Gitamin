@@ -11,7 +11,9 @@
 
 namespace Gitamin\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 
 class ProfilesController extends Controller
@@ -114,6 +116,16 @@ class ProfilesController extends Controller
     public function updateAction()
     {
         // Do something
+        $userData = Request::get('user');
+
+        try {
+            Auth::user()->update($userData);
+        } catch (ValidationException $e) {
+            return Redirect::route('profile.index')
+                ->withInput($userData)
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.profiles.edit.failure')))
+                ->withErrors($e->getMessageBag());
+        }
 
         return Redirect::route('profile.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('gitamin.profiles.edit.success')));

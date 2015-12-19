@@ -29,7 +29,7 @@
                                     <div class="form-group">
                                         <label class="control-label" for="user_name">Name</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" id="user_name" name="user[name]" required="required" type="text" value="{{ Input::old('user.name', $current_user->username) }}">
+                                            <input class="form-control" id="user_name" name="user[name]" required="required" type="text" value="{{ Input::old('user.name', $current_user->name) }}">
                                             <span class="help-block">Enter your name, so people you know can recognize you.</span>
                                         </div>
                                     </div>
@@ -43,11 +43,11 @@
                                     </div>
                                     <div class='form-group'>
                                     <label class="control-label" for="user_website_url">Website</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_website_url" name="user[website_url]" type="text" value="" /></div>
+                                    <div class='col-sm-10'><input class="form-control" id="user_website_url" name="user[website_url]" type="text" value="{{ Input::old('user.website_url', $current_user->website_url) }}" /></div>
                                     </div>
                                     <div class='form-group'>
                                     <label class="control-label" for="user_location">Location</label>
-                                    <div class='col-sm-10'><input class="form-control" id="user_location" name="user[location]" type="text" /></div>
+                                    <div class='col-sm-10'><input class="form-control" id="user_location" name="user[location]" type="text" value="{{ Input::old('user.location', $current_user->location) }}" /></div>
                                     </div>
                                 </div>
                                 <div class="col-md-5">

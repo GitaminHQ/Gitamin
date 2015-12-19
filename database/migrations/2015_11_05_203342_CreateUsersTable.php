@@ -34,6 +34,9 @@ class CreateUsersTable extends Migration
             $t->boolean('active')->default(1);
             $t->tinyInteger('level')->default(2);
             $t->timestamps();
+            $t->string('location')->nullable();
+            $t->string('public_email')->default('');
+            $t->string('website_url')->default('');
 
             $t->index('remember_token');
             $t->index('active');
