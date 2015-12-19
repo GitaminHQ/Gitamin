@@ -26,6 +26,6 @@ class Group extends Owner
      */
     public function getUrlAttribute()
     {
-        return route('groups.group_show', ['owner' => $this->path]);
+        return route('owners.owner_show', ['owner' => $this->path]);
     }
 }

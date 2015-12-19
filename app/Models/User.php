@@ -224,4 +224,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany(Issue::class, 'user_id', 'id');
     }
+
+    /**
+     * A owner can have many projects.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'owner_id', 'id');
+    }
 }

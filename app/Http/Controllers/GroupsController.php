@@ -39,20 +39,6 @@ class GroupsController extends Controller
     }
 
     /**
-     * Shows the group view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAction($path)
-    {
-        $group = Group::findByPath($path);
-
-        return View::make('groups.show')
-            ->withPageTitle($group->name)
-            ->withGroup($group);
-    }
-
-    /**
      * Shows the new project view.
      *
      * @return \Illuminate\View\View

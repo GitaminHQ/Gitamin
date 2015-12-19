@@ -25,7 +25,11 @@
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="profile-dropdown">
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ route('profile.index') }}"><i class="fa fa-user"></i> {{ trans('dashboard.profile') }}</a>
+                            <a role="menuitem" tabindex="-1" href="{{ route('owners.owner_show', ['owner' => $current_user->username]) }}"><i class="fa fa-user"></i> {{ trans('dashboard.profile') }}</a>
+                        </li>
+                        <hr>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="{{ route('profile.index') }}"><i class="fa fa-gear"></i> {{ trans('gitamin.profiles.account') }}</a>
                         </li>
                         <li role="presentation">
                             <a role="menuitem" tabindex="-1" href="{{ route('auth.logout') }}"><i class="fa fa-sign-out"></i> {{ trans('dashboard.logout') }}</a>
