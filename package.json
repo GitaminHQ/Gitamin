@@ -2,6 +2,9 @@
     "dependencies": {
         "bower": "~1.6.4",
         "gulp": "~3.9.0",
+        "gulp-coffee": "^2.2.0",
+        "gulp-concat": "^2.4.3",
+        "gulp-notify": "^1.4.0",
         "laravel-elixir": "~4.0.4"
     },
     "private": true

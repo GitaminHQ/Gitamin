@@ -1,4 +1,20 @@
-var elixir = require('laravel-elixir');
+var elixir  = require('laravel-elixir'),
+    gulp    = require('gulp'),
+    gutil   = require('gulp-util'),
+    gcoffee = require('gulp-coffee'),
+    gnotify = require('gulp-notify');
+
+var Task = elixir.Task;
+
+elixir.extend('coffeeScript', function () {
+    new Task('coffeeScript', function () {
+        return gulp.src('resources/assets/coffee/**/*.coffee')
+                    .pipe(gcoffee({bare:true})).on('error', gutil.log)
+                    .pipe(gulp.dest('public/js/'))
+                    .pipe(gnotify('Done on converting coffee script to javascript.'))
+    })
+    .watch('resources/assets/coffee/**/*.coffee');
+});
 
 elixir.config.production = true;
 elixir.config.sourcemaps = false;
@@ -13,6 +29,7 @@ elixir(function (mix) {
             'vendor/bower_components/dropzone/dist/min/dropzone.min.css',
             'public/dist/css/app.css'
         ], 'public/dist/css/gitamin.css', './')
+        .coffeeScript()
         .scripts([
             'vendor/bower_components/jquery/dist/jquery.js',
             'vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
