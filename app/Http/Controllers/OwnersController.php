@@ -12,7 +12,9 @@
 namespace Gitamin\Http\Controllers;
 
 use Gitamin\Models\Group;
+use Gitamin\Models\Moment;
 use Gitamin\Models\Owner;
+use Gitamin\Models\Project;
 use Gitamin\Models\User;
 use Illuminate\Support\Facades\View;
 
@@ -43,9 +45,15 @@ class OwnersController extends Controller
      */
     protected function showGroup(Owner &$group)
     {
+        //$usedProjectTeams = Project::where('owner_id', '>', 0)->groupBy('owner_id')->lists('owner_id');
+        $usedProjects = Project::where('owner_id', '=', $group->id)->lists('id')->toArray();
+        $moments = Moment::whereIn('project_id', $usedProjects)->get();
+
+        //$projectTeams = Owner::whereIn('id', $usedProjectTeams)->get();
         return View::make('groups.show')
             ->withPageTitle($group->name)
-            ->withGroup($group);
+            ->withGroup($group)
+            ->withMoments($moments);
     }
 
     /**
