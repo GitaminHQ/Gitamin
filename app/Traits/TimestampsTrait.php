@@ -81,15 +81,4 @@ trait TimestampsTrait
         return (new Date($this->wrappedObject->deleted_at))
             ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
     }
-
-    /**
-     * Present formatted date time.
-     *
-     * @return string
-     */
-    public function verified_at()
-    {
-        return (new Date($this->wrappedObject->verified_at))
-            ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
-    }
 }
