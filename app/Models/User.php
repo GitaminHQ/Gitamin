@@ -32,6 +32,7 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Exceptions\UserAlreadyTakenException;
+use Gitamin\Models\Members\GroupMember;
 use Gitamin\Models\Members\ProjectMember;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -232,13 +233,25 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * A owner can have many groups.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function owned_groups()
+    {
+        return $this->hasMany(Group::class, 'owner_id', 'id');
+    }
+
+    /**
      * Returns the groups a user is authorized to access.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function authorized_groups()
     {
-        // Do something.
+        $groupIds = GroupMember::where('user_id', '=', $this->id)->where('target_type', '=', 'Group')->lists('target_id')->toArray();
+
+        return Group::whereIn('id', $groupIds)->get();
     }
 
     /**
