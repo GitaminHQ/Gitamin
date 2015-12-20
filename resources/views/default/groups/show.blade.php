@@ -37,78 +37,14 @@
 
             <hr>
             </div>
-            <div class="content_list"><div class="event-block event-item">
-            <div class="event-item-timestamp">
-            <time class="time_ago js-timeago" data-container="body" data-placement="top" data-toggle="tooltip" datetime="2015-12-11T09:04:59Z" title="Dec 11, 2015 9:04am">2 days ago</time>
-            </div>
-            <img alt="" class="avatar s46" src="https://avatars2.githubusercontent.com/u/15867969?v=3&s=40">
-            <div class="event-title">
-            <span class="author_name"><a href="/u/root">Administrator</a></span>
-            <span class="event_label">
-            commented on
-            <a href="/baidu/good/issues/2#note_8">issue #2</a>
-            at
-            </span>
-            <a href="/baidu/good"><span class="namespace-name">baidu / </span><span class="project-name">good</span></a>
-            </div>
-            <div class="event-body">
-            <div class="event-note">
-            <div class="md">
-            <p>comment test.</p>
-            </div>
-            </div>
-            </div>
-
-            </div>
-            <div class="event-block event-item">
-            <div class="event-item-timestamp">
-            <time class="time_ago js-timeago" data-container="body" data-placement="top" data-toggle="tooltip" datetime="2015-12-10T15:35:48Z" title="Dec 10, 2015 3:35pm">3 days ago</time>
-            </div>
-            <img alt="" class="avatar s46" src="https://avatars2.githubusercontent.com/u/15867969?v=3&s=40">
-            <div class="event-title">
-            <span class="author_name"><a href="/u/root">Administrator</a></span>
-            <span class="event_label">
-            commented on
-            <a href="/baidu/good/merge_requests/1#note_7">merge request #1</a>
-            at
-            </span>
-            <a href="/baidu/good"><span class="namespace-name">baidu / </span><span class="project-name">good</span></a>
-            </div>
-            <div class="event-body">
-            <div class="event-note">
-            <div class="md">
-            <p>comment</p>
-            </div>
-            </div>
-            </div>
-
-            </div>
-            <div class="event-block event-item">
-            <div class="event-item-timestamp">
-            <time class="time_ago js-timeago" data-container="body" data-placement="top" data-toggle="tooltip" datetime="2015-12-10T02:04:32Z" title="Dec 10, 2015 2:04am">3 days ago</time>
-            </div>
-            <img alt="" class="avatar s46" src="https://avatars2.githubusercontent.com/u/15867969?v=3&s=40">
-            <div class="event-title">
-            <span class="author_name"><a href="/u/root">Administrator</a></span>
-            <span class="event_label">
-            commented on
-            <a href="/baidu/good/issues/1#note_3">issue #1</a>
-            at
-            </span>
-            <a href="/baidu/good"><span class="namespace-name">baidu / </span><span class="project-name">good</span></a>
-            </div>
-            <div class="event-body">
-            <div class="event-note">
-            <div class="md">
-            <p>reopen test.</p>
-            </div>
-            </div>
-            </div>
-
-            </div>
-
-
-            </div>
+            <div class="content_list">
+            @forelse($moments as $moment)
+                @if($moment->target)
+                @include('moments.partials.'.strtolower($moment->target_type))
+                @endif
+            @empty
+            @endforelse
+            
             <div class="loading hide" style="display: none;"><i class="fa fa-spinner fa-spin"></i></div>
             </section>
             <aside class="side col-md-5">
