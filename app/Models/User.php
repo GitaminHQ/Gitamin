@@ -32,6 +32,7 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Exceptions\UserAlreadyTakenException;
+use Gitamin\Models\Members\ProjectMember;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -95,9 +96,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
         self::creating(function ($user) {
             $ownerExists = Owner::where('path', '=', $user->username)->exists();
-            if ($ownerExists) {
+            $userExists = User::where('username', '=', $user->username)->orWhere('email', '=', $user->email)->exists();
+            if ($ownerExists || $userExists) {
                 throw new UserAlreadyTakenException('Username or email has already been taken.');
             }
+
             if (! $user->api_key) {
                 $user->api_key = self::generateApiKey();
             }
@@ -229,12 +232,34 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Returns the groups a user is authorized to access.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function authorized_groups()
+    {
+        // Do something.
+    }
+
+    /**
      * A owner can have many projects.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function projects()
+    public function owned_projects()
     {
         return $this->hasMany(Project::class, 'owner_id', 'id');
+    }
+
+    /**
+     * Returns the projects a user is authorized to access.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function authorized_projects()
+    {
+        $projectIds = ProjectMember::where('user_id', '=', $this->id)->where('target_type', '=', 'Project')->lists('target_id')->toArray();
+
+        return Project::whereIn('id', $projectIds)->get();
     }
 }

@@ -58,7 +58,7 @@
             </div>
             </div>
             <ul class="projects-list">
-                @forelse ($user->projects as $project)
+                @forelse ($user->authorized_projects() as $project)
                 <li class="project-row">
                     <a class="project" href="{{ $project->url }}"><div class="dash-project-avatar">
                     <div class="avatar project-avatar s46 identicon" style="background-color: #E0F2F1; color: #555">{{ $project->id }}</div>

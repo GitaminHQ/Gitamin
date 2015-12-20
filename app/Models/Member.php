@@ -63,8 +63,10 @@ class Member extends Model implements HasPresenter
         'access_level',
         'target_id',
         'target_type',
+        'user_id',
         'notification_level',
         'type',
+        'created_by_id',
     ];
 
     /**
@@ -73,7 +75,7 @@ class Member extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'target_id' => 'required|string',
+        'target_id' => 'required|int',
         'target_type' => 'required|string',
         'user_id' => 'int',
         'type' => 'string',

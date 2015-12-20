@@ -14,6 +14,7 @@ namespace Gitamin\Http\Controllers\Dashboard;
 use Gitamin\Models\Project;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class ProjectsController extends Controller
@@ -66,8 +67,8 @@ class ProjectsController extends Controller
      */
     public function indexAction()
     {
-        $projects = Project::orderBy('created_at')->get();
         $this->subMenu['yours']['active'] = true;
+        $projects = Auth::user()->authorized_projects();
 
         return View::make('dashboard.projects.index')
             ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))

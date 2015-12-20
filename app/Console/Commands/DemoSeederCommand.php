@@ -13,6 +13,7 @@ namespace Gitamin\Console\Commands;
 
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Member;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
@@ -52,15 +53,15 @@ class DemoSeederCommand extends Command
         if (! $this->confirmToProceed()) {
             return;
         }
-
+        $this->seedUsers();
         $this->seedOwners();
         $this->seedProjects();
+        $this->seedMembers();
         $this->seedIssues();
         $this->seedComments();
         $this->seedMoments();
         $this->seedSettings();
         $this->seedSubscribers();
-        $this->seedUsers();
 
         $this->info('Database seeded with demo data successfully!');
     }
@@ -96,7 +97,7 @@ class DemoSeederCommand extends Command
                 'name' => 'demo',
                 'path' => 'demo',
                 'user_id' => 1,
-                'description' => '',
+                'description' => 'user',
                 'type' => 'User',
             ],
         ];
@@ -149,6 +150,30 @@ class DemoSeederCommand extends Command
 
         foreach ($defaultProjects as $project) {
             Project::create($project);
+        }
+    }
+
+    /**
+     * Seed the members table.
+     */
+    protected function seedMembers()
+    {
+        $defaultMembers = [
+            [
+                'access_level' => 1,
+                'target_type' => 'Project',
+                'target_id' => 1,
+                'user_id' => 1,
+                'notification_level' => 1,
+                'type' => 'Developer',
+                'created_by_id' => 1,
+            ],
+        ];
+
+        Member::truncate();
+
+        foreach ($defaultMembers as $member) {
+            Member::create($member);
         }
     }
 
