@@ -40,7 +40,7 @@
             <div class="content_list">
             @forelse($moments as $moment)
                 @if($moment->target)
-                @include('moments.partials.'.strtolower($moment->target_type))
+                    @include('moments.partials.'.strtolower($moment->target_type))
                 @endif
             @empty
             @endforelse
