@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-sm-12">
             @include('dashboard.partials.errors')
-            <form name="CreateProjectForm" class="form-horizontal" role="form" action="/projects/create" method="POST">
+            <form name="CreateProjectForm" class="form-horizontal js-requires-input" role="form" action="/projects/create" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <fieldset>
                     <div class="form-group">
@@ -100,5 +100,7 @@
         </div>
     </div>
 </div>
-
+<script>
+  $('form.js-requires-input').requiresInput();
+</script
 @stop
