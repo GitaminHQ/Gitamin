@@ -36,7 +36,7 @@
                     <p>#{{ $comment->id }} {{ $comment->message }}</p>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <a href="{{ $issue->url }}/delete" class="btn btn-sm btn-danger confirm-action" data-method='DELETE'>{{ trans('forms.delete') }}</a>
+                        <a href="{{ $issue->url }}/delete" class="btn btn-sm btn-danger" data-method='DELETE'>{{ trans('forms.delete') }}</a>
                     </div>
                 </div>
                 @empty

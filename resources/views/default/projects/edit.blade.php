@@ -91,5 +91,32 @@
             </form>
         </div>
     </div>
+    <div class="row">
+    <div class="col-sm-12">
+        <div class='panel panel-default panel panel-danger'>
+            <div class='panel-heading'>Remove project</div>
+                <div class='panel-body'>
+                    <form class="form-horizontal" action="{{ route('projects.project_update', ['owner'=>$project->owner_path, 'path'=>$project->path]) }}" accept-charset="UTF-8" method="post">
+                    <input name="utf8" type="hidden" value="&#x2713;" />
+                    <input type="hidden" name="_method" value="delete" />
+                    <p>
+                    Removing the project will delete its repository and all related resources including issues, merge requests etc.
+                    <br>
+                    <strong>Removed projects cannot be restored!</strong>
+                    </p>
+                    <div class='form-actions'>
+                    <form class="button_to" method="post" action="#">
+                    <input class="btn btn-remove js-confirm-danger" data-confirm-danger-message="You are going to remove {{ $project->owner_path }} / {{ $project->path }}.
+                     Removed project CANNOT be restored!
+                     Are you ABSOLUTELY sure?" type="submit" value="Remove project" />
+                     </form>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    @include('partials.confirm_modal', ['phrase' => $project->path])
 </div>
 @stop
