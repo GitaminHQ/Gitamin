@@ -43,7 +43,7 @@
                             <optgroup label="Users">
                             @foreach($owners as $owner)
                             @if($owner->type == 'User')
-                            <option value="{{ $owner->id }}" {{ Input::old('project.owner_id') == $owner->id ? 'selected' : null }}>{{ $owner->name }}</option>
+                            <option value="{{ $owner->id }}" {!! $current_user->id == $owner->user_id ? 'selected="selected"' : null !!}>{{ $owner->name }}</option>
                             @endif
                             @endforeach
                             </optgroup>

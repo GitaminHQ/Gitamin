@@ -25,14 +25,14 @@ class CreateCommentsTable extends Migration
 
             $t->increments('id');
             $t->text('message');
-            $t->string('target_type');
+            $t->string('commentable_type');
+            $t->integer('commentable_id');
             $t->integer('author_id');
             $t->timestamps();
             $t->integer('project_id');
             $t->string('attachment')->nullable();
             $t->string('line_code')->nullable();
             $t->string('commit_id')->nullable();
-            $t->integer('target_id');
             $t->boolean('system')->default(false);
             $t->text('st_diff')->nullable();
             $t->integer('updated_by_id')->nullable();
@@ -46,9 +46,9 @@ class CreateCommentsTable extends Migration
             $t->index('created_at');
             $t->index('is_award');
             $t->index('line_code');
-            $t->index(['target_id', 'target_type']);
-            $t->index('target_type');
-            $t->index(['project_id', 'target_type']);
+            $t->index(['commentable_id', 'commentable_type']);
+            $t->index('commentable_type');
+            $t->index(['project_id', 'commentable_type']);
             $t->index('project_id');
             $t->index('updated_at');
         });

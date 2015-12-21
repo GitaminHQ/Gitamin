@@ -13,21 +13,21 @@
 #
 # Table name: comments
 #
-#  id            :integer          not null, primary key
-#  message       :text
-#  target_type   :string(255)
-#  author_id     :integer
-#  created_at    :timestamp
-#  updated_at    :timestamp
-#  project_id    :integer
-#  attachment    :string(255)
-#  line_code     :string(255)
-#  commit_id     :string(255)
-#  target_id     :integer
-#  system        :boolean          default(FALSE), not null
-#  st_diff       :text
-#  updated_by_id :integer
-#  is_award      :boolean
+#  id               :integer          not null, primary key
+#  message          :text
+#  commentable_type :string(255)
+#  commentable_id   :integer
+#  author_id        :integer
+#  created_at       :timestamp
+#  updated_at       :timestamp
+#  project_id       :integer
+#  attachment       :string(255)
+#  line_code        :string(255)
+#  commit_id        :string(255)
+#  system           :boolean          default(FALSE), not null
+#  st_diff          :text
+#  updated_by_id    :integer
+#  is_award         :boolean
 #
 
 namespace Gitamin\Models;
@@ -59,8 +59,8 @@ class Comment extends Model implements HasPresenter
      */
     protected $fillable = [
         'message',
-        'target_type',
-        'target_id',
+        'commentable_type',
+        'commentable_id',
         'author_id',
         'project_id',
         'created_at',
@@ -76,9 +76,17 @@ class Comment extends Model implements HasPresenter
         'author_id' => 'int',
         'project_id' => 'int',
         'message' => 'required',
-        'target_type' => 'string|required',
-        'target_id' => 'int',
+        'commentable_type' => 'string|required',
+        'commentable_id' => 'int',
     ];
+
+    /**
+     * Get all of the owning commentable models.
+     */
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
 
     /**
      * A comment belongs to a project.
@@ -91,13 +99,13 @@ class Comment extends Model implements HasPresenter
     }
 
     /**
-     * Moments can belong to a target.
+     * Comments can belong to an author.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function target()
+    public function author()
     {
-        return $this->belongsTo('Gitamin\\Models\\'.$this->target_type, 'target_id', 'id');
+        return $this->belongsTo(User::class, 'author_id', 'id');
     }
 
     /**
