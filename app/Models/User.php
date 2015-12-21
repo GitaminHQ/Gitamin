@@ -167,7 +167,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function getUrlAttribute()
     {
-        return route('profile.show', ['username' => $this->username]);
+        return route('owners.owner_show', ['path' => $this->username]);
         //return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5($this->email), $size);
     }
 

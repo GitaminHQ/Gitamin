@@ -64,8 +64,8 @@ class CommentController extends AbstractApiController
         try {
             $comment = $this->dispatch(new AddCommentCommand(
                 $request->input('message'),
-                $request->input('target_type'),
-                $request->input('target_id'),
+                $request->input('commentable_type'),
+                $request->input('commentable_id'),
                 $request->input('author_id'),
                 $request->input('project_id')
             ));

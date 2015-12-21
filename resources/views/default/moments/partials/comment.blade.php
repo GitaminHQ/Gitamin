@@ -8,7 +8,7 @@
 <span class="event_label opened">
 {{ $moment->actionName }}
 </span>
-<strong> {{ $moment->target->target_type }} <a href="{{ $moment->target->target->url }}">#{{ $moment->target->target_id }}</a></strong>
+<strong> {{ $moment->target->target_type }} <a href="{{ $moment->target->commentable->url }}">#{{ $moment->target->target_id }}</a></strong>
 at
 <a href="{{ $moment->target->project->url }}"><span class="namespace-name">{{ $moment->target->project->owner_path }} / </span><span class="project-name">{{ $moment->target->project->name }}</span></a>
 </div>
