@@ -98,7 +98,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         self::creating(function ($user) {
             $ownerExists = Owner::where('path', '=', $user->username)->exists();
             $userExists = User::where('username', '=', $user->username)->orWhere('email', '=', $user->email)->exists();
-            if ($ownerExists || $userExists) {
+            if ($ownerExists === true || $userExists === true) {
                 throw new UserAlreadyTakenException('Username or email has already been taken.');
             }
 
@@ -167,7 +167,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function getUrlAttribute()
     {
-        return route('profile.show', ['username' => $this->username]);
+        return route('owners.owner_show', ['path' => $this->username]);
         //return sprintf('https://www.gravatar.com/avatar/%s?size=%d', md5($this->email), $size);
     }
 

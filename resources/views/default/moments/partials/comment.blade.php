@@ -8,14 +8,14 @@
 <span class="event_label opened">
 {{ $moment->actionName }}
 </span>
-<strong> {{ $moment->target->target_type }} <a href="{{ $moment->target->target->url }}">#{{ $moment->target->target_id }}</a></strong>
+<strong> {{ $moment->momentable->commentable->commentableName }} <a href="{{ $moment->momentable->commentable->url }}">#{{ $moment->momentable->commentable->id }}</a></strong>
 at
-<a href="{{ $moment->target->project->url }}"><span class="namespace-name">{{ $moment->target->project->owner_path }} / </span><span class="project-name">{{ $moment->target->project->name }}</span></a>
+<a href="{{ $moment->momentable->project->url }}"><span class="namespace-name">{{ $moment->momentable->project->owner_path }} / </span><span class="project-name">{{ $moment->momentable->project->name }}</span></a>
 </div>
 <div class="moment-body">
 <a href="{{ $moment->author->url }}"><img class="avatar s32" src="{{ $moment->author->avatar }}"></a>
 <div class="moment-comment">
-{{ $moment->target->message }} 
+{{ $moment->momentable->message }} 
 </div>
 </div>
 

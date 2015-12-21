@@ -25,8 +25,8 @@ class AddMomentCommandTest extends AbstractCommandTestCase
         $params = [
             'title' => 'Test',
             'data' => 'Foo bar baz',
-            'target_type' => 'Issue',
-            'target_id' => 1,
+            'momentable_type' => 'Issue',
+            'momentable_id' => 1,
             'action' => 3,
             'author_id' => 1,
             'project_id' => 1,
@@ -34,8 +34,8 @@ class AddMomentCommandTest extends AbstractCommandTestCase
         $object = new AddMomentCommand(
             $params['title'],
             $params['data'],
-            $params['target_type'],
-            $params['target_id'],
+            $params['momentable_type'],
+            $params['momentable_id'],
             $params['action'],
             $params['author_id'],
             $params['project_id']

@@ -123,7 +123,7 @@ class Issue extends Model implements HasPresenter
      */
     public function comments()
     {
-        return Comment::where('target_type', '=', 'Issue')->where('target_id', '=', $this->id)->orderBy('id', 'asc')->get();
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     /**

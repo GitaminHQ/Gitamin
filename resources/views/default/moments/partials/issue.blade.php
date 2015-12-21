@@ -8,14 +8,14 @@
 <span class="event_label opened">
 {{ $moment->actionName }} issue
 </span>
-<strong><a href="{{ $moment->target->url }}">#{{ $moment->target_id }}</a></strong>
+<strong><a href="{{ $moment->momentable->url }}">#{{ $moment->momentable_id }}</a></strong>
 at
-<a href="{{ $moment->target->project->url }}"><span class="namespace-name">{{ $moment->target->project->owner_path }} / </span><span class="project-name">{{ $moment->target->project->name }}</span></a>
+<a href="{{ $moment->momentable->project->url }}"><span class="namespace-name">{{ $moment->momentable->project->owner_path }} / </span><span class="project-name">{{ $moment->momentable->project->name }}</span></a>
 </div>
 <div class="moment-body">
 <a href="{{ $moment->author->url }}"><img class="avatar s32" src="{{ $moment->author->avatar }}"></a>
 <div class="moment-comment">
-{!! $moment->formattedTarget !!} 
+{!! $moment->momentable->description !!} 
 </div>
 </div>
 

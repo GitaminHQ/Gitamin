@@ -39,24 +39,9 @@ class CommentPresenter extends AbstractPresenter
         return $this->wrappedObject->created_at->setTimezone($this->setting->get('app_timezone'))->format('d/m/Y H:i');
     }
 
-    /**
-     * Returns a formatted timestamp for use within the timeline.
-     *
-     * @return string
-     */
-    public function timestamp_formatted()
+    public function commentableName()
     {
-        return $this->created_at_formatted;
-    }
-
-    /**
-     * Return the iso timestamp for use within the timeline.
-     *
-     * @return string
-     */
-    public function timestamp_iso()
-    {
-        return $this->created_at_iso;
+        return str_replace('Gitamin\\Models\\', '', get_class($this->wrappedObject->commentable));
     }
 
     /**

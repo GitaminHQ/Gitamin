@@ -21,18 +21,18 @@ final class AddCommentCommand
     public $message;
 
     /**
-     * The comment target_type.
+     * The comment commentable_type.
      *
      * @var string
      */
-    public $target_type;
+    public $commentable_type;
 
     /**
-     * The comment target_id.
+     * The comment commentable_id.
      *
      * @var int
      */
-    public $target_id;
+    public $commentable_id;
 
     /**
      * The comment user.
@@ -55,8 +55,8 @@ final class AddCommentCommand
      */
     public $rules = [
         'message' => 'required|string',
-        'target_type' => 'required|string',
-        'target_id' => 'required|int',
+        'commentable_type' => 'required|string',
+        'commentable_id' => 'required|int',
         'author_id' => 'int',
         'project_id' => 'int',
     ];
@@ -65,16 +65,16 @@ final class AddCommentCommand
      * Create a new add comment command instance.
      *
      * @param string $message
-     * @param string $target_type
-     * @param int    $target_id
+     * @param string $commentable_type
+     * @param int    $commentable_id
      * @param int    $author_id
      * @param int    $project_id
      */
-    public function __construct($message, $target_type, $target_id, $author_id, $project_id)
+    public function __construct($message, $commentable_type, $commentable_id, $author_id, $project_id)
     {
         $this->message = $message;
-        $this->target_type = $target_type;
-        $this->target_id = $target_id;
+        $this->commentable_type = $commentable_type;
+        $this->commentable_id = $commentable_id;
         $this->author_id = $author_id;
         $this->project_id = $project_id;
     }

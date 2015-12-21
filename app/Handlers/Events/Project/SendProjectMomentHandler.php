@@ -11,6 +11,7 @@
 
 namespace Gitamin\Handlers\Events\Project;
 
+use Gitamin\Commands\Moment\AddMomentCommand;
 use Gitamin\Events\Project\ProjectEventInterface;
 use Gitamin\Events\Project\ProjectWasRemovedEvent;
 use Gitamin\Events\Project\ProjectWasUpdatedEvent;
@@ -46,13 +47,16 @@ class SendProjectMomentHandler
      */
     protected function trigger(Project &$project, $action)
     {
-        $data = [
-            'target_type' => 'Project',
-            'target_id' => $project->id,
+        $projectData = [
+            'title' => '',
+            'data' => '',
+            'momentable_type' => 'Project',
+            'momentable_id' => $project->id,
             'action' => $action,
             'author_id' => $project->creator_id,
             'project_id' => $project->id,
         ];
-        $moment = Moment::create($data);
+
+        $moment = $this->dispatchFromArray(AddMomentCommand::class, $projectData);
     }
 }

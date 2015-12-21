@@ -61,8 +61,8 @@ class Moment extends Model implements HasPresenter
      * @var string[]
      */
     protected $fillable = [
-        'target_type',
-        'target_id',
+        'momentable_type',
+        'momentable_id',
         'action',
         'author_id',
         'project_id',
@@ -78,14 +78,22 @@ class Moment extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'target_type' => 'string',
-        'target_id' => 'int',
+        'momentable_type' => 'string',
+        'momentable_id' => 'int',
         'action' => 'int',
         'author_id' => 'int',
         'project_id' => 'int',
         'title' => 'string',
         'data' => 'string',
     ];
+
+    /**
+     * Get all of the owning momentable models.
+     */
+    public function momentable()
+    {
+        return $this->morphTo();
+    }
 
     /**
      * Finds all rencent moments.
@@ -129,16 +137,6 @@ class Moment extends Model implements HasPresenter
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id', 'id');
-    }
-
-    /**
-     * Moments can belong to a target.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function target()
-    {
-        return $this->belongsTo('Gitamin\\Models\\'.$this->target_type, 'target_id', 'id');
     }
 
     /**

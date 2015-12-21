@@ -24,15 +24,15 @@ class AddCommentCommandTest extends AbstractCommandTestCase
     {
         $params = [
             'message' => 'Foo bar baz',
-            'target_type' => 'Issue',
-            'target_id' => 1,
+            'commentable_type' => 'Issue',
+            'commentable_id' => 1,
             'author_id' => 1,
             'project_id' => 1,
         ];
         $object = new AddCommentCommand(
             $params['message'],
-            $params['target_type'],
-            $params['target_id'],
+            $params['commentable_type'],
+            $params['commentable_id'],
             $params['author_id'],
             $params['project_id']
         );

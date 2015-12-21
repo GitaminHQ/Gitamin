@@ -11,6 +11,7 @@
 
 namespace Gitamin\Handlers\Events\Owner;
 
+use Gitamin\Commands\Moment\AddMomentCommand;
 use Gitamin\Events\Owner\OwnerEventInterface;
 use Gitamin\Events\Owner\OwnerWasAddedEvent;
 use Gitamin\Models\Moment;
@@ -44,12 +45,14 @@ class SendOwnerMomentHandler
     protected function trigger(Owner &$owner, $action)
     {
         $data = [
-            'target_type' => 'Owner',
-            'target_id' => $owner->id,
+            'title' => '',
+            'data' => '',
+            'momentable_type' => 'Owner',
+            'momentable_id' => $owner->id,
             'action' => $action,
             'author_id' => $owner->user_id,
             'project_id' => 0,
         ];
-        $moment = Moment::create($data);
+        $moment = $this->dispatchFromArray(AddMomentCommand::class, $data);
     }
 }

@@ -55,12 +55,12 @@ class AddMomentCommandHandler
         if ($command->data) {
             $data['data'] = $command->data;
         }
-        // Link with the target.
-        if ($command->target_type) {
-            $data['target_type'] = $command->target_type;
+        // Link with the momentable type.
+        if ($command->momentable_type) {
+            $data['momentable_type'] = 'Gitamin\\Models\\'.$command->momentable_type;
         }
-        if ($command->target_id) {
-            $data['target_id'] = $command->target_id;
+        if ($command->momentable_id) {
+            $data['momentable_id'] = $command->momentable_id;
         }
         // Link with the project.
         if ($command->project_id) {

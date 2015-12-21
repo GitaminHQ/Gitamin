@@ -55,8 +55,8 @@ class CommentTest extends AbstractTestCase
 
         $this->post('/api/v1/comments', [
             'message' => 'Lorem ipsum dolor sit amet',
-            'target_type' => 'Issue',
-            'target_id' => 1,
+            'commentable_type' => 'Issue',
+            'commentable_id' => 1,
             'author_id' => $this->user->id,
             'project_id' => 1,
         ]);
