@@ -76,5 +76,8 @@ $factory->define(User::class, function ($faker) {
         'api_key' => str_random(20),
         'active' => true,
         'level' => 1,
+        'location' => '',
+        'public_email' => '',
+        'website_url' => '',
     ];
 });

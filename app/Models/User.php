@@ -98,7 +98,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         self::creating(function ($user) {
             $ownerExists = Owner::where('path', '=', $user->username)->exists();
             $userExists = User::where('username', '=', $user->username)->orWhere('email', '=', $user->email)->exists();
-            if ($ownerExists || $userExists) {
+            if ($ownerExists === true || $userExists === true) {
                 throw new UserAlreadyTakenException('Username or email has already been taken.');
             }
 
