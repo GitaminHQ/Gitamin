@@ -47,8 +47,8 @@ class AddCommentCommandHandler
     {
         $data = [
             'message' => $command->message,
-            'target_type' => $command->target_type,
-            'target_id' => $command->target_id,
+            'commentable_type' => 'Gitamin\\Models\\'.$command->commentable_type,
+            'commentable_id' => $command->commentable_id,
         ];
 
         // Link with the user.

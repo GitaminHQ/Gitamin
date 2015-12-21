@@ -52,8 +52,8 @@ $factory->define(Issue::class, function ($faker) {
 $factory->define(Comment::class, function ($faker) {
     return [
         'message' => $faker->paragraph(),
-        'target_type' => $faker->randomElement(['Issue', 'MergeRequest']),
-        'target_id' => 1,
+        'commentable_type' => $faker->randomElement(['Gitamin\\Models\\Issue', 'Gitamin\\Models\\MergeRequest']),
+        'commentable_id' => 1,
         'project_id' => 1,
         'author_id' => 1,
     ];

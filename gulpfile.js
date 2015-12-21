@@ -25,7 +25,7 @@ elixir(function (mix) {
         .styles([
             'vendor/bower_components/jquery-minicolors/jquery.minicolors.css',
             'vendor/bower_components/sweetalert/dist/sweetalert.css',
-            'vendor/bower_components/select2/dist/css/select2.css',
+            'vendor/bower_components/select2/dist/css/select2.min.css',
             'vendor/bower_components/dropzone/dist/min/dropzone.min.css',
             'public/dist/css/app.css'
         ], 'public/dist/css/gitamin.css', './')
@@ -39,7 +39,7 @@ elixir(function (mix) {
             'vendor/bower_components/autosize/dist/autosize.js',
             'vendor/bower_components/messenger/build/js/messenger.js',
             'vendor/bower_components/Sortable/Sortable.js',
-            'vendor/bower_components/select2/dist/js/select2.min.js',
+            'vendor/bower_components/select2/dist/js/select2.full.min.js',
             'vendor/bower_components/livestampjs/livestamp.js',
             'vendor/bower_components/jquery-minicolors/jquery.minicolors.js',
             'vendor/bower_components/jquery-serialize-object/jquery.serialize-object.js',

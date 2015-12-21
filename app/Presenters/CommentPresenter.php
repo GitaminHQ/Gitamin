@@ -40,26 +40,6 @@ class CommentPresenter extends AbstractPresenter
     }
 
     /**
-     * Returns a formatted timestamp for use within the timeline.
-     *
-     * @return string
-     */
-    public function timestamp_formatted()
-    {
-        return $this->created_at_formatted;
-    }
-
-    /**
-     * Return the iso timestamp for use within the timeline.
-     *
-     * @return string
-     */
-    public function timestamp_iso()
-    {
-        return $this->created_at_iso;
-    }
-
-    /**
      * Convert the presenter instance to an array.
      *
      * @return string[]
