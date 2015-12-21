@@ -47,7 +47,7 @@ class AddCommentCommandHandler
     {
         $data = [
             'message' => $command->message,
-            'commentable_type' => 'Gitamin\\Models\\' . $command->commentable_type,
+            'commentable_type' => 'Gitamin\\Models\\'.$command->commentable_type,
             'commentable_id' => $command->commentable_id,
         ];
 
