@@ -47,7 +47,7 @@ class CreateCommentsTable extends Migration
             $t->index('is_award');
             $t->index('line_code');
             $t->index(['commentable_id', 'commentable_type']);
-            $t->index('target_type');
+            $t->index('commentable_type');
             $t->index(['project_id', 'commentable_type']);
             $t->index('project_id');
             $t->index('updated_at');
