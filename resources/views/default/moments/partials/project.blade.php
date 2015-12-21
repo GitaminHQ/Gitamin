@@ -8,14 +8,12 @@
 <span class="event_label opened">
 {{ $moment->actionName }} project
 </span>
-<strong><a href="{{ $moment->target->url }}">#{{ $moment->target_id }}</a></strong>
-at
-<a href="{{ $moment->target->url }}"><span class="namespace-name">{{ $moment->target->owner_path }} / </span><span class="project-name">{{ $moment->target->name }}</span></a>
+<a href="{{ $moment->momentable->url }}"><span class="namespace-name">{{ $moment->momentable->owner_path }} / </span><span class="project-name">{{ $moment->momentable->name }}</span></a>
 </div>
 <div class="moment-body">
 <a href="{{ $moment->author->url }}"><img class="avatar s32" src="{{ $moment->author->avatar }}"></a>
 <div class="moment-comment">
-{!! $moment->formattedTarget !!} 
+{!! $moment->momentable->description !!} 
 </div>
 </div>
 

@@ -28,18 +28,18 @@ final class AddMomentCommand
     public $data;
 
     /**
-     * The moment target_type.
+     * The moment momentable_type.
      *
      * @var string
      */
-    public $target_type;
+    public $momentable_type;
 
     /**
-     * The moment target_id.
+     * The moment momentable_id.
      *
      * @var int
      */
-    public $target_id;
+    public $momentable_id;
 
     /**
      * The moment action.
@@ -68,8 +68,8 @@ final class AddMomentCommand
      * @var string[]
      */
     public $rules = [
-        'target_type' => 'string',
-        'target_id' => 'int',
+        'momentable_type' => 'string',
+        'momentable_id' => 'int',
         'action' => 'required|int',
         'author_id' => 'required|int',
         'project_id' => 'int',
@@ -80,18 +80,18 @@ final class AddMomentCommand
      *
      * @param string $title
      * @param string $data
-     * @param string $target_type
-     * @param int    $target_id
+     * @param string $momentable_type
+     * @param int    $momentable_id
      * @param int    $action
      * @param int    $author_id
      * @param int    $project_id
      */
-    public function __construct($title, $data, $target_type, $target_id, $action, $author_id, $project_id)
+    public function __construct($title, $data, $momentable_type, $momentable_id, $action, $author_id, $project_id)
     {
         $this->title = $title;
         $this->data = $data;
-        $this->target_type = $target_type;
-        $this->target_id = $target_id;
+        $this->momentable_type = $momentable_type;
+        $this->momentable_id = $momentable_id;
         $this->action = $action;
         $this->author_id = $author_id;
         $this->project_id = $project_id;

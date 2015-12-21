@@ -24,8 +24,8 @@ class CreateMomentsTable extends Migration
             $t->engine = 'InnoDB';
 
             $t->increments('id');
-            $t->string('target_type')->nullable();
-            $t->integer('target_id')->nullable();
+            $t->string('momentable_type')->nullable();
+            $t->integer('momentable_id')->nullable();
             $t->string('title')->nullable();
             $t->text('data')->nullable();
 
@@ -36,8 +36,8 @@ class CreateMomentsTable extends Migration
 
             $t->index('author_id');
             $t->index('project_id');
-            $t->index('target_id');
-            $t->index('target_type');
+            $t->index('momentable_id');
+            $t->index('momentable_type');
         });
     }
 

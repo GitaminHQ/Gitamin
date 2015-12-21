@@ -124,7 +124,6 @@ class Issue extends Model implements HasPresenter
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
-        //return Comment::where(['target_type' => 'Issue', 'target_id'=>$this->id])->orderBy('id', 'asc')->get();
     }
 
     /**

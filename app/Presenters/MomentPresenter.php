@@ -67,17 +67,22 @@ class MomentPresenter extends AbstractPresenter
 
     public function icon()
     {
-        if ($this->wrappedObject->target instanceof Project) {
+        if ($this->wrappedObject->momentable instanceof Project) {
             return 'fa fa-cubes';
-        } elseif ($this->wrappedObject->target instanceof Comment) {
+        } elseif ($this->wrappedObject->momentable instanceof Comment) {
             return 'fa fa-comments-o';
-        } elseif ($this->wrappedObject->target instanceof Issue) {
+        } elseif ($this->wrappedObject->momentable instanceof Issue) {
             return 'fa fa-exclamation-circle';
-        } elseif ($this->wrappedObject->target instanceof Owner) {
+        } elseif ($this->wrappedObject->momentable instanceof Owner) {
             return 'fa fa-user';
         } else {
             return 'fa fa-code-fork';
         }
+    }
+
+    public function momentableName()
+    {
+        return str_replace('Gitamin\\Models\\', '', get_class($this->wrappedObject->momentable));
     }
 
     /**

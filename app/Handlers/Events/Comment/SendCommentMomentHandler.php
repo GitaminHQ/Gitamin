@@ -11,6 +11,7 @@
 
 namespace Gitamin\Handlers\Events\Comment;
 
+use Gitamin\Commands\Moment\AddMomentCommand;
 use Gitamin\Events\Comment\CommentEventInterface;
 use Gitamin\Events\Comment\CommentWasAddedEvent;
 use Gitamin\Models\Comment;
@@ -44,12 +45,14 @@ class SendCommentMomentHandler
     protected function trigger(Comment &$comment, $action)
     {
         $data = [
-            'target_type' => 'Comment',
-            'target_id' => $comment->id,
+            'title' => '',
+            'data' => '',
+            'momentable_type' => 'Comment',
+            'momentable_id' => $comment->id,
             'action' => $action,
             'author_id' => $comment->author_id,
             'project_id' => $comment->project_id,
         ];
-        $moment = Moment::create($data);
+        $moment = $this->dispatchFromArray(AddMomentCommand::class, $data);
     }
 }

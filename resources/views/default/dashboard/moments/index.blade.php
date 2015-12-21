@@ -17,8 +17,8 @@
                 <div class="col-sm-12 striped-list" id="moment-list">
                     <div class="content_list">
                     @forelse($moments as $moment)
-                        @if($moment->target)
-                        @include('moments.partials.'.strtolower($moment->target_type))
+                        @if($moment->momentable)
+                        @include('moments.partials.' . strtolower($moment->momentableName))
                     @endif
                     @empty
                     <div class="list-group-item text-danger">{{ trans('dashboard.moments.add.message') }}</div>

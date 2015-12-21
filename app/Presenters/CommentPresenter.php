@@ -39,6 +39,11 @@ class CommentPresenter extends AbstractPresenter
         return $this->wrappedObject->created_at->setTimezone($this->setting->get('app_timezone'))->format('d/m/Y H:i');
     }
 
+    public function commentableName()
+    {
+        return str_replace('Gitamin\\Models\\', '', get_class($this->wrappedObject->commentable));
+    }
+
     /**
      * Convert the presenter instance to an array.
      *
