@@ -15,14 +15,14 @@
     <div class="row">
         <div class="col-sm-12">
             @include('dashboard.partials.errors')
-            <form name="CreateProjectForm" class="form-horizontal" role="form" action="/projects/create" method="POST">
+            <form name="CreateProjectForm" class="form-horizontal js-requires-input" role="form" action="/projects/create" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <fieldset>
                     <div class="form-group">
                         <label class="control-label">{{ trans('forms.projects.path') }}</label>
                         <div class="col-sm-10">
                             <div class="input-group">
-                                <input type="text" name="project[path]" class="form-control" value="{{ Input::old('project.path') }}" required>
+                                <input type="text" name="project[path]" class="form-control" value="{{ Input::old('project.path') }}" required="required">
                                 <div class="input-group-addon">
                                     .git
                                 </div>
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="control-label" for="project-name">{{ trans('forms.projects.name') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="project[name]"  value="{{ Input::old('project.name') }}" id="project-name" required>
+                            <input type="text" class="form-control" name="project[name]"  value="{{ Input::old('project.name') }}" id="project-name" required="required">
                         </div>
                     </div>
                     @if($owners->count() > 0)
@@ -100,5 +100,7 @@
         </div>
     </div>
 </div>
-
+<script>
+  $('form.js-requires-input').requiresInput();
+</script
 @stop

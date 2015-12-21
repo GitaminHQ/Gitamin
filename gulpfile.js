@@ -10,7 +10,7 @@ elixir.extend('coffeeScript', function () {
     new Task('coffeeScript', function () {
         return gulp.src('resources/assets/coffee/**/*.coffee')
                     .pipe(gcoffee({bare:true})).on('error', gutil.log)
-                    .pipe(gulp.dest('public/js/'))
+                    .pipe(gulp.dest('vendor/bower_components/coffee/'))
                     .pipe(gnotify('Done on converting coffee script to javascript.'))
     })
     .watch('resources/assets/coffee/**/*.coffee');
@@ -47,8 +47,9 @@ elixir(function (mix) {
             'vendor/bower_components/jquery-sparkline/dist/jquery.sparkline.js',
             'vendor/bower_components/sweetalert/dist/sweetalert.min.js',
             'vendor/bower_components/dropzone/dist/min/dropzone.min.js',
-            'resources/assets/js/app.js',
-            'resources/assets/js/**/*.js'
+            'vendor/bower_components/jquery-nicescroll/jquery.nicescroll.min.js',
+            'vendor/bower_components/jquery-timeago/jquery.timeago.js',
+            'vendor/bower_components/coffee/**/*.js'
         ], 'public/dist/js/gitamin.js', './')
         .version(['public/dist/css/gitamin.css', 'public/dist/js/gitamin.js'])
         .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/');
