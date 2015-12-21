@@ -19,6 +19,8 @@ $fa-font-size-base:   12px !default;
 @import "modules/selects";
 @import "modules/avatar";
 @import "modules/lists";
+@import "modules/typography";
+@import "modules/timeline";
 
 // Styles for partials
 @import "partials/base";
@@ -27,15 +29,22 @@ $fa-font-size-base:   12px !default;
 @import "partials/sidebar";
 @import "partials/content";
 @import "partials/modals";
+@import "partials/codemirror";
+@import "partials/issuebox";
 
 // Styles for specific page
 @import "pages/login";
 @import "pages/install";
 @import "pages/dashboard";
-@import "pages/codemirror";
 @import "pages/moments";
 @import "pages/groups";
 @import "pages/projects";
+@import "pages/details";
+@import "pages/comments";
+
+// Issue show
+@import "pages/issuable";
+
 // Error pages can have their own overrides.
 @import "pages/errors";
 

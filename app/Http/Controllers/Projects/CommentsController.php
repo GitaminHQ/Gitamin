@@ -35,15 +35,16 @@ class CommentsController extends Controller
         try {
             $commentData['author_id'] = Auth::user()->id;
             $commentData['project_id'] = $project->id;
+            $commentData['commentable_type'] = $commentData['commentable_type'];
             $comment = $this->dispatchFromArray(AddCommentCommand::class, $commentData);
         } catch (ValidationException $e) {
-            return Redirect::route('projects.issue_show', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $commentData['target_id']])
+            return Redirect::route('projects.issue_show', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $commentData['commentable_id']])
                 ->withInput(Request::all())
                 ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.issues.new.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
-        return Redirect::route('projects.issue_show', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $commentData['target_id']])
+        return Redirect::route('projects.issue_show', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $commentData['commentable_id']])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.new.success')));
     }
 }

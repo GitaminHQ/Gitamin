@@ -1,0 +1,117 @@
+@media (max-width: $screen-sm-max) {
+  .issuable-affix {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: $screen-md-max) {
+  .issuable-affix {
+    position: static;
+  }
+}
+
+@media (min-width: $screen-md-max) {
+  .issuable-affix {
+    &.affix-top {
+      position: static;
+    }
+
+    &.affix {
+      position: fixed;
+      top: 70px;
+      margin-right: 35px;
+    }
+  }
+}
+
+.project-issuable-filter {
+  .controls {
+    float: right;
+    margin-top: 7px;
+  }
+
+  .center-top-menu {
+    text-align: left;
+  }
+}
+
+.issuable-details {
+  section {
+    border-right: 1px solid $border-white-light;
+
+    .issuable-discussion {
+      margin-right: 1px;
+    }
+  }
+}
+
+.issuable-filter-count {
+  span {
+    display: block;
+    margin-bottom: -16px;
+    padding: 13px 0;
+  }
+}
+
+.issuable-show-labels {
+  a {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    .color-label {
+      padding: 6px 10px;
+    }
+  }
+}
+
+.issuable-sidebar {
+  .block {
+    @include clearfix;
+    padding:  $gl-padding 0;
+    border-bottom: 1px solid #F0F0F0;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  .title {
+    color: $gl-text-color;
+    margin-bottom: 8px;
+
+    .avatar {
+      margin-left: 0;
+    }
+
+    label {
+      font-weight: normal;
+      margin-right: 4px;
+    }
+
+    .edit-link {
+      color: $gl-gray;
+    }
+  }
+
+  .cross-project-reference {
+    font-weight: bold;
+    color: $gl-link-color;
+
+    button {
+      float: right;
+    }
+  }
+
+  .selectbox {
+    display: none
+  }
+
+  .btn-clipboard {
+    color: $gl-gray;
+  }
+
+  .participants .avatar {
+    margin-top: 6px;
+    margin-right: 2px;
+  }
+}

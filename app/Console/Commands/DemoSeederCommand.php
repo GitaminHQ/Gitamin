@@ -53,6 +53,7 @@ class DemoSeederCommand extends Command
         if (! $this->confirmToProceed()) {
             return;
         }
+        $this->seedInit();
         $this->seedUsers();
         $this->seedOwners();
         $this->seedProjects();
@@ -64,6 +65,21 @@ class DemoSeederCommand extends Command
         $this->seedSubscribers();
 
         $this->info('Database seeded with demo data successfully!');
+    }
+
+    /**
+    * Truncate all tables;
+    */
+    protected function seedInit()
+    {
+        Owner::truncate();
+        User::truncate();
+        Project::truncate();
+        Member::truncate();
+        Issue::truncate();
+        Comment::truncate();
+        Setting::truncate();
+        Subscriber::truncate();
     }
 
     /**
@@ -100,9 +116,21 @@ class DemoSeederCommand extends Command
                 'description' => 'user',
                 'type' => 'User',
             ],
+            [
+                'name' => 'jack',
+                'path' => 'jack',
+                'user_id' => 2,
+                'description' => 'user',
+                'type' => 'User',
+            ],
+            [
+                'name' => 'larry',
+                'path' => 'larry',
+                'user_id' => 3,
+                'description' => 'user',
+                'type' => 'User',
+            ],
         ];
-
-        Owner::truncate();
 
         foreach ($defaultOwners as $owner) {
             Owner::create($owner);
@@ -146,8 +174,6 @@ class DemoSeederCommand extends Command
             ],
         ];
 
-        Project::truncate();
-
         foreach ($defaultProjects as $project) {
             Project::create($project);
         }
@@ -169,8 +195,6 @@ class DemoSeederCommand extends Command
                 'created_by_id' => 1,
             ],
         ];
-
-        Member::truncate();
 
         foreach ($defaultMembers as $member) {
             Member::create($member);
@@ -215,8 +239,6 @@ class DemoSeederCommand extends Command
             ],
         ];
 
-        Issue::truncate();
-
         foreach ($defaultIssues as $issue) {
             Issue::create($issue);
         }
@@ -230,42 +252,40 @@ class DemoSeederCommand extends Command
         $defaultComments = [
             [
                 'message' => ':+1: We totally nailed the fix.',
-                'target_type' => 'Issue',
-                'target_id' => 3,
+                'commentable_type' => 'Gitamin\Models\Issue',
+                'commentable_id' => 3,
                 'author_id' => 1,
                 'project_id' => 1,
             ],
             [
                 'message' => ":ship: We've deployed a fix.",
-                'target_type' => 'MergeRequest',
-                'target_id' => 1,
+                'commentable_type' => 'Gitamin\Models\MergeRequest',
+                'commentable_id' => 1,
                 'author_id' => 3,
                 'project_id' => 2,
             ],
             [
                 'message' => "We've identified the problem. Our engineers are currently looking at it.",
-                'target_type' => 'Issue',
-                'target_id' => 1,
+                'commentable_type' => 'Gitamin\Models\Issue',
+                'commentable_id' => 1,
                 'author_id' => 2,
                 'project_id' => 1,
             ],
             [
                 'message' => 'Something went wrong, with something or another.',
-                'target_type' => 'Issue',
-                'target_id' => 1,
+                'commentable_type' => 'Gitamin\Models\Issue',
+                'commentable_id' => 1,
                 'author_id' => 1,
                 'project_id' => 2,
             ],
             [
                 'message' => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
-                'target_type' => 'MergeRequest',
-                'target_id' => 1,
+                'commentable_type' => 'Gitamin\Models\MergeRequest',
+                'commentable_id' => 1,
                 'author_id' => 1,
                 'project_id' => 3,
             ],
         ];
-
-        Comment::truncate();
 
         foreach ($defaultComments as $comment) {
             Comment::create($comment);
@@ -295,8 +315,6 @@ class DemoSeederCommand extends Command
                 'project_id' => 2,
             ],
         ];
-
-        Moment::truncate();
 
         foreach ($defaultMoments as $moment) {
             Moment::create($moment);
@@ -331,8 +349,6 @@ class DemoSeederCommand extends Command
             ],
         ];
 
-        Setting::truncate();
-
         foreach ($defaultSettings as $setting) {
             Setting::create($setting);
         }
@@ -357,11 +373,20 @@ class DemoSeederCommand extends Command
                 'password' => 'demo',
                 'email' => 'demo@gitamin.com',
                 'level' => 1,
-                'api_key' => '9yMHsdioQosnyVK4iCVR',
+            ],
+            [
+                'username' => 'jack',
+                'password' => 'jack',
+                'email' => 'jack@gitamin.com',
+                'level' => 2,
+            ],
+            [
+                'username' => 'larry',
+                'password' => 'larry',
+                'email' => 'larry@gitamin.com',
+                'level' => 2,
             ],
         ];
-
-        User::truncate();
 
         foreach ($users as $user) {
             User::create($user);
