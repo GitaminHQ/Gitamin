@@ -78,6 +78,7 @@ class DemoSeederCommand extends Command
         Member::truncate();
         Issue::truncate();
         Comment::truncate();
+        Moment::truncate();
         Setting::truncate();
         Subscriber::truncate();
     }
@@ -300,16 +301,16 @@ class DemoSeederCommand extends Command
         $defaultMoments = [
             [
                 'message' => ':+1: We totally nailed the fix.',
-                'target_type' => 'Issue',
-                'target_id' => 3,
+                'momentable_type' => 'Gitamin\Models\Issue',
+                'momentable_id' => 3,
                 'action' => Moment::COMMENTED,
                 'author_id' => 1,
                 'project_id' => 1,
             ],
             [
                 'message' => ":ship: We've deployed a fix.",
-                'target_type' => 'Issue',
-                'target_id' => 2,
+                'momentable_type' => 'Gitamin\Models\Issue',
+                'momentable_id' => 2,
                 'action' => Moment::CREATED,
                 'author_id' => 1,
                 'project_id' => 2,

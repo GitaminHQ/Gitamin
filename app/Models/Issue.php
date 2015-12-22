@@ -127,6 +127,14 @@ class Issue extends Model implements HasPresenter
     }
 
     /**
+     * Get all of the labels for the issue.
+     */
+    public function labels()
+    {
+        return $this->morphToMany(Label::class, 'taggable');
+    }
+
+    /**
      * Returns a human readable version of the status.
      *
      * @return string
