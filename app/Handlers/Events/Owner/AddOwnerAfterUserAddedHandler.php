@@ -40,14 +40,12 @@ class AddOwnerAfterUserAddedHandler
      */
     protected function trigger(User &$user)
     {
-        $ownerData = [
-            'path' => $user->username,
-            'name' => $user->username,
-            'user_id' => $user->id,
-            'type' => 'User',
-            'description' => '',
-        ];
-
-        $group = $this->dispatchFromArray(AddOwnerCommand::class, $ownerData);
+        $group = $this->dispatch(new AddOwnerCommand(
+            $user->username,
+            $user->username,
+            $user->id,
+            '',
+            'User'
+        ));
     }
 }

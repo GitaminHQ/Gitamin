@@ -29,6 +29,11 @@ class Kernel extends HttpKernel
         'Illuminate\View\Middleware\ShareErrorsFromSession',
     ];
 
+    protected $middlewareGroups = [
+        'api' => [
+            'throttle:60,1',
+        ],
+    ];
     /**
      * The application's route middleware.
      *
@@ -37,9 +42,6 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         'csrf' => 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
-        'role' => 'Zizaco\Entrust\Middleware\EntrustRole',
-        'permission' => 'Zizaco\Entrust\Middleware\EntrustPermission',
-        'ability' => 'Zizaco\Entrust\Middleware\EntrustAbility',
         'accept' => 'Gitamin\Http\Middleware\Acceptable',
         'admin' => 'Gitamin\Http\Middleware\Admin',
         'app.hasSetting' => 'Gitamin\Http\Middleware\HasSetting',
@@ -51,5 +53,6 @@ class Kernel extends HttpKernel
         'guest' => 'Gitamin\Http\Middleware\RedirectIfAuthenticated',
         'localize' => 'Gitamin\Http\Middleware\Localize',
         'timezone' => 'Gitamin\Http\Middleware\Timezone',
+        'throttle' => 'Illuminate\Routing\Middleware\ThrottleRequests',
     ];
 }

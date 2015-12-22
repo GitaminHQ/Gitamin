@@ -61,8 +61,14 @@ class ProjectsController extends Controller
         $tags = array_pull($projectData, 'tags');
 
         try {
-            $projectData['creator_id'] = Auth::user()->id;
-            $project = $this->dispatchFromArray(AddProjectCommand::class, $projectData);
+            $project = $this->dispatch(new AddProjectCommand(
+                $projectData['name'],
+                $projectData['description'],
+                $projectData['visibility_level'],
+                $projectData['path'],
+                Auth::user()->id,
+                $projectData['owner_id']
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('projects.new')
                 ->withInput(Request::all())
@@ -141,13 +147,17 @@ class ProjectsController extends Controller
         $projectData = Request::get('project');
         $tags = array_pull($projectData, 'tags');
         $project = Project::find($projectData['id']);
-        $projectData['namespace_id'] = $project->namespace_id;
 
         try {
-            $projectData['project'] = $project;
-            $projectData['creator_id'] = Auth::user()->id;
-            $projectData['owner_id'] = $project->owner->id;
-            $project = $this->dispatchFromArray(UpdateProjectCommand::class, $projectData);
+            $project = $this->dispatch(new UpdateProjectCommand(
+                $project,
+                $projectData['name'],
+                $projectData['description'],
+                $projectData['visibility_level'],
+                $projectData['path'],
+                Auth::user()->id,
+                $project->owner->id
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('projects.project_edit', ['owner' => $project->owner_path, 'project' => $project->path])
                 ->withInput(Request::all())

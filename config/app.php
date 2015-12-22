@@ -13,6 +13,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is currently
+    | running in. This may determine how you prefer to configure various
+    | services your application utilizes. Set this in your ".env" file.
+    |
+    */
+    'env' => env('APP_ENV', 'production'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -122,13 +134,11 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
         'Illuminate\Broadcasting\BroadcastServiceProvider',
-        'Illuminate\Bus\BusServiceProvider',
+        'Collective\Bus\BusServiceProvider',
         'Illuminate\Cache\CacheServiceProvider',
         'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-        'Illuminate\Routing\ControllerServiceProvider',
         'Illuminate\Cookie\CookieServiceProvider',
         'Illuminate\Database\DatabaseServiceProvider',
         'Illuminate\Encryption\EncryptionServiceProvider',
@@ -157,7 +167,7 @@ return [
         'Jenssegers\Date\DateServiceProvider',
         'McCool\LaravelAutoPresenter\AutoPresenterServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider',
+        //'Zizaco\Entrust\EntrustServiceProvider',
         'Phecho\Uploader\UploaderServiceProvider',
 
         /*
@@ -188,7 +198,7 @@ return [
         'Artisan' => 'Illuminate\Support\Facades\Artisan',
         'Auth' => 'Illuminate\Support\Facades\Auth',
         'Blade' => 'Illuminate\Support\Facades\Blade',
-        'Bus' => 'Illuminate\Support\Facades\Bus',
+        'Bus' => 'Collective\Bus\BusServiceProvider',
         'Cache' => 'Illuminate\Support\Facades\Cache',
         'Config' => 'Illuminate\Support\Facades\Config',
         'Cookie' => 'Illuminate\Support\Facades\Cookie',
@@ -220,7 +230,7 @@ return [
 
         'Setting' => 'Gitamin\Facades\Setting',
         'Str' => 'Illuminate\Support\Str',
-        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        //'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
     ],
 

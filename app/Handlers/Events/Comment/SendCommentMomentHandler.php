@@ -44,15 +44,14 @@ class SendCommentMomentHandler
      */
     protected function trigger(Comment &$comment, $action)
     {
-        $data = [
-            'title' => '',
-            'data' => '',
-            'momentable_type' => 'Comment',
-            'momentable_id' => $comment->id,
-            'action' => $action,
-            'author_id' => $comment->author_id,
-            'project_id' => $comment->project_id,
-        ];
-        $moment = $this->dispatchFromArray(AddMomentCommand::class, $data);
+        $moment = $this->dispatch(new AddMomentCommand(
+            '',
+            '',
+            'Comment',
+            $comment->id,
+            $action,
+            $comment->author_id,
+            $comment->project_id
+        ));
     }
 }

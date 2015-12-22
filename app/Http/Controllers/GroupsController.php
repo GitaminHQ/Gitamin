@@ -60,7 +60,13 @@ class GroupsController extends Controller
         $groupData['type'] = 'group';
         $groupData['user_id'] = Auth::user()->id;
         try {
-            $group = $this->dispatchFromArray(AddOwnerCommand::class, $groupData);
+            $group = $this->dipatch(new AddOwnerCommand(
+                $groupData['name'],
+                $groupData['path'],
+                $groupData['user_id'],
+                $groupData['description'],
+                'Group'
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('groups.new')
                 ->withInput(Request::all())
@@ -107,7 +113,13 @@ class GroupsController extends Controller
         try {
             $groupData['owner'] = $group;
             $groupData['user_id'] = Auth::user()->id;
-            $group = $this->dispatchFromArray(UpdateOwnerCommand::class, $groupData);
+            $group = $this->dispatch(new UpdateOwnerCommand(
+                $group,
+                $groupData['name'],
+                $groupData['path'],
+                $groupData['user_id'],
+                $groupData['description']
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('groups.group_edit', ['owner' => $group->path])
                 ->withInput(Request::all())

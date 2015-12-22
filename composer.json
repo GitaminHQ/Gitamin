@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "~5.1.28",
+        "laravel/framework": "~5.2",
         "phecho/uploader": "^0.1",
         "klaussilveira/gitter": "0.3.*",
         "zizaco/entrust": "dev-laravel-5",
@@ -20,13 +20,14 @@
         "alt-three/validator": "^1.4",
         "barryvdh/laravel-cors": "^0.7",
         "doctrine/dbal": "^2.5",
-        "fideloper/proxy": "^3.0",
+        "phecho/proxy": "^3.0.1",
         "graham-campbell/markdown": "^5.3",
         "graham-campbell/exceptions": "^5.1",
         "guzzlehttp/guzzle": "^6.1",
         "jenssegers/date": "^3.0.13",
         "mccool/laravel-auto-presenter": "^4.2",
-        "roumen/feed": "^2.9"
+        "roumen/feed": "^2.9",
+        "laravelcollective/bus": "^2.0@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
@@ -52,13 +53,11 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "php artisan optimize --force",
             "php artisan config:cache",
             "php artisan route:cache",
             "chmod -R 755 storage"
         ],
         "post-update-cmd": [
-            "php artisan optimize --force",
             "php artisan config:cache",
             "php artisan route:cache",
             "chmod -R 755 storage"
