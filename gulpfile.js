@@ -49,6 +49,7 @@ elixir(function (mix) {
             'vendor/bower_components/dropzone/dist/min/dropzone.min.js',
             'vendor/bower_components/jquery-nicescroll/jquery.nicescroll.min.js',
             'vendor/bower_components/jquery-timeago/jquery.timeago.js',
+            'vendor/bower_components/waitForImages/dist/jquery.waitforimages.min.js',
             'vendor/bower_components/coffee/**/*.js'
         ], 'public/dist/js/gitamin.js', './')
         .version(['public/dist/css/gitamin.css', 'public/dist/js/gitamin.js'])

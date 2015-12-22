@@ -49,6 +49,11 @@ return [
         'assign_to_me' => 'Assign to me',
     ],
 
+    // Comments form fields.
+    'comments' => [
+        'message' => 'Message',
+    ],
+
     // Projects form fields
     'projects' => [
         'name' => 'Name',

@@ -21,6 +21,7 @@ $fa-font-size-base:   12px !default;
 @import "modules/lists";
 @import "modules/typography";
 @import "modules/timeline";
+@import "modules/markdown-area";
 
 // Styles for partials
 @import "partials/base";
@@ -41,6 +42,7 @@ $fa-font-size-base:   12px !default;
 @import "pages/projects";
 @import "pages/details";
 @import "pages/comments";
+@import "pages/comment-form";
 
 // Issue show
 @import "pages/issuable";

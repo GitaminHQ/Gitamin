@@ -1,0 +1,176 @@
+/**
+ * Comment Form
+ */
+
+.comment-btn {
+  @extend .btn-create;
+}
+.reply-btn {
+  @extend .btn-primary;
+  margin: 10px $gl-padding;
+}
+.diff-file .diff-content {
+  tr.line_holder:hover {
+    &> td.line_content {
+      background: $hover !important;
+      border-color: darken($hover, 10%) !important;
+    }
+    &> td.new_line,
+    &> td.old_line {
+      background: darken($hover, 4%) !important;
+      border-color: darken($hover, 10%) !important;
+    }
+  }
+
+  tr.line_holder:hover > td .line_comment_link {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+  }
+}
+.diff-file,
+.discussion {
+  .new_comment {
+    margin: 0;
+    border: none;
+  }
+}
+.new_comment {
+  display: none;
+}
+
+.new_comment, .edit_comment {
+  .comment-form-actions {
+    margin-top: $gl-padding;
+  }
+
+  .comment-preview-holder {
+    > p {
+      overflow-x: auto;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .comment_text {
+    width: 100%;
+  }
+
+  .comment-hints {
+    margin-top: -12px;
+  }
+}
+
+/* loading indicator */
+.comments-busy {
+  margin: 18px;
+}
+
+.comment-image-attach {
+  @extend .col-md-4;
+  margin-left: 45px;
+  float: none;
+}
+
+.common-comment-form {
+  margin: 0;
+  background: #F7F8FA;
+  padding: $gl-padding;
+  margin-left: -$gl-padding;
+  margin-right: -$gl-padding;
+  border-top: 1px solid $border-color;
+  margin-bottom: -$gl-padding;
+}
+
+.comment-form-actions {
+  background: #F9F9F9;
+
+  .comment-form-option {
+    margin-top: 8px;
+    margin-left: 30px;
+    @extend .pull-left;
+  }
+
+  .js-notify-commit-author {
+    float: left;
+  }
+
+  .write-preview-btn {
+    // makes the "absolute" position for links relative to this
+    position: relative;
+
+    // preview/edit buttons
+    > a {
+      position: absolute;
+      right: 5px;
+      top: 8px;
+    }
+  }
+}
+
+.comment-edit-form {
+  display: none;
+  font-size: 15px;
+
+  .form-actions {
+    padding-left: 20px;
+
+    .btn-save {
+      float: left;
+    }
+
+    .comment-form-option {
+      float: left;
+      padding: 2px 0 0 25px;
+    }
+  }
+}
+
+.js-comment-attachment-delete {
+  display: none;
+}
+
+.parallel-comment {
+  padding: 6px;
+}
+
+.error-alert > .alert {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.discussion-body,
+.diff-file {
+  .comments .comment {
+    border-color: #ddd;
+    padding: 10px 15px;
+  }
+
+  .discussion-reply-holder {
+    background: $background-color;
+    border-top: 1px solid $border-color;
+  }
+}
+
+.discussion-comments-count {
+  font-size: 16px;
+}
+
+.edit_comment {
+  .markdown-area {
+    min-height: 140px;
+  }
+  .comment-form-actions {
+    background: transparent;
+  }
+}
+
+.comment-hints {
+  color: #999;
+  background: #FFF;
+  padding: 7px;
+  margin-top: -7px;
+  border: 1px solid $border-color;
+  font-size: 13px;
+}
