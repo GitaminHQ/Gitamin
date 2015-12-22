@@ -36,7 +36,13 @@ class CommentsController extends Controller
             $commentData['author_id'] = Auth::user()->id;
             $commentData['project_id'] = $project->id;
             $commentData['commentable_type'] = $commentData['commentable_type'];
-            $comment = $this->dispatchFromArray(AddCommentCommand::class, $commentData);
+            $comment = $this->dispatch(new AddCommentCommand(
+                $commentData['message'],
+                $commentData['commentable_type'],
+                $commentData['commentable_id'],
+                $commentData['author_id'],
+                $commentData['project_id']
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('projects.issue_show', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $commentData['commentable_id']])
                 ->withInput(Request::all())

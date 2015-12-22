@@ -65,8 +65,8 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bindShared('setting', function () {
+        $this->app->bind('setting', function () {
             return new Repository(new SettingModel());
-        });
+        }, true);
     }
 }

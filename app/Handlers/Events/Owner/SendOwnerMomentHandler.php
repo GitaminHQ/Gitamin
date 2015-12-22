@@ -44,15 +44,14 @@ class SendOwnerMomentHandler
      */
     protected function trigger(Owner &$owner, $action)
     {
-        $data = [
-            'title' => '',
-            'data' => '',
-            'momentable_type' => 'Owner',
-            'momentable_id' => $owner->id,
-            'action' => $action,
-            'author_id' => $owner->user_id,
-            'project_id' => 0,
-        ];
-        $moment = $this->dispatchFromArray(AddMomentCommand::class, $data);
+        $moment = $this->dispatch(new AddMomentCommand(
+            '',
+            '',
+            'Owner',
+            $owner->id,
+            $action,
+            $owner->user_id,
+            0
+        ));
     }
 }

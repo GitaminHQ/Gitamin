@@ -47,16 +47,14 @@ class SendProjectMomentHandler
      */
     protected function trigger(Project &$project, $action)
     {
-        $projectData = [
-            'title' => '',
-            'data' => '',
-            'momentable_type' => 'Project',
-            'momentable_id' => $project->id,
-            'action' => $action,
-            'author_id' => $project->creator_id,
-            'project_id' => $project->id,
-        ];
-
-        $moment = $this->dispatchFromArray(AddMomentCommand::class, $projectData);
+        $moment = $this->dispatch(new AddMomentCommand(
+            '',
+            '',
+            'Project',
+            $project->id,
+            $action,
+            $project->creator_id,
+            $project->id
+        ));
     }
 }

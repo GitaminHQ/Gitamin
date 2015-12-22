@@ -73,9 +73,12 @@ class IssuesController extends Controller
         $issueData = Request::get('issue');
 
         try {
-            $issueData['author_id'] = Auth::user()->id;
-            $issueData['project_id'] = $project->id;
-            $issue = $this->dispatchFromArray(AddIssueCommand::class, $issueData);
+            $issue = $this->dispatch(new AddIssueCommand(
+                $issueData['title'],
+                $issueData['description'],
+                Auth::user()->id,
+                $project->id
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('projects.issue_new')
                 ->withInput(Request::all())
@@ -104,10 +107,13 @@ class IssuesController extends Controller
         $issueData = Request::get('issue');
 
         try {
-            $issueData['author_id'] = Auth::user()->id;
-            $issueData['project_id'] = $project->id;
-            $issueData['issue'] = $issue;
-            $issue = $this->dispatchFromArray(UpdateIssueCommand::class, $issueData);
+            $issue = $this->dispatch(new UpdateIssueCommand(
+                $issue,
+                $issueData['title'],
+                $issueData['description'],
+                Auth::user()->id,
+                $project->id
+            ));
         } catch (ValidationException $e) {
             return Redirect::route('projects.issue_edit', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $issue->id])
                 ->withInput(Request::all())

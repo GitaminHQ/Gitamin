@@ -11,8 +11,8 @@
 
 namespace Gitamin\Test\Commands;
 
+use Collective\Bus\Dispatcher;
 use Gitamin\Test\AbstractAnemicTestCase;
-use Illuminate\Contracts\Bus\Dispatcher;
 
 /**
  * This is the abstract command test case class.
