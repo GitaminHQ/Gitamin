@@ -134,6 +134,22 @@ $ ->
       $(':focus').blur()
     ), 1
 
+  # Initalize dropzone
+  $(".dropzone").dropzone
+    url: "/dashboard/api/upload/avatar"
+    addRemoveLinks: true
+    #dictRemoveLinks: "x",
+    #dictCancelUpload: "x",
+    maxFiles: 1
+    maxFilesize: 5
+    acceptedFiles: "image/*"
+    init: ->
+      @on "success", (file) ->
+        console.log "File " + file.name + "uploaded"
+
+      @on "removedfile", (file) ->
+        console.log "File " + file.name + "removed"
+
   # Initialize tooltips
   $('body').tooltip({
     selector: '.has_tooltip, [data-toggle="tooltip"], .page-sidebar-collapsed .nav-sidebar a'
