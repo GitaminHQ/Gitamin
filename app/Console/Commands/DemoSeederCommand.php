@@ -13,6 +13,8 @@ namespace Gitamin\Console\Commands;
 
 use Gitamin\Models\Comment;
 use Gitamin\Models\Issue;
+use Gitamin\Models\Label;
+use Gitamin\Models\Labelable;
 use Gitamin\Models\Member;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Owner;
@@ -53,6 +55,7 @@ class DemoSeederCommand extends Command
         if (! $this->confirmToProceed()) {
             return;
         }
+
         $this->seedInit();
         $this->seedUsers();
         $this->seedOwners();
@@ -61,6 +64,7 @@ class DemoSeederCommand extends Command
         $this->seedIssues();
         $this->seedComments();
         $this->seedMoments();
+        $this->seedLabels();
         $this->seedSettings();
         $this->seedSubscribers();
 
@@ -79,6 +83,8 @@ class DemoSeederCommand extends Command
         Issue::truncate();
         Comment::truncate();
         Moment::truncate();
+        Label::truncate();
+        Labelable::truncate();
         Setting::truncate();
         Subscriber::truncate();
     }
@@ -319,6 +325,57 @@ class DemoSeederCommand extends Command
 
         foreach ($defaultMoments as $moment) {
             Moment::create($moment);
+        }
+    }
+
+    /**
+     * Seed the labels table.
+     */
+    protected function seedLabels()
+    {
+        $defaultLabels = [
+            [
+                'title' => 'bug',
+                'color' => '#fc2929',
+                'project_id' => 1,
+            ],
+            [
+                'title' => 'duplicate',
+                'color' => '#cccccc',
+                'project_id' => 1,
+            ],
+            [
+                'title' => 'enhancement',
+                'color' => '#84b6eb',
+                'project_id' => 1,
+            ],
+            [
+                'title' => 'help wanted',
+                'color' => '#159818',
+                'project_id' => 1,
+            ],
+            [
+                'title' => 'invalid',
+                'color' => '#e6e6e6',
+                'project_id' => 1,
+            ],
+            [
+                'title' => 'question',
+                'color' => '#cc317c',
+                'project_id' => 1,
+            ],
+            [
+                'title' => 'wontfix',
+                'color' => '#ffffff',
+                'project_id' => 1,
+            ],
+        ];
+
+        $issue = Issue::find(1);
+
+        foreach ($defaultLabels as $label) {
+            $labelObj = new Label($label);
+            $issue->labels()->save($labelObj);
         }
     }
 

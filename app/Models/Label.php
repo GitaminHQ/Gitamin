@@ -23,10 +23,25 @@
 
 namespace Gitamin\Models;
 
+use Gitamin\Presenters\LabelPresenter;
 use Illuminate\Database\Eloquent\Model;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Label extends Model
+class Label  extends Model implements HasPresenter
 {
+    /**
+     * The fillable properties.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'title',
+        'color',
+        'project_id',
+        'created_at',
+        'updated_at',
+    ];
+
     /**
      * Get all of the issues that are assigned this label.
      */
@@ -41,5 +56,15 @@ class Label extends Model
     public function pull_requests()
     {
         return $this->morphedByMany(PullRequest::class, 'labelable');
+    }
+
+    /**
+     * Get the presenter class.
+     *
+     * @return string
+     */
+    public function getPresenterClass()
+    {
+        return LabelPresenter::class;
     }
 }
