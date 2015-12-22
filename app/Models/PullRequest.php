@@ -45,6 +45,6 @@ class PullRequest extends Model
      */
     public function labels()
     {
-        return $this->morphToMany(Label::class, 'taggable');
+        return $this->morphToMany(Label::class, 'labelable');
     }
 }

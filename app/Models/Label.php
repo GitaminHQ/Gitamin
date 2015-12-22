@@ -32,7 +32,7 @@ class Label extends Model
      */
     public function issues()
     {
-        return $this->morphedByMany(Issue::class, 'taggable');
+        return $this->morphedByMany(Issue::class, 'labelable');
     }
 
     /**
@@ -40,6 +40,6 @@ class Label extends Model
      */
     public function pull_requests()
     {
-        return $this->morphedByMany(PullRequest::class, 'taggable');
+        return $this->morphedByMany(PullRequest::class, 'labelable');
     }
 }

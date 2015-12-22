@@ -131,7 +131,7 @@ class Issue extends Model implements HasPresenter
      */
     public function labels()
     {
-        return $this->morphToMany(Label::class, 'taggable');
+        return $this->morphToMany(Label::class, 'labelable');
     }
 
     /**
