@@ -14,7 +14,7 @@ namespace Gitamin\Commands\User;
 final class InviteGroupMemberCommand
 {
     /**
-     * The invte emails.
+     * The invite emails.
      *
      * @var string
      */

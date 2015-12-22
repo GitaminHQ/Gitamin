@@ -14,7 +14,7 @@ namespace Gitamin\Commands\Invite;
 final class ClaimInviteCommand
 {
     /**
-     * The invte to mark as claimed.
+     * The invite to mark as claimed.
      *
      * @var \Gitamin\Model\Invite
      */

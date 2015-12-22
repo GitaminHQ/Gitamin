@@ -14,7 +14,6 @@ namespace Gitamin\Http\Controllers;
 use Exception;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Date\Date;
@@ -95,8 +94,6 @@ class ExploreController extends Controller
             $issueDays = range(0, $daysToShow);
         }
         $dateTimeZone = Setting::get('app_timezone');
-
-        $issueVisiblity = Auth::check() ? 0 : 1;
 
         $allIssues = Issue::whereBetween('created_at', [
             $startDate->copy()->subDays($daysToShow)->format('Y-m-d').' 00:00:00',
