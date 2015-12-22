@@ -158,17 +158,10 @@
                     <div class='selectbox'>
                     <input name="issue[label_ids][]" type="hidden" value="" />
                     <select multiple="multiple" class="select2 js-select2" data-placeholder="Select labels" name="issue[label_ids][]" id="issue_label_ids">
-                    <option value="12980">bug</option>
-                    <option value="15746">comments</option>
-                    <option value="16799">commits</option>
-
-                    <option value="20173">external issue tracker</option>
-                    <option selected="selected" value="14213">feature proposal</option>
-                    <option value="13453">formatting</option>
-
-                    <option value="20048">web edit</option>
-                    <option value="13239">webhook</option>
-                    <option value="14206">wiki</option></select>
+                    @foreach($issue->labels as $label)
+                    <option value="{{ $label->id }}">{{ $label->title }}</option>
+                    @endforeach
+                    </select>
                     </div>
                     </div>
                     <div class='block weight'>
