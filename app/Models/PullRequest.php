@@ -40,5 +40,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PullRequest extends Model
 {
-    //
+    /**
+     * Get all of the labels for the issue.
+     */
+    public function labels()
+    {
+        return $this->morphToMany(Label::class, 'taggable');
+    }
 }
