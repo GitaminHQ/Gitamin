@@ -49,12 +49,10 @@ class Repository
      */
     public function get($name, $default = null)
     {
-        // if we've not loaded the settings, load them now
         if (! $this->settings) {
             $this->settings = $this->model->all()->lists('value', 'name');
         }
 
-        // if the setting exists and is not blank, return it
         if (! empty($this->settings[$name])) {
             return $this->settings[$name];
         }
@@ -65,17 +63,22 @@ class Repository
     /**
      * Creates or updates a setting value.
      *
-     * @param string $name
-     * @param string $value
+     * @param string  $name
+     * @param string|null  $value
      */
     public function set($name, $value)
     {
-        // save the change to the db
-        $this->model->updateOrCreate(compact('name'), compact('value'));
+        if ($value === null) {
+            $this->model->where('name', $name)->delete();
+            if ($this->settings && isset($this->settings[$name])) {
+                unset($this->settings[$name]);
+            }
+        } else {
+            $this->model->updateOrCreate(compact('name'), compact('value'));
 
-        // if we've loaded the settings, persist this change
-        if ($this->settings) {
-            $this->settings[$name] = $value;
+            if ($this->settings) {
+                $this->settings[$name] = $value;
+            }
         }
     }
 }

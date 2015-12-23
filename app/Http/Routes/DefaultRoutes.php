@@ -36,7 +36,7 @@ class DefaultRoutes
             ]);
         });
         //Install Area
-        $router->group(['middleware' => ['app.isInstalled', 'localize']], function ($router) {
+        $router->group(['middleware' => ['app.isInstalled', 'csrf', 'localize']], function ($router) {
             $router->controller('install', 'InstallController');
         });
 
