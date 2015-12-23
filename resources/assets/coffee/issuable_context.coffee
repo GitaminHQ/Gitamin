@@ -6,6 +6,7 @@ class @IssuableContext
     $('select.select2').select2({width: 'resolve', dropdownAutoWidth: true})
 
     $(".issuable-sidebar .inline-update").on "change", "select", ->
+      console.log('here')
       $(this).submit()
     $(".issuable-sidebar .inline-update").on "change", ".js-assignee", ->
       $(this).submit()
@@ -16,11 +17,11 @@ class @IssuableContext
       .on 'affixed-top.bs.affix affixed-bottom.bs.affix', ->
         $(@).width('')
 
-      $('.issuable-affix').affix offset:
-        top: ->
-          @top = ($('.issuable-affix').offset().top - 70)
-        bottom: ->
-          @bottom = $('.footer').outerHeight(true)
+    $('.issuable-affix').affix offset:
+      top: ->
+        @top = ($('.issuable-affix').offset().top - 70)
+      bottom: ->
+        @bottom = $('.footer').outerHeight(true)
 
     $(".edit-link").click (e) ->
       block = $(@).parents('.block')
