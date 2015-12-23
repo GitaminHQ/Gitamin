@@ -3,7 +3,7 @@ preset: laravel
 linting: true
 
 enabled:
-    - ordered_use
+  - ordered_use
 
 disabled:
 
