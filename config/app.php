@@ -116,7 +116,7 @@ return [
     |
     */
 
-    'log' => env('LOGGING_MODE', 'daily'),
+    'log' => env('APP_LOG', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -198,13 +198,11 @@ return [
         'Artisan' => 'Illuminate\Support\Facades\Artisan',
         'Auth' => 'Illuminate\Support\Facades\Auth',
         'Blade' => 'Illuminate\Support\Facades\Blade',
-        'Bus' => 'Collective\Bus\BusServiceProvider',
         'Cache' => 'Illuminate\Support\Facades\Cache',
         'Config' => 'Illuminate\Support\Facades\Config',
         'Cookie' => 'Illuminate\Support\Facades\Cookie',
         'Crypt' => 'Illuminate\Support\Facades\Crypt',
         'DB' => 'Illuminate\Support\Facades\DB',
-        'Eloquent' => 'Illuminate\Database\Eloquent\Model',
         'Event' => 'Illuminate\Support\Facades\Event',
         'File' => 'Illuminate\Support\Facades\File',
         'Gate' => 'Illuminate\Support\Facades\Gate',
@@ -224,13 +222,12 @@ return [
         'Schema' => 'Illuminate\Support\Facades\Schema',
         'Session' => 'Illuminate\Support\Facades\Session',
         'Storage' => 'Illuminate\Support\Facades\Storage',
+        'Str' => 'Illuminate\Support\Str',
         'URL' => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
 
         'Setting' => 'Gitamin\Facades\Setting',
-        'Str' => 'Illuminate\Support\Str',
-        //'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
     ],
 

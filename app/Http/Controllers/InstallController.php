@@ -39,14 +39,6 @@ class InstallController extends Controller
     ];
 
     /**
-     * Create a new install controller instance.
-     */
-    public function __construct()
-    {
-        $this->beforeFilter('csrf', ['only' => ['postGitamin']]);
-    }
-
-    /**
      * Returns the install page.
      *
      * @return \Illuminate\View\View
@@ -212,7 +204,7 @@ class InstallController extends Controller
      */
     protected function keyGenerate()
     {
-        $key = str_random(42);
+        $key = str_random(32);
 
         $path = base_path('.env');
 
