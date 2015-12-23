@@ -13,16 +13,15 @@ namespace Gitamin\Models;
 
 class Group extends Owner
 {
-
     protected $table = 'owners';
 
     public static function boot()
     {
-        static::addGlobalScope('type', function($builder) {
+        static::addGlobalScope('type', function ($builder) {
             $builder->where('type', 'Group');
         });
 
-       parent::boot();
+        parent::boot();
     }
 
     /**
