@@ -11,13 +11,18 @@
 
 namespace Gitamin\Models;
 
-use Gitamin\Traits\OfTypeTrait;
-
 class Group extends Owner
 {
-    use OfTypeTrait;
-
     protected $table = 'owners';
+
+    public static function boot()
+    {
+        static::addGlobalScope('type', function ($builder) {
+            $builder->where('type', 'Group');
+        });
+
+        parent::boot();
+    }
 
     /**
      * Returns group route.
