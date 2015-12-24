@@ -20,7 +20,6 @@ use Gitamin\Models\Project;
 
 class SendProjectMomentHandler
 {
-
     /**
      * Handle the project updated moment.
      */

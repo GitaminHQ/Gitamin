@@ -19,7 +19,6 @@ use Gitamin\Models\Owner;
 
 class SendOwnerMomentHandler
 {
-
     /**
      * Handle the comment updated moment.
      */

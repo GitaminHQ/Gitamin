@@ -18,7 +18,6 @@ use Gitamin\Models\Subscriber;
 
 class SubscribeSubscriberCommandHandler
 {
-
     /**
      * Handle the subscribe subscriber command.
      *

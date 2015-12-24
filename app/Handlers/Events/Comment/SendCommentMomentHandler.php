@@ -19,7 +19,6 @@ use Gitamin\Models\Moment;
 
 class SendCommentMomentHandler
 {
-
     /**
      * Handle the comment updated moment.
      */

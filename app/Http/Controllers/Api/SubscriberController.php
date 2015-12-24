@@ -20,7 +20,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class SubscriberController extends AbstractApiController
 {
-
     /**
      * Get all subscribers.
      *

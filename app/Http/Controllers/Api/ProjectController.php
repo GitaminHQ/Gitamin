@@ -23,7 +23,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class ProjectController extends AbstractApiController
 {
-
     /**
      * Get all projects.
      *

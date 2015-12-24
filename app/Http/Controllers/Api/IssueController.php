@@ -22,7 +22,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class IssueController extends AbstractApiController
 {
-
     /**
      * Get all issues.
      *

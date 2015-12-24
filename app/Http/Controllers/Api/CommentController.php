@@ -22,7 +22,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class CommentController extends AbstractApiController
 {
-
     /**
      * Get all comments.
      *

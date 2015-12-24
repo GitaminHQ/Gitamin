@@ -21,7 +21,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class OwnerController extends AbstractApiController
 {
-
     /**
      * Get all owners.
      *

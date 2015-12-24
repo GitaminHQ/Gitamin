@@ -24,7 +24,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SignupController extends Controller
 {
-
     /**
      * Handle the signup with invite.
      *

@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\View;
 
 class SubscriberController extends Controller
 {
-
     /**
      * Shows the subscribers view.
      *

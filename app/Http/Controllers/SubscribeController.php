@@ -25,7 +25,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SubscribeController extends Controller
 {
-
     /**
      * Show the subscribe by email page.
      *

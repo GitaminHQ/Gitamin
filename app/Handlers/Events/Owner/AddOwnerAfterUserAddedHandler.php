@@ -18,7 +18,6 @@ use Gitamin\Models\User;
 
 class AddOwnerAfterUserAddedHandler
 {
-
     /**
      * Handle the comment updated moment.
      */
