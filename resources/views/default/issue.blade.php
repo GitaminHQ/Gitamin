@@ -12,7 +12,7 @@
         <div class="moment first">
             <div class="row event clearfix">
                 <div class="col-sm-1">
-                    <div class="status-icon status-{{ $issue->status }}" data-toggle="tooltip" title="{{ $issue->humanStatus }}" data-placement="left">
+                    <div class="status-icon status-{{ $issue->status }}" data-toggle="tooltip" title="{{ $issue->human_status }}" data-placement="left">
                         <i class="{{ $issue->icon }}"></i>
                     </div>
                 </div>

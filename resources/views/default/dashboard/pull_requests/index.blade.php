@@ -25,7 +25,7 @@
                                 @if($pull_requests->count() > 1)
                                 <span class="drag-handle"><i class="ion-drag"></i></span>
                                 @endif
-                                <a href="{{ route('dashboard.pull_requests.show', $pull_request->id) }}">{{ $pull_request->name }}</a> <small>{{ $pull_request->humanStatus }}</small>
+                                <a href="{{ route('dashboard.pull_requests.show', $pull_request->id) }}">{{ $pull_request->name }}</a> <small>{{ $pull_request->human_status }}</small>
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">

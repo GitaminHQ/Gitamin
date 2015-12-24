@@ -25,7 +25,7 @@
                             @if($projects->count() > 1)
                             <span class="drag-handle"><i class="fa fa-reorder"></i></span>
                             @endif
-                            <a href="{{ route('projects.project_show',['owner'=>$project->owner->path,'project'=>$project->path]) }}">{{ $project->owner->name}} / {{ $project->name }}</a> <small>{{ $project->humanStatus }}</small>
+                            <a href="{{ route('projects.project_show',['owner'=>$project->owner->path,'project'=>$project->path]) }}">{{ $project->owner->name}} / {{ $project->name }}</a> <small>{{ $project->human_status }}</small>
                            
                             <!--
                             @if($project->team)

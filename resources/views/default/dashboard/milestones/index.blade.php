@@ -28,7 +28,7 @@
                                 @if($milestones->count() > 1)
                                 <span class="drag-handle"><i class="ion-drag"></i></span>
                                 @endif
-                                <a href="{{ route('dashboard.milestones.show', $milestone->id) }}">{{ $milestone->name }}</a> <small>{{ $milestone->humanStatus }}</small>
+                                <a href="{{ route('dashboard.milestones.show', $milestone->id) }}">{{ $milestone->name }}</a> <small>{{ $milestone->human_status }}</small>
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">

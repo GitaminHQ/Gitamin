@@ -83,6 +83,18 @@ class IssuePresenter extends AbstractPresenter
     }
 
     /**
+     * Returns a human readable version of the status.
+     *
+     * @return string
+     */
+    public function human_status()
+    {
+        $statuses = trans('gitamin.issues.status');
+
+        return $statuses[$this->state];
+    }
+
+    /**
      * Convert the presenter instance to an array.
      *
      * @return string[]
