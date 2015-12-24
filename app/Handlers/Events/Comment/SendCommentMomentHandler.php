@@ -16,11 +16,9 @@ use Gitamin\Events\Comment\CommentEventInterface;
 use Gitamin\Events\Comment\CommentWasAddedEvent;
 use Gitamin\Models\Comment;
 use Gitamin\Models\Moment;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class SendCommentMomentHandler
 {
-    use DispatchesJobs;
 
     /**
      * Handle the comment updated moment.
@@ -44,7 +42,7 @@ class SendCommentMomentHandler
      */
     protected function trigger(Comment &$comment, $action)
     {
-        $moment = $this->dispatch(new AddMomentCommand(
+        $moment = dispatch(new AddMomentCommand(
             '',
             '',
             'Comment',

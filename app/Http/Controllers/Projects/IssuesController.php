@@ -73,7 +73,7 @@ class IssuesController extends Controller
         $issueData = Request::get('issue');
 
         try {
-            $issue = $this->dispatch(new AddIssueCommand(
+            $issue = dispatch(new AddIssueCommand(
                 $issueData['title'],
                 $issueData['description'],
                 Auth::user()->id,
@@ -107,7 +107,7 @@ class IssuesController extends Controller
         $issueData = Request::get('issue');
 
         try {
-            $issue = $this->dispatch(new UpdateIssueCommand(
+            $issue = dispatch(new UpdateIssueCommand(
                 $issue,
                 $issueData['title'],
                 $issueData['description'],

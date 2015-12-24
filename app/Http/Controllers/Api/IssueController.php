@@ -17,13 +17,11 @@ use Gitamin\Commands\Issue\UpdateIssueCommand;
 use Gitamin\Models\Issue;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class IssueController extends AbstractApiController
 {
-    use DispatchesJobs;
 
     /**
      * Get all issues.
@@ -65,7 +63,7 @@ class IssueController extends AbstractApiController
     public function postIssues(Request $request, Guard $auth)
     {
         try {
-            $issue = $this->dispatch(new AddIssueCommand(
+            $issue = dispatch(new AddIssueCommand(
                 $request->get('title'),
                 $request->get('description'),
                 $request->get('author_id'),
@@ -88,7 +86,7 @@ class IssueController extends AbstractApiController
     public function putIssue(Request $request, Issue $issue)
     {
         try {
-            $issue = $this->dispatch(new UpdateIssueCommand(
+            $issue = dispatch(new UpdateIssueCommand(
                 $issue,
                 $request->get('title'),
                 $request->get('description'),
@@ -111,7 +109,7 @@ class IssueController extends AbstractApiController
      */
     public function deleteIssue(Issue $issue)
     {
-        $this->dispatch(new RemoveIssueCommand($issue));
+        dispatch(new RemoveIssueCommand($issue));
 
         return $this->noContent();
     }

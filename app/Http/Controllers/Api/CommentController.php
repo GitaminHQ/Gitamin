@@ -17,13 +17,11 @@ use Gitamin\Commands\Comment\UpdateCommentCommand;
 use Gitamin\Models\Comment;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class CommentController extends AbstractApiController
 {
-    use DispatchesJobs;
 
     /**
      * Get all comments.
@@ -62,7 +60,7 @@ class CommentController extends AbstractApiController
     public function postComments(Request $request, Guard $auth)
     {
         try {
-            $comment = $this->dispatch(new AddCommentCommand(
+            $comment = dispatch(new AddCommentCommand(
                 $request->input('message'),
                 $request->input('commentable_type'),
                 $request->input('commentable_id'),
@@ -86,7 +84,7 @@ class CommentController extends AbstractApiController
     public function putComment(Request $request, Comment $comment)
     {
         try {
-            $comment = $this->dispatch(new UpdateCommentCommand(
+            $comment = dispatch(new UpdateCommentCommand(
                 $comment,
                 $request->input('message')
             ));
@@ -106,7 +104,7 @@ class CommentController extends AbstractApiController
      */
     public function deleteComment(Comment $comment)
     {
-        $this->dispatch(new RemoveCommentCommand($comment));
+        dispatch(new RemoveCommentCommand($comment));
 
         return $this->noContent();
     }

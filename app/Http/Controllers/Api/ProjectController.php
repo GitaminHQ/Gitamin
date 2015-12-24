@@ -18,13 +18,11 @@ use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class ProjectController extends AbstractApiController
 {
-    use DispatchesJobs;
 
     /**
      * Get all projects.
@@ -65,7 +63,7 @@ class ProjectController extends AbstractApiController
     public function postProjects(Request $request)
     {
         try {
-            $project = $this->dispatch(new AddProjectCommand(
+            $project = dispatch(new AddProjectCommand(
                 $request->get('name'),
                 $request->get('description'),
                 $request->get('visibility_level'),
@@ -104,7 +102,7 @@ class ProjectController extends AbstractApiController
     public function putProject(Request $request, Project $project)
     {
         try {
-            $this->dispatch(new UpdateProjectCommand(
+            dispatch(new UpdateProjectCommand(
                 $project,
                 $request->get('name'),
                 $request->get('description'),
@@ -140,7 +138,7 @@ class ProjectController extends AbstractApiController
      */
     public function deleteProject(Project $project)
     {
-        $this->dispatch(new RemoveProjectCommand($project));
+        dispatch(new RemoveProjectCommand($project));
 
         return $this->noContent();
     }

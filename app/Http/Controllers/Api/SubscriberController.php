@@ -15,13 +15,11 @@ use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Models\Subscriber;
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class SubscriberController extends AbstractApiController
 {
-    use DispatchesJobs;
 
     /**
      * Get all subscribers.
@@ -45,7 +43,7 @@ class SubscriberController extends AbstractApiController
     public function postSubscribers(Request $request)
     {
         try {
-            $subscriber = $this->dispatch(new SubscribeSubscriberCommand($request->get('email'), $request->get('verify', false)));
+            $subscriber = dispatch(new SubscribeSubscriberCommand($request->get('email'), $request->get('verify', false)));
         } catch (QueryException $e) {
             throw new BadRequestHttpException();
         }
@@ -62,7 +60,7 @@ class SubscriberController extends AbstractApiController
      */
     public function deleteSubscriber(Subscriber $subscriber)
     {
-        $this->dispatch(new UnsubscribeSubscriberCommand($subscriber));
+        dispatch(new UnsubscribeSubscriberCommand($subscriber));
 
         return $this->noContent();
     }

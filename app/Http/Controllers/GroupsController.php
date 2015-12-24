@@ -113,7 +113,7 @@ class GroupsController extends Controller
         try {
             $groupData['owner'] = $group;
             $groupData['user_id'] = Auth::user()->id;
-            $group = $this->dispatch(new UpdateOwnerCommand(
+            $group = dispatch(new UpdateOwnerCommand(
                 $group,
                 $groupData['name'],
                 $groupData['path'],

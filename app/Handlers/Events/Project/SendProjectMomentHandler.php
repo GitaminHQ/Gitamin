@@ -17,11 +17,9 @@ use Gitamin\Events\Project\ProjectWasRemovedEvent;
 use Gitamin\Events\Project\ProjectWasUpdatedEvent;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Project;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class SendProjectMomentHandler
 {
-    use DispatchesJobs;
 
     /**
      * Handle the project updated moment.
@@ -47,7 +45,7 @@ class SendProjectMomentHandler
      */
     protected function trigger(Project &$project, $action)
     {
-        $moment = $this->dispatch(new AddMomentCommand(
+        $moment = dispatch(new AddMomentCommand(
             '',
             '',
             'Project',
