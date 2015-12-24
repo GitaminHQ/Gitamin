@@ -15,12 +15,9 @@ use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\VerifySubscriberCommand;
 use Gitamin\Events\Subscriber\SubscriberHasSubscribedEvent;
 use Gitamin\Models\Subscriber;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class SubscribeSubscriberCommandHandler
 {
-    use DispatchesJobs;
-
     /**
      * Handle the subscribe subscriber command.
      *
@@ -33,7 +30,7 @@ class SubscribeSubscriberCommandHandler
         $subscriber = Subscriber::create(['email' => $command->email]);
 
         if ($command->verified) {
-            $this->dispatch(new VerifySubscriberCommand($subscriber));
+            dispatch(new VerifySubscriberCommand($subscriber));
         } else {
             event(new SubscriberHasSubscribedEvent($subscriber));
         }

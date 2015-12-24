@@ -18,7 +18,6 @@ use Gitamin\Commands\Subscriber\VerifySubscriberCommand;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Subscriber;
 use GrahamCampbell\Markdown\Facades\Markdown;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -26,8 +25,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SubscribeController extends Controller
 {
-    use DispatchesJobs;
-
     /**
      * Show the subscribe by email page.
      *
@@ -47,7 +44,7 @@ class SubscribeController extends Controller
     public function postSubscribe()
     {
         try {
-            $this->dispatch(new SubscribeSubscriberCommand(Request::get('email')));
+            dispatch(new SubscribeSubscriberCommand(Request::get('email')));
         } catch (ValidationException $e) {
             return Redirect::route('subscribe.subscribe')
                 ->withInput(Request::all())
@@ -78,7 +75,7 @@ class SubscribeController extends Controller
             throw new BadRequestHttpException();
         }
 
-        $this->dispatch(new VerifySubscriberCommand($subscriber));
+        dispatch(new VerifySubscriberCommand($subscriber));
 
         return Redirect::route('explore')
             ->withSuccess(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.awesome'), trans('gitamin.subscriber.email.verified')));
@@ -103,7 +100,7 @@ class SubscribeController extends Controller
             throw new BadRequestHttpException();
         }
 
-        $this->dispatch(new UnsubscribeSubscriberCommand($subscriber));
+        dispatch(new UnsubscribeSubscriberCommand($subscriber));
 
         return Redirect::route('explore')
             ->withSuccess(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.awesome'), trans('gitamin.subscriber.email.unsubscribed')));

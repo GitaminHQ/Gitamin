@@ -16,12 +16,9 @@ use Gitamin\Events\Owner\OwnerEventInterface;
 use Gitamin\Events\Owner\OwnerWasAddedEvent;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Owner;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class SendOwnerMomentHandler
 {
-    use DispatchesJobs;
-
     /**
      * Handle the comment updated moment.
      */
@@ -44,7 +41,7 @@ class SendOwnerMomentHandler
      */
     protected function trigger(Owner &$owner, $action)
     {
-        $moment = $this->dispatch(new AddMomentCommand(
+        $moment = dispatch(new AddMomentCommand(
             '',
             '',
             'Owner',

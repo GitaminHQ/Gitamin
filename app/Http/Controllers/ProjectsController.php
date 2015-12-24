@@ -61,7 +61,7 @@ class ProjectsController extends Controller
         $tags = array_pull($projectData, 'tags');
 
         try {
-            $project = $this->dispatch(new AddProjectCommand(
+            $project = dispatch(new AddProjectCommand(
                 $projectData['name'],
                 $projectData['description'],
                 $projectData['visibility_level'],
@@ -149,7 +149,7 @@ class ProjectsController extends Controller
         $project = Project::find($projectData['id']);
 
         try {
-            $project = $this->dispatch(new UpdateProjectCommand(
+            $project = dispatch(new UpdateProjectCommand(
                 $project,
                 $projectData['name'],
                 $projectData['description'],
