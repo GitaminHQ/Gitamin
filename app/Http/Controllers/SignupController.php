@@ -16,7 +16,6 @@ use Gitamin\Commands\Invite\ClaimInviteCommand;
 use Gitamin\Commands\User\SignupUserCommand;
 use Gitamin\Exceptions\UserAlreadyTakenException;
 use Gitamin\Models\Invite;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
@@ -25,8 +24,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SignupController extends Controller
 {
-    use DispatchesJobs;
-
     /**
      * Handle the signup with invite.
      *
@@ -75,7 +72,7 @@ class SignupController extends Controller
         */
         $code = 'gitamin';
         try {
-            $user = $this->dispatch(new SignupUserCommand(
+            $user = dispatch(new SignupUserCommand(
                 Request::get('username'),
                 Request::get('password'),
                 Request::get('email'),
@@ -93,7 +90,7 @@ class SignupController extends Controller
                 ->withErrors(trans('gitamin.signup.taken'));
         }
 
-        //$this->dispatch(new ClaimInviteCommand($invite));
+        //dispatch(new ClaimInviteCommand($invite));
 
         return Redirect::route('auth.login')
             ->withSuccess(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.awesome'), trans('gitamin.signup.success')));

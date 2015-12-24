@@ -36,7 +36,7 @@ class CommentsController extends Controller
             $commentData['author_id'] = Auth::user()->id;
             $commentData['project_id'] = $project->id;
             $commentData['commentable_type'] = $commentData['commentable_type'];
-            $comment = $this->dispatch(new AddCommentCommand(
+            $comment = dispatch(new AddCommentCommand(
                 $commentData['message'],
                 $commentData['commentable_type'],
                 $commentData['commentable_id'],

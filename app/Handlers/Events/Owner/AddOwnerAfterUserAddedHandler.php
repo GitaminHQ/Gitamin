@@ -15,12 +15,9 @@ use Gitamin\Commands\Owner\AddOwnerCommand;
 use Gitamin\Events\User\UserEventInterface;
 use Gitamin\Events\User\UserWasAddedEvent;
 use Gitamin\Models\User;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class AddOwnerAfterUserAddedHandler
 {
-    use DispatchesJobs;
-
     /**
      * Handle the comment updated moment.
      */
@@ -40,7 +37,7 @@ class AddOwnerAfterUserAddedHandler
      */
     protected function trigger(User &$user)
     {
-        $group = $this->dispatch(new AddOwnerCommand(
+        $group = dispatch(new AddOwnerCommand(
             $user->username,
             $user->username,
             $user->id,

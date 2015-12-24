@@ -15,7 +15,6 @@ use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Models\Subscriber;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -23,8 +22,6 @@ use Illuminate\Support\Facades\View;
 
 class SubscriberController extends Controller
 {
-    use DispatchesJobs;
-
     /**
      * Shows the subscribers view.
      *
@@ -56,7 +53,7 @@ class SubscriberController extends Controller
     public function createSubscriberAction()
     {
         try {
-            $this->dispatch(new SubscribeSubscriberCommand(Request::get('email')));
+            dispatch(new SubscribeSubscriberCommand(Request::get('email')));
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.subscribers.add')
                 ->withInput(Request::all())
@@ -79,7 +76,7 @@ class SubscriberController extends Controller
      */
     public function deleteSubscriberAction(Subscriber $subscriber)
     {
-        $this->dispatch(new UnsubscribeSubscriberCommand($subscriber));
+        dispatch(new UnsubscribeSubscriberCommand($subscriber));
 
         return Redirect::route('dashboard.subscribers.index');
     }
