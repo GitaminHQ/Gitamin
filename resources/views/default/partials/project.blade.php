@@ -10,6 +10,6 @@
     @endif
 
     <div class="pull-right">
-        <small class="text-project-{{ $project->status }} {{ $project->status_color }}">{{ $project->humanStatus }}</small>
+        <small class="text-project-{{ $project->status }} {{ $project->status_color }}">{{ $project->human_status }}</small>
     </div>
 </li>

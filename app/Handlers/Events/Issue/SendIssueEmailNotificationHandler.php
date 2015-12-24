@@ -67,13 +67,13 @@ class SendIssueEmailNotificationHandler
                     'subject' => 'New issue reported.',
                     'has_project' => ($event->issue->project) ? true : false,
                     'project_name' => $project ? $project->name : null,
-                    'status' => $issue->humanStatus,
+                    'status' => $issue->human_status,
                     'html_content' => $issue->formattedMessage,
                     'text_content' => $issue->message,
                     'token' => $subscriber->token,
                     'unsubscribe_link' => route('subscribe.unsubscribe', ['code' => $subscriber->verify_code]),
                 ];
-                error_log(var_export($mail, true), 3, '/tmp/mail.log');
+
                 $this->mailer->queue([
                     'html' => 'emails.issues.new-html',
                     'text' => 'emails.issues.new-text',

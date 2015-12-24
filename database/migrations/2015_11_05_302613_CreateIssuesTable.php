@@ -33,7 +33,7 @@ class CreateIssuesTable extends Migration
             $t->string('branch_name')->nullable();
             $t->text('description')->nullable();
             $t->integer('milestone_id')->nullable();
-            $t->string('state')->nullable();
+            $t->integer('state')->nullable()->default(0);
             $t->integer('iid')->nullable();
             $t->integer('updated_by_id')->nullable();
 

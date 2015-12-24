@@ -42,13 +42,6 @@ class Issue extends Model implements HasPresenter
     use SoftDeletes, ValidatingTrait;
 
     /**
-     * The accessors to append to the model's serialized form.
-     *
-     * @var string[]
-     */
-    protected $appends = ['human_status'];
-
-    /**
      * The attributes that should be casted to native types.
      *
      * @var string[]
@@ -132,19 +125,6 @@ class Issue extends Model implements HasPresenter
     public function labels()
     {
         return $this->morphToMany(Label::class, 'labelable');
-    }
-
-    /**
-     * Returns a human readable version of the status.
-     *
-     * @return string
-     */
-    public function getHumanStatusAttribute()
-    {
-        $statuses = trans('gitamin.issues.status');
-
-        return $statuses[rand(0, 2)];
-        //return $statuses[$this->state];
     }
 
     public function getUrlAttribute()

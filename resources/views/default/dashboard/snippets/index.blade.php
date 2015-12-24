@@ -25,7 +25,7 @@
                                 @if($snippets->count() > 1)
                                 <span class="drag-handle"><i class="ion-drag"></i></span>
                                 @endif
-                                <a href="{{ route('dashboard.snippets.show', $snippet->id) }}">{{ $snippet->name }}</a> <small>{{ $snippet->humanStatus }}</small>
+                                <a href="{{ route('dashboard.snippets.show', $snippet->id) }}">{{ $snippet->name }}</a> <small>{{ $snippet->human_status }}</small>
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">

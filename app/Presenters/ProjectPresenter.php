@@ -33,6 +33,18 @@ class ProjectPresenter extends AbstractPresenter
     }
 
     /**
+     * Returns a human readable version of the status.
+     *
+     * @return string
+     */
+    public function human_status()
+    {
+        $statuses = trans('gitamin.projects.status');
+
+        return $statuses[$this->visibility_level];
+    }
+
+    /**
      * Convert the presenter instance to an array.
      *
      * @return string[]
@@ -42,7 +54,7 @@ class ProjectPresenter extends AbstractPresenter
         return array_merge($this->wrappedObject->toArray(), [
             'created_at' => $this->created_at(),
             'updated_at' => $this->updated_at(),
-            'status_name' => $this->wrappedObject->humanStatus,
+            'human_status' => $this->human_status(),
         ]);
     }
 }
