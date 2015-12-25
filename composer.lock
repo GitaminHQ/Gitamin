@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "248ace83ebf9bac5b997287829abb4f9",
-    "content-hash": "452530dad6153275c0d9c14b2ef4e4f4",
+    "hash": "8571e8e6c66109fdaab11cadd1410e30",
+    "content-hash": "26c89dcc6be73d0f0e3ed951cf434735",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -514,16 +514,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.5.2",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "311001fd9865a4d0d59efff4eac6d7dcb3f5270c"
+                "reference": "10f1f19651343f87573129ca970aef1a47a6f29e"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/doctrine/common/311001fd9865a4d0d59efff4eac6d7dcb3f5270c.zip",
-                "reference": "311001fd9865a4d0d59efff4eac6d7dcb3f5270c",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/common/10f1f19651343f87573129ca970aef1a47a6f29e.zip",
+                "reference": "10f1f19651343f87573129ca970aef1a47a6f29e",
                 "shasum": ""
             },
             "require": {
@@ -583,7 +583,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-12-04 12:49:42"
+            "time": "2015-12-25 13:10:16"
         },
         {
             "name": "doctrine/dbal",
