@@ -96,7 +96,7 @@ return [
     */
 
     'failed' => [
-        'database' => env('DB_DRIVER', 'sqlite'),
+        'database' => env('DB_CONNECTION', 'sqlite'),
         'table' => 'failed_jobs',
     ],
 
