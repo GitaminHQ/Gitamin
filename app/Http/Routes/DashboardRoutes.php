@@ -27,7 +27,7 @@ class DashboardRoutes
     {
         //Dashboard area
         $router->group([
-            'middleware' => 'auth',
+            'middleware' => ['web', 'auth'],
             'prefix' => 'dashboard',
             'namespace' => 'Dashboard',
             'as' => 'dashboard.',
@@ -160,7 +160,7 @@ class DashboardRoutes
             });
 
             // User Settings
-            $router->group(['prefix' => 'user'], function ($router) {
+            $router->group(['middleware' => 'admin', 'prefix' => 'user'], function ($router) {
                 $router->get('/', [
                     'as' => 'user',
                     'uses' => 'UserController@showUser',

@@ -12,7 +12,7 @@
 namespace Gitamin\Http\Middleware;
 
 use Closure;
-use Illuminate\Config\Repository;
+use Illuminate\Config\Config;
 use Jenssegers\Date\Date;
 
 class Localize
@@ -27,16 +27,16 @@ class Localize
     /**
      * Config repository.
      *
-     * @var \Illuminate\Config\Repository
+     * @var \Illuminate\Config\Config
      */
     protected $config;
 
     /**
      * Constructs a new localize instance.
      *
-     * @param \Illuminate\Config\Repository $config
+     * @param \Illuminate\Config\Config $config
      */
-    public function __construct(Repository $config)
+    public function __construct(Config $config)
     {
         $this->config = $config;
         $this->langs = $config->get('langs');

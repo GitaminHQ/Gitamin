@@ -70,7 +70,7 @@ class IssuesController extends Controller
     {
         $state = Request::get('state');
         // Issue & Issue Project list.
-        $usedIssueProjects = Issue::where('project_id', '>', 0)->where('state', '=', $state)->groupBy('project_id')->lists('project_id');
+        $usedIssueProjects = Issue::where('project_id', '>', 0)->where('state', '=', $state)->groupBy('project_id')->pluck('project_id');
         $issueProjects = Project::whereIn('id', $usedIssueProjects)->get();
 
         return View::make('dashboard.issues.index')

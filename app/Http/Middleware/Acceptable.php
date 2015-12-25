@@ -25,9 +25,9 @@ class Acceptable
      *
      * @return mixed
      */
-    public function handle($request, Closure $next, $type)
+    public function handle($request, Closure $next, $type = null)
     {
-        if (! $request->accepts($type)) {
+        if (! $request->accepts($type ? : 'accept:application/json')) {
             throw new NotAcceptableHttpException();
         }
 

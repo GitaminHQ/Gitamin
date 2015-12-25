@@ -45,7 +45,7 @@ class OwnersController extends Controller
      */
     protected function showGroup(Owner &$group)
     {
-        $usedProjects = Project::where('owner_id', '=', $group->id)->lists('id')->toArray();
+        $usedProjects = Project::where('owner_id', '=', $group->id)->pluck('id')->toArray();
         $moments = Moment::whereIn('project_id', $usedProjects)->get();
 
         return View::make('groups.show')
@@ -61,7 +61,7 @@ class OwnersController extends Controller
      */
     protected function showUser(User &$user)
     {
-        $usedProjects = Project::where('owner_id', '=', $user->id)->lists('id')->toArray();
+        $usedProjects = Project::where('owner_id', '=', $user->id)->pluck('id')->toArray();
         $moments = Moment::whereIn('project_id', $usedProjects)->get();
 
         return View::make('profiles.show')

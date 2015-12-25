@@ -249,7 +249,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function authorized_groups()
     {
-        $groupIds = GroupMember::where('user_id', '=', $this->id)->where('target_type', '=', 'Group')->lists('target_id')->toArray();
+        $groupIds = GroupMember::where('user_id', '=', $this->id)->where('target_type', '=', 'Group')->pluck('target_id')->toArray();
 
         return Group::whereIn('id', $groupIds)->get();
     }
@@ -271,7 +271,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function authorized_projects()
     {
-        $projectIds = ProjectMember::where('user_id', '=', $this->id)->where('target_type', '=', 'Project')->lists('target_id')->toArray();
+        $projectIds = ProjectMember::where('user_id', '=', $this->id)->where('target_type', '=', 'Project')->pluck('target_id')->toArray();
 
         return Project::whereIn('id', $projectIds)->get();
     }

@@ -28,27 +28,30 @@ class ApiRoutes
         $router->group([
             'namespace' => 'Api',
             'prefix' => 'api/v1',
-            'middleware' => ['accept:application/json', 'timezone', 'auth.api.optional'],
+            'middleware' => ['api'],
         ], function ($router) {
-            // General
-            $router->get('ping', 'GeneralController@ping');
+            // Authorization Optional
+            $router->group(['middleware' => 'auth.api'], function ($router) {
+                // General
+                $router->get('ping', 'GeneralController@ping');
 
-            // Projects
-            $router->get('projects', 'ProjectController@getProjects');
-            $router->get('owners', 'OwnerController@getOwners');
-            $router->get('owners/{owner}', 'OwnerController@getOwner');
-            $router->get('projects/{project}', 'ProjectController@getProject');
+                // Projects
+                $router->get('projects', 'ProjectController@getProjects');
+                $router->get('owners', 'OwnerController@getOwners');
+                $router->get('owners/{owner}', 'OwnerController@getOwner');
+                $router->get('projects/{project}', 'ProjectController@getProject');
 
-            // Issues
-            $router->get('issues', 'IssueController@getIssues');
-            $router->get('issues/{issue}', 'IssueController@getIssue');
+                // Issues
+                $router->get('issues', 'IssueController@getIssues');
+                $router->get('issues/{issue}', 'IssueController@getIssue');
 
-            // Comments
-            $router->get('comments', 'CommentController@getComments');
-            $router->get('comments/{comment}', 'CommentController@getComment');
+                // Comments
+                $router->get('comments', 'CommentController@getComments');
+                $router->get('comments/{comment}', 'CommentController@getComment');
+            });
 
             // Authorization Required
-            $router->group(['middleware' => 'auth.api'], function ($router) {
+            $router->group(['middleware' => 'auth.api:true'], function ($router) {
                 $router->get('subscribers', 'SubscriberController@getSubscribers');
 
                 $router->post('projects', 'ProjectController@postProjects');

@@ -17,9 +17,9 @@ use McCool\LaravelAutoPresenter\BasePresenter as BaseLaravelAutoPresenter;
 abstract class AbstractPresenter extends BaseLaravelAutoPresenter implements Arrayable
 {
     /**
-     * The setting repository.
+     * The setting config.
      *
-     * @var \Gitamin\Config\Repository
+     * @var \Gitamin\Config\Config
      */
     protected $setting;
 

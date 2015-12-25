@@ -27,7 +27,7 @@ class DefaultRoutes
     {
         //Default - Dashboard
         $router->group([
-            'middleware' => ['app.hasSetting', 'auth'],
+            'middleware' => ['web', 'app.hasSetting', 'auth'],
             'setting' => 'app_name',
         ], function ($router) {
             $router->get('/', [
@@ -36,13 +36,13 @@ class DefaultRoutes
             ]);
         });
         //Install Area
-        $router->group(['middleware' => ['app.isInstalled', 'csrf', 'localize']], function ($router) {
+        $router->group(['middleware' => ['web', 'app.isInstalled']], function ($router) {
             $router->controller('install', 'InstallController');
         });
 
         //Signup Area
         $router->group([
-            'middleware' => ['app.hasSetting', 'guest'],
+            'middleware' => ['web', 'app.hasSetting', 'guest'],
             'setting' => 'app_name',
             'as' => 'signup.',
         ], function ($router) {
@@ -65,7 +65,7 @@ class DefaultRoutes
 
         //Explore Area
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'prefix' => 'explore',
             'as' => 'explore.',
@@ -87,7 +87,7 @@ class DefaultRoutes
 
         // Feed Area
         $router->group([
-            'middleware' => 'app.hasSetting',
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
         ], function ($router) {
             $router->get('/atom/{namespace?}', [
@@ -102,7 +102,7 @@ class DefaultRoutes
 
         // Profile Area
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'as' => 'profile.',
         ], function ($router) {

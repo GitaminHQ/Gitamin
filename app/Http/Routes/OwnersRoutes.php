@@ -27,7 +27,7 @@ class OwnersRoutes
     {
         // Project Sub-routes groups.group_show, groups.group_edit
         $router->group([
-            'middleware' => ['app.hasSetting', 'auth'],
+            'middleware' => ['web', 'app.hasSetting', 'auth'],
             'setting' => 'app_name',
             'as' => 'owners.',
         ], function ($router) {

@@ -26,7 +26,7 @@ class HelpRoutes
     public function map(Registrar $router)
     {
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'as' => 'help.',
         ], function ($router) {
