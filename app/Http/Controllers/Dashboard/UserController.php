@@ -12,8 +12,8 @@
 namespace Gitamin\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\User;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;

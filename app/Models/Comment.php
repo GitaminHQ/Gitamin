@@ -68,6 +68,22 @@ class Comment extends Model implements HasPresenter
     ];
 
     /**
+     * The properties that cannot be mass assigned.
+     *
+     * @var string[]
+     */
+    protected $guarded = [];
+
+    /**
+     * The hidden properties.
+     *
+     * These are excluded when we are serializing the model.
+     *
+     * @var string[]
+     */
+    protected $hidden = [];
+
+    /**
      * The validation rules.
      *
      * @var string[]

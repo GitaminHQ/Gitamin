@@ -11,9 +11,9 @@
 
 namespace Gitamin\Http\Controllers\Admin;
 
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Http\Requests\AdminRequest;
 use Gitamin\Models\Project;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 

@@ -12,8 +12,8 @@
 namespace Gitamin\Http\Controllers\Admin;
 
 use Exception;
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Setting;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
