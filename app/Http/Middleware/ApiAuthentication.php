@@ -52,11 +52,9 @@ class ApiAuthentication
                 try {
                     $this->auth->onceUsingId(User::findByApiToken($apiToken)->id);
                 } catch (ModelNotFoundException $e) {
-                    throw new HttpException(401);
-                }
-            } elseif ($request->getUser()) {
-                if ($this->auth->onceBasic() !== null) {
-                    throw new HttpException(401);
+                    if ($required) {
+                        throw new HttpException(401);
+                    }
                 }
             } elseif ($required) {
                 throw new HttpException(401);
