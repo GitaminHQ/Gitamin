@@ -11,17 +11,14 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Project;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 
 class IssuesController extends Controller
 {
-    use DispatchesJobs;
-
     /**
      * Stores the sub-sidebar tree list.
      *

@@ -11,8 +11,8 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Moment;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
 class MomentsController extends Controller

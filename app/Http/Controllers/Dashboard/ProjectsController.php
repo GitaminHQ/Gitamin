@@ -11,16 +11,13 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
+use Gitamin\Http\Controllers\Controller;
 use Gitamin\Models\Project;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class ProjectsController extends Controller
 {
-    use DispatchesJobs;
-
     /**
      * Array of sub-menu items.
      *

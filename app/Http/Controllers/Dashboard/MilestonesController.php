@@ -11,7 +11,7 @@
 
 namespace Gitamin\Http\Controllers\Dashboard;
 
-use Illuminate\Routing\Controller;
+use Gitamin\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 
 class MilestonesController extends Controller
