@@ -27,7 +27,7 @@ class ProjectsRoutes
     {
         // Project Area
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'prefix' => 'projects',
             'as' => 'projects.',
@@ -48,7 +48,7 @@ class ProjectsRoutes
 
         // Project Sub-routes
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'as' => 'projects.',
         ], function ($router) {

@@ -27,7 +27,7 @@ class AuthRoutes
     {
         $router->group([
             'as' => 'auth.',
-            'middleware' => 'app.hasSetting',
+            'middleware' => ['web', 'app.hasSetting'],
             'prefix' => 'auth',
             'setting' => 'app_name',
         ], function ($router) {
@@ -38,7 +38,7 @@ class AuthRoutes
             ]);
 
             $router->post('login', [
-                'middleware' => ['guest', 'csrf'],
+                'middleware' => ['guest', 'throttle:10,10'],
                 'uses' => 'AuthController@loginPost',
             ]);
 

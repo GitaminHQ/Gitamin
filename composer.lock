@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "122b4e393115a588d245e8ae03b231d9",
-    "content-hash": "3c45f02e616ea06491430f5dafabb0a1",
+    "hash": "248ace83ebf9bac5b997287829abb4f9",
+    "content-hash": "452530dad6153275c0d9c14b2ef4e4f4",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -1448,16 +1448,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.3",
+            "version": "v5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a7142dc041eb5a5c0507569817f5e450489c5981"
+                "reference": "1d165631b90d104c517d54455a5e867584645473"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/laravel/framework/a7142dc041eb5a5c0507569817f5e450489c5981.zip",
-                "reference": "a7142dc041eb5a5c0507569817f5e450489c5981",
+                "url": "http://packagist.phpcomposer.com/files/laravel/framework/1d165631b90d104c517d54455a5e867584645473.zip",
+                "reference": "1d165631b90d104c517d54455a5e867584645473",
                 "shasum": ""
             },
             "require": {
@@ -1573,7 +1573,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-12-22 16:22:20"
+            "time": "2015-12-24 15:39:57"
         },
         {
             "name": "laravelcollective/bus",

@@ -76,13 +76,8 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Gitamin\Models\User::class,
+            'model' => 'Gitamin\Models\User',
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

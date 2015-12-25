@@ -107,7 +107,6 @@ class ProjectsController extends Controller
             ->withActiveItem('project_show')
             ->withProject($project)
             ->withRepo('')
-            ->withRepository('')
             ->withCurrentBranch('master')
             ->withBranches([])
             ->withParentPath('')

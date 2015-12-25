@@ -12,7 +12,7 @@
 namespace Gitamin\Providers;
 
 use Exception;
-use Gitamin\Config\Repository;
+use Gitamin\Config\Config;
 use Gitamin\Facades\Setting;
 use Gitamin\Models\Setting as SettingModel;
 use Illuminate\Support\ServiceProvider;
@@ -66,7 +66,7 @@ class ConfigServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('setting', function () {
-            return new Repository(new SettingModel());
+            return new Config(new SettingModel());
         }, true);
     }
 }
