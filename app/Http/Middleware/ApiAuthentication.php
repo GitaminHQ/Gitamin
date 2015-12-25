@@ -17,7 +17,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class ApiAuthenticate
+class ApiAuthentication
 {
     /**
      * The authentication guard instance.
@@ -41,10 +41,11 @@ class ApiAuthenticate
      *
      * @param \Illuminate\Http\Request $request
      * @param \Closure                 $next
+     * @param bool                     $required
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $required = false)
     {
         if ($this->auth->guest()) {
             if ($apiToken = $request->header('X-Gitamin-Token')) {
@@ -57,7 +58,7 @@ class ApiAuthenticate
                 if ($this->auth->onceBasic() !== null) {
                     throw new HttpException(401);
                 }
-            } else {
+            } elseif ($required) {
                 throw new HttpException(401);
             }
         }

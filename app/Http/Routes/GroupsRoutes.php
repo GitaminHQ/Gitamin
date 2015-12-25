@@ -26,7 +26,7 @@ class GroupsRoutes
     public function map(Registrar $router)
     {
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'prefix' => 'groups',
             'as' => 'groups.',
@@ -48,7 +48,7 @@ class GroupsRoutes
 
         // Project Sub-routes groups.group_show, groups.group_edit
         $router->group([
-            'middleware' => ['app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
             'as' => 'groups.',
         ], function ($router) {

@@ -27,7 +27,7 @@ class AdminRoutes
     {
         //Dashboard area
         $router->group([
-            'middleware' => ['auth', 'admin'],
+            'middleware' => ['web', 'auth', 'admin'],
             'prefix' => 'admin',
             'namespace' => 'Admin',
             'as' => 'admin.',

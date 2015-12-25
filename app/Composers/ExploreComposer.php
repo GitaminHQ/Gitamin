@@ -51,7 +51,7 @@ class ExploreComposer
         }
 
         // Project & Project Team lists.
-        $usedProjectTeams = Project::where('owner_id', '>', 0)->groupBy('owner_id')->lists('owner_id');
+        $usedProjectTeams = Project::where('owner_id', '>', 0)->groupBy('owner_id')->pluck('owner_id');
         $projectTeams = Owner::whereIn('id', $usedProjectTeams)->get();
         $unteamedProjects = Project::where('owner_id', 0)->orderBy('created_at')->get();
 

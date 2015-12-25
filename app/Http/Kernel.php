@@ -23,14 +23,19 @@ class Kernel extends HttpKernel
     protected $middleware = [
         'Fideloper\Proxy\TrustProxies',
         'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-        'Illuminate\Cookie\Middleware\EncryptCookies',
-        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-        'Illuminate\Session\Middleware\StartSession',
-        'Illuminate\View\Middleware\ShareErrorsFromSession',
     ];
 
     protected $middlewareGroups = [
+        'web' => [
+            'Illuminate\Cookie\Middleware\EncryptCookies',
+            'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+            'Illuminate\Session\Middleware\StartSession',
+            'Illuminate\View\Middleware\ShareErrorsFromSession',
+            'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
+        ],
         'api' => [
+            'Gitamin\Http\Middleware\Acceptable',
+            'Gitamin\Http\Middleware\Timezone',
             'throttle:60,1',
         ],
     ];
@@ -40,17 +45,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-        'csrf' => 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
-        'accept' => 'Gitamin\Http\Middleware\Acceptable',
         'admin' => 'Gitamin\Http\Middleware\Admin',
+        'auth' => 'Gitamin\Http\Middleware\Authenticate',
+        'auth.api' => 'Gitamin\Http\Middleware\ApiAuthentication',
+        'guest' => 'Gitamin\Http\Middleware\RedirectIfAuthenticated',
         'app.hasSetting' => 'Gitamin\Http\Middleware\HasSetting',
         'app.isInstalled' => 'Gitamin\Http\Middleware\AppIsInstalled',
         'app.subscribers' => 'Gitamin\Http\Middleware\SubscribersConfigured',
-        'auth' => 'Gitamin\Http\Middleware\Authenticate',
-        'auth.api' => 'Gitamin\Http\Middleware\ApiAuthenticate',
-        'auth.api.optional' => 'Gitamin\Http\Middleware\ApiOptionalAuthenticate',
-        'guest' => 'Gitamin\Http\Middleware\RedirectIfAuthenticated',
         'localize' => 'Gitamin\Http\Middleware\Localize',
         'timezone' => 'Gitamin\Http\Middleware\Timezone',
         'throttle' => 'Illuminate\Routing\Middleware\ThrottleRequests',
