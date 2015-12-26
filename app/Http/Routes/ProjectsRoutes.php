@@ -66,101 +66,118 @@ class ProjectsRoutes
                 'uses' => 'ProjectsController@updateAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
-            //Issues
-            $router->get('{owner_path}/{project_path}/issues', [
-                'as' => 'issue_index',
-                'uses' => 'Projects\\IssuesController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-            //new
-            $router->get('{owner_path}/{project_path}/issues/new', [
-                'as' => 'issue_new',
-                'uses' => 'Projects\\IssuesController@newAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-            //create
-            $router->post('{owner_path}/{project_path}/issues', [
-                'as' => 'issue_create',
-                'uses' => 'Projects\\IssuesController@createAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-            //show
-            $router->get('{owner_path}/{project_path}/issues/{issue}', [
-                'as' => 'issue_show',
-                'uses' => 'Projects\\IssuesController@showAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-             //edit
-            $router->get('{owner_path}/{project_path}/issues/{issue}/edit', [
-                'as' => 'issue_edit',
-                'uses' => 'Projects\\IssuesController@editAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-            //update
-            $router->post('{owner_path}/{project_path}/issues/{issue}', [
-                'as' => 'issue_update',
-                'uses' => 'Projects\\IssuesController@updateAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
-            //Pull Requests
-            $router->get('{owner_path}/{project_path}/pulls', [
-                'as' => 'pull_index',
-                'uses' => 'Projects\\PullRequestsController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
-            //Wiki
-            $router->get('{owner_path}/{project_path}/wiki', [
-                'as' => 'wiki_index',
-                'uses' => 'Projects\\WikiController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
-            //Pulse
-            $router->get('{owner_path}/{project_path}/pulse', [
-                'as' => 'pulse_index',
-                'uses' => 'Projects\\PulseController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
-            //Graphs
-            $router->get('{owner_path}/{project_path}/graphs', [
-                'as' => 'graph_index',
-                'uses' => 'Projects\\GraphsController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
-            //Comments
-            //create
-            $router->post('{owner_path}/{project_path}/comments', [
-                'as' => 'comment_create',
-                'uses' => 'Projects\\CommentsController@createAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
-
-            // Tree
+             // Tree
             $router->get('{owner_path}/{project_path}/tree/{postfix}', [
                 'as' => 'tree_index',
                 'uses' => 'ProjectsController@showAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
+            // Namespace Projects
+            //Issues
+            $router->get('{owner_path}/{project_path}/issues', [
+                'namespace' => 'Projects',
+                'as' => 'issue_index',
+                'uses' => 'IssuesController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+            //new
+            $router->get('{owner_path}/{project_path}/issues/new', [
+                'namespace' => 'Projects',
+                'as' => 'issue_new',
+                'uses' => 'IssuesController@newAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+            //create
+            $router->post('{owner_path}/{project_path}/issues', [
+                'namespace' => 'Projects',
+                'as' => 'issue_create',
+                'uses' => 'IssuesController@createAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+            //show
+            $router->get('{owner_path}/{project_path}/issues/{issue}', [
+                'namespace' => 'Projects',
+                'as' => 'issue_show',
+                'uses' => 'IssuesController@showAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+             //edit
+            $router->get('{owner_path}/{project_path}/issues/{issue}/edit', [
+                'namespace' => 'Projects',
+                'as' => 'issue_edit',
+                'uses' => 'IssuesController@editAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+            //update
+            $router->post('{owner_path}/{project_path}/issues/{issue}', [
+                'namespace' => 'Projects',
+                'as' => 'issue_update',
+                'uses' => 'IssuesController@updateAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Pull Requests
+            $router->get('{owner_path}/{project_path}/pulls', [
+                'namespace' => 'Projects',
+                'as' => 'pull_index',
+                'uses' => 'PullRequestsController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Wiki
+            $router->get('{owner_path}/{project_path}/wiki', [
+                'namespace' => 'Projects',
+                'as' => 'wiki_index',
+                'uses' => 'WikiController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Pulse
+            $router->get('{owner_path}/{project_path}/pulse', [
+                'namespace' => 'Projects',
+                'as' => 'pulse_index',
+                'uses' => 'PulseController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Graphs
+            $router->get('{owner_path}/{project_path}/graphs', [
+                'namespace' => 'Projects',
+                'as' => 'graph_index',
+                'uses' => 'GraphsController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            //Comments
+            //create
+            $router->post('{owner_path}/{project_path}/comments', [
+                'namespace' => 'Projects',
+                'as' => 'comment_create',
+                'uses' => 'CommentsController@createAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
             // Commits
              $router->get('{owner_path}/{project_path}/commits/{postfix}', [
+                'namespace' => 'Projects',
                 'as' => 'commits_index',
-                'uses' => 'Projects\\CommitsController@indexAction',
+                'uses' => 'CommitsController@indexAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
              // Stats
              $router->get('{owner_path}/{project_path}/stats/{postfix}', [
+                'namespace' => 'Projects',
                 'as' => 'stats_index',
-                'uses' => 'Projects\\StatsController@indexAction',
+                'uses' => 'StatsController@indexAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
              // Network
              $router->get('{owner_path}/{project_path}/network', [
+                'namespace' => 'Projects',
                 'as' => 'network_index',
-                'uses' => 'Projects\\NetworkController@indexAction',
+                'uses' => 'NetworkController@indexAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
              $router->get('{owner_path}/{project_path}/network/{postfix}', [
+                'namespace' => 'Projects',
                 'as' => 'network_index',
-                'uses' => 'Projects\\NetworkController@graphAction',
+                'uses' => 'NetworkController@graphAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
             // Blob
              $router->get('{owner_path}/{project_path}/blob/{postfix}', [
+                'namespace' => 'Projects',
                 'as' => 'pulse_index',
-                'uses' => 'Projects\\BlobController@indexAction',
+                'uses' => 'BlobController@indexAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
         });

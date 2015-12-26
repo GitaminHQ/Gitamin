@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Http\Controllers;
+namespace Gitamin\Http\Controllers\Auth;
 
+use Gitamin\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
