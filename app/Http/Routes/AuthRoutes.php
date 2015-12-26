@@ -55,9 +55,18 @@ class AuthRoutes
                 'uses' => 'PasswordController@getEmail',
             ]);
 
-            $router->post('password/email', 'PasswordController@postEmail');
-            $router->get('password/reset/{token}', 'PasswordController@getReset');
-            $router->post('password/reset', 'PasswordController@postReset');
+            $router->post('password/email', [
+                'middleware' => 'guest',
+                'uses' => 'PasswordController@postEmail'
+            ]);
+            $router->get('password/reset/{token}', [
+                'middleware' => 'guest',
+                'uses' => 'PasswordController@getReset',
+            ]);
+            $router->post('password/reset', [
+                'middleware' => 'guest',
+                'uses' => 'PasswordController@postReset',
+            ]);
 
         });
     }
