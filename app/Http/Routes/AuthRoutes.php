@@ -26,6 +26,7 @@ class AuthRoutes
     public function map(Registrar $router)
     {
         $router->group([
+            'namespace' => 'Auth',
             'as' => 'auth.',
             'middleware' => ['web', 'app.hasSetting'],
             'prefix' => 'auth',

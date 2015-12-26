@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Http\Controllers;
+namespace Gitamin\Http\Controllers\Auth;
 
+use Gitamin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

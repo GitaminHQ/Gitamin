@@ -21,7 +21,7 @@
                 <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.email') }}" required="required" name="email" type="email" value="">
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-info btn-lg">{{ trans('gitamin.signin.title') }}</button>
+                <button type="submit" class="btn btn-info btn-lg">{{ trans('forms.submit') }}</button>
                 <a class="btn btn-default pull-right" href="{{ route('auth.login') }}">{{ trans('gitamin.signin.signin') }}</a>
             </div>
         </form>
