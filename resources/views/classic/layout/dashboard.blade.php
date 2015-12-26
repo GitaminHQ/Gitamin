@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>{{ $page_title }}</title>
+        <title>{{ $page_title or $app_name.' | Gitamin' }}</title>
         <link rel="stylesheet" href="{{ elixir('dist/css/style.css') }}">
         <!--[if lt IE 9]>
         <script src="/dist/js/classic/html5.js"></script>

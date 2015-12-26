@@ -18,7 +18,7 @@
             @endif
             <div class="form-group">
                 <label class="control-label">{{ trans('gitamin.signin.login') }}</label>
-                <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.login') }}" required="required" name="login" type="text" autofocus>
+                <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.login') }}" required="required" name="login" type="text" value="{{ Input::old('login') }}" autofocus>
             </div>
             <div class="form-group">
                 <label class="control-label">{{ trans('gitamin.signin.password') }}</label>
