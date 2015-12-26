@@ -13,7 +13,7 @@ namespace Gitamin\Events\Subscriber;
 
 use Gitamin\Models\Subscriber;
 
-class SubscriberHasSubscribedEvent implements SubscriberEventInterface
+final class SubscriberHasSubscribedEvent implements SubscriberEventInterface
 {
     /**
      * The subscriber who has subscribed.

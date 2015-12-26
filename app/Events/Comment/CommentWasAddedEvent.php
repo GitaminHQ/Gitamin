@@ -13,7 +13,7 @@ namespace Gitamin\Events\Comment;
 
 use Gitamin\Models\Comment;
 
-class CommentWasAddedEvent implements CommentEventInterface
+final class CommentWasAddedEvent implements CommentEventInterface
 {
     /**
      * The comment that has been reported.

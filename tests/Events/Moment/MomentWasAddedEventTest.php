@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Test\Events\User;
+namespace Gitamin\Test\Events\Moment;
 
-use Gitamin\Events\User\UserWasAddedEvent;
-use Gitamin\Models\User;
+use Gitamin\Events\Moment\MomentWasAddedEvent;
+use Gitamin\Models\Moment;
 
-final class UserWasAddedEventTest extends AbstractUserEventTestCase
+class MomentWasAddedEventTest extends AbstractMomentEventTestCase
 {
     protected function objectHasHandlers()
     {
-        return true;
+        return false;
     }
 
     protected function getObjectAndParams()
     {
-        $params = ['user' => new User()];
-        $object = new UserWasAddedEvent($params['user']);
+        $params = ['moment' => new Moment()];
+        $object = new MomentWasAddedEvent($params['moment']);
 
         return compact('params', 'object');
     }

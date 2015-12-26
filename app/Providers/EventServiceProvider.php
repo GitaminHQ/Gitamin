@@ -25,14 +25,37 @@ class EventServiceProvider extends ServiceProvider
         'Gitamin\Events\Comment\CommentWasAddedEvent' => [
             'Gitamin\Handlers\Events\Comment\SendCommentMomentHandler',
         ],
+        'Gitamin\Events\Comment\CommentWasRemovedEvent' => [
+        ],
+        'Gitamin\Events\Comment\CommentWasUpdatedEvent' => [
+        ],
+
          // Issue email notifications
         'Gitamin\Events\Issue\IssueWasAddedEvent' => [
             'Gitamin\Handlers\Events\Issue\SendIssueEmailNotificationHandler',
         ],
+        'Gitamin\Events\Issue\IssueWasRemovedEvent' => [
+        ],
+        'Gitamin\Events\Issue\IssueWasUpdatedEvent' => [
+        ],
+
+        // Moment related
+        'Gitamin\Events\Moment\MomentWasAddedEvent' => [
+        ],
+        'Gitamin\Events\Moment\MomentWasRemovedEvent' => [
+        ],
+        'Gitamin\Events\Moment\MomentWasUpdatedEvent' => [
+        ],
+
         // Owner related moments
         'Gitamin\Events\Owner\OwnerWasAddedEvent' => [
             'Gitamin\Handlers\Events\Owner\SendOwnerMomentHandler',
         ],
+        'Gitamin\Events\Owner\OwnerWasRemovedEvent' => [
+        ],
+        'Gitamin\Events\Owner\OwnerWasUpdatedEvent' => [
+        ],
+
         // Project related moments
         'Gitamin\Events\Project\ProjectWasAddedEvent' => [
             'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
@@ -43,10 +66,15 @@ class EventServiceProvider extends ServiceProvider
         'Gitamin\Events\Project\ProjectWasUpdatedEvent' => [
             'Gitamin\Handlers\Events\Project\SendProjectMomentHandler',
         ],
+
         // Suscriber
         'Gitamin\Events\Subscriber\SubscriberHasSubscribedEvent' => [
             'Gitamin\Handlers\Events\Subscriber\SendSubscriberVerificationEmailHandler',
         ],
+        'Gitamin\Events\Subscriber\SubscriberHasUnsubscribedEvent' => [],
+        'Gitamin\Events\Subscriber\SubscriberHasVerifiedEvent' => [],
+
+        // User
         'Gitamin\Events\User\UserWasAddedEvent' => [
             'Gitamin\Handlers\Events\Owner\AddOwnerAfterUserAddedHandler',
         ],

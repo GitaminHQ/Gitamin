@@ -13,19 +13,17 @@ namespace Gitamin\Events\Moment;
 
 use Gitamin\Models\Moment;
 
-final class MomentWasQueuedEvent implements MomentEventInterface
+final class MomentWasAddedEvent implements MomentEventInterface
 {
     /**
-     * The moment object.
+     * The moment that has been reported.
      *
      * @var \Gitamin\Models\Moment
      */
     public $moment;
 
     /**
-     * Create a new moment was removed event instance.
-     *
-     * @param \Gitamin\Models\Moment $moment
+     * Create a new moment has reported event instance.
      */
     public function __construct(Moment $moment)
     {

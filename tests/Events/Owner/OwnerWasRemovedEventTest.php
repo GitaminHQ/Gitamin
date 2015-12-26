@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Test\Events\User;
+namespace Gitamin\Test\Events\Owner;
 
-use Gitamin\Events\User\UserWasAddedEvent;
-use Gitamin\Models\User;
+use Gitamin\Events\Owner\OwnerWasRemovedEvent;
+use Gitamin\Models\Owner;
 
-final class UserWasAddedEventTest extends AbstractUserEventTestCase
+class OwnerWasRemovedEventTest extends AbstractOwnerEventTestCase
 {
     protected function objectHasHandlers()
     {
-        return true;
+        return false;
     }
 
     protected function getObjectAndParams()
     {
-        $params = ['user' => new User()];
-        $object = new UserWasAddedEvent($params['user']);
+        $params = ['owner' => new Owner()];
+        $object = new OwnerWasRemovedEvent($params['owner']);
 
         return compact('params', 'object');
     }

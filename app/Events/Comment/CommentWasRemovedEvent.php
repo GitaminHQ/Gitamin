@@ -13,7 +13,7 @@ namespace Gitamin\Events\Comment;
 
 use Gitamin\Models\Comment;
 
-class CommentWasRemovedEvent implements CommentEventInterface
+final class CommentWasRemovedEvent implements CommentEventInterface
 {
     /**
      * The comment that has been removed.
