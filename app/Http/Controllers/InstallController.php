@@ -39,6 +39,54 @@ class InstallController extends Controller
     ];
 
     /**
+     * Array of step1 rules.
+     *
+     * @var string[]
+     */
+    protected $rulesStep1;
+
+    /**
+     * Array of step2 rules.
+     *
+     * @var string[]
+     */
+    protected $rulesStep2;
+
+    /**
+     * Array of step3 rules.
+     *
+     * @var string[]
+     */
+    protected $rulesStep3;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->rulesStep1 = [
+            'env.cache_driver'   => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+        ];
+
+        $this->rulesStep2 = [
+            'settings.app_name'     => 'required',
+            'settings.app_domain'   => 'required',
+            'settings.app_timezone' => 'required',
+            'settings.app_locale'   => 'required',
+            'settings.show_support' => 'bool',
+        ];
+
+        $this->rulesStep3 = [
+            'user.username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
+            'user.email'    => 'email|required',
+            'user.password' => 'required',
+        ];
+    }
+
+    /**
      * Returns the install page.
      *
      * @return \Illuminate\View\View
@@ -76,12 +124,9 @@ class InstallController extends Controller
      */
     public function postStep1()
     {
-        $postData = Request::all();
+        $postData = Binput::all();
 
-        $v = Validator::make($postData, [
-            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-        ]);
+        $v = Validator::make($postData, $this->rulesStep1);
 
         if ($v->passes()) {
             return Response::json(['status' => 1]);
@@ -99,14 +144,7 @@ class InstallController extends Controller
     {
         $postData = Request::all();
 
-        $v = Validator::make($postData, [
-            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'settings.app_name' => 'required',
-            'settings.app_domain' => 'required',
-            'settings.app_timezone' => 'required',
-            'settings.app_locale' => 'required',
-        ]);
+        $v = Validator::make($postData, $this->rulesStep1 + $this->rulesStep2);
 
         if ($v->passes()) {
             return Response::json(['status' => 1]);
@@ -124,17 +162,7 @@ class InstallController extends Controller
     {
         $postData = Request::all();
 
-        $v = Validator::make($postData, [
-            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'settings.app_name' => 'required',
-            'settings.app_domain' => 'required',
-            'settings.app_timezone' => 'required',
-            'settings.app_locale' => 'required',
-            'user.username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
-            'user.email' => 'email|required',
-            'user.password' => 'required',
-        ]);
+        $v = Validator::make($postData, $this->rulesStep1 + $this->rulesStep2 + $this->rulesStep3);
 
         if ($v->passes()) {
             // Pull the user details out.
