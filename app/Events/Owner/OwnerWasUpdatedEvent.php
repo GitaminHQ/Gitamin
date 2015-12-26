@@ -13,7 +13,7 @@ namespace Gitamin\Events\Owner;
 
 use Gitamin\Models\Owner;
 
-class OwnerWasUpdatedEvent implements OwnerEventInterface
+final class OwnerWasUpdatedEvent implements OwnerEventInterface
 {
     /**
      * The project owner that was updated.

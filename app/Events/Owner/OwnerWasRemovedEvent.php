@@ -13,7 +13,7 @@ namespace Gitamin\Events\Owner;
 
 use Gitamin\Models\Owner;
 
-class OwnerWasRemovedEvent implements OwnerEventInterface
+final class OwnerWasRemovedEvent implements OwnerEventInterface
 {
     /**
      * The project owner that was removed.

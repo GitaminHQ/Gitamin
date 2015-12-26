@@ -13,7 +13,7 @@ namespace Gitamin\Events\Project;
 
 use Gitamin\Models\Project;
 
-class ProjectWasRemovedEvent implements ProjectEventInterface
+final class ProjectWasRemovedEvent implements ProjectEventInterface
 {
     /**
      * The project that was removed.

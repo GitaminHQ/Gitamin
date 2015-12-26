@@ -13,10 +13,10 @@ namespace Gitamin\Events\Moment;
 
 use Gitamin\Models\Moment;
 
-final class MomentWasQueuedEvent implements MomentEventInterface
+final class MomentWasRemovedEvent implements MomentEventInterface
 {
     /**
-     * The moment object.
+     * The moment that has been removed.
      *
      * @var \Gitamin\Models\Moment
      */
@@ -24,8 +24,6 @@ final class MomentWasQueuedEvent implements MomentEventInterface
 
     /**
      * Create a new moment was removed event instance.
-     *
-     * @param \Gitamin\Models\Moment $moment
      */
     public function __construct(Moment $moment)
     {

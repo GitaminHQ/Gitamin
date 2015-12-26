@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Test\Events\User;
+namespace Gitamin\Test\Events\Subscriber;
 
-use Gitamin\Events\User\UserWasAddedEvent;
-use Gitamin\Models\User;
+use Gitamin\Events\Subscriber\SubscriberHasSubscribedEvent;
+use Gitamin\Models\Subscriber;
 
-final class UserWasAddedEventTest extends AbstractUserEventTestCase
+class SubscriberHasSubscribedEventTest extends AbstractSubscriberEventTestCase
 {
     protected function objectHasHandlers()
     {
@@ -23,8 +23,8 @@ final class UserWasAddedEventTest extends AbstractUserEventTestCase
 
     protected function getObjectAndParams()
     {
-        $params = ['user' => new User()];
-        $object = new UserWasAddedEvent($params['user']);
+        $params = ['subscriber' => new Subscriber()];
+        $object = new SubscriberHasSubscribedEvent($params['subscriber']);
 
         return compact('params', 'object');
     }

@@ -13,7 +13,7 @@ namespace Gitamin\Events\Project;
 
 use Gitamin\Models\Project;
 
-class ProjectWasUpdatedEvent implements ProjectEventInterface
+final class ProjectWasUpdatedEvent implements ProjectEventInterface
 {
     /**
      * The project that was updated.
