@@ -47,10 +47,10 @@ window.sanitize = (str) ->
   return str.replace(/<(?:.|\n)*?>/gm, '')
 
 window.startSpinner = ->
-  $('.turbolink-spinner').fadeIn()
+  NProgress.start();
 
 window.stopSpinner = ->
-  $('.turbolink-spinner').fadeOut()
+  NProgress.done();
 
 window.unbindEvents = ->
   $(document).off('scroll')
@@ -58,11 +58,16 @@ window.unbindEvents = ->
 window.shiftWindow = ->
   scrollBy 0, -100
 
-document.addEventListener "page:fetch", startSpinner
-document.addEventListener "page:fetch", unbindEvents
-document.addEventListener "page:change", stopSpinner
+$(document).pjax "a:not(a[target=\"_blank\"])", "body"
+$(document).on "pjax:start", ->
+  NProgress.start()
 
-window.addEventListener "hashchange", shiftWindow
+$(document).on "pjax:end", ->
+  NProgress.done()
+
+$(document).on "pjax:complete", ->
+  NProgress.done()
+
 
 window.onload = ->
   # Scroll the window to avoid the topnav bar

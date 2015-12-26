@@ -29,8 +29,13 @@ elixir(function (mix) {
             'vendor/bower_components/sweetalert/dist/sweetalert.css',
             'vendor/bower_components/select2/dist/css/select2.min.css',
             'vendor/bower_components/dropzone/dist/min/dropzone.min.css',
+            'vendor/bower_components/nprogress/nprogress.css',
             'public/dist/css/app.css'
         ], 'public/dist/css/gitamin.css', './')
+        .styles([
+            'vendor/bower_components/nprogress/nprogress.css',
+            'public/dist/css/style.css',
+        ], 'public/dist/css/classic.css', './')
         .coffeeScript()
         .scripts([
             'vendor/bower_components/jquery/dist/jquery.js',
@@ -52,8 +57,10 @@ elixir(function (mix) {
             'vendor/bower_components/jquery-nicescroll/jquery.nicescroll.min.js',
             'vendor/bower_components/jquery-timeago/jquery.timeago.js',
             'vendor/bower_components/waitForImages/dist/jquery.waitforimages.min.js',
+            'vendor/bower_components/nprogress/nprogress.js',
+            'vendor/bower_components/jquery-pjax/jquery.pjax.js',
             'vendor/bower_components/coffee/**/*.js'
         ], 'public/dist/js/gitamin.js', './')
-        .version(['public/dist/css/gitamin.css', 'public/dist/css/style.css', 'public/dist/js/gitamin.js'])
+        .version(['public/dist/css/gitamin.css', 'public/dist/css/classic.css', 'public/dist/js/gitamin.js'])
         .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/');
 });
