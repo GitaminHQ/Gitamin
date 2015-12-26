@@ -127,6 +127,37 @@ class ProjectsRoutes
                 'as' => 'comment_create',
                 'uses' => 'Projects\\CommentsController@createAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            // Tree
+            $router->get('{owner_path}/{project_path}/tree/{postfix}', [
+                'as' => 'tree_index',
+                'uses' => 'ProjectsController@showAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+
+            // Commits
+             $router->get('{owner_path}/{project_path}/commits/{postfix}', [
+                'as' => 'commits_index',
+                'uses' => 'Projects\\CommitsController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+
+             // Stats
+             $router->get('{owner_path}/{project_path}/stats/{postfix}', [
+                'as' => 'stats_index',
+                'uses' => 'Projects\\StatsController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+
+             // Network
+             $router->get('{owner_path}/{project_path}/network', [
+                'as' => 'network_index',
+                'uses' => 'Projects\\NetworkController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
+
+            // Blob
+             $router->get('{owner_path}/{project_path}/blob/{postfix}', [
+                'as' => 'pulse_index',
+                'uses' => 'Projects\\BlobController@indexAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+
         });
     }
 }

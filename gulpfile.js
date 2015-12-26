@@ -3,6 +3,7 @@ var elixir  = require('laravel-elixir'),
     gutil   = require('gulp-util'),
     gcoffee = require('gulp-coffee'),
     gnotify = require('gulp-notify');
+    less    = require('gulp-less');
 
 var Task = elixir.Task;
 
@@ -22,6 +23,7 @@ elixir.config.sourcemaps = false;
 elixir(function (mix) {
     mix
         .sass('app.scss', 'public/dist/css/app.css')
+        .less('style.less', 'public/dist/css/style.css')
         .styles([
             'vendor/bower_components/jquery-minicolors/jquery.minicolors.css',
             'vendor/bower_components/sweetalert/dist/sweetalert.css',
@@ -52,6 +54,6 @@ elixir(function (mix) {
             'vendor/bower_components/waitForImages/dist/jquery.waitforimages.min.js',
             'vendor/bower_components/coffee/**/*.js'
         ], 'public/dist/js/gitamin.js', './')
-        .version(['public/dist/css/gitamin.css', 'public/dist/js/gitamin.js'])
+        .version(['public/dist/css/gitamin.css', 'public/dist/css/style.css', 'public/dist/js/gitamin.js'])
         .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/');
 });
