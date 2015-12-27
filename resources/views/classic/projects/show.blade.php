@@ -2,7 +2,7 @@
 
 @section('content')
     @include('dashboard.partials.breadcrumb')
-    <table class="table tree">
+    <table class="table tree table-hover">
         <thead>
             <tr>
                 <th width="80%">Name</th>

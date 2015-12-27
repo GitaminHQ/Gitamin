@@ -14,7 +14,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "~5.2.5",
         "phecho/uploader": "^0.1",
-        "klaussilveira/gitter": "0.3.*",
+        "gitonomy/gitlib": "^1.0.0",
         "zizaco/entrust": "dev-laravel-5",
         "alt-three/emoji": "^2.1",
         "alt-three/validator": "^1.4",
