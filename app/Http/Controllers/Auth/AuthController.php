@@ -34,7 +34,11 @@ class AuthController extends Controller
      */
     protected function login()
     {
-        $loginData = Request::only(['login', 'password']);
+        $loginData = Request::only(['login', 'password', 'remember']);
+
+        // Remember me?
+        $remember = (bool) array_pull($loginData, 'remember');
+
         // Login with username or email.
         $loginKey = Str::contains($loginData['login'], '@') ? 'email' : 'username';
         $loginData[$loginKey] = array_pull($loginData, 'login');
@@ -43,7 +47,7 @@ class AuthController extends Controller
             // Log the user in for one request.
             Auth::once($loginData);
             // We probably want to add support for "Remember me" here.
-            Auth::attempt($loginData);
+            Auth::attempt($loginData, $remember);
             //return Redirect::intended('/')
             return Redirect::home()
                 ->withSuccess(trans('gitamin.signin.success'));

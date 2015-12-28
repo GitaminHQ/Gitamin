@@ -46,6 +46,8 @@ namespace Gitamin\Models;
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Presenters\ProjectPresenter;
 use Gitamin\Traits\VisibilityTrait;
+use Gitter\Client as GitterClient;
+use Gitter\Repository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -243,6 +245,16 @@ class Project extends Model implements HasPresenter
         });
 
         return implode(', ', $tags->toArray());
+    }
+
+    /**
+     * Returns repository on this project.
+     *
+     * @return \Gitonomy\Git\Repository
+     */
+    public function getRepository()
+    {
+        return (new GitterClient())->getRepository('/Users/guanshiliang/Code/Gitamin');
     }
 
     /**

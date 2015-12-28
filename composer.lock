@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1bbc6cd9ce503b54b9bb1c8cc9081d2c",
-    "content-hash": "7b23a9e82861fb744dc8f70801454ead",
+    "hash": "a558d98eaba2db865717c36f93d44f2d",
+    "content-hash": "dfc55aeedde2ab3d6ecb5c1e7bf55fde",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -836,60 +836,6 @@
             "time": "2015-06-29 05:42:04"
         },
         {
-            "name": "gitonomy/gitlib",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gitonomy/gitlib.git",
-                "reference": "f575b8f7da917ade7890c6aa705fa22545690389"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/gitonomy/gitlib/f575b8f7da917ade7890c6aa705fa22545690389.zip",
-                "reference": "f575b8f7da917ade7890c6aa705fa22545690389",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/process": "^2.3|^3.0"
-            },
-            "require-dev": {
-                "psr/log": "^1.0"
-            },
-            "suggest": {
-                "psr/log": "Add some log"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Gitonomy\\Git\\": "src/Gitonomy/Git/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexandre Salomé",
-                    "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr"
-                },
-                {
-                    "name": "Julien DIDIER",
-                    "email": "genzo.wm@gmail.com",
-                    "homepage": "http://www.jdidier.net"
-                }
-            ],
-            "description": "Library for accessing git",
-            "homepage": "http://gitonomy.com",
-            "time": "2015-12-01 22:25:57"
-        },
-        {
             "name": "graham-campbell/exceptions",
             "version": "v5.1.0",
             "source": {
@@ -1450,6 +1396,55 @@
                 "tokenizer"
             ],
             "time": "2015-12-05 17:17:57"
+        },
+        {
+            "name": "klaussilveira/gitter",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/klaussilveira/gitter.git",
+                "reference": "6eff42830c336ee9b8b8b9d2f69b62bd9bcbaf3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/klaussilveira/gitter/6eff42830c336ee9b8b8b9d2f69b62bd9bcbaf3b.zip",
+                "reference": "6eff42830c336ee9b8b8b9d2f69b62bd9bcbaf3b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/process": ">=2.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.1",
+                "phpunit/phpunit": ">=3.7.1",
+                "symfony/filesystem": ">=2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gitter": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Klaus Silveira",
+                    "email": "klaussilveira@php.net",
+                    "homepage": "http://www.klaussilveira.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Gitter allows you to interact in an object oriented manner with Git repositories.",
+            "homepage": "https://github.com/klaussilveira/gitter",
+            "keywords": [
+                "git",
+                "vcs"
+            ],
+            "time": "2014-05-24 15:18:29"
         },
         {
             "name": "laravel/framework",

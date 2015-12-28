@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\View;
 
 class BlobController extends Controller
 {
-    protected $active_item = 'blob';
+    protected $active_item = 'project_show';
 
     /**
      * Display a listing of the resource.
@@ -31,6 +31,8 @@ class BlobController extends Controller
         return View::make('projects.blob.index')
             ->withProject($project)
             ->withWikis([])
+            ->withBranches([])
+            ->withCurrentBranch('')
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
