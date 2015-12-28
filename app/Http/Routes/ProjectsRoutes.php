@@ -61,7 +61,7 @@ class ProjectsRoutes
             $router->get('{owner_path}/{project_path}/tree/{postfix}', [
                 'as' => 'tree_index',
                 'uses' => 'ProjectsController@showAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '(.*)?');
 
         });
 

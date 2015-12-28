@@ -98,19 +98,31 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showAction($owner_path, $project_path)
+    public function showAction($owner_path, $project_path, $postfix = null)
     {
         $project = Project::findByPath($owner_path, $project_path);
+        $repository = $project->getRepository();
+
+        $currentBranch = $repository->getCurrentBranch();
+
+        if ($postfix !== null && $postfix != $currentBranch) {
+            $tree = str_replace($currentBranch.'/', '', $postfix);
+        } else {
+            $tree = '';
+        }
+
+        $files = $repository->getTree($tree ? "$currentBranch:\"$tree\"/" : $currentBranch);
 
         return View::make('projects.show')
             ->withPageTitle($project->name)
             ->withActiveItem('project_show')
             ->withProject($project)
             ->withRepo('')
-            ->withCurrentBranch('master')
+            ->withCurrentBranch($currentBranch)
             ->withBranches([])
             ->withParentPath('')
-            ->withFiles([]);
+            ->withPath($tree ? $tree.'/' : $tree)
+            ->withFiles($files->output());
     }
 
     /**

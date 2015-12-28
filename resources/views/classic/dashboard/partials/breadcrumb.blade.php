@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-    <li><a href="/Baidu/api/tree/master/">Baidu/api</a></li>
+    <li><a href="/Baidu/api/tree/{{ $current_branch }}">Baidu/api</a></li>
 
     <div class="pull-right">
         <div class="btn-group download-buttons">
