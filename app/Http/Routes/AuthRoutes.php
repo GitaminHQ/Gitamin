@@ -29,25 +29,37 @@ class AuthRoutes
             'namespace' => 'Auth',
             'as' => 'auth.',
             'middleware' => ['web', 'app.hasSetting'],
-            'prefix' => 'auth',
             'setting' => 'app_name',
         ], function ($router) {
+            $router->controllers([
+                'auth' => 'AuthController',
+                'password' => 'PasswordController',
+            ]);
+            /*
             $router->get('login', [
                 'middleware' => 'guest',
                 'as' => 'login',
-                'uses' => 'AuthController@loginAction',
+                'uses' => 'AuthController@getLogin',
             ]);
-
             $router->post('login', [
-                'middleware' => ['guest', 'throttle:10,10'],
-                'uses' => 'AuthController@loginPost',
+                'middleware' => ['guest'],
+                'uses' => 'AuthController@postLogin',
             ]);
 
             $router->get('logout', [
-                'as' => 'logout',
-                'uses' => 'AuthController@logoutAction',
                 'middleware' => 'auth',
+                'as' => 'logout',
+                'uses' => 'AuthController@getLogout',
             ]);
+            
+            $router->get('signup', [
+                'as' => 'signup',
+                'uses' => 'AuthController@getSignup',
+            ]);
+            $router->post('signup', [
+                'uses' => 'AuthController@postSignup',
+            ]);
+
 
             $router->get('password', [
                 'middleware' => 'guest',
@@ -67,6 +79,7 @@ class AuthRoutes
                 'middleware' => 'guest',
                 'uses' => 'PasswordController@postReset',
             ]);
+            */
 
         });
     }

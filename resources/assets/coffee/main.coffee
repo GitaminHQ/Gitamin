@@ -46,19 +46,8 @@ window.disableButtonIfAnyEmptyField = (form, form_selector, button_selector) ->
 window.sanitize = (str) ->
   return str.replace(/<(?:.|\n)*?>/gm, '')
 
-window.startSpinner = ->
-  NProgress.start();
-
-window.stopSpinner = ->
-  NProgress.done();
-
-window.unbindEvents = ->
-  $(document).off('scroll')
-
-window.shiftWindow = ->
-  scrollBy 0, -100
-
 $(document).pjax "a:not(a[target=\"_blank\"])", "body"
+
 $(document).on "pjax:start", ->
   NProgress.start()
 
@@ -69,15 +58,7 @@ $(document).on "pjax:complete", ->
   NProgress.done()
 
 
-window.onload = ->
-  # Scroll the window to avoid the topnav bar
-  # https://github.com/twitter/bootstrap/issues/1768
-  if location.hash
-    setTimeout shiftWindow, 100
-
 $ ->
-  $(".nicescroll").niceScroll(cursoropacitymax: '0.4', cursorcolor: '#FFF', cursorborder: "1px solid #FFF")
-
   # Click a .js-select-on-focus field, select the contents
   $(".js-select-on-focus").on "focusin", ->
     # Prevent a mouseup event from deselecting the input

@@ -11,68 +11,90 @@
 
 namespace Gitamin\Http\Controllers\Auth;
 
+use AltThree\Validator\ValidationException;
+use Gitamin\Commands\Invite\ClaimInviteCommand;
+use Gitamin\Commands\User\SignupUserCommand;
+use Gitamin\Exceptions\UserAlreadyTakenException;
 use Gitamin\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
-    /**
-     * Shows the login view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function loginAction()
-    {
-        return View::make('auth.login')
-            ->withPageTitle(trans('dashboard.login.login'));
-    }
+    use AuthenticatesAndRegistersUsers;
 
     /**
-     * Logs the user in.
+     * Handle a login request to the application.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function loginPost()
+    protected function login()
     {
         $loginData = Request::only(['login', 'password']);
-
         // Login with username or email.
         $loginKey = Str::contains($loginData['login'], '@') ? 'email' : 'username';
         $loginData[$loginKey] = array_pull($loginData, 'login');
 
-        // Validate login credentials.
         if (Auth::validate($loginData)) {
             // Log the user in for one request.
             Auth::once($loginData);
-
             // We probably want to add support for "Remember me" here.
             Auth::attempt($loginData);
-
             //return Redirect::intended('/')
             return Redirect::home()
                 ->withSuccess(trans('gitamin.signin.success'));
         }
 
-        return Redirect::route('auth.login')
+        return redirect('/auth/login')
             ->withInput(Request::except('password'))
             ->withError(trans('gitamin.signin.invalid'));
     }
 
     /**
-     * Logs the user out, deleting their session etc.
+     * Handle a registration request for the application.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function logoutAction()
+    protected function register()
     {
-        Auth::logout();
+        $code = 'gitamin';
+        try {
+            $user = dispatch(new SignupUserCommand(
+                Request::get('username'),
+                Request::get('password'),
+                Request::get('email'),
+                2
+            ));
+        } catch (ValidationException $e) {
+            return Redirect::to('/auth/register')
+                ->withInput(Request::except('password'))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
+                ->withErrors($e->getMessageBag());
+        } catch (UserAlreadyTakenException $e) {
+            return Redirect::to('/auth/register')
+                ->withInput(Request::except('password'))
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('gitamin.signup.failure')))
+                ->withErrors(trans('gitamin.signup.taken'));
+        }
 
-        return Redirect::to('/')
-            ->withSuccess(trans('forms.logout.success'));
+        //dispatch(new ClaimInviteCommand($invite));
+
+        return Redirect::to('/auth/login')
+            ->withSuccess(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.awesome'), trans('gitamin.signup.success')));
+    }
+
+    /**
+     * Handle the authenticated request.
+     *
+     * @return \Illuminate\View\View
+     */
+    protected function authenticated()
+    {
+        return Redirect::home()
+                ->withSuccess(trans('gitamin.signin.success'));
     }
 }

@@ -160,11 +160,14 @@ return [
 
     // Signin fields
     'signin' => [
-        'signin' => 'Existing user? Sign in',
+        'signin' => 'Existing user? <a class="btn btn-link" href=":link">Sign in</a>',
         'title' => 'Sign in',
         'login' => 'Username or Email',
+        'username' => 'Username',
         'email' => 'Email',
         'password' => 'Password',
+        'remember-me' => 'Remember Me',
+        'forgot-password' => 'Forgot Your Password?',
         '2fauth' => 'Authentication Code',
         'invalid' => 'Invalid login or password',
         'invalid-token' => 'Invalid token',
@@ -173,11 +176,12 @@ return [
     ],
 
     'signup' => [
-        'signup' => 'Dont\'t have user? Sign up',
+        'signup' => 'New to Gitamin? <a class="btn btn-link" href=":link">Create an account</a>',
         'title' => 'Sign Up',
         'username' => 'Username',
         'email' => 'Email',
         'password' => 'Password',
+        'password-confirm' => 'Confirm Password',
         'success' => 'Your account has been created.',
         'failure' => 'Something went wrong with the signup.',
         'taken' => 'Username or email has already been taken.',
