@@ -149,6 +149,7 @@ return [
     'cancel' => 'Cancel',
     'remove' => 'Remove',
     'invite' => 'Invite',
+    'signin' => 'Sign In',
     'signup' => 'Sign Up',
 
     // Other

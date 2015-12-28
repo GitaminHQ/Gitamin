@@ -14,7 +14,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="refresh">Refresh</a></li>
                 @if (Auth::guest())
-                <li><a href="{{ route('auth.login') }}">Login</a></li>
+                <li><a href="{{ url('/auth/login') }}">Login</a></li>
                 @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -23,7 +23,7 @@
    
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ route('owners.owner_show', ['owner' => $current_user->username]) }}"><i class="fa fa-user"></i> {{ trans('dashboard.profile') }}</a></li>
-                        <li><a href="{{ route('auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
+                        <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
                 @endif

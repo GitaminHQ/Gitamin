@@ -28,32 +28,23 @@ class GroupsRoutes
         $router->group([
             'middleware' => ['web', 'app.hasSetting'],
             'setting' => 'app_name',
-            'prefix' => 'groups',
             'as' => 'groups.',
         ], function ($router) {
-            $router->get('/', [
+            $router->get('groups', [
                 'as' => 'index',
                 'uses' => 'GroupsController@indexAction',
             ]);
-            $router->get('new', [
+            $router->get('groups/new', [
                 'as' => 'new',
                 'uses' => 'GroupsController@newAction',
             ]);
 
-            $router->post('create', [
+            $router->post('groups/create', [
                 'as' => 'create',
                 'uses' => 'GroupsController@createAction',
             ]);
-        });
 
-        // Project Sub-routes groups.group_show, groups.group_edit
-        $router->group([
-            'middleware' => ['web', 'app.hasSetting'],
-            'setting' => 'app_name',
-            'as' => 'groups.',
-        ], function ($router) {
-
-           $router->get('{owner_path}/edit', [
+            $router->get('{owner_path}/edit', [
                 'as' => 'group_edit',
                 'uses' => 'GroupsController@editAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+');
@@ -61,7 +52,6 @@ class GroupsRoutes
                 'as' => 'group_update',
                 'uses' => 'GroupsController@updateAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+');
-
         });
     }
 }

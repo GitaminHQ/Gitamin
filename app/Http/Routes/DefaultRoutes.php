@@ -40,29 +40,6 @@ class DefaultRoutes
             $router->controller('install', 'InstallController');
         });
 
-        //Signup Area
-        $router->group([
-            'middleware' => ['web', 'app.hasSetting', 'guest'],
-            'setting' => 'app_name',
-            'as' => 'signup.',
-        ], function ($router) {
-            $router->get('signup', [
-                'as' => 'signup',
-                'uses' => 'SignupController@getSignup',
-            ]);
-            $router->post('signup', [
-                'uses' => 'SignupController@postSignup',
-            ]);
-
-            $router->get('signup/invite/{code}', [
-                'as' => 'invite',
-                'uses' => 'SignupController@getSignup',
-            ]);
-            $router->post('signup/invite/{code}', [
-                'uses' => 'SignupController@postSignup',
-            ]);
-        });
-
         //Explore Area
         $router->group([
             'middleware' => ['web', 'app.hasSetting'],

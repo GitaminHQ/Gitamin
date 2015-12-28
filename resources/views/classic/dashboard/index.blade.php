@@ -20,6 +20,4 @@
     </div>
     @endforeach
 
-    <hr />
-    @include('dashboard.partials.footer')
-@stop
+@endsection
