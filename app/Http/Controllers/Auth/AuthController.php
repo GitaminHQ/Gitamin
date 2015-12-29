@@ -85,8 +85,6 @@ class AuthController extends Controller
                 ->withErrors(trans('gitamin.signup.taken'));
         }
 
-        //dispatch(new ClaimInviteCommand($invite));
-
         return Redirect::to('/auth/login')
             ->withSuccess(sprintf('<strong>%s</strong> %s', trans('dashboard.notifications.awesome'), trans('gitamin.signup.success')));
     }

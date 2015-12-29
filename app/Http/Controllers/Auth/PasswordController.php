@@ -18,20 +18,7 @@ class PasswordController extends Controller
 {
     use ResetsPasswords;
 
-    protected $subject;
-
     public $redirectTo = '/';
-
-    /**
-     * Create a new password controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->subject = 'Password reset';
-        //$this->middleware('guest');
-    }
 
     public function validate()
     {
