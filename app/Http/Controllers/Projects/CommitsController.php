@@ -31,6 +31,8 @@ class CommitsController extends Controller
         return View::make('projects.commits.index')
             ->withProject($project)
             ->withWikis([])
+            ->withCurrentBranch('')
+            ->withBranches([])
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
