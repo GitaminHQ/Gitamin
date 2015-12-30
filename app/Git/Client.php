@@ -34,7 +34,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Searches for valid repositories on the specified path
+     * Searches for valid repositories on the specified path.
      *
      * @param  array $paths Array of paths where repositories will be searched
      * @return array Found repositories, containing their name, path and description sorted
@@ -148,7 +148,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Get hidden repository list
+     * Get hidden repository list.
      *
      * @return array List of repositories to hide
      */
@@ -158,7 +158,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Set the hidden repository list
+     * Set the hidden repository list.
      *
      * @param array $hidden List of repositories to hide
      */
@@ -170,7 +170,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Overloads the parent::createRepository method for the correct Repository class instance
+     * Overloads the parent::createRepository method for the correct Repository class instance.
      * 
      * {@inheritdoc}
      */
@@ -186,7 +186,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Overloads the parent::getRepository method for the correct Repository class instance
+     * Overloads the parent::getRepository method for the correct Repository class instance.
      * 
      * {@inheritdoc}
      */

@@ -44,7 +44,7 @@ class Repository extends BaseRepository
     }
 
     /**
-     * Show the data from a specific commit
+     * Show the data from a specific commit.
      *
      * @param  string $commitHash Hash of the specific commit to read data
      * @return array  Commit data
@@ -84,7 +84,7 @@ class Repository extends BaseRepository
     }
 
     /**
-     * Blames the provided file and parses the output
+     * Blames the provided file and parses the output.
      *
      * @param  string $file File that will be blamed
      * @return array  Commits hashes containing the lines
@@ -122,7 +122,7 @@ class Repository extends BaseRepository
     }
 
     /**
-     * Read diff logs and generate a collection of diffs
+     * Read diff logs and generate a collection of diffs.
      *
      * @param  array $logs Array of log rows
      * @return array Array of diffs
@@ -210,7 +210,7 @@ class Repository extends BaseRepository
     }
 
     /**
-     * Show the repository commit log with pagination
+     * Show the repository commit log with pagination.
      *
      * @return array Commit log
      */
@@ -369,7 +369,7 @@ class Repository extends BaseRepository
     }
 
     /**
-     * Create a TAR or ZIP archive of a git tree
+     * Create a TAR or ZIP archive of a git tree.
      *
      * @param string $tree   Tree-ish reference
      * @param string $output Output File name
