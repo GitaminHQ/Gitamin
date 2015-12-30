@@ -12,13 +12,19 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/">Home</a></li>
-                <li><a href="refresh">Refresh</a></li>
                 @if (Auth::guest())
                 <li><a href="{{ url('/auth/login') }}">Login</a></li>
                 @else
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li><a href="/projects/new"><i class="fa fa-cubes"></i> New Project</a></li>
+                    <li><a href="/groups/new"><i class="fa fa-group"></i>  New Group</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->username }} <span class="caret"></span>
+                        <img src="/img/no_user_avatar.png" style="width: 20px; height: 20px;"> {{ Auth::user()->username }} <span class="caret"></span>
                     </a>
    
                     <ul class="dropdown-menu" role="menu">

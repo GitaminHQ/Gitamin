@@ -35,6 +35,7 @@ class ProjectsController extends Controller
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
+            ->withBreadCrumbs([])
             ->withOwners(Owner::where('user_id', '=', Auth::user()->id)->get());
     }
 

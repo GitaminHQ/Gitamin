@@ -11,11 +11,10 @@
                     <input type="search" name="query" class="form-control input-sm" placeholder="Search commits...">
                 </form>
 
-                
-                @include('projects.partials.branch_menu')
-                
-
-                @include('projects.partials.menu')
+                @if(isset($project))
+                    @include('projects.partials.branch_menu')
+                    @include('projects.partials.menu')
+                @endif
             </div>
         </div>
 

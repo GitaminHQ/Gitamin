@@ -46,6 +46,7 @@ class GroupsController extends Controller
     public function newAction()
     {
         return View::make('groups.new')
+            ->withBreadCrumbs([])
             ->withPageTitle(trans('dashboard.groups.new.title').' - '.trans('dashboard.dashboard'));
     }
 
