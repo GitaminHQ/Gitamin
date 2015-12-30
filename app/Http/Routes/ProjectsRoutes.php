@@ -140,6 +140,11 @@ class ProjectsRoutes
                 'uses' => 'CommitsController@indexAction',
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
+             $router->get('{owner_path}/{project_path}/commit/{postfix}', [
+                'as' => 'commits_show',
+                'uses' => 'CommitsController@showAction',
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+
              // Stats
              $router->get('{owner_path}/{project_path}/stats/{postfix}', [
                 'as' => 'stats_index',

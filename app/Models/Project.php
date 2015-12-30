@@ -44,10 +44,10 @@
 namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Gitamin\Git\Client as GitterClient;
+use Gitamin\Git\Repository;
 use Gitamin\Presenters\ProjectPresenter;
 use Gitamin\Traits\VisibilityTrait;
-use Gitlib\Client as GitterClient;
-use Gitlib\Repository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

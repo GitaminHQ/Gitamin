@@ -45,6 +45,7 @@ class BlobController extends Controller
             ->withFileType($fileType)
             ->withBranches($repository->getBranches())
             ->withCurrentBranch($branch)
+            ->withFile($file)
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
