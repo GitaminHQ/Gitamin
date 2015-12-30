@@ -92,24 +92,31 @@ class ProjectsController extends Controller
         $project = Project::findByPath($owner_path, $project_path);
         $repository = $project->getRepository();
 
-        $currentBranch = $repository->getCurrentBranch();
-
-        if ($postfix !== null && $postfix != $currentBranch) {
-            $tree = str_replace($currentBranch.'/', '', $postfix);
-        } else {
-            $tree = '';
+        if (! $postfix) {
+            $postfix = $repository->getHead();
         }
 
-        $files = $repository->getTree($tree ? "$currentBranch:\"$tree\"/" : $currentBranch);
+        list($branch, $tree) = $this->parseCommitishPathParam($postfix, $repository);
+        list($branch, $tree) = $this->extractRef($repository, $branch, $tree);
+        $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
+        $breadcrumbs = bread_crumbs($tree);
+
+        $parent = null;
+        if (($slash = strrpos($tree, '/')) !== false) {
+            $parent = substr($tree, 0, $slash);
+        } elseif (! empty($tree)) {
+            $parent = '';
+        }
 
         return View::make('projects.show')
             ->withPageTitle($project->name)
             ->withActiveItem('project_show')
+            ->withBreadCrumbs($breadcrumbs)
             ->withProject($project)
-            ->withRepo('')
-            ->withCurrentBranch($currentBranch)
-            ->withBranches([])
-            ->withParentPath('')
+            ->withRepo($project->path)
+            ->withCurrentBranch($branch)
+            ->withBranches($repository->getBranches())
+            ->withParentPath($parent)
             ->withPath($tree ? $tree.'/' : $tree)
             ->withFiles($files->output());
     }
@@ -169,5 +176,93 @@ class ProjectsController extends Controller
 
         return Redirect::route('projects.project_edit', ['owner' => $project->owner_path, 'project' => $project->path])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.edit.success')));
+    }
+
+    protected function parseCommitishPathParam($commitishPath, $repository)
+    {
+        $commitish = null;
+        $path = null;
+
+        $slashPosition = strpos($commitishPath, '/');
+        if (strlen($commitishPath) >= 40 &&
+            ($slashPosition === false ||
+             $slashPosition === 40)) {
+            // We may have a commit hash as our commitish.
+            $hash = substr($commitishPath, 0, 40);
+            if ($repository->hasCommit($hash)) {
+                $commitish = $hash;
+            }
+        }
+
+        if ($commitish === null) {
+            $branches = $repository->getBranches();
+
+            $tags = $repository->getTags();
+            if ($tags !== null && count($tags) > 0) {
+                $branches = array_merge($branches, $tags);
+            }
+
+            $matchedBranch = null;
+            $matchedBranchLength = 0;
+            foreach ($branches as $branch) {
+                if (strpos($commitishPath, $branch) === 0 &&
+                    strlen($branch) > $matchedBranchLength) {
+                    $matchedBranch = $branch;
+                    $matchedBranchLength = strlen($matchedBranch);
+                }
+            }
+
+            if ($matchedBranch !== null) {
+                $commitish = $matchedBranch;
+            } else {
+                // We may have partial commit hash as our commitish.
+                $hash = $slashPosition === false ? $commitishPath : substr($commitishPath, 0, $slashPosition);
+                if ($repository->hasCommit($hash)) {
+                    $commit = $repository->getCommit($hash);
+                    $commitish = $commit->getHash();
+                } else {
+                    throw new EmptyRepositoryException('This repository is currently empty. There are no commits.');
+                }
+            }
+        }
+
+        $commitishLength = strlen($commitish);
+        $path = substr($commitishPath, $commitishLength);
+        if (strpos($path, '/') === 0) {
+            $path = substr($path, 1);
+        }
+
+        return [$commitish, $path];
+    }
+
+    public function extractRef($repository, $branch = '', $tree = '')
+    {
+        $branch = trim($branch, '/');
+        $tree = trim($tree, '/');
+        $input = $branch.'/'.$tree;
+
+        // If the ref appears to be a SHA, just split the string
+        if (preg_match('/^([[:alnum:]]{40})(.+)/', $input, $matches)) {
+            $branch = $matches[1];
+        } else {
+            // Otherwise, attempt to detect the ref using a list of the project's branches and tags
+            $validRefs = array_merge((array) $repository->getBranches(), (array) $repository->getTags());
+            foreach ($validRefs as $key => $ref) {
+                if (! preg_match(sprintf('#^%s/#', preg_quote($ref, '#')), $input)) {
+                    unset($validRefs[$key]);
+                }
+            }
+
+            // No exact ref match, so just try our best
+            if (count($validRefs) > 1) {
+                preg_match('/([^\/]+)(.*)/', $input, $matches);
+                $branch = preg_replace('/^\/|\/$/', '', $matches[1]);
+            } else {
+                // Extract branch name
+                $branch = array_shift($validRefs);
+            }
+        }
+
+        return [$branch, $tree];
     }
 }

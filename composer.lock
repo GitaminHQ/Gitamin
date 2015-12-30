@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a558d98eaba2db865717c36f93d44f2d",
-    "content-hash": "dfc55aeedde2ab3d6ecb5c1e7bf55fde",
+    "hash": "84bbccdb098f2f452e295d069b2f87ea",
+    "content-hash": "3e699381f67163e5a945d8c43eb43f79",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -1398,55 +1398,6 @@
             "time": "2015-12-05 17:17:57"
         },
         {
-            "name": "klaussilveira/gitter",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/klaussilveira/gitter.git",
-                "reference": "6eff42830c336ee9b8b8b9d2f69b62bd9bcbaf3b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/klaussilveira/gitter/6eff42830c336ee9b8b8b9d2f69b62bd9bcbaf3b.zip",
-                "reference": "6eff42830c336ee9b8b8b9d2f69b62bd9bcbaf3b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "symfony/process": ">=2.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.1",
-                "phpunit/phpunit": ">=3.7.1",
-                "symfony/filesystem": ">=2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Gitter": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Klaus Silveira",
-                    "email": "klaussilveira@php.net",
-                    "homepage": "http://www.klaussilveira.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Gitter allows you to interact in an object oriented manner with Git repositories.",
-            "homepage": "https://github.com/klaussilveira/gitter",
-            "keywords": [
-                "git",
-                "vcs"
-            ],
-            "time": "2014-05-24 15:18:29"
-        },
-        {
             "name": "laravel/framework",
             "version": "v5.2.5",
             "source": {
@@ -2105,6 +2056,52 @@
             "time": "2015-12-10 14:48:13"
         },
         {
+            "name": "phecho/gitlib",
+            "version": "v0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phecho/Gitlib.git",
+                "reference": "e432b311469f9de6a41e4e80e006621def57a937"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/phecho/Gitlib/e432b311469f9de6a41e4e80e006621def57a937.zip",
+                "reference": "e432b311469f9de6a41e4e80e006621def57a937",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "symfony/process": ">=2.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.1",
+                "phpunit/phpunit": ">=4.8.9",
+                "symfony/filesystem": ">=2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gitlib": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "The Gitamin Team",
+                    "email": "support@gitamin.com",
+                    "homepage": "http://www.gitamin.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Gitlib allows you to interact in an object oriented manner with Git repositories.",
+            "homepage": "https://gitamin.com/",
+            "keywords": [
+                "git",
+                "gitamin"
+            ],
+            "time": "2015-12-30 05:01:11"
+        },
+        {
             "name": "phecho/proxy",
             "version": "3.0.1",
             "source": {
@@ -2367,20 +2364,21 @@
         },
         {
             "name": "roumen/feed",
-            "version": "v2.9.8",
+            "version": "v2.9.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-feed.git",
-                "reference": "dce91e2d7a912b7b4d6448cc3e7faef725b4c752"
+                "reference": "f923473cfd7df2af73b1026c8f23a6f873f84027"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/RoumenDamianoff/laravel-feed/dce91e2d7a912b7b4d6448cc3e7faef725b4c752.zip",
-                "reference": "dce91e2d7a912b7b4d6448cc3e7faef725b4c752",
+                "url": "http://packagist.phpcomposer.com/files/RoumenDamianoff/laravel-feed/f923473cfd7df2af73b1026c8f23a6f873f84027.zip",
+                "reference": "f923473cfd7df2af73b1026c8f23a6f873f84027",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~5",
+                "paragonie/random_compat": "~1",
                 "php": ">=5.5.9"
             },
             "require-dev": {
@@ -2414,7 +2412,7 @@
                 "laravel",
                 "rss"
             ],
-            "time": "2015-12-11 18:20:14"
+            "time": "2015-12-27 15:38:43"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3307,28 +3305,28 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "c10040e0df17d2ee88e9212b50cbe9319e878f59"
+                "reference": "9caf304153dc2288e4970caec6f1f3b3bc205412"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/vlucas/phpdotenv/c10040e0df17d2ee88e9212b50cbe9319e878f59.zip",
-                "reference": "c10040e0df17d2ee88e9212b50cbe9319e878f59",
+                "url": "http://packagist.phpcomposer.com/files/vlucas/phpdotenv/9caf304153dc2288e4970caec6f1f3b3bc205412.zip",
+                "reference": "9caf304153dc2288e4970caec6f1f3b3bc205412",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.8|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
@@ -3354,74 +3352,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2015-10-28 18:53:35"
-        },
-        {
-            "name": "zizaco/entrust",
-            "version": "dev-laravel-5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "be28aa634c44551ae5187894c903094a8ce8baee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/Zizaco/entrust/be28aa634c44551ae5187894c903094a8ce8baee.zip",
-                "reference": "be28aa634c44551ae5187894c903094a8ce8baee",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "illuminate/database": "~5.0",
-                "mockery/mockery": "dev-master",
-                "phpunit/phpunit": "~4.1",
-                "sami/sami": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/commands"
-                ],
-                "psr-4": {
-                    "Zizaco\\Entrust\\": "src/Entrust/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrew Elkins",
-                    "homepage": "http://andrewelkins.com"
-                },
-                {
-                    "name": "Zizaco Zizuini",
-                    "email": "zizaco@gmail.com"
-                },
-                {
-                    "name": "Ben Batschelet",
-                    "homepage": "http://github.com/bbatsche"
-                },
-                {
-                    "name": "Michele Angioni",
-                    "email": "michele.angioni@gmail.com"
-                }
-            ],
-            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
-            "keywords": [
-                "acl",
-                "auth",
-                "illuminate",
-                "laravel",
-                "permission",
-                "roles"
-            ],
-            "time": "2015-11-12 17:38:37"
+            "time": "2015-12-29 15:10:30"
         }
     ],
     "packages-dev": [
@@ -4602,7 +4533,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "zizaco/entrust": 20,
         "laravelcollective/bus": 20
     },
     "prefer-stable": true,

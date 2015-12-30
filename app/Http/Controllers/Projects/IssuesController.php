@@ -121,13 +121,6 @@ class IssuesController extends Controller
                 ->withErrors($e->getMessageBag());
         }
 
-        //Do nothing
-        /*
-        if ($issue->project) {
-            $issue->project->update(['status' => Request::get('project_status')]);
-        }
-        */
-
         return Redirect::route('projects.issue_edit', ['owner' => $owner_path, 'project' => $project_path, 'issue' => $issue->id])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.issues.edit.success')));
     }

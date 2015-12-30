@@ -37,6 +37,34 @@ if (! function_exists('back_url')) {
     }
 }
 
+if (! function_exists('bread_crumbs')) {
+
+    /**
+     * Create brandcrumb array.
+     *
+     * @param string|null  $spec
+     *
+     * @return []string
+     */
+    function bread_crumbs($spec)
+    {
+        if (! $spec) {
+            return [];
+        }
+
+        $paths = explode('/', $spec);
+
+        foreach ($paths as $i => $path) {
+            $breadcrumbs[] = [
+                'dir' => $path,
+                'path' => implode('/', array_slice($paths, 0, $i + 1)),
+            ];
+        }
+
+        return $breadcrumbs;
+    }
+}
+
 if (! function_exists('set_active')) {
     /**
      * Set active class if request is in path.
