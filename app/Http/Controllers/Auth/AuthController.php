@@ -12,7 +12,6 @@
 namespace Gitamin\Http\Controllers\Auth;
 
 use AltThree\Validator\ValidationException;
-use Gitamin\Commands\Invite\ClaimInviteCommand;
 use Gitamin\Commands\User\SignupUserCommand;
 use Gitamin\Exceptions\UserAlreadyTakenException;
 use Gitamin\Http\Controllers\Controller;

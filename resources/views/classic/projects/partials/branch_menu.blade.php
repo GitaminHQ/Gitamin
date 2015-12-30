@@ -3,7 +3,7 @@
     <ul class="dropdown-menu">
         <li class="dropdown-header">Branches</li>
         @foreach($branches as $branch)
-        <li><a href="/Baidu/api/tree/master/">{{ $branch->getName() }}</a></li>
+        <li><a href="{{ $project->url }}/tree/master/">{{ $branch }}</a></li>
         @endforeach
     </ul>
 </div>
