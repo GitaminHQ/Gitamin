@@ -1,7 +1,7 @@
 ## Gitamin
 
 
-[![Build Status](https://travis-ci.org/gitaminhq/Gitamin.svg)](https://travis-ci.org/gitaminhq/Gitamin)
+[![Build Status](https://travis-ci.org/GitaminHQ/Gitamin.svg)](https://travis-ci.org/GitaminHQ/Gitamin)
 [![StyleCI](https://styleci.io/repos/47098331/shield)](https://styleci.io/repos/47098331/)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gitaminhq/Gitamin/?branch=master)
 [![License](https://poser.pugx.org/gitaminhq/Gitamin/license.svg)](https://packagist.org/packages/gitaminhq/Gitamin)
