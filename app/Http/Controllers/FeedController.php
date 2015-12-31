@@ -73,7 +73,7 @@ class FeedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private function feedAction(Owner &$owner, $isRss)
+    protected function feedAction(Owner &$owner, $isRss)
     {
         if ($owner->exists) {
             $owner->projects->map(function ($project) {
@@ -96,14 +96,19 @@ class FeedController extends Controller
      * @param \Gitamin\Models\Issue $issue
      * @param bool                  $isRss
      */
-    private function feedAddItem($issue, $isRss)
+    protected function feedAddItem($issue, $isRss)
     {
+        // Project visibility_level
+        if (! $issue->project) {
+            return;
+        }
+
         $this->feed->add(
-            $issue->name,
+            $issue->title,
             Setting::get('app_name'),
-            Str::canonicalize($issue->url),
+            $issue->url,
             $isRss ? $issue->created_at->toRssString() : $issue->created_at->toAtomString(),
-            $isRss ? $issue->message : Markdown::convertToHtml($issue->message)
+            $isRss ? $issue->description : Markdown::convertToHtml($issue->description)
         );
     }
 }

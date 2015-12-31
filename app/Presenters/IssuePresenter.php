@@ -91,7 +91,7 @@ class IssuePresenter extends AbstractPresenter
     {
         $statuses = trans('gitamin.issues.status');
 
-        return $statuses[$this->state];
+        return $statuses[$this->wrappedObject->state];
     }
 
     /**
