@@ -127,6 +127,9 @@ class Issue extends Model implements HasPresenter
         return $this->morphToMany(Label::class, 'labelable');
     }
 
+    /**
+     * Returns url of issue.
+     */
     public function getUrlAttribute()
     {
         return route('projects.issue_show', ['owner' => $this->project->owner_path, 'project' => $this->project->path, 'issue' => $this->id]);

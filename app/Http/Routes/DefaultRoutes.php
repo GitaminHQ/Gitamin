@@ -64,7 +64,7 @@ class DefaultRoutes
 
         // Feed Area
         $router->group([
-            'middleware' => ['web', 'app.hasSetting'],
+            'middleware' => ['web'],
             'setting' => 'app_name',
         ], function ($router) {
             $router->get('/atom/{namespace?}', [
@@ -79,7 +79,7 @@ class DefaultRoutes
 
         // Profile Area
         $router->group([
-            'middleware' => ['web', 'app.hasSetting'],
+            'middleware' => ['web', 'app.hasSetting', 'auth'],
             'setting' => 'app_name',
             'as' => 'profile.',
         ], function ($router) {
