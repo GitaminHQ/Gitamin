@@ -14,7 +14,6 @@ namespace Gitamin\Http\Controllers\Auth;
 use Gitamin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
-
 class PasswordController extends Controller
 {
     /*
