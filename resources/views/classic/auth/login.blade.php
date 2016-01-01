@@ -44,7 +44,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-sign-in"></i> {{ trans('forms.signin') }}
                                 </button>
-                                <a class="btn btn-link" href="{{ url('/auth/password/reset') }}">{{ trans('gitamin.signin.forgot-password') }}</a>
+                                <a class="btn btn-link" href="{{ url('/password/email') }}">{{ trans('gitamin.signin.forgot-password') }}</a>
                             </div>
                         </div>
 
