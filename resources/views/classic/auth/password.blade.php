@@ -1,30 +1,52 @@
 @extends('layout.dashboard')
 
 @section('body')
+@include('dashboard.partials.navigation')
 
-<div class="login-panel">
-        <div class="logo">
-            <img src="/img/login-logo.png" />
-        </div>
-    <div class="form-bg">
-        <div class="login-title">
-            <strong>password reset</strong>
-        </div>
-        @include('dashboard.partials.errors')
-        <form method="POST" action="/auth/password/email" accept-charset="UTF-8" autocomplete="off">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            @if(Session::has('error'))
-            <p class="alert alert-danger">{{ Session::get('error') }}</p>
-            @endif
-            <div class="form-group">
-                <label class="control-label">{{ trans('gitamin.signin.password') }}</label>
-                <input autocomplete="off" class="form-control login-input" placeholder="{{ trans('gitamin.signin.email') }}" required="required" name="email" type="email" value="">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Reset Password</div>
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Send Password Reset Link
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-info btn-lg">{{ trans('forms.submit') }}</button>
-                <a class="btn btn-default pull-right" href="{{ route('auth.login') }}">{{ trans('gitamin.signin.signin') }}</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 @endsection
