@@ -14,12 +14,12 @@
             @foreach($files as $file)
             <tr>
                 @if($file['type'] == 'folder')
-                <td><span class="fa fa-folder-open"></span> <a href="/Baidu/api/tree/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
+                <td><span class="fa fa-folder-open"></span> <a href="{{ $project->url }}/tree/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
                 @else
-                <td><span class="fa fa-file"></span> <a href="/Baidu/api/blob/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
+                <td><span class="fa fa-file"></span> <a href="{{ $project->url }}/blob/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
                 @endif
-                <td>040000</td>
-                <td></td>
+                <td>{{ $file['mode'] }}</td>
+                <td>{{ $file['size'] }}</td>
             </tr>
             @endforeach
         </tbody>
