@@ -87,6 +87,34 @@ if (! function_exists('set_active')) {
     }
 }
 
+if (! function_exists('formated_filesize')) {
+    /**
+     * Formats a filesize to a human readable string.
+     *
+     * @param int  $filesize
+     *
+     * @return string
+     */
+    function formated_filesize($filesize)
+    {
+        $size = $filesize / 1024;
+        if ($size < 1024) {
+            $size = number_format($size, 0);
+            $size .= 'KB';
+        } else {
+            if ($size / 1024 < 1024) {
+                $size = number_format($size / 1024, 0);
+                $size .= 'MB';
+            } elseif ($size / 1024 / 1024 < 1024) {
+                $size = number_format($size / 1024 / 1024, 0);
+                $size .= 'GB';
+            }
+        }
+
+        return $size;
+    }
+}
+
 if (! function_exists('formatted_date')) {
     /**
      * Formats a date with the user timezone and the selected format.

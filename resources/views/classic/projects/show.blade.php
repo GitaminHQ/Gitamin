@@ -19,7 +19,7 @@
                 <td><span class="fa fa-file"></span> <a href="{{ $project->url }}/blob/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
                 @endif
                 <td>{{ $file['mode'] }}</td>
-                <td>{{ $file['size'] }}</td>
+                <td>{{ formated_filesize($file['size']) }}</td>
             </tr>
             @endforeach
         </tbody>
