@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "alt-three/emoji",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltThree/Emoji.git",
-                "reference": "47eaa883ffd3628aa84f9fd379cbc9c9cbff852e"
+                "reference": "36cd1c1a5ebd0d390cbaccc4a9919285270603ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltThree/Emoji/zipball/47eaa883ffd3628aa84f9fd379cbc9c9cbff852e",
-                "reference": "47eaa883ffd3628aa84f9fd379cbc9c9cbff852e",
+                "url": "http://packagist.phpcomposer.com/files/AltThree/Emoji/36cd1c1a5ebd0d390cbaccc4a9919285270603ca.zip",
+                "reference": "36cd1c1a5ebd0d390cbaccc4a9919285270603ca",
                 "shasum": ""
             },
             "require": {
@@ -67,20 +67,20 @@
                 "emoji",
                 "parser"
             ],
-            "time": "2015-11-08 21:20:31"
+            "time": "2016-01-03 10:40:57"
         },
         {
             "name": "alt-three/validator",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltThree/Validator.git",
-                "reference": "e7713677c9f0f00d1788eddf3b3ec335a98a70b4"
+                "reference": "9845766276479bac04439390ea91817c5b2dbda8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltThree/Validator/zipball/e7713677c9f0f00d1788eddf3b3ec335a98a70b4",
-                "reference": "e7713677c9f0f00d1788eddf3b3ec335a98a70b4",
+                "url": "http://packagist.phpcomposer.com/files/AltThree/Validator/9845766276479bac04439390ea91817c5b2dbda8.zip",
+                "reference": "9845766276479bac04439390ea91817c5b2dbda8",
                 "shasum": ""
             },
             "require": {
@@ -127,7 +127,7 @@
                 "logging",
                 "validator"
             ],
-            "time": "2015-11-08 21:30:34"
+            "time": "2016-01-03 10:46:21"
         },
         {
             "name": "asm89/stack-cors",
