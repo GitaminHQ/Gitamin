@@ -129,6 +129,7 @@ class Project extends Model implements HasPresenter
             ]);
         });
     }
+
     /**
      * Projects can belong to a group.
      *
