@@ -37,6 +37,9 @@ class IssuesController extends Controller
         return View::make('projects.issues.index')
             ->withProject($project)
             ->withIssues($project->issues)
+            ->withBreadCrumbs([])
+            ->withBranches([])
+            ->withCurrentBranch('master')
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
