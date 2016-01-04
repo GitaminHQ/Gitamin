@@ -3,7 +3,11 @@
     <li><a href="{{ $project->url }}/tree/{{ $current_branch }}">{{ $project->owner_path }}/{{ $project->path }}</a></li>
     @endif
     @foreach($bread_crumbs as $breadcrumb)
+    @if(isset($project))
     <li><a href="{{ $project->url }}/tree/{{ $current_branch }}/{{ $breadcrumb['path'] }}">{{ $breadcrumb['dir'] }}</a></li>
+    @else
+    <li>{{ $breadcrumb['dir'] }}</li>
+    @endif
     @endforeach
 
     <div class="pull-right">
