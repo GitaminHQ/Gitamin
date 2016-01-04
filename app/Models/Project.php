@@ -125,7 +125,9 @@ class Project extends Model implements HasPresenter
                 'target_id' => $project->id,
                 'target_type' => 'Project',
                 'user_id' => $project->creator_id,
+                'notification_level' => 1,
                 'created_by_id' => $project->creator_id,
+                'type' => 'Creator',
             ]);
         });
     }
