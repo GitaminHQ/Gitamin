@@ -24,8 +24,6 @@ class ProjectComposer
      */
     public function compose(View $view)
     {
-        $view->withTest('test');
-
         $owner_path = Route::input('owner_path');
         $project_path = Route::input('project_path');
 
