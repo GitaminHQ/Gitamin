@@ -127,9 +127,11 @@ class Project extends Model implements HasPresenter
                 'user_id' => $project->creator_id,
                 'notification_level' => 1,
                 'created_by_id' => $project->creator_id,
+                'type' => 'Creator',
             ]);
         });
     }
+
     /**
      * Projects can belong to a group.
      *

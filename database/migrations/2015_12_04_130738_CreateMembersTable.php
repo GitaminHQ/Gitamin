@@ -32,9 +32,9 @@ class CreateMembersTable extends Migration
             $t->string('type');
             $t->timestamps();
             $t->integer('created_by_id');
-            $t->string('invite_email');
-            $t->string('invite_token');
-            $t->timestamp('invite_accepted_at');
+            $t->string('invite_email')->nullable();
+            $t->string('invite_token')->nullable();
+            $t->timestamp('invite_accepted_at')->nullable();
 
             $t->index('access_level');
             $t->index('created_at');
