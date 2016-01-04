@@ -71,6 +71,9 @@ class ProjectsController extends Controller
             ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
             ->withProjects($projects)
             ->withBreadCrumbs([])
+            ->withCurrentBranch('')
+            ->withBranches([])
+            ->withActiveItem('')
             ->withSubMenu($this->subMenu);
     }
 

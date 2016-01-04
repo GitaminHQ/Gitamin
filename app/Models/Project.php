@@ -46,6 +46,7 @@ namespace Gitamin\Models;
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Git\Client as GitterClient;
 use Gitamin\Git\Repository;
+use Gitamin\Models\Members\ProjectMember;
 use Gitamin\Presenters\ProjectPresenter;
 use Gitamin\Traits\VisibilityTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -111,6 +112,23 @@ class Project extends Model implements HasPresenter
         'path' => 'required|string|max:15',
     ];
 
+    /**
+     * Overrides the models boot method.
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        self::created(function ($project) {
+            ProjectMember::create([
+                'access_level' => 1,
+                'target_id' => $project->id,
+                'target_type' => 'Project',
+                'user_id' => $project->creator_id,
+                'created_by_id' => $project->creator_id,
+            ]);
+        });
+    }
     /**
      * Projects can belong to a group.
      *
