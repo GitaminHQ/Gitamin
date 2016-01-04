@@ -16,6 +16,7 @@ use Gitamin\Composers\AppComposer;
 use Gitamin\Composers\CurrentUserComposer;
 use Gitamin\Composers\DashboardComposer;
 use Gitamin\Composers\ExploreComposer;
+use Gitamin\Composers\ProjectComposer;
 use Gitamin\Composers\ThemeComposer;
 use Gitamin\Composers\TimezoneLocaleComposer;
 use Illuminate\Contracts\View\Factory;
@@ -32,6 +33,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         $factory->composer('*', AppComposer::class);
         $factory->composer('*', CurrentUserComposer::class);
+        $factory->composer('projects.*', ProjectComposer::class);
         $factory->composer(['index', 'issue', 'subscribe', 'signup'], ExploreComposer::class);
         $factory->composer(['index', 'issue', 'subscribe', 'signup', 'admin.settings.theme'], ThemeComposer::class);
         $factory->composer('dashboard.*', DashboardComposer::class);
