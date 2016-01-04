@@ -34,6 +34,7 @@ class ProjectsController extends Controller
     {
         $tree = './';
         $breadcrumbs = bread_crumbs($tree);
+
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
