@@ -32,10 +32,13 @@ class ProjectsController extends Controller
      */
     public function newAction()
     {
+        $tree = './';
+        $breadcrumbs = bread_crumbs($tree);
+
         return View::make('projects.new')
             ->withPageTitle(trans('dashboard.projects.new.title').' - '.trans('dashboard.dashboard'))
             ->withGroupId('')
-            ->withBreadCrumbs([])
+            ->withBreadCrumbs($breadcrumbs)
             ->withOwners(Owner::where('user_id', '=', Auth::user()->id)->get());
     }
 
