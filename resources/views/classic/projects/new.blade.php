@@ -75,16 +75,10 @@
                 </fieldset>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
-                    <a class="btn btn-default" href="{{ back_url('dashboard.projects.index') }}">{{ trans('forms.cancel') }}</a>
-                    <div class="pull-right">
-                        <div class="light inline">
-                        <div class="space-right">
-                            Need a group for several dependent projects?
-                        </div>
-                        </div>
-                        <a class="btn btn-default" href="/groups/new">{{ trans('dashboard.groups.new.title') }}</a>
-                        </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
+                        <a class="btn btn-default" href="{{ back_url('dashboard.projects.index') }}">{{ trans('forms.cancel') }}</a>
+                    </div>
                 </div>
             </form>
         </div>

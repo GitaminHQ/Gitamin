@@ -70,6 +70,7 @@ class ProjectsController extends Controller
         return View::make('dashboard.projects.index')
             ->withPageTitle(trans_choice('dashboard.projects.projects', 2).' - '.trans('dashboard.dashboard'))
             ->withProjects($projects)
+            ->withBreadCrumbs([])
             ->withSubMenu($this->subMenu);
     }
 
