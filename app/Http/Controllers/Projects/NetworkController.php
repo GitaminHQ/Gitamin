@@ -32,8 +32,9 @@ class NetworkController extends Controller
         return View::make('projects.network.index')
             ->withProject($project)
             ->withWikis([])
-            ->withCurrentBranch('')
+            ->withCurrentBranch('master')
             ->withBranches([])
+            ->withBreadCrumbs([])
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }

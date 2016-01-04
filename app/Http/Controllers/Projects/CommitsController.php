@@ -57,7 +57,7 @@ class CommitsController extends Controller
             ->withProject($project)
             ->withWikis([])
             ->withCommits($categorized)
-            ->withCurrentBranch('')
+            ->withCurrentBranch($branch)
             ->withBranches([])
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));

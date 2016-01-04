@@ -31,8 +31,9 @@ class StatsController extends Controller
         return View::make('projects.stats.index')
             ->withProject($project)
             ->withWikis([])
-            ->withCurrentBranch('')
+            ->withCurrentBranch('master')
             ->withBranches([])
+            ->withBreadCrumbs([])
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
