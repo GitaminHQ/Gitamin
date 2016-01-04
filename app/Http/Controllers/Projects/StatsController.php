@@ -24,7 +24,7 @@ class StatsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexAction($namespace, $project_path, $postifx)
+    public function indexAction($namespace, $project_path, $postifx = null)
     {
         $project = Project::findByPath($namespace, $project_path);
 

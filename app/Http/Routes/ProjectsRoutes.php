@@ -135,10 +135,10 @@ class ProjectsRoutes
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+');
 
             // Commits
-             $router->get('{owner_path}/{project_path}/commits/{postfix}', [
+             $router->get('{owner_path}/{project_path}/commits/{postfix?}', [
                 'as' => 'commits_index',
                 'uses' => 'CommitsController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '(.*)?');
 
              $router->get('{owner_path}/{project_path}/commit/{postfix}', [
                 'as' => 'commits_show',
@@ -146,10 +146,10 @@ class ProjectsRoutes
             ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
 
              // Stats
-             $router->get('{owner_path}/{project_path}/stats/{postfix}', [
+             $router->get('{owner_path}/{project_path}/stats/{postfix?}', [
                 'as' => 'stats_index',
                 'uses' => 'StatsController@indexAction',
-            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '.*');
+            ])->where('owner_path', '[a-zA-z.0-9_\-]+')->where('project_path', '[a-zA-z.0-9_\-]+')->where('postfix', '(.*)?');
 
              // Network
              $router->get('{owner_path}/{project_path}/network', [

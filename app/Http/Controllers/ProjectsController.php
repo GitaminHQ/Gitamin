@@ -116,6 +116,7 @@ class ProjectsController extends Controller
             ->withPageTitle($project->name)
             ->withActiveItem('project_show')
             ->withBreadCrumbs($breadcrumbs)
+            ->withProject($project)
             ->withRepo($project->path)
             ->withCurrentBranch($branch)
             ->withBranches($repository->getBranches())

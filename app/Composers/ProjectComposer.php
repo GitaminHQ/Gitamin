@@ -11,8 +11,11 @@
 
 namespace Gitamin\Composers;
 
+use Gitamin\Facades\Setting;
 use Gitamin\Models\Project;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 class ProjectComposer
@@ -24,16 +27,16 @@ class ProjectComposer
      */
     public function compose(View $view)
     {
-        $view->withTest('test');
 
         $owner_path = Route::input('owner_path');
         $project_path = Route::input('project_path');
 
-        if ($owner_path !== null && $project_path !== null) {
+        if($owner_path !== null && $project_path !== null) {
             $project = Project::findByPath($owner_path, $project_path);
             $repository = $project->getRepository();
             $view->withProject($project);
             $view->withRepository($repository);
+
         }
     }
 }

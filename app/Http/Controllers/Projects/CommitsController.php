@@ -25,7 +25,7 @@ class CommitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexAction($namespace, $project_path, $postfix)
+    public function indexAction($namespace, $project_path, $postfix = null)
     {
         $project = Project::findByPath($namespace, $project_path);
         $repository = $project->getRepository();
