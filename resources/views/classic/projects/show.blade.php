@@ -31,6 +31,4 @@
             </div>
             <div id="md-content">README</div>
         </div>
-
-        <hr />
-@stop
+@endsection
