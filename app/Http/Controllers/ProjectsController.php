@@ -99,6 +99,7 @@ class ProjectsController extends Controller
         if (! $postfix) {
             $postfix = $repository->getHead();
         }
+        //$postfix = str_replace('tree/', '', $postfix);
 
         list($branch, $tree) = $repository->parseCommitishPathParam($postfix);
         list($branch, $tree) = $repository->extractRef($branch, $tree);

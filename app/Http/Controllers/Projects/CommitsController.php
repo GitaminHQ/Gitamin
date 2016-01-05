@@ -63,7 +63,7 @@ class CommitsController extends Controller
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
 
-    public function showAction($namespace, $project_path, $postfix)
+    public function showAction($namespace, $project_path, $postfix = null)
     {
         $project = Project::findByPath($namespace, $project_path);
         $repository = $project->getRepository();

@@ -6,7 +6,7 @@
 <div class="commit-view">
         <div class="commit-header">
             <span class="pull-right">
-                <a class="btn btn-default btn-sm" href="{{ $project->url }}/{{ $commit->getHash() }}/" title="Browse code at this point in history"><span class="fa fa-list-alt"></span> Browse code</a></span>
+                <a class="btn btn-default btn-sm" href="{{ $project->url }}/tree/{{ $commit->getHash() }}" title="Browse code at this point in history"><span class="fa fa-list-alt"></span> Browse code</a></span>
             <h4>{{ $commit->getMessage() }}</h4>
         </div>
         <div class="commit-body">
