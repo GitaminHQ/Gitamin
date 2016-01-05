@@ -52,7 +52,7 @@ $factory->define(Issue::class, function ($faker) {
 $factory->define(Comment::class, function ($faker) {
     return [
         'message' => $faker->paragraph(),
-        'commentable_type' => $faker->randomElement(['Gitamin\\Models\\Issue', 'Gitamin\\Models\\MergeRequest']),
+        'commentable_type' => $faker->randomElement(['Gitamin\\Models\\Issue', 'Gitamin\\Models\\PullRequest']),
         'commentable_id' => 1,
         'project_id' => 1,
         'author_id' => 1,

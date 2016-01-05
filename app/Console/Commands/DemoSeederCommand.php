@@ -266,7 +266,7 @@ class DemoSeederCommand extends Command
             ],
             [
                 'message' => ":ship: We've deployed a fix.",
-                'commentable_type' => 'Gitamin\Models\MergeRequest',
+                'commentable_type' => 'Gitamin\Models\PullRequest',
                 'commentable_id' => 1,
                 'author_id' => 3,
                 'project_id' => 2,
@@ -287,7 +287,7 @@ class DemoSeederCommand extends Command
             ],
             [
                 'message' => ':zap: We\'ve seen high response times from our API. It looks to be fixing itself as time goes on.',
-                'commentable_type' => 'Gitamin\Models\MergeRequest',
+                'commentable_type' => 'Gitamin\Models\PullRequest',
                 'commentable_id' => 1,
                 'author_id' => 1,
                 'project_id' => 3,
