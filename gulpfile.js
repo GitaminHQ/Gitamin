@@ -34,6 +34,7 @@ elixir(function (mix) {
         ], 'public/dist/css/gitamin.css', './')
         .styles([
             'vendor/bower_components/nprogress/nprogress.css',
+            'vendor/bower_components/select2/dist/css/select2.min.css',
             'public/dist/css/style.css',
         ], 'public/dist/css/classic.css', './')
         .coffeeScript()

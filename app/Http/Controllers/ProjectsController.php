@@ -141,6 +141,9 @@ class ProjectsController extends Controller
             ->withPageTitle(trans('dashboard.projects.edit.title').' - '.trans('dashboard.dashboard'))
             ->withProject($project)
             ->withGroupId('')
+            ->withBreadCrumbs([])
+            ->withBranches([])
+            ->withCurrentBranch('')
             ->withActiveItem('project_edit')
             ->withGroups(Group::all());
     }

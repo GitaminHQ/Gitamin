@@ -13,6 +13,5 @@
 
     <body>
         @yield('body')
-         @include('dashboard.partials.footer')
     </body>
 </html>

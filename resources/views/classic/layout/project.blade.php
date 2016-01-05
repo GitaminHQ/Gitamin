@@ -19,7 +19,6 @@
         </div>
 
         @yield('content')
-
         @include('dashboard.partials.footer')
     </div>
 @stop
