@@ -8,6 +8,6 @@
 <span class="event_label opened">
 {{ $moment->actionName }} account
 </span>
-<strong><a href="{{ $moment->author->url }}">{{ $moment->target->name }}</a></strong>
+<strong><a href="{{ $moment->author->url }}">{{ $moment->momentable->name }}</a></strong>
 </div>
 </div>
