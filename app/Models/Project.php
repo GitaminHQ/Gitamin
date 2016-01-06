@@ -9,37 +9,37 @@
  * file that was distributed with this source code.
  */
 
-# == Schema Information
-#
-# Table name: projects
-#
-#  id                     :integer          not null, primary key
-#  name                   :string(255)
-#  path                   :string(255)
-#  description            :text
-#  created_at             :timestamp
-#  updated_at             :timestamp
-#  creator_id             :integer
-#  issues_enabled         :boolean          default(TRUE), not null
-#  wall_enabled           :boolean          default(TRUE), not null
-#  pull_requests_enabled  :boolean          default(TRUE), not null
-#  wiki_enabled           :boolean          default(TRUE), not null
-#  owner_id               :integer
-#  issues_tracker         :string(255)      default("gitlab"), not null
-#  issues_tracker_id      :string(255)
-#  snippets_enabled       :boolean          default(TRUE), not null
-#  last_activity_at       :timestamp
-#  import_url             :string(255)
-#  visibility_level       :integer          default(0), not null
-#  archived               :boolean          default(FALSE), not null
-#  avatar                 :string(255)
-#  import_status          :string(255)
-#  repository_size        :float            default(0.0)
-#  star_count             :integer          default(0), not null
-#  import_type            :string(255)
-#  import_source          :string(255)
-#  commit_count           :integer          default(0)
-#
+// == Schema Information
+//
+// Table name: projects
+//
+//  id                     :integer          not null, primary key
+//  name                   :string(255)
+//  path                   :string(255)
+//  description            :text
+//  created_at             :timestamp
+//  updated_at             :timestamp
+//  creator_id             :integer
+//  issues_enabled         :boolean          default(TRUE), not null
+//  wall_enabled           :boolean          default(TRUE), not null
+//  pull_requests_enabled  :boolean          default(TRUE), not null
+//  wiki_enabled           :boolean          default(TRUE), not null
+//  owner_id               :integer
+//  issues_tracker         :string(255)      default("gitlab"), not null
+//  issues_tracker_id      :string(255)
+//  snippets_enabled       :boolean          default(TRUE), not null
+//  last_activity_at       :timestamp
+//  import_url             :string(255)
+//  visibility_level       :integer          default(0), not null
+//  archived               :boolean          default(FALSE), not null
+//  avatar                 :string(255)
+//  import_status          :string(255)
+//  repository_size        :float            default(0.0)
+//  star_count             :integer          default(0), not null
+//  import_type            :string(255)
+//  import_source          :string(255)
+//  commit_count           :integer          default(0)
+//
 
 namespace Gitamin\Models;
 

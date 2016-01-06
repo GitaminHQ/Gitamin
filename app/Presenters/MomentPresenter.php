@@ -80,6 +80,21 @@ class MomentPresenter extends AbstractPresenter
         }
     }
 
+    public function template()
+    {
+        if ($this->wrappedObject->momentable instanceof Project) {
+            return 'project';
+        } elseif ($this->wrappedObject->momentable instanceof Comment) {
+            return 'comment';
+        } elseif ($this->wrappedObject->momentable instanceof Issue) {
+            return 'issue';
+        } elseif ($this->wrappedObject->momentable instanceof Owner) {
+            return 'owner';
+        } else {
+            return 'common';
+        }
+    }
+
     public function momentableName()
     {
         return str_replace('Gitamin\\Models\\', '', get_class($this->wrappedObject->momentable));

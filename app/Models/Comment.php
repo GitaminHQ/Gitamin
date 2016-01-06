@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-# == Schema Information
-#
-# Table name: comments
-#
-#  id               :integer          not null, primary key
-#  message          :text
-#  commentable_type :string(255)
-#  commentable_id   :integer
-#  author_id        :integer
-#  created_at       :timestamp
-#  updated_at       :timestamp
-#  project_id       :integer
-#  attachment       :string(255)
-#  line_code        :string(255)
-#  commit_id        :string(255)
-#  system           :boolean          default(FALSE), not null
-#  st_diff          :text
-#  updated_by_id    :integer
-#  is_award         :boolean
-#
+// == Schema Information
+//
+// Table name: comments
+//
+//  id               :integer          not null, primary key
+//  message          :text
+//  commentable_type :string(255)
+//  commentable_id   :integer
+//  author_id        :integer
+//  created_at       :timestamp
+//  updated_at       :timestamp
+//  project_id       :integer
+//  attachment       :string(255)
+//  line_code        :string(255)
+//  commit_id        :string(255)
+//  system           :boolean          default(FALSE), not null
+//  st_diff          :text
+//  updated_by_id    :integer
+//  is_award         :boolean
+//
 
 namespace Gitamin\Models;
 

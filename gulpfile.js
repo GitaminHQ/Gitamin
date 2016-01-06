@@ -63,5 +63,6 @@ elixir(function (mix) {
             'vendor/bower_components/coffee/**/*.js'
         ], 'public/dist/js/gitamin.js', './')
         .version(['public/dist/css/gitamin.css', 'public/dist/css/classic.css', 'public/dist/js/gitamin.js'])
-        .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/');
+        .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/')
+        .copy('vendor/bower_components/octicons/octicons/octicons.{eot,ttf,woff,svg}', 'public/fonts/');
 });
