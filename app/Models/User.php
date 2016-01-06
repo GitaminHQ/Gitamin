@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-# == Schema Information
-#
-# Table name: users
-#
-#  id             :integer          not null, primary key
-#  username       :string(255)
-#  password       :string(255)
-#  remember_token :string(100)
-#  email          :integer
-#  api_key        :string(255)
-#  active         :boolean          default(FALSE)
-#  level          :integer          default(2)
-#  created_at     :timestamp
-#  updated_at     :timestamp
-#  location       :string(255)      default('')
-#  public_email   :string(255)      default('')
-#  website_url    :string(255)      default('')
-#
+// == Schema Information
+//
+// Table name: users
+//
+//  id             :integer          not null, primary key
+//  username       :string(255)
+//  password       :string(255)
+//  remember_token :string(100)
+//  email          :integer
+//  api_key        :string(255)
+//  active         :boolean          default(FALSE)
+//  level          :integer          default(2)
+//  created_at     :timestamp
+//  updated_at     :timestamp
+//  location       :string(255)      default('')
+//  public_email   :string(255)      default('')
+//  website_url    :string(255)      default('')
+//
 
 namespace Gitamin\Models;
 

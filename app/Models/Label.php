@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-#
-# Table name: labels
-#
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  color      :string(255)
-#  project_id :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  template   :boolean          default(FALSE)
-#
+//
+// Table name: labels
+//
+//  id         :integer          not null, primary key
+//  title      :string(255)
+//  color      :string(255)
+//  project_id :integer
+//  created_at :datetime
+//  updated_at :datetime
+//  template   :boolean          default(FALSE)
+//
 
 namespace Gitamin\Models;
 

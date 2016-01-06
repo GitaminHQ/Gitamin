@@ -133,7 +133,7 @@ class Repository extends BaseRepository
         $lineNumOld = 0;
         $lineNumNew = 0;
         foreach ($logs as $log) {
-            # Skip empty lines
+            // Skip empty lines
             if ($log == '') {
                 continue;
             }

@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-# == Schema Information
-#
-# Table name: moments
-#
-#  id          :integer          not null, primary key
-#  target_type :string(255)
-#  target_id   :integer
-#  title       :string(255)
-#  data        :text
-#  project_id  :integer
-#  created_at  :timestamp
-#  updated_at  :timestamp
-#  action      :integer
-#  author_id   :integer
-#
+// == Schema Information
+//
+// Table name: moments
+//
+//  id          :integer          not null, primary key
+//  target_type :string(255)
+//  target_id   :integer
+//  title       :string(255)
+//  data        :text
+//  project_id  :integer
+//  created_at  :timestamp
+//  updated_at  :timestamp
+//  action      :integer
+//  author_id   :integer
+//
 
 namespace Gitamin\Models;
 
@@ -41,8 +41,8 @@ class Moment extends Model implements HasPresenter
     const PUSHED = 5;
     const COMMENTED = 6;
     const MERGED = 7;
-    const JOINED = 8; # User joined project
-    const LEFT = 9; # User left project
+    const JOINED = 8; // User joined project
+    const LEFT = 9; // User left project
     const DESTROYED = 10;
 
     /**
