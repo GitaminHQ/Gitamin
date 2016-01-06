@@ -18,11 +18,11 @@
                 <h4>{{ $commit->getMessage() }}</h4>
                 <span>
                     <a href="mailto:{{ $commit->getAuthor()->getEmail() }}">{{ $commit->getAuthor()->getName() }}</a> authored on 26/10/2015 01:50:59
-                                    </span>
+                </span>
             </td>
         </tr>
         @endforeach
-            </tbody>
+    </tbody>
 </table>
 @endforeach
 
