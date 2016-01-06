@@ -11,7 +11,6 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Home</a></li>
                 @if (Auth::guest())
                 <li><a href="{{ url('/auth/login') }}">Login</a></li>
                 @else
