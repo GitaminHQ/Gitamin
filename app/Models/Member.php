@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-# == Schema Information
-#
-# Table name: members
-#
-#  id                 :integer          not null, primary key
-#  access_level       :integer          not null
-#  target_id          :integer          not null
-#  target_type        :string(255)      not null
-#  user_id            :integer
-#  notification_level :integer          not null
-#  type               :string(255)
-#  created_at         :timestamp
-#  updated_at         :timestamp
-#  created_by_id      :integer
-#  invite_email       :string(255)
-#  invite_token       :string(255)
-#  invite_accepted_at :timestamp
-#
+// == Schema Information
+//
+// Table name: members
+//
+//  id                 :integer          not null, primary key
+//  access_level       :integer          not null
+//  target_id          :integer          not null
+//  target_type        :string(255)      not null
+//  user_id            :integer
+//  notification_level :integer          not null
+//  type               :string(255)
+//  created_at         :timestamp
+//  updated_at         :timestamp
+//  created_by_id      :integer
+//  invite_email       :string(255)
+//  invite_token       :string(255)
+//  invite_accepted_at :timestamp
+//
 
 namespace Gitamin\Models;
 

@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-# == Schema Information
-#
-# Table name: snippets
-#
-#  id               :integer          not null, primary key
-#  title            :string(255)
-#  content          :text
-#  author_id        :integer          not null
-#  project_id       :integer
-#  created_at       :timestamp
-#  updated_at       :timestamp
-#  file_name        :string(255)
-#  expires_at       :timestamp
-#  type             :string(255)
-#  visibility_level :integer          default(0), not null
-#
+// == Schema Information
+//
+// Table name: snippets
+//
+//  id               :integer          not null, primary key
+//  title            :string(255)
+//  content          :text
+//  author_id        :integer          not null
+//  project_id       :integer
+//  created_at       :timestamp
+//  updated_at       :timestamp
+//  file_name        :string(255)
+//  expires_at       :timestamp
+//  type             :string(255)
+//  visibility_level :integer          default(0), not null
+//
 
 namespace Gitamin\Models;
 
