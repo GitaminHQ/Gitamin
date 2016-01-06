@@ -1,7 +1,3 @@
-@extends('layout.project')
-
-@section('content')
-    @include('dashboard.partials.breadcrumb')
 @foreach($commits as $date => $commit_list)
 <table class="table table-striped commits">
     <thead>
@@ -38,5 +34,3 @@
     </li>
     @endif
 </ul>
-
-@endsection
