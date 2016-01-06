@@ -52,10 +52,13 @@ class CommitsController extends Controller
             $categorized[$date][] = $commit;
         }
 
-        return View::make('projects.commits.index')
+        $template = Request::ajax() ? 'projects.commits.list' : 'projects.commits.index';
+
+        return View::make($template)
             ->withBreadCrumbs($breadcrumbs)
             ->withProject($project)
             ->withWikis([])
+            ->withPager($pager)
             ->withCommits($categorized)
             ->withCurrentBranch($branch)
             ->withBranches([])

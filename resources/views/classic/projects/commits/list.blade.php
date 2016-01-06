@@ -1,7 +1,3 @@
-@extends('layout.project')
-
-@section('content')
-    @include('dashboard.partials.breadcrumb')
 @foreach($commits as $date => $commit_list)
 <table class="table table-striped commits">
     <thead>
@@ -18,7 +14,7 @@
                 <h4>{{ $commit->getMessage() }}</h4>
                 <span>
                     <a href="mailto:{{ $commit->getAuthor()->getEmail() }}">{{ $commit->getAuthor()->getName() }}</a> authored on 26/10/2015 01:50:59
-                </span>
+                                    </span>
             </td>
         </tr>
         @endforeach
@@ -38,5 +34,3 @@
     </li>
     @endif
 </ul>
-
-@endsection

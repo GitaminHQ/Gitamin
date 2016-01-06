@@ -46,16 +46,16 @@ window.disableButtonIfAnyEmptyField = (form, form_selector, button_selector) ->
 window.sanitize = (str) ->
   return str.replace(/<(?:.|\n)*?>/gm, '')
 
-$(document).pjax "a:not(a[target=\"_blank\"])", "body"
+# $(document).pjax "a:not(a[target=\"_blank\"])", "body"
 
-$(document).on "pjax:start", ->
-  NProgress.start()
+# $(document).on "pjax:start", ->
+#  NProgress.start()
 
-$(document).on "pjax:end", ->
-  NProgress.done()
+# $(document).on "pjax:end", ->
+#  NProgress.done()
 
-$(document).on "pjax:complete", ->
-  NProgress.done()
+# $(document).on "pjax:complete", ->
+#  NProgress.done()
 
 
 $ ->
@@ -163,3 +163,4 @@ $ ->
     new ConfirmDangerModal(form, text)
 
   new Aside()
+  paginate()
