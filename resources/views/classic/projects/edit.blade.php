@@ -4,8 +4,11 @@
 <div class="row">
     <div class="col-xs-6 col-sm-3 sidebar">
         <div class="list-group">
-            <div class="list-group-item active">{{ trans('gitamin.projects.edit.title') }}</div>
-            <a href="#" class="list-group-item">Remove</a>
+            <div class="list-group-item active">Options</div>
+            <a href="#" class="list-group-item">Collaborators & teams</a>
+            <a href="#" class="list-group-item">Branches</a>
+            <a href="#" class="list-group-item">Webhooks & services</a>
+            <a href="#" class="list-group-item">Deploy keys</a>
         </div>
     </div>
     <div class="col-xs-12 col-sm-9 main">

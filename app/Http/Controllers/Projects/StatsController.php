@@ -27,12 +27,13 @@ class StatsController extends Controller
     public function indexAction($namespace, $project_path, $postifx = null)
     {
         $project = Project::findByPath($namespace, $project_path);
+        $repository = $project->getRepository();
 
         return View::make('projects.stats.index')
             ->withProject($project)
             ->withWikis([])
-            ->withCurrentBranch('master')
-            ->withBranches([])
+            ->withCurrentBranch($repository->getCurrentBranch())
+            ->withBranches($repository->getBranches())
             ->withBreadCrumbs([])
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));

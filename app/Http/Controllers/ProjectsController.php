@@ -137,14 +137,15 @@ class ProjectsController extends Controller
     public function editAction($owner_path, $project_path)
     {
         $project = Project::findByPath($owner_path, $project_path);
+        $repository = $project->getRepository();
 
         return View::make('projects.edit')
             ->withPageTitle(trans('dashboard.projects.edit.title').' - '.trans('dashboard.dashboard'))
             ->withProject($project)
             ->withGroupId('')
             ->withBreadCrumbs([])
-            ->withBranches([])
-            ->withCurrentBranch('')
+            ->withBranches($repository->getBranches())
+            ->withCurrentBranch($repository->getCurrentBranch())
             ->withActiveItem('project_edit')
             ->withGroups(Group::all());
     }
