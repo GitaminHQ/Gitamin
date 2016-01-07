@@ -1,8 +1,14 @@
-<tr>
-    <td width="5%"><img src="{{ $moment->author->avatar }}" style="width:40px; height: 40px;" /></td>
-    <td width="95%">
-        <span class="pull-right"><span class="fa fa-list-alt"></span> {{ $moment->created_at_diff }}</span>
-        <h4>{{ $moment->actionName }} project {!! $moment->momentable->description !!}</h4>
-        <span><a href="{{ $moment->author->url }}">{{ $moment->momentable->name }}</a> authored on {{ $moment->created_at }}</span>
-    </td>
-</tr>
+<div class="alert update project"><div class="body"><!-- update -->
+<div class="simple">
+  <span aria-label="Delete" class="octicon octicon-repo dashboard-event-icon"></span>
+
+  <div class="title">
+    <a href="{{ $moment->author->url }}">{{ $moment->author->username }}</a> {{ $moment->actionName }} project <span class="branch-name">{{ $moment->momentable->name }}</span> at <a href="{{ $moment->momentable->url }}" data-ga-click="News feed, event click, Event click type:DeleteEvent target:repo">{{ $moment->momentable->name }}</a>
+  </div>
+
+  <div class="time">
+    <time datetime="{{ $moment->created_at_iso }}" is="relative-time" title="{{ $moment->created_at }}">{{ $moment->created_at_diff }}</time>
+  </div>
+</div>
+</div></div>
+<hr />

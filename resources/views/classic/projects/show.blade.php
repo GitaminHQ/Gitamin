@@ -11,6 +11,9 @@
             </tr>
         </thead>
         <tbody>
+            @if($parent_path !== null)
+            <tr><td colspan="3"><i class="fa fa-reply"></i> <a href="../">..</a></td></tr>
+            @endif
             @foreach($files as $file)
             <tr>
                 @if($file['type'] == 'folder')
