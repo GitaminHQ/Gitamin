@@ -33,13 +33,14 @@ class IssuesController extends Controller
     public function indexAction($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
+        $repository = $project->getRepository();
 
         return View::make('projects.issues.index')
             ->withProject($project)
             ->withIssues($project->issues)
             ->withBreadCrumbs([])
-            ->withBranches([])
-            ->withCurrentBranch('master')
+            ->withCurrentBranch($repository->getCurrentBranch())
+            ->withBranches($repository->getBranches())
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
     }
