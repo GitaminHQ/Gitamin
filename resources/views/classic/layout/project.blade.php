@@ -6,11 +6,6 @@
     <div class="container">
         <div class="header row">
             <div class="col-sm-12">
-
-                <form class="pull-right" action="" method="POST">
-                    <input type="search" name="query" class="form-control input-sm" placeholder="Search commits...">
-                </form>
-
                 @if(isset($project))
                     @include('projects.partials.branch_menu')
                     @include('projects.partials.menu')
