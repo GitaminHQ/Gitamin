@@ -1,4 +1,4 @@
-<div class="alert update simple"><div class="body"><!-- update -->
+<div class="moment update simple"><div class="body"><!-- update -->
 <div class="simple">
   <span aria-label="Update" class="octicon octicon-repo dashboard-event-icon"></span>
 

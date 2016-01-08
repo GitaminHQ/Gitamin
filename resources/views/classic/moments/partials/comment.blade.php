@@ -1,8 +1,8 @@
-<div class="alert issues_opened"><div class="body"><!-- pull_request -->
+<div class="moment issues_opened"><div class="body"><!-- pull_request -->
 <span aria-label="Pull request" class="mega-octicon octicon-git-pull-request dashboard-event-icon"></span>
 
 <div class="time">
-  <time datetime="2016-01-06T01:57:05Z" is="relative-time" title="2016年1月6日 GMT+8上午9:57">3 minutes ago</time>
+  <time datetime="{{ $moment->created_at_iso }}" is="relative-time" title="{{ $moment->created_at_formatted }}">{{ $moment->created_at_diff }}</time>
 </div>
 
 <div class="title">

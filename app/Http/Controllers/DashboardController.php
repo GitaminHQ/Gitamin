@@ -16,6 +16,7 @@ use Gitamin\Models\Issue;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Date\Date;
 
@@ -56,10 +57,18 @@ class DashboardController extends Controller
         $subscribers = $this->getSubscribers();
         $moments = Moment::recent()->get();
 
-        return View::make('dashboard.index')
+        $template = Request::ajax() ? 'dashboard.moment_list' : 'dashboard.index';
+        $pager = [
+            'current' => 0,
+            'next' => 1,
+            'last' => 1,
+        ];
+
+        return View::make($template)
             ->withPageTitle(trans('dashboard.dashboard'))
             ->withProjects($projects)
             ->withMoments($moments)
+            ->withPager($pager)
             ->withIssues($issues)
             ->withSubscribers($subscribers);
     }
