@@ -48,9 +48,13 @@ class IssuesController extends Controller
     public function showAction($owner_path, $project_path, $issue)
     {
         $project = Project::findByPath($owner_path, $project_path);
+        $repository = $project->getRepository();
 
         return View::make('projects.issues.show')
             ->withProject($project)
+            ->withBreadCrumbs([])
+            ->withCurrentBranch($repository->getCurrentBranch())
+            ->withBranches($repository->getBranches())
             ->withIssue($issue)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
             ->withActiveItem($this->active_item);
@@ -59,9 +63,13 @@ class IssuesController extends Controller
     public function newAction($namespace, $project_path)
     {
         $project = Project::findByPath($namespace, $project_path);
+        $repository = $project->getRepository();
 
         return View::make('projects.issues.new')
             ->withProject($project)
+            ->withBreadCrumbs([])
+            ->withCurrentBranch($repository->getCurrentBranch())
+            ->withBranches($repository->getBranches())
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name))
             ->withActiveItem($this->active_item);
     }

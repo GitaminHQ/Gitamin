@@ -3,7 +3,7 @@
 @section('content')
     @include('dashboard.partials.breadcrumb')
     @include('dashboard.partials.errors')
-issues 
+issue show
 <br />
 <a href="issues/new">{{ trans('dashboard.issues.new.title') }}</a>
 @endsection

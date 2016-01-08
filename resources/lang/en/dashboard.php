@@ -139,7 +139,7 @@ return [
         'closed' => 'Closed',
         'no_items' => 'No issues to show',
         'logged' => '{0} There are no issues, good work.|You have logged one issue.|You have reported <strong>:count</strong> issues.',
-        'add' => [
+        'new' => [
             'title' => 'New Issue',
             'success' => 'Issue added.',
             'failure' => 'Something went wrong with the issue.',

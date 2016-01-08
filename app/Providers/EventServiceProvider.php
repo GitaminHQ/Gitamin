@@ -32,6 +32,7 @@ class EventServiceProvider extends ServiceProvider
 
          // Issue email notifications
         'Gitamin\Events\Issue\IssueWasAddedEvent' => [
+            'Gitamin\Handlers\Events\Issue\SendIssueMomentHandler',
             'Gitamin\Handlers\Events\Issue\SendIssueEmailNotificationHandler',
         ],
         'Gitamin\Events\Issue\IssueWasRemovedEvent' => [

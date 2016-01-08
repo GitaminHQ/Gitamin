@@ -1,5 +1,5 @@
 <div class="moment issues_opened"><div class="body"><!-- pull_request -->
-<span aria-label="Pull request" class="mega-octicon octicon-git-pull-request dashboard-event-icon"></span>
+<span aria-label="Pull request" class="mega-octicon octicon-comment-discussion dashboard-event-icon"></span>
 
 <div class="time">
   <time datetime="{{ $moment->created_at_iso }}" is="relative-time" title="{{ $moment->created_at_formatted }}">{{ $moment->created_at_diff }}</time>
