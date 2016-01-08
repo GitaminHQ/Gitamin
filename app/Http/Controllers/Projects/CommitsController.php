@@ -93,11 +93,12 @@ class CommitsController extends Controller
         $nextPage = $pageNumber + 1;
         $previousPage = $pageNumber - 1;
 
-        return ['current' => $pageNumber,
-                     'next' => $nextPage,
-                     'previous' => $previousPage,
-                     'last' => $lastPage,
-                     'total' => $totalCommits,
+        return [
+            'current' => $pageNumber,
+            'next' => $nextPage,
+            'previous' => $previousPage,
+            'last' => $lastPage,
+            'total' => $totalCommits,
         ];
     }
 }
