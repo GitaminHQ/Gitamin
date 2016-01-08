@@ -1,9 +1,9 @@
-<div class="alert update project"><div class="body"><!-- update -->
+<div class="alert update simple"><div class="body"><!-- update -->
 <div class="simple">
-  <span aria-label="Delete" class="octicon octicon-repo dashboard-event-icon"></span>
+  <span aria-label="Update" class="octicon octicon-repo dashboard-event-icon"></span>
 
   <div class="title">
-    <a href="{{ $moment->author->url }}">{{ $moment->author->username }}</a> {{ $moment->actionName }} project <span class="branch-name">{{ $moment->momentable->name }}</span> at <a href="{{ $moment->momentable->url }}" data-ga-click="News feed, event click, Event click type:DeleteEvent target:repo">{{ $moment->momentable->name }}</a>
+    <a href="{{ $moment->author->url }}">{{ $moment->author->username }}</a> {{ $moment->actionName }} project at <a href="{{ $moment->momentable->url }}" data-ga-click="News feed, event click, Event click type:DeleteEvent target:repo">{{ $moment->momentable->name }}</a>
   </div>
 
   <div class="time">
@@ -11,4 +11,3 @@
   </div>
 </div>
 </div></div>
-<hr />

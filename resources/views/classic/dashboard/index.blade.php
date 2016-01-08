@@ -4,7 +4,7 @@
 @include('dashboard.partials.navigation')
 <div class="container">
     <div class="row">
-         <div class="col-xs-12 col-sm-9 main">
+         <div class="col-xs-12 col-sm-9 moments">
          @include('dashboard.partials.errors')
             @foreach($moments as $moment)
             @include('moments.partials.' . $moment->template)
