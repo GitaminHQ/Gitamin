@@ -8,7 +8,7 @@
         <tr>
             <th width="80%">Title</th>
             <th width="10%">Author</th>
-            <th width="10%">Size</th>
+            <th width="10%">Comments</th>
         </tr>
     </thead>
     <tbody>
