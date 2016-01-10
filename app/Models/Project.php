@@ -159,7 +159,7 @@ class Project extends Model implements HasPresenter
      */
     public function issues()
     {
-        return $this->hasMany(Issue::class, 'project_id', 'id');
+        return $this->hasMany(Issue::class, 'project_id', 'id')->orderBy('created_at', 'desc');
     }
 
     /**
