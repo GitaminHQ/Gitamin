@@ -12,13 +12,12 @@
 namespace Gitamin\Exceptions\Transformers;
 
 use Exception;
+use Gitamin\Exceptions\ExceptionInterface;
 use GrahamCampbell\Exceptions\Transformers\TransformerInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-/**
- * This is the model not found transformer class.
- */
 class ModelNotFoundTransformer implements TransformerInterface
 {
     /**
@@ -30,7 +29,9 @@ class ModelNotFoundTransformer implements TransformerInterface
      */
     public function transform(Exception $exception)
     {
-        if ($exception instanceof ModelNotFoundException) {
+        if ($exception instanceof ExceptionInterface) {
+            $exception = new BadRequestHttpException($exception->getMessage());
+        } elseif ($exception instanceof ModelNotFoundException) {
             $exception = new NotFoundHttpException('Resource not found');
         }
 
