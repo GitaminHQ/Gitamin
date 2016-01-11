@@ -12,8 +12,7 @@
 namespace Gitamin\Http\Middleware;
 
 use Closure;
-use Exception;
-use Gitamin\Facades\Setting;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 
 class HasSetting
@@ -34,11 +33,7 @@ class HasSetting
     {
         $settingName = $this->getSettingName($request);
 
-        try {
-            if (! Setting::get($settingName)) {
-                return Redirect::to('install');
-            }
-        } catch (Exception $e) {
+        if (! Config::get('setting.'.$settingName)) {
             return Redirect::to('install');
         }
 

@@ -11,9 +11,9 @@
 
 namespace Gitamin\Presenters;
 
-use Gitamin\Facades\Setting;
 use Gitamin\Traits\TimestampsTrait;
 use GrahamCampbell\Markdown\Facades\Markdown;
+use Illuminate\Support\Facades\Config;
 
 class CommentPresenter extends AbstractPresenter
 {
@@ -36,7 +36,7 @@ class CommentPresenter extends AbstractPresenter
      */
     public function created_at_datetimepicker()
     {
-        return $this->wrappedObject->created_at->setTimezone($this->setting->get('app_timezone'))->format('d/m/Y H:i');
+        return $this->wrappedObject->created_at->setTimezone(Config::get('gitamin.timezone'))->format('d/m/Y H:i');
     }
 
     public function commentableName()

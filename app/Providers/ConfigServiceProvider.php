@@ -12,9 +12,10 @@
 namespace Gitamin\Providers;
 
 use Exception;
-use Gitamin\Config\Config;
-use Gitamin\Facades\Setting;
+use Gitamin\Config\Config as BaseConfig;
 use Gitamin\Models\Setting as SettingModel;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class ConfigServiceProvider extends ServiceProvider
@@ -24,40 +25,49 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $appDomain = $appLocale = $appTimezone = null;
-
-        try {
-            // Get app custom configuration.
-            $appDomain = Setting::get('app_domain');
-            $appLocale = Setting::get('app_locale');
-            $appTimezone = Setting::get('app_timezone');
-
-            // Setup Cors.
-            $allowedOrigins = $this->app->config->get('cors.defaults.allowedOrigins');
-            $allowedOrigins[] = Setting::get('app_domain');
-
-            // Add our allowed domains too.
-            if ($allowedDomains = Setting::get('allowed_domains')) {
-                $domains = explode(',', $allowedDomains);
-                foreach ($domains as $domain) {
-                    $allowedOrigins[] = $domain;
-                }
+        if ($this->app->configurationIsCached()) {
+            if ($this->app->environment() === 'production') {
+                $this->app->terminating(function () {
+                    if ($this->app->setting->stale()) {
+                        $this->app->make(Kernel::class)->call('config:cache');
+                    }
+                });
             } else {
-                $allowedOrigins[] = $this->app->config->get('app.url');
+                $this->app->make(Kernel::class)->call('config:clear');
             }
 
-            $this->app->config->set('cors.paths.api/v1/*.allowedOrigins', $allowedOrigins);
-        } catch (Exception $e) {
-            // Don't throw any errors, we may not be setup yet.
+            return;
         }
-
-        // Override default app values.
-        $this->app->config->set('app.url', $appDomain ?: $this->app->config->get('app.url'));
-        $this->app->config->set('app.locale', $appLocale ?: $this->app->config->get('app.locale'));
-        $this->app->config->set('gitamin.timezone', $appTimezone ?: $this->app->config->get('gitamin.timezone'));
-
-        // Set custom lang.
-        $this->app->translator->setLocale($appLocale);
+        try {
+            $this->app->config->set('setting', $this->app->setting->all());
+        } catch (Exception $e) {
+            //
+        }
+        if ($appDomain = $this->app->config->get('setting.app_domain')) {
+            $this->app->config->set('app.url', $appDomain);
+        }
+        if ($appLocale = $this->app->config->get('setting.app.locale')) {
+            $this->app->config->set('app.locale', $appLocale);
+            $this->app->translator->setLocale($appLocale);
+        }
+        if ($appTimezone = $this->app->config->get('setting.app_timezone')) {
+            $this->app->config->set('cachet.timezone', $appTimezone);
+        }
+        $allowedOrigins = $this->app->config->get('cors.defaults.allowedOrigins');
+        if ($allowedDomains = $this->app->config->get('setting.allowed_domains')) {
+            $domains = explode(',', $allowedDomains);
+            foreach ($domains as $domain) {
+                $allowedOrigins[] = $domain;
+            }
+        } else {
+            $allowedOrigins[] = $this->app->config->get('app.url');
+        }
+        $this->app->config->set('cors.paths.api/v1/*.allowedOrigins', $allowedOrigins);
+        if ($this->app->environment() === 'production') {
+            $this->app->terminating(function () {
+                $this->app->make(Kernel::class)->call('config:cache');
+            });
+        }
     }
 
     /**
@@ -65,8 +75,9 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('setting', function () {
-            return new Config(new SettingModel());
-        }, true);
+        $this->app->singleton('setting', function () {
+            return new BaseConfig(new SettingModel());
+        });
+        $this->app->alias('setting', BaseConfig::class);
     }
 }

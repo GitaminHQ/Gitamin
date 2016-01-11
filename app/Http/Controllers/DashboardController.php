@@ -11,11 +11,11 @@
 
 namespace Gitamin\Http\Controllers;
 
-use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Date\Date;
@@ -42,7 +42,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->startDate = new Date();
-        $this->dateTimeZone = Setting::get('app_timezone');
+        $this->dateTimeZone = Config::get('setting.app_timezone');
     }
 
     /**

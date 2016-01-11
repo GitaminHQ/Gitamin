@@ -11,10 +11,10 @@
 
 namespace Gitamin\Http\Controllers;
 
-use Gitamin\Facades\Setting;
 use Gitamin\Models\Issue;
 use Gitamin\Models\Owner;
 use GrahamCampbell\Markdown\Facades\Markdown;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Roumen\Feed\Facades\Feed;
 
@@ -33,9 +33,9 @@ class FeedController extends Controller
     public function __construct()
     {
         $this->feed = Feed::make();
-        $this->feed->title = Setting::get('app_name');
+        $this->feed->title = Config::get('setting.app_name');
         $this->feed->description = trans('gitamin.feed');
-        $this->feed->link = Str::canonicalize(Setting::get('app_domain'));
+        $this->feed->link = Str::canonicalize(Config::get('setting.app_domain'));
         $this->feed->setDateFormat('datetime');
     }
 
@@ -60,7 +60,7 @@ class FeedController extends Controller
      */
     public function rssAction(Owner $owner = null)
     {
-        $this->feed->lang = Setting::get('app_locale');
+        $this->feed->lang = Config::get('setting.app_locale');
 
         return $this->feedAction($owner, true);
     }
@@ -105,7 +105,7 @@ class FeedController extends Controller
 
         $this->feed->add(
             $issue->title,
-            Setting::get('app_name'),
+            Config::get('setting.app_name'),
             $issue->url,
             $isRss ? $issue->created_at->toRssString() : $issue->created_at->toAtomString(),
             $isRss ? $issue->description : Markdown::convertToHtml($issue->description)

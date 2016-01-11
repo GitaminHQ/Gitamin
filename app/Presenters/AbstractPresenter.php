@@ -12,26 +12,9 @@
 namespace Gitamin\Presenters;
 
 use Illuminate\Contracts\Support\Arrayable;
-use McCool\LaravelAutoPresenter\BasePresenter as BaseLaravelAutoPresenter;
+use McCool\LaravelAutoPresenter\BasePresenter;
 
-abstract class AbstractPresenter extends BaseLaravelAutoPresenter implements Arrayable
+abstract class AbstractPresenter extends BasePresenter implements Arrayable
 {
-    /**
-     * The setting config.
-     *
-     * @var \Gitamin\Config\Config
-     */
-    protected $setting;
-
-    /**
-     * Create a issue presenter instance.
-     *
-     * @param \Illuminate\Database\Eloquent\Model $resource
-     */
-    public function __construct($resource)
-    {
-        parent::__construct($resource);
-
-        $this->setting = app('setting');
-    }
+    //
 }

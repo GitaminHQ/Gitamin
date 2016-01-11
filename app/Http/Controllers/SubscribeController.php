@@ -15,7 +15,6 @@ use AltThree\Validator\ValidationException;
 use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\VerifySubscriberCommand;
-use Gitamin\Facades\Setting;
 use Gitamin\Models\Subscriber;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Redirect;
@@ -33,7 +32,7 @@ class SubscribeController extends Controller
     public function showSubscribe()
     {
         return View::make('subscribe')
-            ->withAboutApp(Markdown::convertToHtml(Setting::get('app_about')));
+            ->withAboutApp(Markdown::convertToHtml(Config::get('setting.app_about')));
     }
 
     /**

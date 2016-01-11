@@ -12,6 +12,7 @@
 namespace Gitamin\Presenters;
 
 use Gitamin\Traits\TimestampsTrait;
+use Illuminate\Support\Facades\Config;
 use Jenssegers\Date\Date;
 
 class SubscriberPresenter extends AbstractPresenter
@@ -26,7 +27,7 @@ class SubscriberPresenter extends AbstractPresenter
     public function verified_at()
     {
         return (new Date($this->wrappedObject->verified_at))
-            ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
+            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
     }
 
     /**
