@@ -16,7 +16,7 @@
         <div class="panel panel-default">
         <div class="panel-heading">{{ trans('gitamin.projects.edit.title') }}</div>
         <div class="panel-body">
-        <form name="CreateProjectForm" class="form-horizontal" role="form" action="{{ route('projects.project_update', ['owner'=>$project->owner_path, 'path'=>$project->path]) }}" method="POST">
+        <form name="CreateProjectForm" class="form-horizontal js-requires-input" role="form" action="{{ route('projects.project_update', ['owner'=>$project->owner_path, 'path'=>$project->path]) }}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <fieldset>
                 <div class="form-group">

@@ -17,20 +17,10 @@ class Group extends Owner
 
     public static function boot()
     {
+        parent::boot();
+
         static::addGlobalScope('type', function ($builder) {
             $builder->where('type', 'Group');
         });
-
-        parent::boot();
-    }
-
-    /**
-     * Returns group route.
-     *
-     * @return string
-     */
-    public function getUrlAttribute()
-    {
-        return route('owners.owner_show', ['owner' => $this->path]);
     }
 }

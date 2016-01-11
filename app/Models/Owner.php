@@ -127,6 +127,16 @@ class Owner extends Model
     }
 
     /**
+     * Returns group route.
+     *
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return route('owners.owner_show', ['owner' => $this->path]);
+    }
+
+    /**
      * Finds all my owners.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query

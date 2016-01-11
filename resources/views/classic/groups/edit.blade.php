@@ -1,15 +1,25 @@
-@extends('layout.project')
+@extends('layout.dashboard')
 
-@section('content')
-    @include('dashboard.partials.breadcrumb')
+@section('body')
+@include('dashboard.partials.navigation')
 
+<div class="container">
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-xs-6 col-sm-3 sidebar">
+        <div class="list-group">
+            <div class="list-group-item active">Settings</div>
+            <a href="#" class="list-group-item">Member privileges</a>
+            <a href="#" class="list-group-item">Team settings</a>
+            <a href="#" class="list-group-item">Applications</a>
+            <a href="#" class="list-group-item">Webhooks</a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9 main">
+    @include('dashboard.partials.errors')
         <div class="panel panel-default">
-            <div class="panel-heading">{{ trans('gitamin.groups.new.title') }}</div>
-            <div class="panel-body">
-                @include('dashboard.partials.errors')
-                <form name="CreateProjectTeamForm" class="form-horizontal js-requires-input" role="form" action="/groups/create" method="POST">
+        <div class="panel-heading">{{ trans('gitamin.groups.groups') }}</div>
+        <div class="panel-body">
+            <form name="CreateProjectTeamForm" class="form-horizontal js-requires-input" role="form" action="{{ route('groups.group_update', ['owner'=>$group->path])}}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <fieldset>
                     <div class="form-group">
@@ -17,20 +27,20 @@
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <div class="input-group-addon">{{ url('/') }}/</div>
-                                <input type="text" class="form-control" name="group[path]" value="{{ Input::old('group.path') }}" id="group-path" placeholder="open-source" required="required">
+                                <input type="text" class="form-control" name="group[path]" id="group-path" placeholder="open-source" value="{{ $group->path }}" required="required">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="group-name">{{ trans('forms.groups.name') }}</label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" name="group[name]" value="{{ Input::old('group.name') }}" id="group-name"  required="required">
+                        <input type="text" class="form-control" name="group[name]" id="group-name" value="{{ $group->name }}" required="required">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label">{{ trans('forms.groups.description') }}</label>
                         <div class="col-sm-6">
-                            <textarea name="group[description]" class="form-control" rows="4">{{ Input::old('group.description') }}</textarea>
+                            <textarea name="group[description]" class="form-control" rows="4">{{ $group->description }}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -41,12 +51,13 @@
                     </div>
                 </fieldset>
                 <div class="form-actions text-center">
-                <button type="submit" class="btn btn-success">{{ trans('forms.create') }}</button>
-                <a class="btn btn-cancel" href="{{ back_url('dashboard.groups.index') }}">{{ trans('forms.cancel') }}</a>
+                    <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
+                    <a class="btn btn-cancel" href="{{ back_url('owners.owner_show', ['owner' => $group->path]) }}">{{ trans('forms.cancel') }}</a>
                 </div>
-                </form>
-            </div>
+            </form>
+        </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
