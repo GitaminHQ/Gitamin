@@ -24,16 +24,24 @@ class StatsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexAction($namespace, $project_path, $postifx = null)
+    public function indexAction($namespace, $project_path, $branch = null)
     {
         $project = Project::findByPath($namespace, $project_path);
         $repository = $project->getRepository();
+        if ($branch === null) {
+            $branch = $repository->getHead();
+        }
+
+        $stats = $repository->getStatistics($branch);
+        $authors = $repository->getAuthorStatistics($branch);
 
         return View::make('projects.stats.index')
             ->withProject($project)
             ->withWikis([])
             ->withCurrentBranch($repository->getCurrentBranch())
             ->withBranches($repository->getBranches())
+            ->withStats($stats)
+            ->withAuthors($authors)
             ->withBreadCrumbs([])
             ->withActiveItem($this->active_item)
             ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
