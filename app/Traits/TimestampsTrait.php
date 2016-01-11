@@ -11,6 +11,7 @@
 
 namespace Gitamin\Traits;
 
+use Illuminate\Support\Facades\Config;
 use Jenssegers\Date\Date;
 
 trait TimestampsTrait
@@ -23,7 +24,7 @@ trait TimestampsTrait
     public function created_at()
     {
         return (new Date($this->wrappedObject->created_at))
-            ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
+            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
     }
 
     /**
@@ -34,7 +35,7 @@ trait TimestampsTrait
     public function created_at_diff()
     {
         return (new Date($this->wrappedObject->created_at))
-            ->setTimezone($this->setting->get('app_timezone'))
+            ->setTimezone(Config::get('gitamin.timezone'))
             ->diffForHumans();
     }
 
@@ -46,8 +47,8 @@ trait TimestampsTrait
     public function created_at_formatted()
     {
         return ucfirst((new Date($this->wrappedObject->created_at))
-            ->setTimezone($this->setting->get('app_timezone'))
-            ->format($this->setting->get('issue_date_format', 'l jS F Y H:i:s')));
+            ->setTimezone(Config::get('gitamin.timezone'))
+            ->format(Config::get('setting.issue_date_format', 'l jS F Y H:i:s')));
     }
 
     /**
@@ -57,7 +58,7 @@ trait TimestampsTrait
      */
     public function created_at_iso()
     {
-        return $this->wrappedObject->created_at->setTimezone($this->setting->get('app_timezone'))->toISO8601String();
+        return $this->wrappedObject->created_at->setTimezone(Config::get('gitamin.timezone'))->toISO8601String();
     }
 
     /**
@@ -68,7 +69,7 @@ trait TimestampsTrait
     public function updated_at()
     {
         return (new Date($this->wrappedObject->updated_at))
-            ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
+            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
     }
 
     /**
@@ -79,6 +80,6 @@ trait TimestampsTrait
     public function deleted_at()
     {
         return (new Date($this->wrappedObject->deleted_at))
-            ->setTimezone($this->setting->get('app_timezone'))->toDateTimeString();
+            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
     }
 }

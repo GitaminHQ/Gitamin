@@ -12,7 +12,7 @@
 namespace Gitamin\Http\Middleware;
 
 use Closure;
-use Gitamin\Facades\Setting;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 
 class AppIsInstalled
@@ -30,7 +30,7 @@ class AppIsInstalled
      */
     public function handle($request, Closure $next)
     {
-        if (Setting::get('app_name')) {
+        if (Config::get('app_name')) {
             return Redirect::to('dashboard');
         }
 

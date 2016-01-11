@@ -11,7 +11,6 @@
 
 namespace Gitamin\Composers;
 
-use Gitamin\Facades\Setting;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Config;
 
@@ -24,15 +23,15 @@ class AppComposer
      */
     public function compose(View $view)
     {
-        $view->withAppBanner(Setting::get('app_banner'));
-        $view->withAppBannerStyleFullWidth(Setting::get('style_fullwidth_header'));
-        $view->withAppBannerType(Setting::get('app_banner_type'));
-        $view->withAppDomain(Setting::get('app_domain'));
-        $view->withGitClientPath(Setting::get('git_client_path'));
-        $view->withGitRepositoriesPath(Setting::get('git_repositories_path'));
-        $view->withAppLocale(Setting::get('app_locale'));
-        $view->withAppName(Setting::get('app_name'));
-        $view->withAppStylesheet(Setting::get('app_stylesheet'));
+        $view->withAppBanner(Config::get('setting.app_banner'));
+        $view->withAppBannerStyleFullWidth(Config::get('setting.style_fullwidth_header'));
+        $view->withAppBannerType(Config::get('setting.app_banner_type'));
+        $view->withAppDomain(Config::get('setting.app_domain'));
+        $view->withGitClientPath(Config::get('setting.git_client_path'));
+        $view->withGitRepositoriesPath(Config::get('setting.git_repositories_path'));
+        $view->withAppLocale(Config::get('setting.app_locale'));
+        $view->withAppName(Config::get('setting.app_name'));
+        $view->withAppStylesheet(Config::get('setting.app_stylesheet'));
         $view->withAppUrl(Config::get('app.url'));
         $view->withGoogleFontsUrl(Config::get('gitamin.google_fonts_url'));
     }
