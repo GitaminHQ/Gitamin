@@ -92,7 +92,7 @@ return [
     ],
 
     'profiles' => [
-        'profiles' => 'Profile',
+        'profiles' => 'Your Profile',
         'account' => 'Account settings',
         'applications' => 'Applications',
         'emails' => 'Emails',
