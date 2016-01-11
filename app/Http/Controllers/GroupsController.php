@@ -96,6 +96,7 @@ class GroupsController extends Controller
         $group = Group::findByPath($path);
 
         return View::make('groups.edit')
+            ->withActiveItem('group_edit')
             ->withPageTitle(trans('gitamin.groups.edit.title').' - '.trans('dashboard.dashboard'))
             ->withGroup($group);
     }

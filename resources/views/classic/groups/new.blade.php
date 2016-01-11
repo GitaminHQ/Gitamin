@@ -1,7 +1,6 @@
 @extends('layout.project')
 
 @section('content')
-    @include('dashboard.partials.breadcrumb')
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
