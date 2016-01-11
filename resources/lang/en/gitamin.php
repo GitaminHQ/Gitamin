@@ -49,7 +49,7 @@ return [
         'no_projects' => 'You should add a project group.',
         'yours' => 'Your Groups',
         'explore' => 'Explore Groups',
-        'add' => [
+        'new' => [
             'title' => 'New Group',
             'success' => 'Project group added.',
             'failure' => 'Something went wrong with the project group.',

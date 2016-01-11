@@ -47,7 +47,6 @@ class OwnersController extends Controller
     {
         $usedProjects = Project::where('owner_id', '=', $group->id)->pluck('id')->toArray();
         $moments = Moment::whereIn('project_id', $usedProjects)->get();
-
         return View::make('groups.show')
             ->withPageTitle($group->name)
             ->withGroup($group)
