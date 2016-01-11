@@ -99,14 +99,14 @@ if (! function_exists('formated_filesize')) {
     {
         $size = $filesize / 1024;
         if ($size < 1024) {
-            $size = number_format($size, 0);
+            $size = number_format($size, 2);
             $size .= 'KB';
         } else {
             if ($size / 1024 < 1024) {
-                $size = number_format($size / 1024, 0);
+                $size = number_format($size / 1024, 2);
                 $size .= 'MB';
             } elseif ($size / 1024 / 1024 < 1024) {
-                $size = number_format($size / 1024 / 1024, 0);
+                $size = number_format($size / 1024 / 1024, 2);
                 $size .= 'GB';
             }
         }
