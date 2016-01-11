@@ -9,7 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('gitamin.profiles.profiles') }}</div>
                 <div class="panel-body">
-                {{ $current_user->username }}
+                {{ $user->username }}
                 </div>
             </div>
         </div>

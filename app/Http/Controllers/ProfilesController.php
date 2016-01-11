@@ -105,7 +105,7 @@ class ProfilesController extends Controller
 
         return View::make('profiles.index')
             ->withSubMenu($this->subMenu)
-            ->withPageTitle(trans('gitamin.profiles.profiles').' - '.trans('dashboard.dashboard'));
+            ->withPageTitle(trans('gitamin.profiles.account').' - '.trans('dashboard.dashboard'));
     }
 
     /**

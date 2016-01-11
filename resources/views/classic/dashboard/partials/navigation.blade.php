@@ -27,7 +27,9 @@
                     </a>
    
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ route('owners.owner_show', ['owner' => $current_user->username]) }}"><i class="fa fa-user"></i> {{ trans('dashboard.profile') }}</a></li>
+                        <li><a href="{{ route('owners.owner_show', ['owner' => $current_user->username]) }}"><i class="fa fa-user"></i> {{ trans('gitamin.profiles.profiles') }}</a></li>
+                        <hr />
+                        <li><a href="{{ url('/profile') }}"><i class="fa fa-gear"></i> {{ trans('gitamin.profiles.account') }}</a></li>
                         <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
