@@ -1,9 +1,7 @@
-@extends('layout.dashboard')
+@extends('layout.group')
 
-@section('body')
-@include('dashboard.partials.navigation')
+@section('content')
 
-<div class="container">
 <div class="row">
     <div class="col-xs-6 col-sm-3 sidebar">
         <div class="list-group">
@@ -58,6 +56,5 @@
         </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

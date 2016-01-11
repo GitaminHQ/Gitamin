@@ -51,6 +51,7 @@ class OwnersController extends Controller
         return View::make('groups.show')
             ->withPageTitle($group->name)
             ->withGroup($group)
+            ->withActiveItem('group_show')
             ->withMoments($moments);
     }
 

@@ -1,9 +1,6 @@
-@extends('layout.dashboard')
+@extends('layout.group')
 
-@section('body')
-@include('dashboard.partials.navigation')
-
-<div class="container">
+@section('content')
 <div class="row">
     <div class="col-xs-12 col-sm-9 main">
     @include('dashboard.partials.errors')
@@ -28,6 +25,5 @@
             <a href="{{ $group->url }}/edit" class="list-group-item">Settings</a>
         </div>
     </div>
-</div>
 </div>
 @endsection
