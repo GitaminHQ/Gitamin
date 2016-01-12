@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d70581bc645d0de80c177ce3392222ad",
-    "content-hash": "199d167b853b2dbcac1602662939a2a7",
+    "hash": "6ce080dbabe2ed085e6241f830aa7147",
+    "content-hash": "7770c690aeb7f7353ef2ead65f2854a4",
     "packages": [
         {
             "name": "alt-three/emoji",
@@ -2056,16 +2056,16 @@
         },
         {
             "name": "phecho/gitlib",
-            "version": "v0.0.3",
+            "version": "v0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phecho/Gitlib.git",
-                "reference": "04ad0a040fbb6476f1cc4baec097b7d392ee2f2e"
+                "reference": "92b33f340c063edec467dcd52f9abda77cecba23"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/phecho/Gitlib/04ad0a040fbb6476f1cc4baec097b7d392ee2f2e.zip",
-                "reference": "04ad0a040fbb6476f1cc4baec097b7d392ee2f2e",
+                "url": "http://packagist.phpcomposer.com/files/phecho/Gitlib/92b33f340c063edec467dcd52f9abda77cecba23.zip",
+                "reference": "92b33f340c063edec467dcd52f9abda77cecba23",
                 "shasum": ""
             },
             "require": {
@@ -2098,7 +2098,7 @@
                 "git",
                 "gitamin"
             ],
-            "time": "2015-12-30 09:44:26"
+            "time": "2016-01-12 13:12:28"
         },
         {
             "name": "phecho/proxy",

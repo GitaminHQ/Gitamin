@@ -5,9 +5,9 @@
     <table class="table tree table-hover">
         <thead>
             <tr>
-                <th width="80%">Name</th>
-                <th width="10%">Mode</th>
-                <th width="10%">Size</th>
+                <th width="25%">Name</th>
+                <th width="65%">Message</th>
+                <th width="10%">Age</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                 @else
                 <td><span class="fa fa-file"></span> <a href="{{ $project->url }}/blob/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
                 @endif
-                <td>{{ $file['mode'] }}</td>
+                <td>{{ $file['hash'] }}</td>
                 <td>{{ formated_filesize($file['size']) }}</td>
             </tr>
             @endforeach

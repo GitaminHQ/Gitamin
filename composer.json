@@ -13,7 +13,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "~5.2.6",
-        "phecho/gitlib": "^0.0.3",
+        "phecho/gitlib": "^0.0.4",
         "phecho/proxy": "^3.0.1",
         "phecho/uploader": "^0.1",
         "alt-three/emoji": "^2.1",
