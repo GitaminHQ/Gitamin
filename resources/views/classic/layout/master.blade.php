@@ -5,7 +5,6 @@
 
     <div class="container">
         <div class="row">
-            @include('profiles.partials.sidebar')
             @yield('content')
         </div>
         @include('dashboard.partials.footer')

@@ -14,11 +14,12 @@
                 @if (Auth::guest())
                 <li><a href="{{ url('/auth/login') }}">Login</a></li>
                 @else
+                <li><a href="{{ url('/') }}"><i class="octicon octicon-bell"></i> </a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus"></i> <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                     <li><a href="/projects/new"><i class="fa fa-cubes"></i> New Project</a></li>
-                    <li><a href="/groups/new"><i class="fa fa-group"></i>  New Group</a></li>
+                    <li><a href="/groups/new"><i class="fa fa-group"></i> New Group</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
