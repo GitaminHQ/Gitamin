@@ -5,7 +5,7 @@
 @include('profiles.partials.sidebar')
 
 <div class="col-xs-12 col-sm-9 main">
-@include('dashboard.partials.errors')
+    @include('dashboard.partials.errors')
     <div class="panel panel-default">
     <div class="panel-heading">{{ trans('gitamin.profiles.profiles') }}</div>
     <div class="panel-body">
