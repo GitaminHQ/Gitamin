@@ -1,6 +1,8 @@
-@extends('layout.profile')
+@extends('layout.master')
 
 @section('content')
+
+@include('profiles.partials.sidebar')
 
 <div class="col-xs-12 col-sm-9 main">
 @include('dashboard.partials.errors')
