@@ -123,7 +123,7 @@ class ProjectsController extends Controller
             ->withBranches($repository->getBranches())
             ->withParentPath($parent)
             ->withPath($tree ? $tree.'/' : $tree)
-            ->withFiles($files->output());
+            ->withFiles($files->getEntries());
     }
 
     /**
