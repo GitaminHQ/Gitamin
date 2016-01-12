@@ -51,7 +51,7 @@ class ConfigServiceProvider extends ServiceProvider
             $this->app->translator->setLocale($appLocale);
         }
         if ($appTimezone = $this->app->config->get('setting.app_timezone')) {
-            $this->app->config->set('cachet.timezone', $appTimezone);
+            $this->app->config->set('gitamin.timezone', $appTimezone);
         }
         $allowedOrigins = $this->app->config->get('cors.defaults.allowedOrigins');
         if ($allowedDomains = $this->app->config->get('setting.allowed_domains')) {
