@@ -20,8 +20,8 @@
 </div>
 
  <ul class="commit-list">
-    @foreach($commit->getDiffs() as $diff)
-    <li><i class="fa fa-file-text-o"></i> <a href="#diff-{{ $diff->getIndex() }}">{{ $diff->getFile() }}</a> <span class="meta pull-right">{{ $diff->getIndex() }}</span></li>
+    @foreach($commit->getDiffs() as $index => $diff)
+    <li><i class="fa fa-file-text-o"></i> <a href="#diff-{{ $index }}">{{ $diff->getFile() }}</a> <span class="meta pull-right">{{ $diff->getIndex() }}</span></li>
     @endforeach
 </ul>
 
@@ -38,12 +38,12 @@
 
     <div class="source-diff">
     <table>
-    @foreach($diff->getLines() as $line)
+    @foreach($diff->getLines() as $index => $line)
         <tr>
             <td class="lineNo">
                 @if($line->getType() != 'chunk')
-                    <a name="L1R{{ $line->getNumOld() }}"></a>
-                    <a href="#L1R{{ $line->getNumOld() }}">
+                    <a name="L{{ $index }}R{{ $line->getNumOld() }}"></a>
+                    <a href="#L{{ $index }}R{{ $line->getNumOld() }}">
                 @endif
                 {{ $line->getNumOld() }}
                 @if($line->getType() != 'chunk')
@@ -52,8 +52,8 @@
             </td>
             <td class="lineNo">
                 @if($line->getType() != 'chunk')
-                    <a name="L1L{{ $line->getNumNew() }}"></a>
-                    <a href="#L1L{{ $line->getNumNew() }}">
+                    <a name="L{{ $index }}L{{ $line->getNumNew() }}"></a>
+                    <a href="#L{{ $index }}L{{ $line->getNumNew() }}">
                 @endif
                 {{ $line->getNumNew() }}
                 @if($line->getType() != 'chunk')
