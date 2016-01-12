@@ -102,7 +102,7 @@ class ProjectsController extends Controller
         //$postfix = str_replace('tree/', '', $postfix);
 
         list($branch, $tree) = $repository->parseCommitishPathParam($postfix);
-        list($branch, $tree) = $repository->extractRef($branch, $tree);
+
         $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
         $breadcrumbs = bread_crumbs($tree);
 

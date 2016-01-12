@@ -31,7 +31,6 @@ class BlobController extends Controller
         $repository = $project->getRepository();
 
         list($branch, $file) = $repository->parseCommitishPathParam($postfix);
-        list($branch, $file) = $repository->extractRef($branch, $file);
 
         $blob = $repository->getBlob("$branch:\"$file\"");
         $breadcrumbs = bread_crumbs($file);
