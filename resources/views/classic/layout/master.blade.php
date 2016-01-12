@@ -1,12 +1,12 @@
 @extends('layout.dashboard')
 
 @section('body')
-    @include('dashboard.partials.navigation')
+@include('dashboard.partials.navigation')
 
-    <div class="container">
-        <div class="row">
-            @yield('content')
-        </div>
-        @include('dashboard.partials.footer')
+<div class="container">
+    <div class="row">
+        @yield('content')
     </div>
-@stop
+    @include('dashboard.partials.footer')
+</div>
+@endsection
