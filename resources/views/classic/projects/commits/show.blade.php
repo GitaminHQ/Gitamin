@@ -13,7 +13,7 @@
         <p>{{ $commit->getBody() }}</p>
                     <img src="/img/no_user_avatar.png" style="width:40px; height:32px;" class="pull-left space-right">
         <span>
-            <a href="mailto:{{ $commit->getAuthor()->getEmail() }}">{{ $commit->getAuthor()->getName() }}</a> authored on 111
+            <a href="mailto:{{ $commit->getAuthor()->getEmail() }}">{{ $commit->getAuthor()->getName() }}</a> authored on {!! $commit->getCommiterDate()->format('c') !!}
                             <br>Showing {{ $commit->getChangedFiles() }} changed files
         </span>
     </div>
