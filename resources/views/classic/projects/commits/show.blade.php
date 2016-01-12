@@ -31,8 +31,8 @@
         <div class="meta"><a id="diff-1">{{ $diff->getFile() }}</div>
 
         <div class="btn-group pull-right">
-            <a href="#"  class="btn btn-default btn-sm"><span class="fa fa-list-alt"></span> History</a>
-            <a href="#"  class="btn btn-default btn-sm"><span class="fa fa-file"></span> View file @ {{ $commit->getShortHash() }}</a>
+            <a href="{{ $project->url }}/commits/{{ $commit->getHash() }}/{{ $diff->getFile() }}"  class="btn btn-default btn-sm"><span class="fa fa-list-alt"></span> History</a>
+            <a href="{{ $project->url }}/blob/{{ $commit->getHash() }}/{{ $diff->getFile() }}"  class="btn btn-default btn-sm"><span class="fa fa-file"></span> View file {{ '@'.$commit->getShortHash() }}</a>
         </div>
     </div>
 
