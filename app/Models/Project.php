@@ -45,10 +45,10 @@ namespace Gitamin\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Gitamin\Git\Client as GitterClient;
-use Gitamin\Git\Repository;
 use Gitamin\Models\Members\ProjectMember;
 use Gitamin\Presenters\ProjectPresenter;
 use Gitamin\Traits\VisibilityTrait;
+use Gitonomy\Git\Repository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -276,6 +276,11 @@ class Project extends Model implements HasPresenter
     public function getRepository()
     {
         return (new GitterClient())->getRepository('/Users/guanshiliang/Code/Gitamin');
+    }
+
+    public function getRepository2()
+    {
+        return new Repository('/Users/guanshiliang/Code/Gitamin');
     }
 
     /**
