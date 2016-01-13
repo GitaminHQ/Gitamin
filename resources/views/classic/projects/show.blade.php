@@ -13,17 +13,17 @@
         <tbody>
             <tr><td colspan="2"><a href="#">{{ $revision->getCommit()->getAuthorName() }}</a> {{ $revision->getCommit()->getMessage() }} </td><td style="text-align: right;">{{ $revision->getCommit()->getCommitterDate()->format('Y-m-d H:i:s') }}</td></tr>
             @if($parent_path !== null)
-            <tr><td colspan="3"><i class="fa fa-reply"></i> <a href="../">..</a></td></tr>
+            <tr><td colspan="3"><i class="fa fa-reply"></i> <a href="{{ $project->url }}/tree/{{$current_branch}}/{{ $parent_path }}">..</a></td></tr>
             @endif
-            @foreach($files as $file)
+            @foreach($entries as $entry)
             <tr>
-                @if($file['type'] == 'folder')
-                <td><span class="fa fa-folder-open"></span> <a href="{{ $project->url }}/tree/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
+                @if($entry['type'] == 'folder')
+                <td><span class="fa fa-folder-open"></span> <a href="{{ $project->url }}/tree/{{$current_branch}}/{{ $path }}{{ $entry['name'] }}">{{ $entry['name'] }}</a></td>
                 @else
-                <td><span class="fa fa-file"></span> <a href="{{ $project->url }}/blob/{{$current_branch}}/{{ $path }}{{ $file['name'] }}">{{ $file['name'] }}</a></td>
+                <td><span class="fa fa-file"></span> <a href="{{ $project->url }}/blob/{{$current_branch}}/{{ $path }}{{ $entry['name'] }}">{{ $entry['name'] }}</a></td>
                 @endif
-                <td><a href="{{ $project->url }}/commit/{{ $file['hash'] }}">{{ $file['message'] }}</a></td>
-                <td style="text-align: right;"></td>
+                <td><a href="{{ $project->url }}/commit/{{ $entry['hash'] }}">{{ $entry['message'] }}</a></td>
+                <td style="text-align: right;">{{ $entry['age'] }}</td>
             </tr>
             @endforeach
         </tbody>
