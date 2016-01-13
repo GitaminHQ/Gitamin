@@ -19,7 +19,6 @@ use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
 use Gitonomy\Git\Blob;
-use Gitonomy\Git\Reference;
 use Gitonomy\Git\Tree;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -87,7 +86,6 @@ class ProjectsController extends Controller
     }
     public function showAction($owner_path, $project_path, $postfix = null)
     {
-
         $project = Project::findByPath($owner_path, $project_path);
         $repository = $project->getRepository2();
 
@@ -101,7 +99,7 @@ class ProjectsController extends Controller
 
         $refs = $repository->getReferences();
         $revision = $branch;
-        if($refs->hasBranch($postfix)) {
+        if ($refs->hasBranch($postfix)) {
             $revision = $refs->getBranch($revision);
         } else {
             $revision = $repository->getRevision($revision);
@@ -109,24 +107,23 @@ class ProjectsController extends Controller
         $commit = $revision->getCommit();
         $tree = $commit->getTree();
         $folders = $files = [];
-        foreach($tree->getEntries() as $name => $data) {
+        foreach ($tree->getEntries() as $name => $data) {
             list($mode, $entry) = $data;
-            if($entry instanceof Blob) {
-
-                if($name == 'LICENSE') {
+            if ($entry instanceof Blob) {
+                if ($name == 'LICENSE') {
                     //var_dump($revision->getCommit()->getAuthorName());
                     //$message = $repository->getLog('Gitamin/develop/'.$name);
                     //var_dump($message->getCommits());
                     //exit;
                 }
                 $files[] = [
-                'name'=> $name,
-                'type'=>'file',
+                'name' => $name,
+                'type' => 'file',
                 'hash' => $entry->getHash(),
                 'message' => 'message',
                 'size' => '1',
                 ];
-            } elseif($entry instanceof Tree) {
+            } elseif ($entry instanceof Tree) {
                 $folders[] = [
                 'name' => $name,
                 'type' => 'folder',
@@ -136,7 +133,7 @@ class ProjectsController extends Controller
                 ];
             }
         }
-        $entries = array_merge($folders,$files);
+        $entries = array_merge($folders, $files);
 
         return View::make('projects.show')
             ->withPageTitle($project->name)
@@ -168,7 +165,7 @@ class ProjectsController extends Controller
 
         $refs = $repository2->getReferences();
         $revision = 'master';
-        if($refs->hasBranch($postfix)) {
+        if ($refs->hasBranch($postfix)) {
             $revision = $refs->getBranch($revision);
         } else {
             $revision = $repository2->getRevision($revision);
@@ -176,15 +173,15 @@ class ProjectsController extends Controller
         $commit = $revision->getCommit();
         $tree = $commit->getTree();
         $folders = $files = [];
-        foreach($tree->getEntries() as $name => $data) {
+        foreach ($tree->getEntries() as $name => $data) {
             list($mode, $entry) = $data;
-            if($entry instanceof Blob) {
+            if ($entry instanceof Blob) {
                 $files[] = $name;
-            } elseif($entry instanceof Tree) {
+            } elseif ($entry instanceof Tree) {
                 $folders[] = $name;
             }
         }
-        $entries = array_merge($folders,$files);
+        $entries = array_merge($folders, $files);
         var_dump($entries);
         exit;
         var_dump($repository2->getSize());
