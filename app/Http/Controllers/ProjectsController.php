@@ -85,123 +85,79 @@ class ProjectsController extends Controller
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.new.success')));
     }
 
-    public function showAction($owner_path, $project_path, $postfix = null)
-    {
-        $project = Project::findByPath($owner_path, $project_path);
-        $repository = $project->getRepository2();
-
-        $repository1 = $project->getRepository();
-        if (! $postfix) {
-            $postfix = $repository1->getHead();
-        }
-        //$postfix = str_replace('tree/', '', $postfix);
-
-        list($branch, $tree1) = $repository1->parseCommitishPathParam($postfix);
-
-        $refs = $repository->getReferences();
-        $revision = $branch;
-        if ($refs->hasBranch($postfix)) {
-            $revision = $refs->getBranch($revision);
-        } else {
-            $revision = $repository->getRevision($revision);
-        }
-        $commit = $revision->getCommit();
-        $tree = $commit->getTree();
-        $folders = $files = [];
-        foreach ($tree->getEntries() as $name => $data) {
-            list($mode, $entry) = $data;
-            if ($entry instanceof Blob) {
-                if ($name == 'LICENSE') {
-                    //var_dump($revision->getCommit()->getAuthorName());
-                    //$message = $repository->getLog('Gitamin/develop/'.$name);
-                    //var_dump($message->getCommits());
-                    //exit;
-                }
-                $files[] = [
-                'name' => $name,
-                'type' => 'file',
-                'hash' => $entry->getHash(),
-                'message' => 'message',
-                'size' => '1',
-                ];
-            } elseif ($entry instanceof Tree) {
-                $folders[] = [
-                'name' => $name,
-                'type' => 'folder',
-                'hash' => $entry->getHash(),
-                'message' => 'message',
-                'size' => '2',
-                ];
-            }
-        }
-        $entries = array_merge($folders, $files);
-
-        return View::make('projects.show')
-            ->withPageTitle($project->name)
-            ->withActiveItem('project_show')
-            ->withBreadCrumbs([])
-            ->withProject($project)
-            ->withRepo($project->path)
-            ->withRevision($revision)
-            ->withCurrentBranch($branch)
-            ->withBranches([])
-            ->withParentPath('')
-            ->withPath('')
-            ->withFiles($entries);
-        exit;
-    }
-
     /**
      * Display the specified resource.
      *
      * @param string $owner
      * @param string $project_path
+     * @param string|null $postfix
      *
      * @return \Illuminate\Http\Response
      */
-    public function showAction2($owner_path, $project_path, $postfix = null)
+    public function showAction($owner_path, $project_path, $postfix = null)
     {
         $project = Project::findByPath($owner_path, $project_path);
-        $repository = $project->getRepository();
-        $repository2 = $project->getRepository2();
+        $repository = $project->getRepository2();
+        $refs = $repository->getReferences();
 
-        $refs = $repository2->getReferences();
-        $revision = 'master';
-        if ($refs->hasBranch($postfix)) {
+        if (! $postfix) {
+            $postfix = $repository->getHead()->getName();
+        }
+
+        list($revision, $path) = $project->getRepository()->parseCommitishPathParam($postfix);
+        $branch = $revision;
+
+        if ($refs->hasBranch($revision)) {
             $revision = $refs->getBranch($revision);
         } else {
-            $revision = $repository2->getRevision($revision);
+            $revision = $repository->getRevision($revision);
         }
+
         $commit = $revision->getCommit();
         $tree = $commit->getTree();
+
+        if (strlen($path) > 0 && '/' === substr($path, 0, 1)) {
+            $path = substr($path, 1);
+        }
+
+        try {
+            $element = $tree->resolvePath($path);
+        } catch (\InvalidArgumentException $e) {
+            throw $this->createNotFoundException($e->getMessage());
+        }
+
         $folders = $files = [];
-        foreach ($tree->getEntries() as $name => $data) {
+        foreach ($element->getEntries() as $name => $data) {
             list($mode, $entry) = $data;
+
+            $lastModification = $commit->getLastModification($path.'/'.$name);
+
             if ($entry instanceof Blob) {
-                $files[] = $name;
+                $files[] = [
+                'name' => $name,
+                'type' => 'file',
+                'hash' => $lastModification->getHash(),
+                'message' => $lastModification->getMessage(),
+                'age' => $lastModification->getCommitterDate()->format('Y-m-d H:i:s'),
+                ];
             } elseif ($entry instanceof Tree) {
-                $folders[] = $name;
+                $folders[] = [
+                'name' => $name,
+                'type' => 'folder',
+                'hash' => $lastModification->getHash(),
+                'message' => $lastModification->getMessage(),
+                'age' => $lastModification->getCommitterDate()->format('Y-m-d H:i:s'),
+                ];
             }
         }
         $entries = array_merge($folders, $files);
-        var_dump($entries);
-        exit;
-        var_dump($repository2->getSize());
 
-        if (! $postfix) {
-            $postfix = $repository->getHead();
-        }
-        //$postfix = str_replace('tree/', '', $postfix);
-
-        list($branch, $tree) = $repository->parseCommitishPathParam($postfix);
-
-        $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
-        $breadcrumbs = bread_crumbs($tree);
+        $breadcrumbs = bread_crumbs($path);
 
         $parent = null;
-        if (($slash = strrpos($tree, '/')) !== false) {
-            $parent = substr($tree, 0, $slash);
-        } elseif (! empty($tree)) {
+        if (($slash = strrpos($path, '/')) !== false) {
+            $parent = substr($path, 0, $slash);
+        } elseif (! empty($path)) {
             $parent = '';
         }
 
@@ -211,11 +167,12 @@ class ProjectsController extends Controller
             ->withBreadCrumbs($breadcrumbs)
             ->withProject($project)
             ->withRepo($project->path)
+            ->withRevision($revision)
             ->withCurrentBranch($branch)
-            ->withBranches($repository->getBranches())
+            ->withBranches([])
             ->withParentPath($parent)
-            ->withPath($tree ? $tree.'/' : $tree)
-            ->withFiles($files->getEntries());
+            ->withPath($path ? $path.'/' : $path)
+            ->withEntries($entries);
     }
 
     /**
