@@ -27,7 +27,7 @@ class Repository extends BaseRepository
      */
     public function hasCommit($commitHash)
     {
-        $logs = $this->getClient()->run($this, "show $commitHash");
+        $logs = $this->run("show $commitHash");
         $logs = explode("\n", $logs);
 
         return strpos($logs[0], 'commit') === 0;
@@ -38,9 +38,7 @@ class Repository extends BaseRepository
      */
     public function getHead($default = null)
     {
-        $client = $this->getClient();
-
-        return parent::getHead($client->getDefaultBranch());
+        return parent::getHead($this->getClient()->getDefaultBranch());
     }
 
     /**
@@ -51,7 +49,7 @@ class Repository extends BaseRepository
      */
     public function getCommit($commitHash)
     {
-        $logs = $this->getClient()->run($this,
+        $logs = $this->run(
                   'show --pretty=format:"<item><hash>%H</hash>'
                 .'<short_hash>%h</short_hash><tree>%T</tree><parents>%P</parents>'
                 .'<author>%aN</author><author_email>%aE</author_email>'
@@ -75,7 +73,7 @@ class Repository extends BaseRepository
 
         if ($commit->getParentsHash()) {
             $command = 'diff '.$commitHash.'~1..'.$commitHash;
-            $logs = explode("\n", $this->getClient()->run($this, $command));
+            $logs = explode("\n", $this->run($command));
         }
 
         $commit->setDiffs($this->readDiffLogs($logs));
@@ -92,7 +90,7 @@ class Repository extends BaseRepository
     public function getBlame($file)
     {
         $blame = [];
-        $logs = $this->getClient()->run($this, "blame --root -sl $file");
+        $logs = $this->run("blame --root -sl $file");
         $logs = explode("\n", $logs);
 
         $i = 0;
@@ -280,7 +278,7 @@ class Repository extends BaseRepository
         $query = escapeshellarg($query);
 
         try {
-            $results = $this->getClient()->run($this, "grep -i --line-number {$query} $branch");
+            $results = $this->run("grep -i --line-number {$query} $branch");
         } catch (\RuntimeException $e) {
             return false;
         }
@@ -307,7 +305,7 @@ class Repository extends BaseRepository
 
     public function getAuthorStatistics($branch)
     {
-        $logs = $this->getClient()->run($this, 'log --pretty=format:"%aN||%aE" '.$branch);
+        $logs = $this->run('log --pretty=format:"%aN||%aE" '.$branch);
 
         if (empty($logs)) {
             throw new \RuntimeException('No statistics available');
@@ -328,7 +326,7 @@ class Repository extends BaseRepository
     public function getStatistics($branch = null)
     {
         // Calculate amount of files, extensions and file size
-        $logs = $this->getClient()->run($this, 'ls-tree -r -l '.$branch);
+        $logs = $this->run('ls-tree -r -l '.$branch);
         $lines = explode("\n", $logs);
         $files = [];
         $data['extensions'] = [];
@@ -379,7 +377,7 @@ class Repository extends BaseRepository
     {
         $fs = new Filesystem;
         $fs->mkdir(dirname($output));
-        $this->getClient()->run($this, "archive --format=$format --output='$output' $tree");
+        $this->run("archive --format=$format --output='$output' $tree");
     }
 
     /**
@@ -393,7 +391,7 @@ class Repository extends BaseRepository
      */
     public function pathExists($commitish, $path)
     {
-        $output = $this->getClient()->run($this, "ls-tree $commitish '$path'");
+        $output = $this->run("ls-tree $commitish '$path'");
 
         if (strlen($output) > 0) {
             return true;
