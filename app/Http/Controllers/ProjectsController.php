@@ -84,6 +84,7 @@ class ProjectsController extends Controller
         return Redirect::route('dashboard.projects.index')
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.projects.new.success')));
     }
+
     public function showAction($owner_path, $project_path, $postfix = null)
     {
         $project = Project::findByPath($owner_path, $project_path);
@@ -149,6 +150,7 @@ class ProjectsController extends Controller
             ->withFiles($entries);
         exit;
     }
+
     /**
      * Display the specified resource.
      *
