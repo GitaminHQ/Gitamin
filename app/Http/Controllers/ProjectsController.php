@@ -141,7 +141,6 @@ class ProjectsController extends Controller
                 'message' => $lastModification->getMessage(),
                 'age' => $lastModification->getCommitterDate()->format('m-d H:i:s'),
                 ];
-                
 
                 if (preg_match('/^readme*/i', $name)) {
                     $readme = [
@@ -149,7 +148,6 @@ class ProjectsController extends Controller
                         'content' => Markdown::convertToHtml($entry->getContent()),
                     ];
                 }
-
             } elseif ($entry instanceof Tree) {
                 $folders[] = [
                 'name' => $name,
