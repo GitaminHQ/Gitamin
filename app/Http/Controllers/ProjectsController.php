@@ -160,7 +160,7 @@ class ProjectsController extends Controller
             $parent = '';
         }
 
-        $lastModification = ($path !='') ? $commit->getLastModification($path) : $revision->getCommit();
+        $lastModification = ($path != '') ? $commit->getLastModification($path) : $revision->getCommit();
 
         $currentBranch = ($revision instanceof Branch) ? $revision->getName() : $revision->getRevision();
 
