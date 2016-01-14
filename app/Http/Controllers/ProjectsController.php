@@ -21,6 +21,7 @@ use Gitamin\Models\Tag;
 use Gitonomy\Git\Blob;
 use Gitonomy\Git\Reference\Branch;
 use Gitonomy\Git\Tree;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -126,7 +127,7 @@ class ProjectsController extends Controller
             throw $this->createNotFoundException($e->getMessage());
         }
 
-        $folders = $files = [];
+        $folders = $files = $readme = [];
         foreach ($element->getEntries() as $name => $data) {
             list($mode, $entry) = $data;
 
@@ -140,6 +141,13 @@ class ProjectsController extends Controller
                 'message' => $lastModification->getMessage(),
                 'age' => $lastModification->getCommitterDate()->format('m-d H:i:s'),
                 ];
+
+                if (preg_match('/^readme*/i', $name)) {
+                    $readme = [
+                        'name' => $name,
+                        'content' => Markdown::convertToHtml($entry->getContent()),
+                    ];
+                }
             } elseif ($entry instanceof Tree) {
                 $folders[] = [
                 'name' => $name,
@@ -174,6 +182,7 @@ class ProjectsController extends Controller
             ->withCurrentBranch($currentBranch)
             ->withBranches([])
             ->withParentPath($parent)
+            ->withReadme($readme)
             ->withPath($path ? $path.'/' : $path)
             ->withEntries($entries);
     }
