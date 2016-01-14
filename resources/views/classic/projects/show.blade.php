@@ -33,11 +33,12 @@
             @endforeach
         </tbody>
     </table>
-
+    @if($readme)
     <div class="readme-view">
             <div class="md-header">
-                <span class="meta">readme</span>
+                <span class="meta">{{ $readme['name'] }}</span>
             </div>
-            <div id="md-content">README</div>
-        </div>
+            <div id="md-content">{!! $readme['content'] !!}</div>
+    </div>
+    @endif
 @endsection
