@@ -19,6 +19,7 @@ use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
 use Gitonomy\Git\Blob;
+use Gitonomy\Git\Reference\Branch;
 use Gitonomy\Git\Tree;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -105,7 +106,6 @@ class ProjectsController extends Controller
         }
 
         list($revision, $path) = $project->getRepository()->parseCommitishPathParam($postfix);
-        $branch = $revision;
 
         if ($refs->hasBranch($revision)) {
             $revision = $refs->getBranch($revision);
@@ -138,7 +138,7 @@ class ProjectsController extends Controller
                 'type' => 'file',
                 'hash' => $lastModification->getHash(),
                 'message' => $lastModification->getMessage(),
-                'age' => $lastModification->getCommitterDate()->format('Y-m-d H:i:s'),
+                'age' => $lastModification->getCommitterDate()->format('m-d H:i:s'),
                 ];
             } elseif ($entry instanceof Tree) {
                 $folders[] = [
@@ -146,12 +146,11 @@ class ProjectsController extends Controller
                 'type' => 'folder',
                 'hash' => $lastModification->getHash(),
                 'message' => $lastModification->getMessage(),
-                'age' => $lastModification->getCommitterDate()->format('Y-m-d H:i:s'),
+                'age' => $lastModification->getCommitterDate()->format('m-d H:i:s'),
                 ];
             }
         }
         $entries = array_merge($folders, $files);
-
         $breadcrumbs = bread_crumbs($path);
 
         $parent = null;
@@ -161,14 +160,18 @@ class ProjectsController extends Controller
             $parent = '';
         }
 
+        $lastModification = ($path != '') ? $commit->getLastModification($path) : $revision->getCommit();
+
+        $currentBranch = ($revision instanceof Branch) ? $revision->getName() : $revision->getRevision();
+
         return View::make('projects.show')
             ->withPageTitle($project->name)
             ->withActiveItem('project_show')
             ->withBreadCrumbs($breadcrumbs)
             ->withProject($project)
             ->withRepo($project->path)
-            ->withRevision($revision)
-            ->withCurrentBranch($branch)
+            ->withLast($lastModification)
+            ->withCurrentBranch($currentBranch)
             ->withBranches([])
             ->withParentPath($parent)
             ->withPath($path ? $path.'/' : $path)

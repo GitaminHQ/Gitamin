@@ -5,12 +5,14 @@
     <table class="table tree table-hover">
         <thead>
             <tr>
-                <th width="25%">
-                    <a href="#">{{ $revision->getCommit()->getAuthorName() }}</a> {{ $revision->getCommit()->getMessage() }} 
+                <th width="20%">
+                <a href="#">{{ $last->getAuthorName() }}</a>
                 </th>
-                <th width="50%"></th>
+                <th width="55%">
+                {{ $last->getMessage() }}
+                </th>
                 <th width="25%" style="text-align: right;">
-                    {{ $revision->getCommit()->getCommitterDate()->format('Y-m-d H:i:s') }}
+                    Latest commit <a href="{{ $project->url }}/commit/{{ $last->getHash() }}">{{ $last->getShortHash() }}</a> {{ $last->getCommitterDate()->format('m-d H:i:s') }}
                 </th>
             </tr>
         </thead>
