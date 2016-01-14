@@ -20,6 +20,7 @@ use Gitamin\Models\Project;
 use Gitamin\Models\Tag;
 use Gitonomy\Git\Blob;
 use Gitonomy\Git\Tree;
+use Gitonomy\Git\Reference\Branch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -105,7 +106,6 @@ class ProjectsController extends Controller
         }
 
         list($revision, $path) = $project->getRepository()->parseCommitishPathParam($postfix);
-        $branch = $revision;
 
         if ($refs->hasBranch($revision)) {
             $revision = $refs->getBranch($revision);
@@ -151,7 +151,6 @@ class ProjectsController extends Controller
             }
         }
         $entries = array_merge($folders, $files);
-
         $breadcrumbs = bread_crumbs($path);
 
         $parent = null;
@@ -161,6 +160,8 @@ class ProjectsController extends Controller
             $parent = '';
         }
 
+        $currentBranch = ($revision instanceof Branch) ? $revision->getName() : $revision->getRevision();
+
         return View::make('projects.show')
             ->withPageTitle($project->name)
             ->withActiveItem('project_show')
@@ -168,7 +169,7 @@ class ProjectsController extends Controller
             ->withProject($project)
             ->withRepo($project->path)
             ->withRevision($revision)
-            ->withCurrentBranch($branch)
+            ->withCurrentBranch($currentBranch)
             ->withBranches([])
             ->withParentPath($parent)
             ->withPath($path ? $path.'/' : $path)
