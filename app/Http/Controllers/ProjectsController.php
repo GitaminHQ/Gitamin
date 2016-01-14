@@ -138,7 +138,7 @@ class ProjectsController extends Controller
                 'type' => 'file',
                 'hash' => $lastModification->getHash(),
                 'message' => $lastModification->getMessage(),
-                'age' => $lastModification->getCommitterDate()->format('Y-m-d H:i:s'),
+                'age' => $lastModification->getCommitterDate()->format('m-d H:i:s'),
                 ];
             } elseif ($entry instanceof Tree) {
                 $folders[] = [
@@ -146,7 +146,7 @@ class ProjectsController extends Controller
                 'type' => 'folder',
                 'hash' => $lastModification->getHash(),
                 'message' => $lastModification->getMessage(),
-                'age' => $lastModification->getCommitterDate()->format('Y-m-d H:i:s'),
+                'age' => $lastModification->getCommitterDate()->format('m-d H:i:s'),
                 ];
             }
         }
@@ -160,6 +160,8 @@ class ProjectsController extends Controller
             $parent = '';
         }
 
+        $lastModification = ($path !='') ? $commit->getLastModification($path) : $revision->getCommit();
+
         $currentBranch = ($revision instanceof Branch) ? $revision->getName() : $revision->getRevision();
 
         return View::make('projects.show')
@@ -168,7 +170,7 @@ class ProjectsController extends Controller
             ->withBreadCrumbs($breadcrumbs)
             ->withProject($project)
             ->withRepo($project->path)
-            ->withRevision($revision)
+            ->withLast($lastModification)
             ->withCurrentBranch($currentBranch)
             ->withBranches([])
             ->withParentPath($parent)
