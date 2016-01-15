@@ -125,8 +125,7 @@ class InstallController extends Controller
     public function postStep1()
     {
         $postData = Request::all();
-        var_dump($postData);
-        exit;
+
         $v = Validator::make($postData, $this->rulesStep1);
 
         if ($v->passes()) {
