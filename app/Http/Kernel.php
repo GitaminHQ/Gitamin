@@ -25,6 +25,11 @@ class Kernel extends HttpKernel
         'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
     ];
 
+    /**
+     * The application's route middleware groups.
+     *
+     * @var array
+     */
     protected $middlewareGroups = [
         'web' => [
             'Illuminate\Cookie\Middleware\EncryptCookies',
@@ -39,6 +44,7 @@ class Kernel extends HttpKernel
             'throttle:60,1',
         ],
     ];
+
     /**
      * The application's route middleware.
      *

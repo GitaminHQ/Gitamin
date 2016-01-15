@@ -25,6 +25,11 @@ class DefaultRoutes
      */
     public function map(Registrar $router)
     {
+        //Install Area
+        $router->group(['middleware' => ['web', 'app.isInstalled']], function ($router) {
+            $router->controller('install', 'InstallController');
+        });
+
         //Default - Dashboard
         $router->group([
             'middleware' => ['web', 'app.hasSetting', 'auth'],
@@ -34,10 +39,6 @@ class DefaultRoutes
                 'as' => 'home',
                 'uses' => 'DashboardController@indexAction',
             ]);
-        });
-        //Install Area
-        $router->group(['middleware' => ['web', 'app.isInstalled']], function ($router) {
-            $router->controller('install', 'InstallController');
         });
 
         //Explore Area

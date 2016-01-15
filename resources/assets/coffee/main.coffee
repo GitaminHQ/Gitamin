@@ -57,6 +57,12 @@ window.sanitize = (str) ->
 # $(document).on "pjax:complete", ->
 #  NProgress.done()
 
+window.goToStep = (current, next) ->
+  
+  # validation was ok. We can go on next step.
+  $(".block-" + current).removeClass("show").addClass "hidden"
+  $(".block-" + next).removeClass("hidden").addClass "show"
+  $(".steps .step").removeClass("active").filter(":lt(" + (next) + ")").addClass "active"
 
 $ ->
   # Click a .js-select-on-focus field, select the contents
@@ -133,6 +139,32 @@ $ ->
         buttons.disable()
       else
         buttons.enable()
+
+  # Install wizard
+  $(".wizard-next").on "click", ->
+    $form = $("#setup-form")
+    $btn = $(this)
+    current = $btn.data("currentBlock")
+    next = $btn.data("nextBlock")
+    $btn.button "loading"
+    
+    # Only validate going forward. If current group is invalid, do not go further
+    if next > current
+      url = "/install/step" + current
+      $.post(url, $form.serializeObject()).done((response) ->
+        goToStep current, next
+      ).fail((response) ->
+        errors = _.toArray(response.responseJSON.errors)
+        _.each errors, (error) ->
+          (new Cachet.Notifier()).notify error
+
+      ).always ->
+        $btn.button "reset"
+
+      false
+    else
+      goToStep current, next
+      $btn.button "reset"
 
   # Show/Hide the profile menu when hovering the account box
   $('.account-box').hover -> $(@).toggleClass('hover')
