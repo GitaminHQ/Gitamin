@@ -24,14 +24,18 @@ class PullRequestsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexAction($namespace, $project_path)
+    public function indexAction($owner_path, $project_path)
     {
-        $project = Project::findByPath($namespace, $project_path);
+        $project = Project::findByPath($owner_path, $project_path);
+        $repository = $project->getRepository();
 
         return View::make('projects.pulls.index')
             ->withProject($project)
             ->withPullRequests([])
             ->withActiveItem($this->active_item)
-            ->withPageTitle(sprintf('%s - %s', trans('dashboard.issues.issues'), $project->name));
+            ->withBreadCrumbs([])
+            ->withCurrentBranch($repository->getCurrentBranch())
+            ->withBranches($repository->getBranches())
+            ->withPageTitle(sprintf('%s - %s', trans('dashboard.pull_requests.pull_requests'), $project->name));
     }
 }
