@@ -124,15 +124,16 @@ class InstallController extends Controller
      */
     public function postStep1()
     {
-        $postData = Binput::all();
-
+        $postData = Request::all();
+        var_dump($postData);
+        exit;
         $v = Validator::make($postData, $this->rulesStep1);
 
         if ($v->passes()) {
             return Response::json(['status' => 1]);
         }
 
-        return Response::json(['errors' => $v->getMessageBag()], 400);
+        return Response::json(['errors' => $v->getMessageBag()], 200);
     }
 
     /**

@@ -30,8 +30,8 @@ class AppIsInstalled
      */
     public function handle($request, Closure $next)
     {
-        if (Config::get('app_name')) {
-            return Redirect::to('dashboard');
+        if (Config::get('setting.app_name')) {
+            return Redirect::home();
         }
 
         return $next($request);
