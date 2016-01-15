@@ -14,7 +14,7 @@
         <tr>
             <td width="5%"><img style="width:32px; height:32px;" src="/img/no_user_avatar.png" /></td>
             <td width="95%">
-                <span class="pull-right"><a class="btn btn-default btn-sm" href="{{ $project->url }}/commit/{{ $commit->getHash() }}"><span class="fa fa-list-alt"></span> View {{ $commit->getShortHash() }}</a></span>
+                <span class="pull-right"><a class="btn btn-default btn-sm" href="{{ $project->url }}/commit/{{ $commit->getHash() }}"><span class="fa fa-list-alt"></span> {{ $commit->getShortHash() }}</a> <a href="{{ $project->url }}/tree/{{ $commit->getHash() }}" class="btn btn-default btn-sm"><i class="octicon octicon-code"></i></a></span>
                 <h4>{{ $commit->getMessage() }}</h4>
                 <span>
                     <a href="mailto:{{ $commit->getAuthor()->getEmail() }}">{{ $commit->getAuthor()->getName() }}</a> authored on 26/10/2015 01:50:59
