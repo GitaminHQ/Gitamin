@@ -197,6 +197,46 @@ class ProjectsController extends Controller
      */
     public function editAction($owner_path, $project_path)
     {
+        $this->subMenu = [
+            'options' => [
+                'title' => 'Options',
+                'url' => route('admin.index'),
+                'icon' => 'fa fa-wrench',
+                'active' => false,
+            ],
+            'collaborators' => [
+                'title' => 'Collaborators & teams',
+                'url' => route('admin.settings.general'),
+                'icon' => 'fa fa-gear',
+                'active' => false,
+            ],
+            'branches' => [
+                'title' => 'Branches',
+                'url' => route('admin.settings.theme'),
+                'icon' => 'fa fa-list-alt',
+                'active' => false,
+            ],
+            'webhooks' => [
+                'title' => 'Webhooks & services',
+                'url' => route('admin.settings.stylesheet'),
+                'icon' => 'fa fa-magic',
+                'active' => false,
+            ],
+            'deploy_keys' => [
+                'title' => 'Deploy keys',
+                'url' => route('admin.settings.localization'),
+                'icon' => 'fa fa-language',
+                'active' => false,
+            ],
+        ];
+
+        View::share([
+            'sub_title' => trans('admin.admin'),
+            'sub_menu' => $this->subMenu,
+        ]);
+
+        $this->subMenu['options']['active'] = true;
+
         $project = Project::findByPath($owner_path, $project_path);
         $repository = $project->getRepository();
 
@@ -205,6 +245,7 @@ class ProjectsController extends Controller
             ->withProject($project)
             ->withGroupId('')
             ->withBreadCrumbs([])
+            ->withSubMenu($this->subMenu)
             ->withBranches($repository->getBranches())
             ->withCurrentBranch($repository->getCurrentBranch())
             ->withActiveItem('project_edit')
