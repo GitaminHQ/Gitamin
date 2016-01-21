@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "~5.2.6",
+        "laravel/framework": "^5.2.6",
         "phecho/gitlib": "^0.0.4",
         "gitonomy/gitlib": "^1.0.0",
         "phecho/proxy": "^3.0.1",
@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
-        "graham-campbell/testbench-core": "^1.1",
+        "phecho/benchtest": "^0.1",
         "mockery/mockery": "^0.9.4",
         "phpunit/phpunit": "^4.8.21"
     },
