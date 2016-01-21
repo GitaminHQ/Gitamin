@@ -11,10 +11,10 @@
 
 namespace Gitamin\Test\Providers;
 
-use Gitamin\Providers\AppServiceProvider;
-use Gitamin\Test\AbstractTestCase;
 use BenchTest\LaravelTrait;
 use BenchTest\ServiceProviderTrait;
+use Gitamin\Providers\AppServiceProvider;
+use Gitamin\Test\AbstractTestCase;
 
 class AppServiceProviderTest extends AbstractTestCase
 {
