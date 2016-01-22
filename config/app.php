@@ -159,7 +159,7 @@ return [
         /*
          * Packages Service Providers...
          */
-        env('GITAMIN_EMOJI', false) ? 'AltThree\Emoji\EmojiServiceProvider' : null,
+        env('GITAMIN_EMOJI', false) ? 'GitaminHQ\Emoji\EmojiServiceProvider' : null,
         'Barryvdh\Cors\ServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',

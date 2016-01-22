@@ -17,7 +17,7 @@
         "gitonomy/gitlib": "^1.0.0",
         "phecho/proxy": "^3.0.1",
         "phecho/uploader": "^0.1",
-        "alt-three/emoji": "^2.1",
+        "gitaminhq/emoji": "^0.1",
         "alt-three/validator": "^1.4",
         "barryvdh/laravel-cors": "^0.7",
         "doctrine/dbal": "^2.5",
