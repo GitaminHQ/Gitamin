@@ -4,71 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e421136e0a27311702e1369c11b2c8aa",
-    "content-hash": "7a5e52adaf6a623f4c64f2171bac8f3c",
+    "hash": "3dbc741fdcd31d765bd45b352b751235",
+    "content-hash": "e32b7b943fe879a0381e20d6bc484770",
     "packages": [
-        {
-            "name": "alt-three/emoji",
-            "version": "v2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/AltThree/Emoji.git",
-                "reference": "36cd1c1a5ebd0d390cbaccc4a9919285270603ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/AltThree/Emoji/36cd1c1a5ebd0d390cbaccc4a9919285270603ca.zip",
-                "reference": "36cd1c1a5ebd0d390cbaccc4a9919285270603ca",
-                "shasum": ""
-            },
-            "require": {
-                "graham-campbell/markdown": "^5.3",
-                "guzzlehttp/guzzle": "^5.3|^6.0",
-                "illuminate/contracts": "5.1.*|5.2.*",
-                "illuminate/support": "5.1.*|5.2.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "^3.1",
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "AltThree\\Emoji\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Brooks",
-                    "email": "james@alt-three.com"
-                },
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                },
-                {
-                    "name": "Joseph Cohen",
-                    "email": "joe@alt-three.com"
-                }
-            ],
-            "description": "An Emoji Parser For Laravel 5",
-            "keywords": [
-                "Alt Three",
-                "emoji",
-                "parser"
-            ],
-            "time": "2016-01-03 10:40:57"
-        },
         {
             "name": "alt-three/validator",
             "version": "v1.4.1",
@@ -834,6 +772,58 @@
                 "zf2"
             ],
             "time": "2015-06-29 05:42:04"
+        },
+        {
+            "name": "gitaminhq/emoji",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phecho/emoji.git",
+                "reference": "b9f8bfdf40dbf8d51863bd2e7cb5929998d48c5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/phecho/emoji/b9f8bfdf40dbf8d51863bd2e7cb5929998d48c5c.zip",
+                "reference": "b9f8bfdf40dbf8d51863bd2e7cb5929998d48c5c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^5.3|^6.0",
+                "illuminate/contracts": "5.1.*|5.2.*",
+                "illuminate/support": "5.1.*|5.2.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GitaminHQ\\Emoji\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gitamin Team",
+                    "email": "support@gitamin.com"
+                }
+            ],
+            "description": "Emoji Parser For Gitamin",
+            "keywords": [
+                "emoji",
+                "gitamin",
+                "parser"
+            ],
+            "time": "2016-01-22 01:18:10"
         },
         {
             "name": "gitonomy/gitlib",
