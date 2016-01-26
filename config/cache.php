@@ -83,6 +83,6 @@ return [
     |
     */
 
-    'prefix' => 'laravel',
+    'prefix' => 'gitamin',
 
 ];
