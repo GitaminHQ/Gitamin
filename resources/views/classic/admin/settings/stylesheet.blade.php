@@ -11,7 +11,6 @@
     <div class="panel-body">
         <form name="SettingsForm" class="form-horizontal" role="form" action="/admin/settings" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            @include('dashboard.partials.errors')
             <fieldset>
                 <div class="row">
                     <div class="col-md-7">
