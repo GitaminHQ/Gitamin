@@ -7,7 +7,7 @@
 <div class="col-xs-12 col-sm-9 main">
     @include('dashboard.partials.errors')
     <div class="panel panel-default">
-    <div class="panel-heading">{{ trans('admin.title') }}</div>
+    <div class="panel-heading">{{ trans('admin.settings.localization.localization') }}</div>
     <div class="panel-body">
         <form id="settings-form" name="SettingsForm" class="form-horizontal" role="form" action="/admin/settings" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
