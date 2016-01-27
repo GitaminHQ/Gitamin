@@ -9,45 +9,74 @@
     <div class="panel panel-default">
     <div class="panel-heading">{{ trans('admin.title') }}</div>
     <div class="panel-body">
-        <form class="edit_user form-horizontal" method="POST" enctype="multipart/form-data">
+        <form id="settings-form" name="SettingsForm" class="form-horizontal" role="form" action="/admin/settings" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="user_name">Name</label>
-                        <div class="col-sm-6">
-                            <input class="form-control" id="user_name" name="user[name]" required="required" type="text" value="{{ Input::old('user.name', $current_user->name) }}">
-                            <span class="help-block">Enter your name, so people you know can recognize you.</span>
+            <input type="hidden" name="remove_banner" value="">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{ trans('forms.settings.general.site-name') }}</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="app_name" value="{{ $app_name }}" required>
+                            </div>
                         </div>
                     </div>
-                    <div class='form-group'>
-                    <label class="col-md-4 control-label" for="user_public_email">Public email</label>
-                    <div class='col-sm-6'>
-                    <select class="form-control" id="user_public_email" name="user[public_email]"><option value="">Do not show in profile</option>
-                    <option value="admin@example.com">admin@example.com</option></select>
-                    <span class='help-block'>This email will be displayed on your public profile.</span>
-                    </div>
-                    </div>
-                    <div class='form-group'>
-                    <label class="col-md-4 control-label" for="user_website_url">Website</label>
-                    <div class='col-sm-6'><input class="form-control" id="user_website_url" name="user[website_url]" type="text" value="{{ Input::old('user.website_url', $current_user->website_url) }}" /></div>
-                    </div>
-                    <div class='form-group'>
-                    <label class="col-md-4 control-label" for="user_location">Location</label>
-                    <div class='col-sm-6'><input class="form-control" id="user_location" name="user[location]" type="text" value="{{ Input::old('user.location', $current_user->location) }}" /></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{ trans('forms.settings.general.site-url') }}</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="app_domain" value="{{ $app_domain }}" required>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <div id="dropzone" class="dropzone">
-                        <div class="well well-drop-zone">Drag and drop files to upload.</div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{ trans('forms.settings.general.git-client-path') }}</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="git_client_path" value="{{ $git_client_path }}">
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{ trans('forms.settings.general.git-repositories-path') }}</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="git_repositories_path" value="{{ $git_repositories_path }}" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">{{ trans('forms.settings.general.days-of-issues') }}</label>
+                            <div class="col-sm-6">
+                                <input type="number" max="100" name="app_issue_days" class="form-control" value="{{ Config::get('setting.app_issue_days', 7) }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                            <input type="hidden" value="0" name="enable_subscribers">
+                            <input type="checkbox" value="1" name="enable_subscribers" {{ Config::get('setting.enable_subscribers') ? 'checked' : null }}>
+                            {{ trans('forms.settings.general.subscribers') }}
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-actions text-center">
-                        <input class="btn btn-success" name="commit" type="submit" value="Save changes">
-                        <a class="btn btn-cancel" href="{{ back_url('owners.owner_show', ['owner' => $current_user->username]) }}">{{ trans('forms.cancel') }}</a>
+                        <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
                     </div>
                 </div>
             </div>
