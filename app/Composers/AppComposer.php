@@ -31,7 +31,7 @@ class AppComposer
         $view->withGitRepositoriesPath(Config::get('setting.git_repositories_path'));
         $view->withAppLocale(Config::get('setting.app_locale'));
         $view->withAppName(Config::get('setting.app_name'));
-        $view->withAppStylesheet(Config::get('setting.app_stylesheet'));
+        $view->withAppStylesheet(Config::get('setting.stylesheet'));
         $view->withAppUrl(Config::get('app.url'));
         $view->withGoogleFontsUrl(Config::get('gitamin.google_fonts_url'));
     }
