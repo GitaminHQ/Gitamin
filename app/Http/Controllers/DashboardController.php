@@ -15,6 +15,7 @@ use Gitamin\Models\Issue;
 use Gitamin\Models\Moment;
 use Gitamin\Models\Project;
 use Gitamin\Models\Subscriber;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
@@ -52,7 +53,8 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        $projects = Project::get();
+        $authorizedProjects = Auth::user()->authorized_projects();
+        $starredProjects = Project::get();
         $issues = $this->getIssues();
         $subscribers = $this->getSubscribers();
         $moments = Moment::recent()->get();
@@ -66,7 +68,8 @@ class DashboardController extends Controller
 
         return View::make($template)
             ->withPageTitle(trans('dashboard.dashboard'))
-            ->withProjects($projects)
+            ->withAuthorizedProjects($authorizedProjects)
+            ->withStarredProjects($starredProjects)
             ->withMoments($moments)
             ->withPager($pager)
             ->withIssues($issues)
