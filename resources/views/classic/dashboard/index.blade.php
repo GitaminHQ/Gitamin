@@ -28,13 +28,13 @@
 <div class="col-xs-6 col-sm-3 sidebar">
   <div class="list-group">
     <div class="list-group-item active">Your Projects</div>
-    @foreach($projects as $project)
+    @foreach($authorized_projects as $project)
     <a href="{{ $project->url }}" class="list-group-item"><i class="octicon octicon-repo"></i> {{ $project->name }}</a>
     @endforeach
   </div>
   <div class="list-group">
     <div class="list-group-item active">Starred Projects</div>
-    @foreach($projects as $project)
+    @foreach($starred_projects as $project)
     <a href="{{ $project->url }}" class="list-group-item"><i class="octicon octicon-repo"></i> {{ $project->name }}</a>
     @endforeach
   </div>
