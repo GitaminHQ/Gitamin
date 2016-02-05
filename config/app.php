@@ -163,7 +163,7 @@ return [
         'Barryvdh\Cors\ServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
-        'GrahamCampbell\Markdown\MarkdownServiceProvider',
+        'GitaminHQ\Markdown\MarkdownServiceProvider',
         'Jenssegers\Date\DateServiceProvider',
         'McCool\LaravelAutoPresenter\AutoPresenterServiceProvider',
         'Roumen\Feed\FeedServiceProvider',

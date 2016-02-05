@@ -16,7 +16,7 @@ use Gitamin\Commands\Subscriber\SubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\UnsubscribeSubscriberCommand;
 use Gitamin\Commands\Subscriber\VerifySubscriberCommand;
 use Gitamin\Models\Subscriber;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use GitaminHQ\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

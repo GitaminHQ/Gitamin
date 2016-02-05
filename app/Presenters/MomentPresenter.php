@@ -17,7 +17,7 @@ use Gitamin\Models\Moment;
 use Gitamin\Models\Owner;
 use Gitamin\Models\Project;
 use Gitamin\Traits\TimestampsTrait;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use GitaminHQ\Markdown\Facades\Markdown;
 
 class MomentPresenter extends AbstractPresenter
 {
