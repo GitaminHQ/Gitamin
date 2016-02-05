@@ -12,7 +12,7 @@
 namespace Gitamin\Presenters;
 
 use Gitamin\Traits\TimestampsTrait;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use GitaminHQ\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Config;
 
 class IssuePresenter extends AbstractPresenter

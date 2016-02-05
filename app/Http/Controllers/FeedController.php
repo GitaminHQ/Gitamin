@@ -13,7 +13,7 @@ namespace Gitamin\Http\Controllers;
 
 use Gitamin\Models\Issue;
 use Gitamin\Models\Owner;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use GitaminHQ\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Roumen\Feed\Facades\Feed;
