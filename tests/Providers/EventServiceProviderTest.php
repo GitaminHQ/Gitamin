@@ -11,10 +11,10 @@
 
 namespace Gitamin\Test\Providers;
 
-use GitaminHQ\BenchTest\LaravelTrait;
-use GitaminHQ\BenchTest\ServiceProviderTrait;
 use Gitamin\Providers\EventServiceProvider;
 use Gitamin\Test\AbstractTestCase;
+use GitaminHQ\BenchTest\LaravelTrait;
+use GitaminHQ\BenchTest\ServiceProviderTrait;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use ReflectionClass;
 
