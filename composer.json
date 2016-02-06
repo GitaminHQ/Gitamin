@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
-        "phecho/benchtest": "^0.1",
+        "gitaminhq/benchtest": "^0.1",
         "mockery/mockery": "^0.9.4",
         "phpunit/phpunit": "^4.8.21"
     },

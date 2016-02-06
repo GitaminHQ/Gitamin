@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "455b0abfecbb7f5b504831a0095796d0",
-    "content-hash": "b7543aff7cad8877c2dc98f8086d47fe",
+    "hash": "8a439b1ffde60fc8b8e7f250a411a610",
+    "content-hash": "97ce662710a95911c77b7791522bf0f4",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -3598,6 +3598,60 @@
             "time": "2015-05-29 06:29:14"
         },
         {
+            "name": "gitaminhq/benchtest",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GitaminHQ/Benchtest.git",
+                "reference": "e296ff4d8695c9ff7e54634566c951e5824ad19a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GitaminHQ/Benchtest/zipball/e296ff4d8695c9ff7e54634566c951e5824ad19a",
+                "reference": "e296ff4d8695c9ff7e54634566c951e5824ad19a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "suggest": {
+                "illuminate/support": "Required to use the laravel trait.",
+                "mockery/mockery": "Required to use the mockery trait.",
+                "phpunit/phpunit": "Required to use the most of the features."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GitaminHQ\\BenchTest\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gitamin",
+                    "email": "support@gitamin.com"
+                }
+            ],
+            "description": "BenchTest Provides Some Testing Functionality For Laravel 5",
+            "keywords": [
+                "BenchTest",
+                "framework",
+                "laravel"
+            ],
+            "time": "2016-02-06 00:54:33"
+        },
+        {
             "name": "hamcrest/hamcrest-php",
             "version": "v1.2.2",
             "source": {
@@ -3706,60 +3760,6 @@
                 "testing"
             ],
             "time": "2015-04-02 19:54:00"
-        },
-        {
-            "name": "phecho/benchtest",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phecho/benchtest.git",
-                "reference": "3b8b69ffc6dddfbf00241d351c7440ee7c9513bd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phecho/benchtest/zipball/3b8b69ffc6dddfbf00241d351c7440ee7c9513bd",
-                "reference": "3b8b69ffc6dddfbf00241d351c7440ee7c9513bd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8|^5.0"
-            },
-            "suggest": {
-                "illuminate/support": "Required to use the laravel trait.",
-                "mockery/mockery": "Required to use the mockery trait.",
-                "phpunit/phpunit": "Required to use the most of the features."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "BenchTest\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gitamin",
-                    "email": "support@gitamin.com"
-                }
-            ],
-            "description": "BenchTest Provides Some Testing Functionality For Laravel 5",
-            "keywords": [
-                "BenchTest",
-                "framework",
-                "laravel"
-            ],
-            "time": "2016-01-21 01:06:49"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
