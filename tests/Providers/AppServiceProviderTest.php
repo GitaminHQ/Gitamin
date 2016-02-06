@@ -12,7 +12,7 @@
 namespace Gitamin\Test\Providers;
 
 use GitaminHQ\BenchTest\LaravelTrait;
-use BenchTest\ServiceProviderTrait;
+use GitaminHQ\BenchTest\ServiceProviderTrait;
 use Gitamin\Providers\AppServiceProvider;
 use Gitamin\Test\AbstractTestCase;
 
