@@ -11,9 +11,9 @@
 
 namespace Gitamin\Presenters;
 
+use Gitamin\Dates\DateFactory;
 use Gitamin\Traits\TimestampsTrait;
 use GitaminHQ\Markdown\Facades\Markdown;
-use Illuminate\Support\Facades\Config;
 
 class IssuePresenter extends AbstractPresenter
 {
@@ -36,7 +36,7 @@ class IssuePresenter extends AbstractPresenter
      */
     public function created_at_datetimepicker()
     {
-        return $this->wrappedObject->created_at->setTimezone(Config::get('gitamin.timezone'))->format('d/m/Y H:i');
+        return app(DateFactory::class)->make($this->wrappedObject->created_at)->format('d/m/Y H:i');
     }
 
     /**
