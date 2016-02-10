@@ -11,6 +11,7 @@
 
 namespace Gitamin\Traits;
 
+use Gitamin\Dates\DateFactory;
 use Illuminate\Support\Facades\Config;
 use Jenssegers\Date\Date;
 
@@ -23,8 +24,7 @@ trait TimestampsTrait
      */
     public function created_at()
     {
-        return (new Date($this->wrappedObject->created_at))
-            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
+        return app(DateFactory::class)->make($this->wrappedObject->created_at)->toDateTimeString();
     }
 
     /**
@@ -34,9 +34,7 @@ trait TimestampsTrait
      */
     public function created_at_diff()
     {
-        return (new Date($this->wrappedObject->created_at))
-            ->setTimezone(Config::get('gitamin.timezone'))
-            ->diffForHumans();
+        return app(DateFactory::class)->make($this->wrappedObject->created_at)->diffForHumans();
     }
 
     /**
@@ -46,9 +44,7 @@ trait TimestampsTrait
      */
     public function created_at_formatted()
     {
-        return ucfirst((new Date($this->wrappedObject->created_at))
-            ->setTimezone(Config::get('gitamin.timezone'))
-            ->format(Config::get('setting.issue_date_format', 'l jS F Y H:i:s')));
+        return ucfirst(app(DateFactory::class)->make($this->wrappedObject->created_at)->format(Config::get('setting.incident_date_format', 'l jS F Y H:i:s')));
     }
 
     /**
@@ -58,7 +54,7 @@ trait TimestampsTrait
      */
     public function created_at_iso()
     {
-        return $this->wrappedObject->created_at->setTimezone(Config::get('gitamin.timezone'))->toISO8601String();
+        return app(DateFactory::class)->make($this->wrappedObject->created_at)->toISO8601String();
     }
 
     /**
@@ -68,8 +64,7 @@ trait TimestampsTrait
      */
     public function updated_at()
     {
-        return (new Date($this->wrappedObject->updated_at))
-            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
+        return app(DateFactory::class)->make($this->wrappedObject->updated_at)->toDateTimeString();
     }
 
     /**
@@ -79,7 +74,6 @@ trait TimestampsTrait
      */
     public function deleted_at()
     {
-        return (new Date($this->wrappedObject->deleted_at))
-            ->setTimezone(Config::get('gitamin.timezone'))->toDateTimeString();
+        return app(DateFactory::class)->make($this->wrappedObject->deleted_at)->toDateTimeString();
     }
 }
