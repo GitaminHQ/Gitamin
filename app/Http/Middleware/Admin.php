@@ -39,7 +39,7 @@ class Admin
      * We're verifying that the current user is logged in to Gitamin and is an admin level.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
+     * @param \Closure $next
      *
      * @return mixed
      */

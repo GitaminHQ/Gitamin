@@ -41,8 +41,8 @@ class ApiAuthentication
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     * @param bool                     $required
+     * @param \Closure $next
+     * @param bool $required
      *
      * @return mixed
      */
