@@ -12,6 +12,7 @@
 namespace Gitamin\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 
 class Timezone
 {
@@ -24,7 +25,7 @@ class Timezone
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if ($tz = $request->header('Time-Zone')) {
             app('config')->set('gitamin.timezone', $tz);
