@@ -16,14 +16,13 @@ use Gitamin\Models\Owner;
 use GitaminHQ\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
-use Roumen\Feed\Facades\Feed;
 
 class FeedController extends Controller
 {
     /**
      * Feed facade.
      *
-     * @var \Roumen\Feed\Facades\Feed
+     * @var \Roumen\Feed\Feed
      */
     protected $feed;
 
@@ -32,7 +31,7 @@ class FeedController extends Controller
      */
     public function __construct()
     {
-        $this->feed = Feed::make();
+        $this->feed = app('feed');
         $this->feed->title = Config::get('setting.app_name');
         $this->feed->description = trans('gitamin.feed');
         $this->feed->link = Str::canonicalize(Config::get('setting.app_domain'));

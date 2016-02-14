@@ -204,6 +204,7 @@ return [
         'Crypt' => 'Illuminate\Support\Facades\Crypt',
         'DB' => 'Illuminate\Support\Facades\DB',
         'Event' => 'Illuminate\Support\Facades\Event',
+        'Feed' => 'Roumen\Feed\Feed',
         'File' => 'Illuminate\Support\Facades\File',
         'Gate' => 'Illuminate\Support\Facades\Gate',
         'Hash' => 'Illuminate\Support\Facades\Hash',
