@@ -21,7 +21,7 @@ class SubscribersConfigured
      * We're verifying that subscribers is both enabled and configured.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
+     * @param \Closure $next
      *
      * @return mixed
      */
