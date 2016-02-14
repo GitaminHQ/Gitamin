@@ -12,6 +12,7 @@
 namespace Gitamin\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 
@@ -29,7 +30,7 @@ class HasSetting
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $settingName = $this->getSettingName($request);
 
@@ -47,7 +48,7 @@ class HasSetting
      *
      * @return array
      */
-    private function getSettingName($request)
+    private function getSettingName(Request $request)
     {
         $actions = $request->route()->getAction();
 

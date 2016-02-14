@@ -14,6 +14,7 @@ namespace Gitamin\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class RedirectIfAuthenticated
 {
@@ -42,7 +43,7 @@ class RedirectIfAuthenticated
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if ($this->auth->check()) {
             return new RedirectResponse(route('home'));
