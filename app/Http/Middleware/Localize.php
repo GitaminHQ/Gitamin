@@ -13,6 +13,7 @@ namespace Gitamin\Http\Middleware;
 
 use Closure;
 use Illuminate\Config\Config;
+use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
 
 class Localize
@@ -50,7 +51,7 @@ class Localize
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $supportedLanguages = $request->getLanguages();
         $userLanguage = $this->config->get('app.locale');

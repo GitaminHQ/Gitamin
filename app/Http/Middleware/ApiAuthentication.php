@@ -15,6 +15,7 @@ use Closure;
 use Gitamin\Models\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ApiAuthentication
@@ -45,7 +46,7 @@ class ApiAuthentication
      *
      * @return mixed
      */
-    public function handle($request, Closure $next, $required = false)
+    public function handle(Request $request, Closure $next, $required = false)
     {
         if ($this->auth->guest()) {
             if ($apiToken = $request->header('X-Gitamin-Token')) {
