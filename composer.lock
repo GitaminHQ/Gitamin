@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "baa9b5501b72bc3a38e02fb08a357bb0",
-    "content-hash": "30e5f9277152fc10a01208c34d0b6a69",
+    "hash": "8e0cfa4b5454e2ca6fd24b099565a166",
+    "content-hash": "dfc54257b90e4b75498c5520bf1831fa",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -716,6 +716,57 @@
             "time": "2014-09-09 13:34:57"
         },
         {
+            "name": "fideloper/proxy",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fideloper/TrustedProxy.git",
+                "reference": "ec4dd30141e2515e307aea3539ff242e85c3f120"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/ec4dd30141e2515e307aea3539ff242e85c3f120",
+                "reference": "ec4dd30141e2515e307aea3539ff242e85c3f120",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/http": "~5.0",
+                "mockery/mockery": "~0.9.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fideloper\\Proxy\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Fidao",
+                    "email": "fideloper@gmail.com"
+                }
+            ],
+            "description": "Set trusted proxies for Laravel",
+            "keywords": [
+                "load balancing",
+                "proxy",
+                "trusted proxy"
+            ],
+            "time": "2015-12-24 15:02:55"
+        },
+        {
             "name": "filp/whoops",
             "version": "1.1.10",
             "source": {
@@ -775,16 +826,16 @@
         },
         {
             "name": "gitaminhq/emoji",
-            "version": "dev-master",
+            "version": "v0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phecho/emoji.git",
-                "reference": "cc5270aa4c63eafabc1ec9fc4b45e28c8a4fd83a"
+                "url": "https://github.com/GitaminHQ/Emoji.git",
+                "reference": "ad5d7b9576b16d0e977d7cf6875ee78e307c0cbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phecho/emoji/zipball/cc5270aa4c63eafabc1ec9fc4b45e28c8a4fd83a",
-                "reference": "cc5270aa4c63eafabc1ec9fc4b45e28c8a4fd83a",
+                "url": "https://api.github.com/repos/GitaminHQ/Emoji/zipball/ad5d7b9576b16d0e977d7cf6875ee78e307c0cbd",
+                "reference": "ad5d7b9576b16d0e977d7cf6875ee78e307c0cbd",
                 "shasum": ""
             },
             "require": {
@@ -807,7 +858,7 @@
                     "GitaminHQ\\Emoji\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -823,7 +874,7 @@
                 "gitamin",
                 "parser"
             ],
-            "time": "2016-01-29 08:33:37"
+            "time": "2016-02-15 01:38:54"
         },
         {
             "name": "gitaminhq/markdown",
@@ -2178,57 +2229,6 @@
                 "gitamin"
             ],
             "time": "2016-01-12 13:12:28"
-        },
-        {
-            "name": "phecho/proxy",
-            "version": "3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phecho/TrustedProxy.git",
-                "reference": "4a6566563e4062cecc2774387a04eaefef1926d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phecho/TrustedProxy/zipball/4a6566563e4062cecc2774387a04eaefef1926d2",
-                "reference": "4a6566563e4062cecc2774387a04eaefef1926d2",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "illuminate/http": "~5.0",
-                "mockery/mockery": "~0.9.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fideloper\\Proxy\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Fidao",
-                    "email": "fideloper@gmail.com"
-                }
-            ],
-            "description": "Set trusted proxies for Laravel",
-            "keywords": [
-                "load balancing",
-                "proxy",
-                "trusted proxy"
-            ],
-            "time": "2015-12-22 10:04:06"
         },
         {
             "name": "phecho/uploader",
