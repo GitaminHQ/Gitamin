@@ -164,11 +164,11 @@ return [
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'GrahamCampbell\Exceptions\ExceptionsServiceProvider',
         'GitaminHQ\Markdown\MarkdownServiceProvider',
+        'GitaminHQ\Uploader\UploaderServiceProvider',
         'Jenssegers\Date\DateServiceProvider',
         'McCool\LaravelAutoPresenter\AutoPresenterServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
         //'Zizaco\Entrust\EntrustServiceProvider',
-        'Phecho\Uploader\UploaderServiceProvider',
 
         /*
          * Application Service Providers...

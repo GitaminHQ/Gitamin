@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8e0cfa4b5454e2ca6fd24b099565a166",
-    "content-hash": "dfc54257b90e4b75498c5520bf1831fa",
+    "hash": "644978b29e8f2da7e61f3bf546d0010a",
+    "content-hash": "c76ec035a3c0d51655d2f39db6816ba7",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -931,6 +931,57 @@
             "time": "2016-02-04 09:01:17"
         },
         {
+            "name": "gitaminhq/uploader",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GitaminHQ/Uploader.git",
+                "reference": "1ee43b122e909b56cbd80667b46e075dd2feb6bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GitaminHQ/Uploader/zipball/1ee43b122e909b56cbd80667b46e075dd2feb6bd",
+                "reference": "1ee43b122e909b56cbd80667b46e075dd2feb6bd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.*|5.2.*",
+                "intervention/image": "~2.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GitaminHQ\\Uploader\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "The Gitamin Team",
+                    "email": "support@gitamin.com"
+                }
+            ],
+            "description": "Uploader for Laravel",
+            "keywords": [
+                "ajax",
+                "file",
+                "gitamin",
+                "image",
+                "laravel",
+                "upload"
+            ],
+            "time": "2016-02-16 07:26:19"
+        },
+        {
             "name": "gitonomy/gitlib",
             "version": "v1.0.0",
             "source": {
@@ -1529,16 +1580,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.15",
+            "version": "v5.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "78fafb78d35c617e24630f4e099746effc42c787"
+                "reference": "39e89553c124dce266da03ee3c0260bdd62f1848"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/78fafb78d35c617e24630f4e099746effc42c787",
-                "reference": "78fafb78d35c617e24630f4e099746effc42c787",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/39e89553c124dce266da03ee3c0260bdd62f1848",
+                "reference": "39e89553c124dce266da03ee3c0260bdd62f1848",
                 "shasum": ""
             },
             "require": {
@@ -1653,7 +1704,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-02-12 14:59:18"
+            "time": "2016-02-15 17:46:58"
         },
         {
             "name": "laravelcollective/bus",
@@ -2229,57 +2280,6 @@
                 "gitamin"
             ],
             "time": "2016-01-12 13:12:28"
-        },
-        {
-            "name": "phecho/uploader",
-            "version": "v0.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phecho/Uploader.git",
-                "reference": "67bdfb916433a467d49587acd92c727b9b6b3a03"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phecho/Uploader/zipball/67bdfb916433a467d49587acd92c727b9b6b3a03",
-                "reference": "67bdfb916433a467d49587acd92c727b9b6b3a03",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "5.1.*|5.2.*",
-                "intervention/image": "~2.0",
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Phecho\\Uploader\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "The Gitamin Team",
-                    "email": "support@gitamin.com"
-                }
-            ],
-            "description": "Uploader for Laravel",
-            "keywords": [
-                "ajax",
-                "file",
-                "gitamin",
-                "image",
-                "laravel",
-                "upload"
-            ],
-            "time": "2015-12-16 01:10:15"
         },
         {
             "name": "psr/http-message",
@@ -3811,22 +3811,24 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7"
+                "reference": "3c91bdf81797d725b14cb62906f9a4ce44235972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4745ded9307786b730d7a60df5cb5a6c43cf95f7",
-                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3c91bdf81797d725b14cb62906f9a4ce44235972",
+                "reference": "3c91bdf81797d725b14cb62906f9a4ce44235972",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
+                "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "~2.0",
-                "sebastian/comparator": "~1.1"
+                "sebastian/comparator": "~1.1",
+                "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -3834,7 +3836,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -3842,7 +3844,7 @@
                     "Prophecy\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3867,7 +3869,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-08-13 10:07:40"
+            "time": "2016-02-15 07:46:21"
         },
         {
             "name": "phpunit/php-code-coverage",

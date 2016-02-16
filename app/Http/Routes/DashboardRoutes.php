@@ -176,7 +176,7 @@ class DashboardRoutes
             $router->group(['prefix' => 'api'], function ($router) {
                 $router->post('projects/order', 'ApiController@postUpdateProjectOrder');
                 $router->post('projects/{project}', 'ApiController@postUpdateProject');
-                //$router->post('upload/avatar', 'Phecho\\Uploader\\UploaderController@index');
+                //$router->post('upload/avatar', 'GitaminHQ\\Uploader\\UploaderController@index');
             });
         });
     }
