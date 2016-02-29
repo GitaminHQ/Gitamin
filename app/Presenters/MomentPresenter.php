@@ -44,7 +44,7 @@ class MomentPresenter extends AbstractPresenter
         }
     }
 
-    /** 
+    /**
      * Get the moment action summary.
      *
      * @return string

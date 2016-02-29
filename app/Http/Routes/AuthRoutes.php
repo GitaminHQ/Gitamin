@@ -51,7 +51,7 @@ class AuthRoutes
                 'as' => 'logout',
                 'uses' => 'AuthController@getLogout',
             ]);
-            
+
             $router->get('signup', [
                 'as' => 'signup',
                 'uses' => 'AuthController@getSignup',
