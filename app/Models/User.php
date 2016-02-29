@@ -123,7 +123,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * Get check permissions of user.
-     * 
+     *
      * @param string  $check
      */
     public function hasPermission($check)

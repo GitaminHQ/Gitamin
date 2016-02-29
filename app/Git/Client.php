@@ -171,7 +171,7 @@ class Client extends BaseClient
 
     /**
      * Overloads the parent::createRepository method for the correct Repository class instance.
-     * 
+     *
      * {@inheritdoc}
      */
     public function createRepository($path, $bare = null)
@@ -187,7 +187,7 @@ class Client extends BaseClient
 
     /**
      * Overloads the parent::getRepository method for the correct Repository class instance.
-     * 
+     *
      * {@inheritdoc}
      */
     public function getRepository($path)

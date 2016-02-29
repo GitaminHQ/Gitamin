@@ -74,7 +74,7 @@ return [
      |
      | It's the flexibility of this package. You can define the type of upload
      | file methods. For example, you want to upload for profile picture,
-     | article post, background, etc. Here is 
+     | article post, background, etc. Here is
      |
      */
 
