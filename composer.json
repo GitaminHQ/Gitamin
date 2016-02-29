@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "~5.2.11",
+        "laravel/framework": "~5.2.22",
         "phecho/gitlib": "^0.0.4",
         "gitonomy/gitlib": "^1.0.0",
         "gitaminhq/emoji": "^0.1",
