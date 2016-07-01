@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+    <li{% if page == 'files' %} class="active"{% endif %}><a href="{{ route('branch', {owner: owner, project: project, branch: branch}) }}">Files</a></li>
+    <li{% if page in ['commits', 'searchcommits'] %} class="active"{% endif %}><a href="{{ route('commits', {owner: owner, project: project, commitishPath: branch}) }}">Commits</a></li>
+    <li{% if page == 'stats' %} class="active"{% endif %}><a href="{{ route('stats', {owner: owner, project: project, branch: branch}) }}">Stats</a></li>
+  	<li{% if page == 'network' %} class="active"{% endif %}><a href="{{ route('network', {owner: owner, project: project, branch: branch}) }}">Network</a></li>
+  	<li{% if page == 'treegraph' %} class="active"{% endif %}><a href="{{ route('treegraph', {owner: owner, project: project, branch: branch}) }}">Graph</a></li>
+</ul>

@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% block title %}Gitamin{% endblock %}
+
+{% block body %}
+{% include 'navigation.html' %}
+
+<div class="container">
+    <div class="col-md-9 main-col">
+    {% for repository in repositories %}
+    <div class="repository">
+        <div class="repository-header">
+            <span class="fa fa-folder-open"></span>  <a href="{{ route('repository', {owner: owner, project: repository.name}) }}">{{ repository.name }}</a>
+        </div>
+        <div class="repository-body">
+            {% if repository.description %}
+            <p>{{ repository.description }}</p>
+            {% else %}
+            <p>There is no repository description file. Please, create one to remove this message.</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <div class="col-md-3 side-bar">
+        <!-- -->
+        <div class="panel panel-default corner-radius">
+            <div class="panel-heading">
+              <h3 class="panel-title">捐助Gitamin</h3>
+            </div>
+            <div class="panel-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="" width="49%" align="left"><img src="http://hifone.com/images/alipay.png" width="160"></td>
+                            <td class="veti_separator" width="49%" align="center">
+                            <span class="snow"> &lt;-- 捐助账号</span>
+                            <br><br>
+                            您的支持<br>我的动力
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- end -->
+        <div class="panel panel-default corner-radius">
+    <div class="panel-heading">
+      <h3 class="panel-title">Useful Links</h3>
+    </div>
+    <ul class="list-group">
+            <li class="list-group-item"><a href="http://ruby-china.org" rel="nofollow" title="Ruby China" target="_blank"><img src="http://hifone.com/images/links/ruby-china.png" style="width:150px; margin:6px 0;"></a></li>
+            <li class="list-group-item"><a href="http://phphub.org" rel="nofollow" title="phphub" target="_blank"><img src="http://hifone.com/images/links/phphub.png" style="width:150px; margin:6px 0;"></a></li>
+            <li class="list-group-item"><a href="http://hifone.com/" rel="nofollow" title="Hifone" target="_blank"><img src="http://hifone.com/images/links/hifone.png" style="width:150px; margin:6px 0;"></a></li>
+          </ul>
+  </div>
+        <!-- end -->
+
+    </div>
+
+    <hr />
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+{% endblock %}

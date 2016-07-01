@@ -1,0 +1,42 @@
+{% extends 'layout_page.html' %}
+
+{% set page = 'files' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block content %}
+    {% embed 'breadcrumb.html' with {breadcrumbs: breadcrumbs} %}
+        {% block extra %}
+            <div class="pull-right">
+                <div class="btn-group download-buttons">
+                    <a type="button" href="{{ route('archive', {owner: owner, project: project, branch: branch, format: 'zip'}) }}" class="btn btn-default btn-xs" title="Download '{{ branch }}' as a ZIP archive">ZIP</a>
+                    <a type="button" href="{{ route('archive', {owner: owner, project: project, branch: branch, format: 'tar'}) }}" class="btn btn-default btn-xs" title="Download '{{ branch }}' as a TAR archive">TAR</a>
+                    <a href="{{ route('rss', {owner: owner, project: project, branch: branch}) }}"><span class="fa fa-rss rss-icon"></span></a>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+    {% if results %}
+    <table class="table tree">
+        <thead>
+            <tr>
+                <th width="20%">Name</th>
+                <th width="80%">Match</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td><span class="fa fa-file-text-o"></span> <a href="{{ route('blob', {owner: owner, project: project, branch: branch, file: result.file, commitishPath: branch ~ '/' ~ result.file}) }}#L{{ result.line }}">{{ result.file }}</a></td>
+                <td>{{ result.match }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+
+    <hr />
+{% endblock %}

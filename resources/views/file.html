@@ -1,0 +1,33 @@
+
+{% extends 'layout_page.html' %}
+
+{% set page = 'files' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block content %}
+    {% include 'breadcrumb.html' with {breadcrumbs: breadcrumbs} %}
+
+    <div class="source-view">
+        <div class="source-header">
+            <div class="meta"></div>
+
+            <div class="btn-group pull-right">
+                <a href="{{ route('blob_raw', {owner: owner, project: project, commitishPath: branch ~ '/' ~ file}) }}" class="btn btn-default btn-sm"><span class="fa fa-file-text-o"></span> Raw</a>
+                <a href="{{ route('blame', {owner: owner, project: project, commitishPath: branch ~ '/' ~ file}) }}" class="btn btn-default btn-sm"><span class="fa fa-bullhorn"></span> Blame</a>
+                <a href="{{ route('commits', {owner: owner, project: project, commitishPath: branch ~ '/' ~ file}) }}" class="btn btn-default btn-sm"><span class="fa fa-list"></span> History</a>
+            </div>
+        </div>
+        {% if file_type == 'image' %}
+        <div class="text-center"><img src="{{ route('blob_raw', {owner: owner, project: project, commitishPath: branch ~ '/' ~ file}) }}" alt="{{ file }}" class="image-blob" /></div>
+
+        {% elseif file_type == 'markdown' %}
+        <div class="md-view"><div id="md-content">{{ blob }}</div></div>
+
+        {% else %}
+        <pre id="sourcecode" language="{{ file_type }}">{{ blob }}</pre>
+        {% endif %}
+    </div>
+
+    <hr />
+{% endblock %}

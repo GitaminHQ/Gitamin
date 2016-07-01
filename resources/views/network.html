@@ -1,0 +1,23 @@
+{% extends 'layout_page.html' %}
+
+{% set page = 'network' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block content %}
+    {% include 'breadcrumb.html' with {breadcrumbs: [{dir: 'Network', path:''}]} %}
+	<div class="network-view">
+		<div class="network-header">
+			<h4 class="meta">Network Graph of {{ project }} / {{ commitishPath }}</h4>
+		</div>
+
+		<div class="network-graph" data-source="{{ route('networkData', {owner: owner, project: project, commitishPath: commitish_path, page: 0}) }}">
+		{#<div class="network-graph" data-source="/dummynetwork.json">#}
+
+		</div>
+	</div>
+
+	
+
+    <hr />
+{% endblock %}
