@@ -3,7 +3,7 @@
 /*
  * This file is part of Gitamin.
  *
- * (c) Gitamin.com <hifone@hifone.com>
+ * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,7 +18,7 @@ use Illuminate\Contracts\Routing\Registrar;
  */
 class Main
 {
-	/**
+    /**
      * Define the status page routes.
      *
      * @param \Illuminate\Contracts\Routing\Registrar $router
@@ -38,18 +38,18 @@ class Main
                 'uses' => 'HomeController@index',
             ]);
 
-            $router->get('/refresh',[
-                'as'   => 'refresh',
+            $router->get('/refresh', [
+                'as'    => 'refresh',
                 'uses'  => 'HomeController@refresh',
             ]);
 
             $router->get('/{owner}/{project}/{branch}/rss', [
-                'as' => 'rss',
+                'as'   => 'rss',
                 'uses' => 'HomeController@rss',
             ]);
 
             $router->get('{owner}/{project}/commits/{commitishPath}', [
-                'as' => 'commits',
+                'as'   => 'commits',
                 'uses' => 'CommitController@index',
             ]);
 
@@ -59,57 +59,57 @@ class Main
             ]);
 
             $router->get('{owner}/{project}/stats/{branch}', [
-                'as' => 'stats',
+                'as'   => 'stats',
                 'uses' => 'HomeController@stats',
             ]);
 
             $router->get('{owner}/{project}/network/{commitishPath}', [
-                'as' => 'network',
+                'as'   => 'network',
                 'uses' => 'NetworkController@index',
             ]);
 
             $router->get('{owner}/{project}/network_data/{commitishPath}/{page}', [
-                'as' => 'networkData',
+                'as'   => 'networkData',
                 'uses' => 'NetworkController@data',
             ]);
 
             $router->get('{owner}/{project}/treegraph/{commitishPath}', [
-                'as' => 'treegraph',
+                'as'   => 'treegraph',
                 'uses' => 'TreeGraphController@index',
             ]);
 
             $router->get('{owner}/{project}/{format}ball/{branch}', [
-                'as' => 'archive',
+                'as'   => 'archive',
                 'uses' => 'TreeController@archive',
             ]);
 
             $router->get('{owner}/{project}/blob/{commitishPath}', [
-                'as' => 'blob',
+                'as'   => 'blob',
                 'uses' => 'BlobController@index',
             ]);
 
             $router->get('{owner}/{project}/raw/{commitishPath}', [
-                'as' => 'blob_raw',
+                'as'   => 'blob_raw',
                 'uses' => 'BlobController@raw',
             ]);
 
             $router->get('{owner}/{project}/blame/{commitishPath}', [
-                'as' => 'blame',
+                'as'   => 'blame',
                 'uses' => 'CommitController@blame',
             ]);
 
             $router->get('{owner}/{project}/tree/{commitishPath}/', [
-                'as' => 'tree',
+                'as'   => 'tree',
                 'uses' => 'TreeController@tree',
             ]);
 
             $router->get('/{owner}/{project}', [
-                'as' => 'repository',
+                'as'    => 'repository',
                 'uses'  => 'TreeController@index',
             ]);
 
             $router->any('{owner}/{project}/tree/{branch}/search', [
-                'as' => 'search',
+                'as'   => 'search',
                 'uses' => 'TreeController@search',
             ]);
 
@@ -117,7 +117,6 @@ class Main
                 'as'   => 'branch',
                 'uses' => 'TreeController@tree',
             ]);
-
         });
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of Hifone.
+ * This file is part of Gitamin.
  *
- * (c) Hifone.com <hifone@hifone.com>
+ * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,16 +11,14 @@
 
 namespace Gitamin\Http\Controllers;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\View;
 
 class BlobController extends Controller
 {
-	public function index($owner, $project, $commitishPath)
-	{
-		$repository = app('git')->getRepositoryFromName($this->repositories, $project);
+    public function index($owner, $project, $commitishPath)
+    {
+        $repository = app('git')->getRepositoryFromName($this->repositories, $project);
 
         list($branch, $file) = $this->parseCommitishPathParam($commitishPath, $project);
 
@@ -31,26 +29,26 @@ class BlobController extends Controller
         $fileType = app('git_util')->getFileType($file);
         if ($fileType !== 'image' && app('git_util')->isBinary($file)) {
             return redirect::route('blob_raw', [
-                'owner'  => $owner,
-                'project'   => $project,
+                'owner'         => $owner,
+                'project'       => $project,
                 'commitishPath' => $commitishPath,
             ]);
         }
 
         return View::make('file')
             ->withProject($project)
-        	->withFile($file)
-        	->withFileType($fileType)
-        	->withBlob($blob->output())
-        	->withBranch($branch)
+            ->withFile($file)
+            ->withFileType($fileType)
+            ->withBlob($blob->output())
+            ->withBranch($branch)
             ->withBreadcrumbs($breadcrumbs)
-        	->withBranches($repository->getBranches())
-        	->withTags($repository->getTags());
-	}
+            ->withBranches($repository->getBranches())
+            ->withTags($repository->getTags());
+    }
 
-	public function raw($owner, $project, $commitishPath)
-	{
-		$repository = app('git')->getRepositoryFromName($this->repositories, $project);
+    public function raw($owner, $project, $commitishPath)
+    {
+        $repository = app('git')->getRepositoryFromName($this->repositories, $project);
 
         list($branch, $file) = $this->parseCommitishPathParam($commitishPath, $project);
 
@@ -60,12 +58,12 @@ class BlobController extends Controller
 
         $headers = [];
         if (app('git_util')->isBinary($file)) {
-            $headers['Content-Disposition'] = 'attachment; filename="' .  $file . '"';
+            $headers['Content-Disposition'] = 'attachment; filename="'.$file.'"';
             $headers['Content-Type'] = 'application/octet-stream';
         } else {
             $headers['Content-Type'] = 'text/plain';
         }
 
         return Response::make($blob, 200, $headers);
-	}
+    }
 }

@@ -1,15 +1,13 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
-*/
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')

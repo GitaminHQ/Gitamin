@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
     /*
@@ -31,17 +40,17 @@ return [
     'connections' => [
 
         'pusher' => [
-            'driver' => 'pusher',
-            'key' => env('PUSHER_KEY'),
-            'secret' => env('PUSHER_SECRET'),
-            'app_id' => env('PUSHER_APP_ID'),
+            'driver'  => 'pusher',
+            'key'     => env('PUSHER_KEY'),
+            'secret'  => env('PUSHER_SECRET'),
+            'app_id'  => env('PUSHER_APP_ID'),
             'options' => [
                 //
             ],
         ],
 
         'redis' => [
-            'driver' => 'redis',
+            'driver'     => 'redis',
             'connection' => 'default',
         ],
 

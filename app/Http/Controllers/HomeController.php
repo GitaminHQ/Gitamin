@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of Hifone.
+ * This file is part of Gitamin.
  *
- * (c) Hifone.com <hifone@hifone.com>
+ * Copyright (C) 2015-2016 The Gitamin Team
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,30 +11,28 @@
 
 namespace Gitamin\Http\Controllers;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\View;
 use Redirect;
 
 class HomeController extends Controller
 {
-	public function index()
-	{
+    public function index()
+    {
+        $repositories = app('git')->getRepositories($this->repositories);
 
-		$repositories = app('git')->getRepositories($this->repositories);
-		return View::make('index')
-			->withRepositories($repositories);
-	}
+        return View::make('index')
+            ->withRepositories($repositories);
+    }
 
-  public function refresh()
-  {
-    return Redirect::back();
-  }
+    public function refresh()
+    {
+        return Redirect::back();
+    }
 
-	public function stats($owner, $project, $branch)
-	{
-		$repository = app('git')->getRepositoryFromName($this->repositories, $project);
+    public function stats($owner, $project, $branch)
+    {
+        $repository = app('git')->getRepositoryFromName($this->repositories, $project);
 
         if ($branch === null) {
             $branch = $repository->getHead();
@@ -44,30 +42,30 @@ class HomeController extends Controller
         $authors = $repository->getAuthorStatistics($branch);
 
         return View::make('stats')
-        	->withProject($project)
-          	->withBranch($branch)
-          	->withBranches($repository->getBranches())
-           	->withTags($repository->getTags())
+            ->withProject($project)
+              ->withBranch($branch)
+              ->withBranches($repository->getBranches())
+               ->withTags($repository->getTags())
             ->withStats($stats)
             ->withAuthors($authors);
-	}
+    }
 
-  public function rss($owner, $project, $branch)
-  {
-      $repository = app('git')->getRepositoryFromName($this->repositories, $project);
+    public function rss($owner, $project, $branch)
+    {
+        $repository = app('git')->getRepositoryFromName($this->repositories, $project);
 
-      if ($branch === null) {
-          $branch = $repository->getHead();
-      }
+        if ($branch === null) {
+            $branch = $repository->getHead();
+        }
 
-      $commits = $repository->getPaginatedCommits($branch);
+        $commits = $repository->getPaginatedCommits($branch);
 
-      return Response::make(View::make('rss')
+        return Response::make(View::make('rss')
                               ->withProject($project)
                               ->withBranch($branch)
-                              ->withCommits($commits), 
-                              200, 
-                              ['Content-Type' =>'application/rss+xml']
+                              ->withCommits($commits),
+                              200,
+                              ['Content-Type' => 'application/rss+xml']
         );
-  }
+    }
 }

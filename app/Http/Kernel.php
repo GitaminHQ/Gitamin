@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -44,10 +53,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Gitamin\Http\Middleware\Authenticate::class,
+        'auth'       => \Gitamin\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \Gitamin\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'can'        => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+        'guest'      => \Gitamin\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

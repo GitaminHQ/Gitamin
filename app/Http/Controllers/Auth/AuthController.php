@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Http\Controllers\Auth;
 
-use Gitamin\User;
-use Validator;
 use Gitamin\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Gitamin\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -43,14 +52,15 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -58,14 +68,15 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }

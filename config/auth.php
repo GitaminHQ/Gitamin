@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
     /*
@@ -14,7 +23,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -37,12 +46,12 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'users',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver'   => 'token',
             'provider' => 'users',
         ],
     ],
@@ -67,7 +76,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Gitamin\User::class,
+            'model'  => Gitamin\User::class,
         ],
 
         // 'users' => [
@@ -98,9 +107,9 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'email' => 'auth.emails.password',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'email'    => 'auth.emails.password',
+            'table'    => 'password_resets',
+            'expire'   => 60,
         ],
     ],
 

@@ -1,16 +1,25 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Services\TwigBridge\Extensions;
 
 use Carbon\Carbon;
 use Twig_Extension;
-use Twig_SimpleFunction;
 use Twig_SimpleFilter;
+use Twig_SimpleFunction;
 
 class DateTime extends Twig_Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -23,7 +32,7 @@ class DateTime extends Twig_Extension
     public function getFunctions()
     {
         return [
-            /**
+            /*
              * Diff in months helper. We use it to calculate the age of the topic.
              */
             new Twig_SimpleFunction(
@@ -36,14 +45,15 @@ class DateTime extends Twig_Extension
                     } else {
                         $now = $this->toCarbon($now);
                     }
+
                     return $now->diffInMonths($dateTime);
                 }
-            )
+            ),
         ];
     }
 
     /**
-     * Dodatkowe filtry Twig zwiazane z formatowaniem danych uzytkownika
+     * Dodatkowe filtry Twig zwiazane z formatowaniem danych uzytkownika.
      *
      * @return Twig_SimpleFilter[]
      */
@@ -59,10 +69,10 @@ class DateTime extends Twig_Extension
             new Twig_SimpleFilter('timestamp', function ($dateTime) {
                 return $this->toCarbon($dateTime)->getTimestamp();
             }),
-            
+
             new Twig_SimpleFilter('iso_8601', function ($dateTime) {
                 return $this->toCarbon($dateTime)->format(Carbon::ISO8601);
-            })
+            }),
         ];
     }
 

@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
     /*
@@ -36,32 +45,32 @@ return [
 
         'database' => [
             'driver' => 'database',
-            'table' => 'jobs',
-            'queue' => 'default',
+            'table'  => 'jobs',
+            'queue'  => 'default',
             'expire' => 90,
         ],
 
         'beanstalkd' => [
             'driver' => 'beanstalkd',
-            'host' => 'localhost',
-            'queue' => 'default',
-            'ttr' => 90,
+            'host'   => 'localhost',
+            'queue'  => 'default',
+            'ttr'    => 90,
         ],
 
         'sqs' => [
             'driver' => 'sqs',
-            'key' => 'your-public-key',
+            'key'    => 'your-public-key',
             'secret' => 'your-secret-key',
             'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
-            'queue' => 'your-queue-name',
+            'queue'  => 'your-queue-name',
             'region' => 'us-east-1',
         ],
 
         'redis' => [
-            'driver' => 'redis',
+            'driver'     => 'redis',
             'connection' => 'default',
-            'queue' => 'default',
-            'expire' => 90,
+            'queue'      => 'default',
+            'expire'     => 90,
         ],
 
     ],
@@ -79,7 +88,7 @@ return [
 
     'failed' => [
         'database' => env('DB_CONNECTION', 'mysql'),
-        'table' => 'failed_jobs',
+        'table'    => 'failed_jobs',
     ],
 
 ];

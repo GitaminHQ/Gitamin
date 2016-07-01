@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Services\Git;
 
 use Gitter\Client as BaseClient;
@@ -27,32 +36,33 @@ class Client extends BaseClient
     }
 
     /**
-     * Searches for valid repositories on the specified path
+     * Searches for valid repositories on the specified path.
      *
-     * @param  array $paths Array of paths where repositories will be searched
+     * @param array $paths Array of paths where repositories will be searched
+     *
      * @return array Found repositories, containing their name, path and description sorted
      *               by repository name
      */
     public function getRepositories($paths)
     {
-        $allRepositories = array();
+        $allRepositories = [];
 
         foreach ($paths as $path) {
             $repositories = $this->recurseDirectory($path);
 
             if (empty($repositories)) {
-                throw new \RuntimeException('There are no GIT repositories in ' . $path);
+                throw new \RuntimeException('There are no GIT repositories in '.$path);
             }
 
-            /**
+            /*
              * Use "+" to preserve keys, only a problem with numeric repos
              */
             $allRepositories = $allRepositories + $repositories;
         }
 
         $allRepositories = array_unique($allRepositories, SORT_REGULAR);
-        uksort($allRepositories, function($k1, $k2) {
-            return strtolower($k2)<strtolower($k1);
+        uksort($allRepositories, function ($k1, $k2) {
+            return strtolower($k2) < strtolower($k1);
         });
 
         return $allRepositories;
@@ -62,7 +72,7 @@ class Client extends BaseClient
     {
         $dir = new \DirectoryIterator($path);
 
-        $repositories = array();
+        $repositories = [];
 
         foreach ($dir as $file) {
             if ($file->isDot()) {
@@ -78,8 +88,8 @@ class Client extends BaseClient
             }
 
             if ($file->isDir()) {
-                $isBare = file_exists($file->getPathname() . '/HEAD');
-                $isRepository = file_exists($file->getPathname() . '/.git/HEAD');
+                $isBare = file_exists($file->getPathname().'/HEAD');
+                $isRepository = file_exists($file->getPathname().'/.git/HEAD');
 
                 if ($isRepository || $isBare) {
                     if (in_array($file->getPathname(), $this->getHidden())) {
@@ -87,9 +97,9 @@ class Client extends BaseClient
                     }
 
                     if ($isBare) {
-                        $description = $file->getPathname() . '/description';
+                        $description = $file->getPathname().'/description';
                     } else {
-                        $description = $file->getPathname() . '/.git/description';
+                        $description = $file->getPathname().'/.git/description';
                     }
 
                     if (file_exists($description)) {
@@ -99,7 +109,7 @@ class Client extends BaseClient
                     }
 
                     if (!$topLevel) {
-                        $repoName = $file->getPathInfo()->getFilename() . '/' . $file->getFilename();
+                        $repoName = $file->getPathInfo()->getFilename().'/'.$file->getFilename();
                     } else {
                         $repoName = $file->getFilename();
                     }
@@ -108,11 +118,11 @@ class Client extends BaseClient
                         continue;
                     }
 
-                    $repositories[$repoName] = array(
-                        'name' => $repoName,
-                        'path' => $file->getPathname(),
-                        'description' => $description
-                    );
+                    $repositories[$repoName] = [
+                        'name'        => $repoName,
+                        'path'        => $file->getPathname(),
+                        'description' => $description,
+                    ];
 
                     continue;
                 } else {
@@ -128,6 +138,7 @@ class Client extends BaseClient
      * Set default branch as a string.
      *
      * @param string $branch Name of branch to use when repo's HEAD is detached.
+     *
      * @return object
      */
     protected function setDefaultBranch($branch)
@@ -146,7 +157,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Get hidden repository list
+     * Get hidden repository list.
      *
      * @return array List of repositories to hide
      */
@@ -156,9 +167,10 @@ class Client extends BaseClient
     }
 
     /**
-     * Set the hidden repository list
+     * Set the hidden repository list.
      *
      * @param array $hidden List of repositories to hide
+     *
      * @return object
      */
     protected function setHidden($hidden)
@@ -169,7 +181,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Get project list
+     * Get project list.
      *
      * @return array List of repositories to show
      */
@@ -179,7 +191,7 @@ class Client extends BaseClient
     }
 
     /**
-     * Set the shown repository list
+     * Set the shown repository list.
      *
      * @param array $projects List of repositories to show
      */
@@ -191,14 +203,14 @@ class Client extends BaseClient
     }
 
     /**
-     * Overloads the parent::createRepository method for the correct Repository class instance
-     * 
+     * Overloads the parent::createRepository method for the correct Repository class instance.
+     *
      * {@inheritdoc}
      */
     public function createRepository($path, $bare = null)
     {
-        if (file_exists($path . '/.git/HEAD') && !file_exists($path . '/HEAD')) {
-            throw new \RuntimeException('A GIT repository already exists at ' . $path);
+        if (file_exists($path.'/.git/HEAD') && !file_exists($path.'/HEAD')) {
+            throw new \RuntimeException('A GIT repository already exists at '.$path);
         }
 
         $repository = new Repository($path, $this);
@@ -207,17 +219,16 @@ class Client extends BaseClient
     }
 
     /**
-     * Overloads the parent::getRepository method for the correct Repository class instance
-     * 
+     * Overloads the parent::getRepository method for the correct Repository class instance.
+     *
      * {@inheritdoc}
      */
     public function getRepository($path)
     {
-        if (!file_exists($path) || !file_exists($path . '/.git/HEAD') && !file_exists($path . '/HEAD')) {
-            throw new \RuntimeException('There is no GIT repository at ' . $path);
+        if (!file_exists($path) || !file_exists($path.'/.git/HEAD') && !file_exists($path.'/HEAD')) {
+            throw new \RuntimeException('There is no GIT repository at '.$path);
         }
 
         return new Repository($path, $this);
     }
 }
-

@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
@@ -14,7 +23,6 @@ class Controller extends BaseController
 
 
     protected $repositories;
-
 
     public function __construct()
     {
@@ -31,36 +39,37 @@ class Controller extends BaseController
         $nextPage = $pageNumber + 1;
         $previousPage = $pageNumber - 1;
 
-        return array('current' => $pageNumber,
-                     'next' => $nextPage,
+        return ['current'       => $pageNumber,
+                     'next'     => $nextPage,
                      'previous' => $previousPage,
-                     'last' => $lastPage,
-                     'total' => $totalCommits,
-        );
+                     'last'     => $lastPage,
+                     'total'    => $totalCommits,
+        ];
     }
 
     /**
-     * Returns an Array where the first value is the tree-ish and the second is the path
+     * Returns an Array where the first value is the tree-ish and the second is the path.
      *
-     * @param  \GitList\Git\Repository $repository
-     * @param  string                  $branch
-     * @param  string                  $tree
+     * @param \GitList\Git\Repository $repository
+     * @param string                  $branch
+     * @param string                  $tree
+     *
      * @return array
      */
     protected function extractRef($repository, $branch = '', $tree = '')
     {
         $branch = trim($branch, '/');
         $tree = trim($tree, '/');
-        $input = $branch . '/' . $tree;
+        $input = $branch.'/'.$tree;
 
         // If the ref appears to be a SHA, just split the string
-        if (preg_match("/^([[:alnum:]]{40})(.+)/", $input, $matches)) {
+        if (preg_match('/^([[:alnum:]]{40})(.+)/', $input, $matches)) {
             $branch = $matches[1];
         } else {
             // Otherwise, attempt to detect the ref using a list of the project's branches and tags
             $validRefs = array_merge((array) $repository->getBranches(), (array) $repository->getTags());
             foreach ($validRefs as $key => $ref) {
-                if (!preg_match(sprintf("#^%s/#", preg_quote($ref, '#')), $input)) {
+                if (!preg_match(sprintf('#^%s/#', preg_quote($ref, '#')), $input)) {
                     unset($validRefs[$key]);
                 }
             }
@@ -75,7 +84,7 @@ class Controller extends BaseController
             }
         }
 
-        return array($branch, $tree);
+        return [$branch, $tree];
     }
 
      /* @brief Return $commitish, $path parsed from $commitishPath, based on
@@ -145,6 +154,6 @@ class Controller extends BaseController
             $path = substr($path, 1);
         }
 
-        return array($commitish, $path);
+        return [$commitish, $path];
     }
 }

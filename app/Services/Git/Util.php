@@ -1,11 +1,19 @@
 <?php
 
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gitamin\Services\Git;
 
 class Util
 {
-
-    protected $defaultFileTypes = array(
+    protected $defaultFileTypes = [
         'php'      => 'php',
         'c'        => 'clike',
         'h'        => 'clike',
@@ -91,23 +99,24 @@ class Util
         'jpeg'     => 'image',
         'bmp'      => 'image',
         'csproj'   => 'xml',
-    );
+    ];
 
-    protected static $binaryTypes = array(
+    protected static $binaryTypes = [
         'exe', 'com', 'so', 'la', 'o', 'dll', 'pyc',
         'jpg', 'jpeg', 'bmp', 'gif', 'png', 'xmp', 'pcx', 'svgz', 'ttf', 'tiff', 'oet',
         'gz', 'tar', 'rar', 'zip', '7z', 'jar', 'class',
         'odt', 'ods', 'pdf', 'doc', 'docx', 'dot', 'xls', 'xlsx',
-    );
+    ];
 
     /**
-     * Returns the file type based on filename by treating the extension
+     * Returns the file type based on filename by treating the extension.
      *
      * The file type is used by CodeMirror, a Javascript-based IDE implemented in
      * GitList, to properly highlight the blob syntax (if it's a source-code)
      *
-     * @param  string $file File name
-     * @return mixed  File type
+     * @param string $file File name
+     *
+     * @return mixed File type
      */
     public function getFileType($file)
     {
@@ -129,7 +138,7 @@ class Util
      *
      * @param string $file
      *
-     * @return boolean
+     * @return bool
      */
     public function isBinary($file)
     {
@@ -146,51 +155,57 @@ class Util
         return false;
     }
 
-    public function getReadme($repository, $branch = null, $path = "")
+    public function getReadme($repository, $branch = null, $path = '')
     {
         if ($branch === null) {
-           $branch = $repository->getHead();
+            $branch = $repository->getHead();
         }
 
-        if ($path != "") $path = "$path/";
+        if ($path != '') {
+            $path = "$path/";
+        }
 
-        $files = $repository->getTree($path != "" ? "$branch:\"$path\"" : $branch)->output();
+        $files = $repository->getTree($path != '' ? "$branch:\"$path\"" : $branch)->output();
 
         foreach ($files as $file) {
             if (preg_match('/^readme*/i', $file['name'])) {
-                return array(
+                return [
                     'filename' => $file['name'],
-                    'content'  => $repository->getBlob("$branch:\"$path{$file['name']}\"")->output()
-                );
+                    'content'  => $repository->getBlob("$branch:\"$path{$file['name']}\"")->output(),
+                ];
             }
         }
-		// No contextual readme, try to catch the main one if we are in deeper context
-		if ($path != "") return $this->getReadme($repository, $branch, "");
-        return array();
+        // No contextual readme, try to catch the main one if we are in deeper context
+        if ($path != '') {
+            return $this->getReadme($repository, $branch, '');
+        }
+
+        return [];
     }
 
     /**
-     * Returns an Array where the first value is the tree-ish and the second is the path
+     * Returns an Array where the first value is the tree-ish and the second is the path.
      *
-     * @param  \GitList\Git\Repository $repository
-     * @param  string                  $branch
-     * @param  string                  $tree
+     * @param \GitList\Git\Repository $repository
+     * @param string                  $branch
+     * @param string                  $tree
+     *
      * @return array
      */
     public function extractRef($repository, $branch = '', $tree = '')
     {
         $branch = trim($branch, '/');
         $tree = trim($tree, '/');
-        $input = $branch . '/' . $tree;
+        $input = $branch.'/'.$tree;
 
         // If the ref appears to be a SHA, just split the string
-        if (preg_match("/^([[:alnum:]]{40})(.+)/", $input, $matches)) {
+        if (preg_match('/^([[:alnum:]]{40})(.+)/', $input, $matches)) {
             $branch = $matches[1];
         } else {
             // Otherwise, attempt to detect the ref using a list of the project's branches and tags
             $validRefs = array_merge((array) $repository->getBranches(), (array) $repository->getTags());
             foreach ($validRefs as $key => $ref) {
-                if (!preg_match(sprintf("#^%s/#", preg_quote($ref, '#')), $input)) {
+                if (!preg_match(sprintf('#^%s/#', preg_quote($ref, '#')), $input)) {
                     unset($validRefs[$key]);
                 }
             }
@@ -205,31 +220,31 @@ class Util
             }
         }
 
-        return array($branch, $tree);
+        return [$branch, $tree];
     }
 
     /**
-     * Builds a breadcrumb array based on a path spec
+     * Builds a breadcrumb array based on a path spec.
      *
-     * @param  string $spec Path spec
-     * @return array  Array with parts of the breadcrumb
+     * @param string $spec Path spec
+     *
+     * @return array Array with parts of the breadcrumb
      */
     public function getBreadcrumbs($spec)
     {
         if (!$spec) {
-            return array();
+            return [];
         }
 
         $paths = explode('/', $spec);
 
         foreach ($paths as $i => $path) {
-            $breadcrumbs[] = array(
+            $breadcrumbs[] = [
                 'dir'  => $path,
                 'path' => implode('/', array_slice($paths, 0, $i + 1)),
-            );
+            ];
         }
 
         return $breadcrumbs;
     }
 }
-
