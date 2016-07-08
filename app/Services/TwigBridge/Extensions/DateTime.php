@@ -61,7 +61,9 @@ class DateTime extends Twig_Extension
     {
         return [
             new Twig_SimpleFilter('format_date', function ($dateTime, $diffForHumans = true) {
-                if(!$dateTime) return;
+                if (!$dateTime) {
+                    return;
+                }
 
                 $format = 'd/m/Y H:i:s';
 
