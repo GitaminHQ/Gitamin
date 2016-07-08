@@ -11,12 +11,9 @@
 
 return [
 
-    'client' => '"C:\Program Files (x86)\Git\bin\git.exe"',
-    //'client'	=> env('GIT_CLIENT'),
+    'client' => env('GITAMIN_GIT_CLIENT', '"C:\Program Files (x86)\Git\bin\git.exe"'),
 
-    'repositories' => ["D:\Code"],
-
-    'repositories_path' => 'D:\Code',
+    'repositories_path' => env('GITAMIN_REPOSITORIES_PATH', 'D:\Code'),
 
     'default_branch' => 'master',
 
