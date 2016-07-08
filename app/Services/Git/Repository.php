@@ -256,7 +256,7 @@ class Repository extends BaseRepository
     public function getLastCommit($file = null)
     {
         $command =
-                  "log -n 1 --pretty=format:\"<item><hash>%H</hash>"
+                  'log -n 1 --pretty=format:"<item><hash>%H</hash>'
                 .'<short_hash>%h</short_hash><tree>%T</tree><parents>%P</parents>'
                 .'<author>%aN</author><author_email>%aE</author_email>'
                 .'<date>%at</date><commiter>%cN</commiter>'

@@ -12,7 +12,6 @@
 namespace Gitamin\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Gitonomy\Git\Repository;
 
 class Project extends Model
 {
