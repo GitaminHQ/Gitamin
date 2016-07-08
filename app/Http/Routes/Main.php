@@ -47,6 +47,11 @@ class Main
                 'as'    => 'captcha',
                 'uses'  => 'CaptchaController@index',
             ]);
+
+            $router->get('/notifications', [
+                'as'    => 'notifications',
+                'uses'  => 'HomeController@index',
+            ]);
         });
     }
 }
