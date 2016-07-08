@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
 
 class TreeController extends Controller
 {
@@ -34,7 +35,7 @@ class TreeController extends Controller
 
         list($branch, $tree) = $this->extractReference($repository, $commitishPath, $project->slug);
 
-        $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
+    
         $breadcrumbs = app('git_util')->getBreadcrumbs($tree);
 
         $parent = null;
@@ -46,17 +47,34 @@ class TreeController extends Controller
 
         $readme = ($parent === null) ? app('git_util')->getReadme($repository, $branch, $tree ? "$tree" : '') : '';
 
+        $path = $tree ? $tree.'/' : $tree;
+
         return View::make('projects/tree')
-            ->withfiles($files->output($tree ? $tree.'/' : $tree))
+            ->withfiles($this->getFiles($repository, $tree, $branch, $path))
             ->withOwner($owner)
             ->withProject($project)
             ->withBranch($branch)
-            ->withPath($tree ? $tree.'/' : $tree)
+            ->withPath($path)
             ->withBreadcrumbs($breadcrumbs)
             ->withParent($parent)
             ->withBranches($repository->getBranches())
             ->withTags($repository->getTags())
             ->withReadme($readme);
+    }
+
+    protected function getFiles($repository,$tree, $branch, $path)
+    {
+        //Cache
+        if(!$path) {
+            $key = md5($repository->getPath().$tree.$branch);
+            return Cache::remember('files_'.$key, 10, function () use ($repository, $tree, $branch, $path) {
+                $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
+                return $files->output($path);
+            });
+        }
+
+        $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
+        return $files->output($path);
     }
 
     public function search($owner, $project, $branch = '', $tree = '')
