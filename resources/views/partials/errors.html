@@ -1,0 +1,15 @@
+{% if errors.any() %}
+{% include 'partials._error' with {level: 'danger', title: session_get('title'), message: errors.all(':message')} %}
+{% endif %}
+
+{% if session_get('success') %}
+{% include 'partials._error' with {level : 'success', title:  session_get('title'), message: session_get('success')} %}
+{% endif %}
+
+{% if session_get('warning') %}
+{% include 'partials._error' with {level : 'warning', title:  session_get('title'), message: session_get('warning')} %}
+{% endif %}
+
+{% if session_get('info') %}
+{% include 'partials._error' with {level : 'info', title:  session_get('title'), message: session_get('info')} %}
+{% endif %}

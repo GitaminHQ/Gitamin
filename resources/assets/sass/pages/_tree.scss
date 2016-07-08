@@ -1,0 +1,34 @@
+
+.tree {
+  border: 1px solid #e7e7e7;
+  border-radius: 4px
+}
+
+.tree>thead>tr>th {
+  background-color: #f8f8f8;
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid #e7e7e7
+}
+
+.tree tbody td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee
+}
+
+.tree tbody td>.fa {
+  margin-right: 8px
+}
+
+.tree caption+thead tr:first-child th,.tree caption+thead tr:first-child td,.tree colgroup+thead tr:first-child th,.tree colgroup+thead tr:first-child td,.tree thead:first-child tr:first-child th,.tree thead:first-child tr:first-child td {
+  border-top: 0
+}
+
+.tree tbody tr:last-child td {
+  border-bottom: 0
+}

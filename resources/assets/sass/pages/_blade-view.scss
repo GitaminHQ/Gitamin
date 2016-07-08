@@ -1,0 +1,35 @@
+.blame-view {
+  width: 100%
+}
+
+.blame-view td {
+  vertical-align: top;
+  padding: 8px
+}
+
+.blame-view tr {
+  border-bottom: 1px solid #eee
+}
+
+.blame-view tr:last-child {
+  border-bottom: 0
+}
+
+.blame-view .line {
+  font-weight: 700;
+  border-right: 1px solid #eee
+}
+
+.blame-view .commit {
+  background-color: #f8f8f8;
+  font-weight: 700;
+  border-right: 1px solid #eee
+}
+
+.blame-view pre {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0
+}

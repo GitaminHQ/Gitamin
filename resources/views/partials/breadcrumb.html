@@ -1,0 +1,9 @@
+<ol class="breadcrumb">
+	<li><a href="{{ route('owner', {owner: owner.slug}) }}">{{ owner.name }}</a></li>
+    <li><a href="{{ route('tree', {owner: owner.slug, project: project.slug, commitishPath: branch}) }}">{{ project.name }}</a></li>
+    {% for breadcrumb in breadcrumbs %}
+        <li{% if loop.last %} class="active"{% endif %}>{% if not loop.last %}<a href="{{ route('tree', {owner: owner.slug, project: project.slug, commitishPath: branch ~ '/' ~ breadcrumb.path}) }}">{{ breadcrumb.dir }}</a>{% endif %}{% if loop.last %}{{ breadcrumb.dir }}{% endif %}</li>
+    {% endfor %}
+
+    {% block extra %}{% endblock %}
+</ol>

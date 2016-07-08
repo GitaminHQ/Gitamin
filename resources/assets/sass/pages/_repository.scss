@@ -1,0 +1,28 @@
+.repository {
+  margin-bottom: 18px;
+  border: 1px solid #e7e7e7
+}
+
+.repository .repository-header {
+  border-bottom: 1px solid #e7e7e7;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700
+}
+
+.repository .repository-header span.rss-icon {
+  font-size: 23px
+}
+
+.repository .repository-header>.fa {
+  margin-right: 8px
+}
+
+.repository .repository-body {
+  padding: 6px 12px;
+  background-color: #f8f8f8
+}
+
+.repository .repository-body p {
+  margin: 0
+}

@@ -1,0 +1,73 @@
+.commits {
+  border: 1px solid #e7e7e7
+}
+
+.commits>thead>tr>th {
+  background-color: #f8f8f8;
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid #e7e7e7
+}
+
+.commits tbody td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee
+}
+
+.commits h4,.commits h5,.commits h6 {
+  margin-top: 0;
+  margin-bottom: 5px
+}
+
+.commit-view {
+  width: 100%;
+  margin-bottom: 1.428571429;
+  border: 1px solid #e7e7e7;
+  border-radius: 0
+}
+
+.commit-view .commit-header {
+  background-color: #f8f8f8;
+  padding: 8px;
+  line-height: 1.428571429;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid #e7e7e7
+}
+
+.commit-view .commit-header h4 {
+  padding: 6px 0;
+  margin: 0
+}
+
+.commit-view .commit-body {
+  padding: 8px
+}
+
+.commit-list {
+  list-style-type: none
+}
+
+.commit-list li {
+  padding: 8px 5px 8px 5px;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #f4f4f4
+}
+
+.commit-list li .meta {
+  font-weight: normal;
+  font-size: 14px;
+  color: #999
+}
+
+.commit-list li:last-child {
+  border-bottom: 0;
+  margin-bottom: 25px
+}

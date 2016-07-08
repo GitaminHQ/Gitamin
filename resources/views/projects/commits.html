@@ -1,0 +1,15 @@
+{% extends 'layouts/master.html' %}
+
+{% set page = 'commits' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Commit history', path:''}]} %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'projects/commits_list.html' %}
+
+{% endblock %}

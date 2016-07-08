@@ -1,0 +1,64 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+	    "rcrowe/twigbridge": "0.9.*",
+        "twig/extensions": "^1.3",
+        "symfony/filesystem": "2.4.*",
+        "klaussilveira/gitter": "0.2.*",
+        "laravelcollective/bus": "~5.2",
+        "alt-three/validator": "^1.5",
+        "mccool/laravel-auto-presenter": "^4.3",
+        "graham-campbell/exceptions": "^5.1",
+        "gregwar/captcha": "~1.1",
+        "gitonomy/gitlib": "~1.0.2",
+        "socialiteproviders/gitlab": "2.0.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "files":[
+            "app/Helpers/Helpers.php"
+        ],
+        "psr-4": {
+            "Gitamin\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gitamin\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

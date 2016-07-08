@@ -1,0 +1,71 @@
+{% extends 'layouts/default.html' %}
+{% block title %}Gitamin{% endblock %}
+
+{% block body %}
+{% include 'partials/nav.html' %}
+
+<div id="main" class="container">
+
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">登录</div>
+      <div class="panel-body">
+        {% if connect_data %}
+          <div class="alert alert-info">
+            登录成功后，即可自动与你的账号 {{  connect_data.nickname }} 进行关联。
+          </div>
+        {% endif %}
+        <form class="simple_form " id="new_user" action="/auth/login" accept-charset="UTF-8" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        {% include 'partials/errors.html' %}
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" placeholder="用户名 / Email" name="login" id="login" value="{{ input_old('login') }}">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-lg" placeholder="密码" name="password" id="password">
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control input-lg" placeholder="验证码" name="verifycode" type="text" autocorrect="off" autocapitalize="off" pattern="[0-9a-z]*" maxlength="5" autocomplete="off">
+            <span class="input-group-addon input-group-captcha"><a class="captcha-image-box" href="#"><img class="captcha-image" src="{{ captcha }}" alt="Captcha"></a></span>
+          </div>
+        </div>
+
+        <div class="from-group checkbox">
+            <label for="user_remember_me">
+              <input name="remember_me" type="hidden" value="0"><input type="checkbox" value="1" name="remember_me" id="user_remember_me"> 记住登录状态
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="commit" value="登录" class="btn btn-primary btn-lg btn-block" data-disable-with="正在登录">
+        </div>
+</form>      </div>
+      <div class="panel-footer">
+        
+  <a href="/auth/register">注册</a>
+
+  <a href="/auth/password/new">忘记了密码?</a>
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">用其他平台的帐号登录</div>
+      <ul class="list-group">
+        {% for provider in providers %}
+        <li class="list-group-item"><a class="btn btn-default btn-lg btn-block" href="/auth/{{ provider.slug }}"><i class="fa fa-{{ provider.slug }}"></i> {{ provider.name }}</a> </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+ <hr />
+
+    {% include 'partials/footer.html' %}
+</div>
+{% endblock %}

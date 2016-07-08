@@ -1,0 +1,75 @@
+{% extends 'layouts/master.html' %}
+
+{% set page = 'code' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block breadcrumb %} 
+{% embed 'partials/breadcrumb.html' with {breadcrumbs: breadcrumbs} %}
+        {% block extra %}
+            <div class="pull-right">
+                <div class="btn-group download-buttons">
+                    <a type="button" href="{{ route('archive', {owner: owner.slug, project: project.slug, branch: branch, format: 'zip'}) }}" class="btn btn-default btn-xs" title="Download '{{ branch }}' as a ZIP archive">ZIP</a>
+                    <a type="button" href="{{ route('archive', {owner: owner.slug, project: project.slug, branch: branch, format: 'tar'}) }}" class="btn btn-default btn-xs" title="Download '{{ branch }}' as a TAR archive">TAR</a>
+                </div>
+                <div class="download-buttons">
+                    <a href="{{ route('rss', {owner: owner.slug, project: project.slug, branch: branch}) }}"><span class="octicon octicon-rss rss-icon"></span></a>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+
+    {% if files is not empty %}
+    <table class="table tree">
+        <thead>
+            <tr>
+                <th width="80%">Name</th>
+                <th width="10%">Mode</th>
+                <th width="10%">Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if parent is not null %}
+            <tr>
+                <td>
+                    {% if not parent %}
+                        <a href="{{ route('branch', {owner: owner.slug, project: project.slug, branch: branch}) }}">..</a>
+                    {% else %}
+                        <a href="{{ route('tree', {owner: owner.slug, project: project.slug, commitishPath: branch ~ '/' ~ parent}) }}">..</a>
+                    {% endif %}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% endif %}
+            {% for file in files %}
+            <tr>
+                <td><span class="octicon {{ file.type == "folder" or file.type == "symlink" ? "octicon-file-directory" : "octicon-file-text" }}"></span> <a href="
+                    {%- if file.type == "folder" or file.type == "symlink" -%}
+                        {{ route('tree', {owner: owner.slug, project: project.slug, commitishPath: branch ~ '/' ~ path ~ (file.type == "symlink" ? file.path : file.name)}) }}
+                    {%- else -%}
+                        {{ route('blob', {owner: owner.slug, project: project.slug, commitishPath: branch ~ '/' ~ path ~ (file.type == "symlink" ? file.path : file.name)}) }}
+                    {%- endif -%}
+                ">{{ file.name }}</a></td>
+                <td>{{ file.mode }}</td>
+                <td>{% if file.size %}{{ (file.size / 1024) | number_format }} kb{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>This repository is empty.</p>
+    {% endif %}
+    {% if readme is defined and readme is not empty %}
+        <div class="readme-view">
+            <div class="md-header">
+                <span class="meta">{{ readme.filename }}</span>
+            </div>
+            <div id="md-content">{{ readme.content }}</div>
+        </div>
+    {% endif %}
+
+{% endblock %}

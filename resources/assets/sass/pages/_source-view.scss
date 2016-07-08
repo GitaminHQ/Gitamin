@@ -1,0 +1,82 @@
+
+.source-view {
+  width: 100%;
+  margin-bottom: 18px;
+  border: 1px solid #e7e7e7
+}
+
+.source-view .source-header {
+  background-color: #f8f8f8;
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid #e7e7e7;
+  height: 47px
+}
+
+.source-view .source-header .meta {
+  float: left;
+  padding: 8px 0;
+  font-size: 14px
+}
+
+.source-view pre {
+  margin: 0;
+  padding: 12px;
+  border: none
+}
+
+.source-view #sourcecode {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 100%;
+  height: 600px
+}
+
+.source-view .source-diff {
+  background-color: #f8f8f8
+}
+
+.source-view .source-diff pre {
+  margin: 0;
+  padding: 0 0 0 6px;
+  border: none;
+  border-radius: 0
+}
+
+.source-view .source-diff pre:hover {
+  background-color: #ffc
+}
+
+.source-view .source-diff table td {
+  padding: 0
+}
+
+.source-view .source-diff .new {
+  background-color: #dfd
+}
+
+.source-view .source-diff .old {
+  background-color: #fdd
+}
+
+.source-view .source-diff .chunk {
+  background-color: #e8e8e8;
+  color: #999
+}
+
+.source-view .source-diff .lineNo {
+  color: #aaa;
+  background-color: #e8e8e8;
+  padding: 0 6px;
+  text-align: right;
+  border-right: 1px solid #ddd;
+  font-family: monospace
+}
+
+.source-view .image-blob {
+  padding: 10px;
+  max-width: 600px
+}

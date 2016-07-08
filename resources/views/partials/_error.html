@@ -1,0 +1,17 @@
+<div class="alerts">
+    <div class="alert alert-{{ level }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        {% if title %} 
+        <h5>{{ title | raw }}</h5> 
+        {% endif %}
+        {% if message is iterable %}
+        <ul class="list-unstyled">
+        	{% for msg in message %}
+        	<li>{{ msg | raw }}</li>
+        	{% endfor %}
+        </ul>
+        {% else %}
+        {{ message | raw }}
+       	{% endif %}
+    </div>
+</div>

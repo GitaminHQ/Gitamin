@@ -1,0 +1,85 @@
+{% extends 'layouts/master.html' %}
+
+{% set page = 'network' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Network', path:''}]} %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-9 main-col">
+<!-- start -->
+<div class="panel panel-default corner-radius">
+    <div class="panel-heading">Add a new issue</div>
+    <div class="panel-body">
+    <div class="reply-box form box-block">
+	 <form method="POST" action="{{ route('issue_store', {owner: owner.slug, project: project.slug}) }}" accept-charset="UTF-8" id="issue_create_form" class="create_form">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+          <input class="form-control" id="issue_title" placeholder="Title" name="issue[title]" type="text" value="{{ input_old('issue.title') }}">
+        </div>
+        <!-- editor start -->
+        <div class="editor-toolbar">
+  <ul class="nav nav-pills" style="clear:none;">
+    <li class="edit active"><a href="#">Edit</a></li>
+    <li class="preview"><a href="#">Preview</a></li>
+  </ul>
+</div>        
+<!-- end -->
+<div class="form-group">
+  <textarea class="post-editor form-control" rows="12" style="overflow:hidden" id="body_field" placeholder="Styling with Markdown is supported" name="issue[description]" cols="50">{{ input_old('issue.description') }}</textarea>
+</div>
+
+<div class="form-group status-post-submit">
+  <input class="btn btn-primary col-xs-2" id="thread-create-submit" type="submit" value="Publish">
+</div>
+
+<div class="box preview markdown-body" id="preview-box" style="display:none;"></div>
+
+</form>
+</div>
+</div>
+</div>
+<!-- end -->
+
+</div>
+<div class="col-md-3 side-bar">
+  <div class="panel panel-default corner-radius help-box">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">发帖提示</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list">
+          <li>主题标题
+            <p>请在标题中描述内容要点。</p>
+            </li>
+             <li>选择节点
+            <p>请为你的主题选择一个节点。恰当的归类会让你发布的信息更有用。</p>
+            </li>
+            <li>正文
+            <p>Hifone 支持 <span style="font-family: Consolas, 'Panic Sans', mono"><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">GitHub Flavored Markdown</a></span> 文本标记语法。你可以在页面下方实时预览正文的实际渲染效果。</p>
+            </li>
+      </ul></div>
+    </div>
+
+    <div class="panel panel-default corner-radius help-box">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">社区指导原则</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list">
+          <li>尊重原创
+            <p>请不要在 Hifone 发布任何盗版链接，包括软件、音乐、电影等。</p>
+            </li>
+            <li>友好互助
+            <p>保持对陌生人的友善。用知识去帮助别人。</p>
+            </li>
+        </ul>
+      </div>
+</div>
+</div>
+</div>
+{% endblock %}

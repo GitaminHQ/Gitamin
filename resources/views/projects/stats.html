@@ -1,0 +1,50 @@
+{% extends 'layouts/master.html' %}
+
+{% set page = 'stats' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Statistics', path:''}]} %}
+{% endblock %}
+
+{% block content %}
+
+    <table class="table stats">
+        <thead>
+            <tr>
+                <th width="30%"><span class="octicon octicon-file-text"></span> File extensions ({{ stats.extensions|length }})</th>
+                <th width="40%"><span class="octicon octicon-person"></span> Authors ({{ authors|length }})</th>
+                <th width="30%"><span class="octicon octicon-star"></span> Other</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                    {% for ext, amount in stats.extensions %}
+                        <li><strong>{{ ext }}</strong>: {{ amount }} files</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                    {% for author in authors %}
+                        <li><strong><a href="mailto:{{ author.email }}">{{ author.name }}</a></strong>: {{ author.commits }} commits</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <p>
+                        <strong>Total files:</strong> {{ stats.files }}
+                    </p>
+
+                    <p>
+                        <strong>Total bytes:</strong> {{ stats.size }} bytes ({{ ((stats.size / 1024) / 1024) | number_format }} MB)
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

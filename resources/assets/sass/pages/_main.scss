@@ -1,0 +1,79 @@
+/* Bootstrap Theme */
+body {
+  background: #fff;
+  color: #222527;
+  font-family: Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif;
+  padding-top: 65px;
+}
+
+.readme-view {
+  border: 1px solid #e7e7e7
+}
+
+.md-view {
+  width: 100%;
+  margin-bottom: 1.428571429
+}
+
+.md-header {
+  padding: 16px;
+  background-color: #f8f8f8;
+  line-height: 1.428571429;
+  border-bottom: 1px solid #f4f4f4;
+  font-weight: bold
+}
+
+#md-content {
+  padding: 10px 16px;
+  color: #333;
+  p {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  img {
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  img:not(.emoji){
+    border: 1px solid #ddd;
+    max-width: 95%;
+    box-shadow: 0 0 30px #ccc;
+    -moz-box-shadow: 0 0 30px #ccc;
+    -webkit-box-shadow: 0 0 30px #ccc;
+  }
+
+}
+
+.breadcrumb {
+  padding: 10px 16px;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px
+}
+
+.download-buttons {
+  display: inline
+}
+
+.download-buttons .rss-icon {
+  padding-left: 16px;
+  font-size: 23px
+}
+
+.space-right {
+  padding: 0 8px 0 0
+}
+
+span.rss-icon {
+  color: #d9534f;
+  font-size: 17px
+}
+
+span.rss-icon:hover {
+  color: #b52b27
+}
+
+.form-control {
+  color: #333;
+}

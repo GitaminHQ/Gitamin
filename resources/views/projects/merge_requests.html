@@ -1,0 +1,13 @@
+{% extends 'layouts/master.html' %}
+
+{% set page = 'network' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Network', path:''}]} %}
+{% endblock %}
+
+{% block content %}
+	<div class="empty-block">There aren’t any open merge requests.</div>
+{% endblock %}

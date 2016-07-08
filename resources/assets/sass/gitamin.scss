@@ -1,0 +1,23 @@
+$fa-font-path: "../../../fonts" !default;
+$fa-font-size-base:   10px !default;
+@import "./vendor/bower_components/font-awesome/scss/font-awesome";
+
+
+$octicons-font-path: "../../../fonts" !default;
+@import "./vendor/bower_components/octicons/octicons/octicons.scss";
+
+@import "./vendor/bower_components/sweetalert/dev/sweetalert";
+
+@import "modules/bootstrap";
+@import "modules/gitgraph";
+
+@import "pages/main";
+@import "pages/nav";
+@import "pages/source-view";
+@import "pages/blade-view";
+@import "pages/codemirror";
+@import "pages/commits";
+@import "pages/network";
+@import "pages/repository";
+@import "pages/stats";
+@import "pages/tree";

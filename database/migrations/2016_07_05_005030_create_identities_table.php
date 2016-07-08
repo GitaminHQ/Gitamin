@@ -1,0 +1,53 @@
+<?php
+
+/*
+ * This file is part of Gitamin.
+ *
+ * Copyright (C) 2015-2016 The Gitamin Team
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class CreateIdentitiesTable extends Migration
+{
+    public function up()
+    {
+        // Create table for associating providers to identities (Many-to-Many)
+        Schema::create('identities', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('extern_uid');
+            $table->integer('provider_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->string('nickname')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('avatar')->nullable();
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('provider_id')->references('id')->on('providers')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->index('extern_uid');
+            $table->index('user_id');
+            $table->index('provider_id');
+            $table->unique(['user_id', 'provider_id']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('identities');
+    }
+}

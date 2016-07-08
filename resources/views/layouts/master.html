@@ -1,0 +1,37 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+    {% include 'partials/nav.html' %}
+
+    <div class="container">
+        {% block breadcrumb %}{% endblock %}
+        <div class="header row">
+            <div class="col-sm-12">
+                {% if page in ['commits', 'searchcommits'] %}
+                <form class="pull-right" action="{{ app.request.basepath }}/{{repo}}/commits/{{branch}}/search" method="POST">
+                    <input type="search" name="query" class="form-control input-sm" placeholder="Search commits...">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
+                {% else %}
+                <form class="pull-right" action="{{ app.request.basepath }}/{{repo}}/tree/{{branch}}/search" method="POST">
+                    <input type="search" name="query" class="form-control input-sm" placeholder="Search tree...">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
+                {% endif %}
+
+                {% include 'partials/menu.html' %}
+            </div>
+        </div>
+        {% if branches is defined %}
+        <div class="header row">
+            <div class="col-sm-12">
+                    {% include 'partials/branch_menu.html' %}
+            </div>
+        </div>
+        {% endif %}
+        {% include 'partials/errors.html' %}
+        {% block content %}{% endblock %}
+
+        {% include 'partials/footer.html' %}
+    </div>
+{% endblock %}

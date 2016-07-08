@@ -1,0 +1,13 @@
+{% extends 'layouts/master.html' %}
+
+{% set page = 'owner' %}
+
+{% block title %}Gitamin{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Owner', path:''}]} %}
+{% endblock %}
+
+{% block content %}
+	{{ issue.title }}
+{% endblock %}

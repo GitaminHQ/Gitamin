@@ -1,0 +1,47 @@
+{% extends 'layouts/default.html' %}
+{% block title %}Gitamin{% endblock %}
+
+{% block body %}
+{% include 'partials/nav.html' %}
+
+<div id="main" class="container">
+{% include 'partials/errors.html' %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">注册新用户</div>
+      <div class="panel-body">
+        <form class="simple_form" id="new_user" action="/auth/register" accept-charset="UTF-8" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" placeholder="用户名" hint="谨慎填写，以后不可修改。" name="username" id="username" value="{{ input_old('username') }}">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control input-lg" placeholder="Email" name="email" id="email" value="{{ input_old('email') }}">
+        </div>
+        <div class="form-group">
+        <input class="form-control input-lg" placeholder="密码" type="password" name="password" id="password">
+        </div>
+        <div class="form-group">
+        <input class="form-control input-lg" placeholder="确认密码" type="password" name="password_confirmation" id="password_confirmation">
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control input-lg" placeholder="验证码" name="verifycode" type="text" autocorrect="off" autocapitalize="off" pattern="[0-9a-z]*" maxlength="5" autocomplete="off">
+            <span class="input-group-addon input-group-captcha"><a class="captcha-image-box" href="#"><img class="captcha-image" src="{{ captcha }}" alt="Captcha"></a></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" name="commit" value="提交注册信息" class="btn btn-lg btn-primary" data-disable-with="正在提交">
+          / <a class="btn btn-lg btn-default" href="/auth/login">登录</a>
+        </div>
+</form>      </div>
+    </div>
+  </div>
+</div>
+
+
+    {% include 'partials/footer.html' %}
+</div>
+{% endblock %}

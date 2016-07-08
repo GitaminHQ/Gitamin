@@ -1,0 +1,33 @@
+.stats {
+  border: 1px solid #e7e7e7;
+  border-radius: 4px
+}
+
+.stats>thead>tr>th {
+  background-color: #f8f8f8;
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 1px solid #e7e7e7
+}
+
+.stats tbody td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee
+}
+
+.stats tbody td>.fa {
+  margin-right: 8px
+}
+
+.stats caption+thead tr:first-child th,.stats caption+thead tr:first-child td,.stats colgroup+thead tr:first-child th,.stats colgroup+thead tr:first-child td,.stats thead:first-child tr:first-child th,.stats thead:first-child tr:first-child td {
+  border-top: 0
+}
+
+.stats tbody tr:last-child td {
+  border-bottom: 0
+}
