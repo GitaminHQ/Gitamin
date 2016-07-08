@@ -55,7 +55,7 @@
                     {%- endif -%}
                 ">{{ file.name }}</a></td>
                 <td>{{ file.commit.getMessage }}</td>
-                <td>{{ file.commit.date | format_date }}</td>
+                <td><span class="timeago " data-toggle="tooltip" data-placement="top" title="{{ file.commit.date | format_date }}">{{ file.commit.date | format_date }}</span></td>
             </tr>
             {% endfor %}
         </tbody>

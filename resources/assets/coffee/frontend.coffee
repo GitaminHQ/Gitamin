@@ -11,6 +11,21 @@ window.FrontendView = Backbone.View.extend
     self = this
     
     self.initScrollToTop()
+    self.initToolTips()
+    self.initTimeAgo()
 
   initScrollToTop : ->
     $.scrollUp.init()
+
+  initToolTips: ->
+    $('[data-toggle="tooltip"]').tooltip()
+    return
+
+  initTimeAgo: ->
+    moment.locale 'zh-cn'
+    $('.timeago').each ->
+      time_str = $(this).text()
+      if moment(time_str, 'YYYY-MM-DD HH:mm:ss', true).isValid()
+        $(this).text moment(time_str).fromNow()
+      return
+    return
