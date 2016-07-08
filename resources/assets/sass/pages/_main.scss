@@ -6,46 +6,6 @@ body {
   padding-top: 65px;
 }
 
-.readme-view {
-  border: 1px solid #e7e7e7
-}
-
-.md-view {
-  width: 100%;
-  margin-bottom: 1.428571429
-}
-
-.md-header {
-  padding: 16px;
-  background-color: #f8f8f8;
-  line-height: 1.428571429;
-  border-bottom: 1px solid #f4f4f4;
-  font-weight: bold
-}
-
-#md-content {
-  padding: 10px 16px;
-  color: #333;
-  p {
-    margin-top: 0;
-    margin-bottom: 16px;
-  }
-  img {
-    max-width: 100%;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  img:not(.emoji){
-    border: 1px solid #ddd;
-    max-width: 95%;
-    box-shadow: 0 0 30px #ccc;
-    -moz-box-shadow: 0 0 30px #ccc;
-    -webkit-box-shadow: 0 0 30px #ccc;
-  }
-
-}
-
 .breadcrumb {
   padding: 10px 16px;
   border: 1px solid #e7e7e7;

@@ -8631,13 +8631,6 @@ em {
 #graph-raw-list {
   margin: 0; }
 
-/* Bootstrap Theme */
-body {
-  background: #fff;
-  color: #222527;
-  font-family: Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif;
-  padding-top: 65px; }
-
 .readme-view {
   border: 1px solid #e7e7e7; }
 
@@ -8667,6 +8660,20 @@ body {
     box-shadow: 0 0 30px #ccc;
     -moz-box-shadow: 0 0 30px #ccc;
     -webkit-box-shadow: 0 0 30px #ccc; }
+  #md-content h1, #md-content h2, #md-content h3, #md-content h4, #md-content h5, #md-content h6 {
+    font-weight: bold; }
+  #md-content h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee; }
+
+/* Bootstrap Theme */
+body {
+  background: #fff;
+  color: #222527;
+  font-family: Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif;
+  padding-top: 65px; }
 
 .breadcrumb {
   padding: 10px 16px;
