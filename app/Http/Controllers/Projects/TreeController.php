@@ -47,7 +47,7 @@ class TreeController extends Controller
         $readme = ($parent === null) ? app('git_util')->getReadme($repository, $branch, $tree ? "$tree" : '') : '';
 
         return View::make('projects/tree')
-            ->withfiles($files->output())
+            ->withfiles($files->output($tree ? $tree.'/' : $tree))
             ->withOwner($owner)
             ->withProject($project)
             ->withBranch($branch)

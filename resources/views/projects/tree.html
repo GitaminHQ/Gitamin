@@ -26,9 +26,9 @@
     <table class="table tree">
         <thead>
             <tr>
-                <th width="80%">Name</th>
-                <th width="10%">Mode</th>
-                <th width="10%">Size</th>
+                <th width="40%">Filename</th>
+                <th width="40%">Last commit</th>
+                <th width="20%">Modification date</th>
             </tr>
         </thead>
         <tbody>
@@ -54,8 +54,8 @@
                         {{ route('blob', {owner: owner.slug, project: project.slug, commitishPath: branch ~ '/' ~ path ~ (file.type == "symlink" ? file.path : file.name)}) }}
                     {%- endif -%}
                 ">{{ file.name }}</a></td>
-                <td>{{ file.mode }}</td>
-                <td>{% if file.size %}{{ (file.size / 1024) | number_format }} kb{% endif %}</td>
+                <td>{{ file.commit.getMessage }}</td>
+                <td>{{ file.commit.date | format_date }}</td>
             </tr>
             {% endfor %}
         </tbody>

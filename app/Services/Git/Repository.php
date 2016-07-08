@@ -253,6 +253,33 @@ class Repository extends BaseRepository
         return $commits;
     }
 
+    public function getLastCommit($file = null)
+    {
+        $command =
+                  "log -n 1 --pretty=format:\"<item><hash>%H</hash>"
+                .'<short_hash>%h</short_hash><tree>%T</tree><parents>%P</parents>'
+                .'<author>%aN</author><author_email>%aE</author_email>'
+                .'<date>%at</date><commiter>%cN</commiter>'
+                .'<commiter_email>%cE</commiter_email>'
+                .'<commiter_date>%ct</commiter_date>'
+                .'<message><![CDATA[%s]]></message></item>"';
+
+        if ($file) {
+            $command .= " $file";
+        }
+
+        try {
+            $logs = $this->getPrettyFormat($command);
+        } catch (\RuntimeException $e) {
+            return [];
+        }
+
+        $commit = new Commit();
+        $commit->importData($logs[0]);
+
+        return $commit;
+    }
+
     public function searchCommitLog($query, $branch)
     {
         $query = escapeshellarg($query);
