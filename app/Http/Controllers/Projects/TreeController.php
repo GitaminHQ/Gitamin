@@ -12,11 +12,11 @@
 namespace Gitamin\Http\Controllers\Projects;
 
 use Gitamin\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Cache;
 
 class TreeController extends Controller
 {
@@ -35,7 +35,7 @@ class TreeController extends Controller
 
         list($branch, $tree) = $this->extractReference($repository, $commitishPath, $project->slug);
 
-    
+
         $breadcrumbs = app('git_util')->getBreadcrumbs($tree);
 
         $parent = null;
@@ -62,18 +62,21 @@ class TreeController extends Controller
             ->withReadme($readme);
     }
 
-    protected function getFiles($repository,$tree, $branch, $path)
+    protected function getFiles($repository, $tree, $branch, $path)
     {
         //Cache
-        if(!$path) {
+        if (!$path) {
             $key = md5($repository->getPath().$tree.$branch);
+
             return Cache::remember('files_'.$key, 10, function () use ($repository, $tree, $branch, $path) {
                 $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
+
                 return $files->output($path);
             });
         }
 
         $files = $repository->getTree($tree ? "$branch:\"$tree\"/" : $branch);
+
         return $files->output($path);
     }
 
