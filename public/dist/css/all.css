@@ -11066,6 +11066,12 @@ span.rss-icon:hover {
 .form-control {
   color: #333; }
 
+.empty-block {
+  text-align: center;
+  line-height: 60px;
+  margin: 10px;
+  color: #ccc; }
+
 .header {
   margin-bottom: 18px; }
   .header .navbar {

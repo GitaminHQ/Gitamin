@@ -4,7 +4,7 @@ var elixir = require('laravel-elixir'),
     coffee = require('gulp-coffee');
 
 gulp.task('coffee', function() {
-  gulp.src('./resouces/assets/coffee/**/*.coffee')
+  gulp.src('./resources/assets/coffee/**/*.coffee')
     .pipe(gulp.dest('./public/dist/coffee/'))
     .pipe(coffee({bare: true}).on('error', gutil.log));
 });
@@ -55,7 +55,8 @@ elixir(function (mix) {
             'vendor/bower_components/select2/dist/js/select2.min.js',
             'vendor/bower_components/inline-attachment/src/inline-attach.js',
             'vendor/bower_components/inline-attachment/src/jquery.inline-attach.js',
-            'resources/assets/js/*.js'
+            'resources/assets/js/*.js',
+            'public/js/app.js'
         ], 'public/dist/js/all.js', './')
         .version(['public/dist/css/all.css', 'public/dist/js/all.js'])
         .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/')

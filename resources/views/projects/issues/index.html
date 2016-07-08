@@ -1,11 +1,11 @@
 {% extends 'layouts/master.html' %}
 
-{% set page = 'network' %}
+{% set page = 'issues' %}
 
 {% block title %}Gitamin{% endblock %}
 
 {% block breadcrumb %}
-    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Network', path:''}]} %}
+    {% include 'partials/breadcrumb.html' with {breadcrumbs: [{dir: 'Issues', path:''}]} %}
 {% endblock %}
 
 {% block content %}
@@ -18,13 +18,13 @@
                     </div>
                       <ul class="pull-right list-inline remove-margin-bottom thread-filter">
     <li>
-        <a href="{{ route('issues', {owner: owner.slug, project: project.slug, filter: 'recenter'}) }}">
-            <i class="fa fa-history"></i> 最新话题
+        <a href="{{ route('issues', {owner: owner.slug, project: project.slug, filter: 'recent'}) }}">
+            <i class="fa fa-history"></i> Recent
         </a>
     </li>
     <li>
         <a href="{{ route('issues', {owner: owner.slug, project: project.slug, filter: 'unanswered'}) }}">
-            <i class="fa fa-eye"></i> 等待回复
+            <i class="fa fa-eye"></i> Unanswered
         </a>
     </li>
 </ul>
