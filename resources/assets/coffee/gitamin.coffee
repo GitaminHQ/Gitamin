@@ -5,6 +5,9 @@ GitaminView = Backbone.View.extend
   initialize: ->
     @initComponents()
 
+    if $('body').data('page') in ['frontend']
+      window._frontendView = new FrontendView({parentView: @})
+
   initComponents: () ->
     #$("abbr.timeago").timeago()
     $(".alert").alert()
