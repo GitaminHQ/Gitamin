@@ -47,7 +47,7 @@
             {% endif %}
             {% for file in files %}
             <tr>
-                <td><span class="octicon {{ file.type == "folder" or file.type == "symlink" ? "octicon-file-directory" : "octicon-file-text" }}"></span> <a href="
+                <td class="icon"><span class="octicon {{ file.type == "folder" or file.type == "symlink" ? "octicon-file-directory" : "octicon-file-text" }}"></span> <a href="
                     {%- if file.type == "folder" or file.type == "symlink" -%}
                         {{ route('tree', {owner: owner.slug, project: project.slug, commitishPath: branch ~ '/' ~ path ~ (file.type == "symlink" ? file.path : file.name)}) }}
                     {%- else -%}

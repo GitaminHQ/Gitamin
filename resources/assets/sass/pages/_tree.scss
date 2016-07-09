@@ -21,8 +21,9 @@
   border-bottom: 1px solid #eee
 }
 
-.tree tbody td>.fa {
-  margin-right: 8px
+
+.tree td.icon .octicon-file-directory {
+  color: #80a6cd;
 }
 
 .tree caption+thead tr:first-child th,.tree caption+thead tr:first-child td,.tree colgroup+thead tr:first-child th,.tree colgroup+thead tr:first-child td,.tree thead:first-child tr:first-child th,.tree thead:first-child tr:first-child td {
