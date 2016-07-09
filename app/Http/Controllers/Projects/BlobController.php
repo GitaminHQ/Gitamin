@@ -50,9 +50,7 @@ class BlobController extends Controller
     {
         $repository = $project->getRepository();
 
-        list($branch, $file) = $this->parseCommitishPathParam($repository, $commitishPath, $project);
-
-        list($branch, $file) = $this->extractRef($repository, $branch, $file);
+        list($branch, $file) = $this->extractReference($repository, $commitishPath, $project->slug);
 
         $blob = $repository->getBlob("$branch:\"$file\"")->output();
 
