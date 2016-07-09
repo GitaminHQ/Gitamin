@@ -17,15 +17,6 @@ class AppComposer
 {
     public function compose(View $view)
     {
-        $app = [
-            'theme'    => 'default',
-            'request'  => [
-                'basepath' => '',
-            ],
-        ];
-        //$owner = 'Gitamin';
-        //$view->withOwner($owner);
-        $view->withApp($app);
         $view->withGitaminVersion(GITAMIN_VERSION);
     }
 }
