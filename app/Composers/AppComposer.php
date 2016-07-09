@@ -19,7 +19,7 @@ class AppComposer
     {
         $app = [
             'theme'    => 'default',
-            'request' => [
+            'request'  => [
                 'basepath' => '',
             ],
         ];
