@@ -19,6 +19,7 @@ return [
     'failure'          => 'Operation ran failure!',
 
     'login'            => [
+        'auth_prompt'          => 'Sign in please.',
         'success'       => 'Signed in successfully.',
         'success_oauth' => 'Signed in with :provider successfully.',
     ],
