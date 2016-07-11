@@ -24,13 +24,16 @@
 
     {% if files is not empty %}
     <table class="table tree">
+        {% if latest_commit is not null %}
         <thead>
             <tr>
-                <th width="40%">Filename</th>
-                <th width="40%">Last commit</th>
-                <th width="20%">Modification date</th>
+                <th colspan="2"><a href="mailto:{{latest_commit.author.email}}"><img src="{{ avatar( latest_commit.author.email, 16 ) }}" /> {{ latest_commit.author.name }}</a> committed on Gitamin: {{ latest_commit.getMessage }} 
+                </th>
+                <th>Latest commit <a href="{{ route('commit', {owner: owner.slug, project: project.slug, commit: latest_commit.hash}) }}">{{ latest_commit.shortHash }}</a> <span class="timeago">{{ latest_commit.commiterDate | format_date }}</span> 
+                </th>
             </tr>
         </thead>
+        {% endif %}
         <tbody>
             {% if parent is not null %}
             <tr>

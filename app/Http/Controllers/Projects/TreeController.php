@@ -50,6 +50,7 @@ class TreeController extends Controller
         $path = $tree ? $tree.'/' : $tree;
 
         return View::make('projects/tree')
+            ->withLatestCommit($repository->getLatestCommit($path))
             ->withfiles($this->getFiles($repository, $tree, $branch, $path))
             ->withOwner($owner)
             ->withProject($project)

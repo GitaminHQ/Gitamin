@@ -253,7 +253,7 @@ class Repository extends BaseRepository
         return $commits;
     }
 
-    public function getLastCommit($file = null)
+    public function getLatestCommit($file = null)
     {
         $command =
                   'log -n 1 --pretty=format:"<item><hash>%H</hash>'
