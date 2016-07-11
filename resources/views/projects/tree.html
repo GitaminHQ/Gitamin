@@ -20,8 +20,17 @@
     {% endembed %}
 {% endblock %}
 
-{% block content %}
+{% block project_description %}
+{% if path is empty %}
+<div class="header row">
+    <div class="col-sm-12">
+        {{ project.description }}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
 
+{% block content %}
     {% if files is not empty %}
     <table class="table tree">
         {% if latest_commit is not null %}

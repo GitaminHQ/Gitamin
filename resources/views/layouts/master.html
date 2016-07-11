@@ -22,6 +22,7 @@
                 {% include 'partials/menu.html' %}
             </div>
         </div>
+        {% block project_description %}{% endblock %}
         {% if branches is defined %}
         <div class="header row">
             <div class="col-sm-12">
