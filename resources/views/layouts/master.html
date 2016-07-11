@@ -8,12 +8,12 @@
         <div class="header row">
             <div class="col-sm-12">
                 {% if page in ['commits', 'searchcommits'] %}
-                <form class="pull-right" action="{{owner.slug}}/{{project.slug}}/commits/{{branch}}/search" method="POST">
+                <form class="pull-right" action="/{{owner.slug}}/{{project.slug}}/commits/{{branch}}/search" method="POST">
                     <input type="search" name="query" class="form-control input-sm" placeholder="Search commits...">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
                 {% else %}
-                <form class="pull-right" action="{{owner.slug}}/{{project.slug}}/tree/{{branch}}/search" method="POST">
+                <form class="pull-right" action="/{{owner.slug}}/{{project.slug}}/tree/{{branch}}/search" method="POST">
                     <input type="search" name="query" class="form-control input-sm" placeholder="Search tree...">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
