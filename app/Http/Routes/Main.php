@@ -52,6 +52,11 @@ class Main
                 'as'    => 'notifications',
                 'uses'  => 'HomeController@index',
             ]);
+
+            $router->get('/{owner}', [
+                'as'    => 'owner',
+                'uses'  => 'OwnerController@index',
+            ]);
         });
     }
 }

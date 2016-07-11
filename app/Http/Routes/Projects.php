@@ -118,11 +118,6 @@ class Projects
                 'uses'  => 'TreeController@index',
             ]);
 
-            $router->get('/{owner}', [
-                'as'    => 'owner',
-                'uses'  => 'OwnerController@index',
-            ]);
-
             $router->any('{owner}/{project}/tree/{branch}/search', [
                 'as'   => 'search',
                 'uses' => 'TreeController@search',

@@ -9,16 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Gitamin\Http\Controllers\Projects;
+namespace Gitamin\Http\Controllers;
 
-use Gitamin\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 
 class OwnerController extends Controller
 {
     public function index($owner)
     {
-        return View::make('projects/owner')
+        return View::make('owner')
             ->withOwner($owner);
     }
 }
