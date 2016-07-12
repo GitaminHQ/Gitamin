@@ -1,0 +1,18 @@
+.side-bar {
+  padding-right: 0px;
+  @media screen and (max-width: 768px) {
+    padding-left: 0;
+  }
+  ul.list {
+    a, a:focus, a:hover {
+      color: #737373;
+    }
+    margin: 0;
+    padding-left: 11px;
+    li {
+      margin-bottom: 4px;
+      line-height: 18px;
+    }
+  }
+
+}

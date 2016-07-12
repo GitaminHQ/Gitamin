@@ -24,7 +24,9 @@
 {% if path is empty %}
 <div class="header row">
     <div class="col-sm-12">
-        {{ project.description }}
+	<div class="repository-meta">
+         <span class="meta-about">{{ project.description }}</span>
+	</div>
     </div>
 </div>
 {% endif %}

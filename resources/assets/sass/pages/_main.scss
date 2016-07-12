@@ -2,8 +2,13 @@
 body {
   background: #fff;
   color: #222527;
-  font-family: Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Microsoft YaHei", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   padding-top: 65px;
+}
+
+.main-col {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .breadcrumb {
