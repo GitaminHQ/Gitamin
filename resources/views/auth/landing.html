@@ -18,7 +18,7 @@
                         <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
-                        <div class="panel-heading">1. 已有 {{$site_name}} 账号</div>
+                        <div class="panel-heading">1. 已有 {{site_name}} 账号</div>
                         <div class="panel-body text-center">
                             <a href="/auth/login" class="btn btn-success btn-lg">直接登录</a>
                         </div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-default">
-                        <div class="panel-heading">2. 还没有 {{$site_name}} 账号</div>
+                        <div class="panel-heading">2. 还没有 {{site_name}} 账号</div>
                         <div class="panel-body text-center">
                             <a data-url="/auth/register" class="btn btn-info btn-lg" data-method='post'>自动注册</a>
                         </div>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="panel panel-default">
                 <div class="panel-footer">
-                    <i class="fa fa-user"></i> 以上两种方式都会自动将Gitlab账号: {{ connect_data.nickname }} 与你的 {{$site_name}} 账号进行绑定。
+                    <i class="fa fa-user"></i> 以上两种方式都会自动将Gitlab账号: {{ connect_data.nickname }} 与你的 {{site_name}} 账号进行绑定。
                 </div>
             </div>
                     </div>
