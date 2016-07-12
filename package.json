@@ -7,6 +7,7 @@
   "devDependencies": {
     "bootstrap-sass": "^3.3.0",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0"
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-coffeescript": "~1.0.2"
   }
 }
