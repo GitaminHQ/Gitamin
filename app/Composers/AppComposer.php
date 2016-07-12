@@ -17,7 +17,7 @@ class AppComposer
 {
     public function compose(View $view)
     {
-		$view->withSiteName('Gitamin');
+        $view->withSiteName('Gitamin');
         $view->withGitaminVersion(GITAMIN_VERSION);
     }
 }
