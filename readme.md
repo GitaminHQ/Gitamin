@@ -31,7 +31,7 @@ This package is currently in (very-)alpha stage, so all of the following feature
 There are a few things that you will need to have set up in order to run Gitamin:
 
 - A web server: **Nginx**, **Apache** (with mod_rewrite), or **Lighttpd**
-- **PHP 5.5.9+** with the following extensions: mbstring, pdo_mysql
+- **PHP 5.6.4+** with the following extensions: mbstring, pdo_mysql
 - **MySQL** or **PostgreSQL**
 - **Git 1.7.10+**
 - **Redis 2.4+**
